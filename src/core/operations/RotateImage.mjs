@@ -22,16 +22,16 @@ class RotateImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Rotate Image";
+        this.name = "旋转图像";
         this.module = "Image";
-        this.description = "Rotates an image by the specified number of degrees.";
+        this.description = "将图像旋转指定的度数。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Rotation amount (degrees)",
+                name: "旋转角度 (度)",
                 type: "number",
                 value: 90
             }

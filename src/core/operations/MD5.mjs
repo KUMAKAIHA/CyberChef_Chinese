@@ -20,7 +20,7 @@ class MD5 extends Operation {
 
         this.name = "MD5";
         this.module = "Crypto";
-        this.description = "MD5 (Message-Digest 5) is a widely used hash function. It has been used in a variety of security applications and is also commonly used to check the integrity of files.<br><br>However, MD5 is not collision resistant and it isn't suitable for applications like SSL/TLS certificates or digital signatures that rely on this property.";
+        this.description = "MD5 (Message-Digest 5) 是一种广泛使用的哈希函数。它已被应用于各种安全应用，也常用于检查文件的完整性。<br><br>然而，MD5 不具备抗碰撞性，因此不适用于依赖此特性的应用，如 SSL/TLS 证书或数字签名。";
         this.infoURL = "https://wikipedia.org/wiki/MD5";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

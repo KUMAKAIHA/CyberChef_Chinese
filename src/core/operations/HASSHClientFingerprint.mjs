@@ -31,22 +31,22 @@ class HASSHClientFingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "HASSH Client Fingerprint";
+        this.name = "HASSH 客户端指纹";
         this.module = "Crypto";
-        this.description = "Generates a HASSH fingerprint to help identify SSH clients based on hashing together values from the Client Key Exchange Init message.<br><br>Input: A hex stream of the SSH_MSG_KEXINIT packet application layer from Client to Server.";
+        this.description = "生成 HASSH 指纹，通过哈希 SSH 客户端密钥交换初始化消息中的值来帮助识别 SSH 客户端。<br><br>输入：来自客户端到服务器的 SSH_MSG_KEXINIT 数据包应用层的十六进制流。";
         this.infoURL = "https://engineering.salesforce.com/open-sourcing-hassh-abed3ae5044c";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
                 value: ["Hex", "Base64", "Raw"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["Hash digest", "HASSH algorithms string", "Full details"]
+                value: ["哈希摘要", "HASSH 算法字符串", "完整详情"]
             }
         ];
     }
@@ -138,24 +138,24 @@ class HASSHClientFingerprint extends Operation {
         const hasshHash = runHash("md5", Utils.strToArrayBuffer(hasshStr));
 
         switch (outputFormat) {
-            case "HASSH algorithms string":
+            case "HASSH 算法字符串":
                 return hasshStr;
-            case "Full details":
-                return `Hash digest:
+            case "完整详情":
+                return `哈希摘要：
 ${hasshHash}
 
-Full HASSH algorithms string:
+完整 HASSH 算法字符串：
 ${hasshStr}
 
-Key Exchange Algorithms:
+密钥交换算法：
 ${kexAlgos}
-Encryption Algorithms Client to Server:
+加密算法（客户端到服务器）：
 ${encAlgosC2S}
-MAC Algorithms Client to Server:
+MAC 算法（客户端到服务器）：
 ${macAlgosC2S}
-Compression Algorithms Client to Server:
+压缩算法（客户端到服务器）：
 ${compAlgosC2S}`;
-            case "Hash digest":
+            case "哈希摘要":
             default:
                 return hasshHash;
         }

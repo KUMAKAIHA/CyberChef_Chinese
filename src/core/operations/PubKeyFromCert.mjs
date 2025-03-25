@@ -19,9 +19,9 @@ class PubKeyFromCert extends Operation {
     constructor() {
         super();
 
-        this.name = "Public Key from Certificate";
+        this.name = "从证书获取公钥";
         this.module = "PublicKey";
-        this.description = "Extracts the Public Key from a Certificate.";
+        this.description = "提取证书中的公钥。";
         this.infoURL = "https://en.wikipedia.org/wiki/X.509";
         this.inputType = "string";
         this.outputType = "string";
@@ -44,7 +44,7 @@ class PubKeyFromCert extends Operation {
             const footer = "-----END CERTIFICATE-----";
             const indexFooter = input.indexOf(footer, indexBase64);
             if (indexFooter === -1) {
-                throw new OperationError(`PEM footer '${footer}' not found`);
+                throw new OperationError(`PEM 尾部 '${footer}' 未找到`);
             }
 
             const certPem = input.substring(match.index, indexFooter + footer.length);
@@ -54,7 +54,7 @@ class PubKeyFromCert extends Operation {
             try {
                 pubKey = cert.getPublicKey();
             } catch {
-                throw new OperationError("Unsupported public key type");
+                throw new OperationError("不支持的公钥类型");
             }
             const pubKeyPem = r.KEYUTIL.getPEM(pubKey);
 

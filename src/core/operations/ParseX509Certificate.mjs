@@ -22,15 +22,15 @@ class ParseX509Certificate extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse X.509 certificate";
+        this.name = "解析 X.509 证书";
         this.module = "PublicKey";
-        this.description = "X.509 is an ITU-T standard for a public key infrastructure (PKI) and Privilege Management Infrastructure (PMI). It is commonly involved with SSL/TLS security.<br><br>This operation displays the contents of a certificate in a human readable format, similar to the openssl command line tool.<br><br>Tags: X509, server hello, handshake";
+        this.description = "X.509 是国际电信联盟（ITU-T）关于公钥基础设施（PKI）和特权管理基础设施（PMI）的标准。它通常与 SSL/TLS 安全相关。<br><br>此操作以人类可读的格式显示证书内容，类似于 openssl 命令行工具。<br><br>标签：X509, server hello, 握手";
         this.infoURL = "https://wikipedia.org/wiki/X.509";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
                 "value": ["PEM", "DER Hex", "Base64", "Raw"]
             }
@@ -51,7 +51,7 @@ class ParseX509Certificate extends Operation {
      */
     run(input, args) {
         if (!input.length) {
-            return "No input";
+            return "没有输入";
         }
 
         const cert = new r.X509(),
@@ -77,9 +77,9 @@ class ParseX509Certificate extends Operation {
                     undefinedInputFormat = true;
             }
         } catch (e) {
-            throw "Certificate load error (non-certificate input?)";
+            throw "证书加载错误 (非证书输入？)";
         }
-        if (undefinedInputFormat) throw "Undefined input format";
+        if (undefinedInputFormat) throw "未定义的输入格式";
 
         const sn = cert.getSerialNumberHex(),
             issuer = cert.getIssuer(),
@@ -94,26 +94,26 @@ class ParseX509Certificate extends Operation {
 
         // Public Key fields
         pkFields.push({
-            key: "Algorithm",
+            key: "算法",
             value: pk.type
         });
 
         if (pk.type === "EC") { // ECDSA
             pkFields.push({
-                key: "Curve Name",
+                key: "曲线名称",
                 value: pk.curveName
             });
             pkFields.push({
-                key: "Length",
+                key: "长度",
                 value: (((new r.BigInteger(pk.pubKeyHex, 16)).bitLength()-3) /2) + " bits"
             });
             pkFields.push({
-                key: "pub",
+                key: "公钥",
                 value: formatByteStr(pk.pubKeyHex, 16, 18)
             });
         } else if (pk.type === "DSA") { // DSA
             pkFields.push({
-                key: "pub",
+                key: "公钥",
                 value: formatByteStr(pk.y.toString(16), 16, 18)
             });
             pkFields.push({
@@ -130,21 +130,21 @@ class ParseX509Certificate extends Operation {
             });
         } else if (pk.e) { // RSA
             pkFields.push({
-                key: "Length",
+                key: "长度",
                 value: pk.n.bitLength() + " bits"
             });
             pkFields.push({
-                key: "Modulus",
+                key: "模数",
                 value: formatByteStr(pk.n.toString(16), 16, 18)
             });
             pkFields.push({
-                key: "Exponent",
+                key: "指数",
                 value: pk.e + " (0x" + pk.e.toString(16) + ")"
             });
         } else {
             pkFields.push({
-                key: "Error",
-                value: "Unknown Public Key type"
+                key: "错误",
+                value: "未知的公钥类型"
             });
         }
 
@@ -168,7 +168,7 @@ class ParseX509Certificate extends Operation {
             sigStr = `  r:              ${formatByteStr(r.ASN1HEX.getV(sig, 4), 16, 18)}
   s:              ${formatByteStr(r.ASN1HEX.getV(sig, 48), 16, 18)}`;
         } else { // RSA or unknown
-            sigStr = `  Signature:      ${formatByteStr(sig, 16, 18)}`;
+            sigStr = `  签名:      ${formatByteStr(sig, 16, 18)}`;
         }
 
         // Extensions
@@ -181,23 +181,23 @@ class ParseX509Certificate extends Operation {
             naDate = formatDate(cert.getNotAfter()),
             subjectStr = formatDnObj(subject, 2);
 
-        return `Version:          ${cert.version} (0x${Utils.hex(cert.version - 1)})
-Serial number:    ${new r.BigInteger(sn, 16).toString()} (0x${sn})
-Algorithm ID:     ${cert.getSignatureAlgorithmField()}
-Validity
-  Not Before:     ${nbDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotBefore()})
-  Not After:      ${naDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotAfter()})
-Issuer
+        return `版本:          ${cert.version} (0x${Utils.hex(cert.version - 1)})
+序列号:    ${new r.BigInteger(sn, 16).toString()} (0x${sn})
+算法 ID:     ${cert.getSignatureAlgorithmField()}
+有效期
+  起始时间:     ${nbDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotBefore()})
+  截止时间:      ${naDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotAfter()})
+颁发者
 ${issuerStr}
-Subject
+主题
 ${subjectStr}
-Public Key
+公钥
 ${pkStr.slice(0, -1)}
-Certificate Signature
-  Algorithm:      ${cert.getSignatureAlgorithmName()}
+证书签名
+  算法:      ${cert.getSignatureAlgorithmName()}
 ${sigStr}
 
-Extensions
+扩展
 ${extensions}`;
     }
 

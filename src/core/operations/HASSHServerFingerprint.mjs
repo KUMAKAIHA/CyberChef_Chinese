@@ -31,22 +31,22 @@ class HASSHServerFingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "HASSH Server Fingerprint";
+        this.name = "HASSH 服务器指纹";
         this.module = "Crypto";
-        this.description = "Generates a HASSH fingerprint to help identify SSH servers based on hashing together values from the Server Key Exchange Init message.<br><br>Input: A hex stream of the SSH_MSG_KEXINIT packet application layer from Server to Client.";
+        this.description = "生成 HASSH 指纹，通过哈希处理服务器密钥交换初始化消息中的值，以帮助识别 SSH 服务器。<br><br>输入：来自服务器到客户端的 SSH_MSG_KEXINIT 数据包应用层的十六进制流。";
         this.infoURL = "https://engineering.salesforce.com/open-sourcing-hassh-abed3ae5044c";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Base64", "Raw"]
+                value: ["Hex", "Base64", "原始数据"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["Hash digest", "HASSH algorithms string", "Full details"]
+                value: ["哈希摘要", "HASSH 算法字符串", "完整详情"]
             }
         ];
     }
@@ -138,24 +138,24 @@ class HASSHServerFingerprint extends Operation {
         const hasshHash = runHash("md5", Utils.strToArrayBuffer(hasshStr));
 
         switch (outputFormat) {
-            case "HASSH algorithms string":
+            case "HASSH 算法字符串":
                 return hasshStr;
-            case "Full details":
-                return `Hash digest:
+            case "完整详情":
+                return `哈希摘要：
 ${hasshHash}
 
-Full HASSH algorithms string:
+完整 HASSH 算法字符串：
 ${hasshStr}
 
-Key Exchange Algorithms:
+密钥交换算法：
 ${kexAlgos}
-Encryption Algorithms Server to Client:
+服务器到客户端的加密算法：
 ${encAlgosS2C}
-MAC Algorithms Server to Client:
+服务器到客户端的 MAC 算法：
 ${macAlgosS2C}
-Compression Algorithms Server to Client:
+服务器到客户端的压缩算法：
 ${compAlgosS2C}`;
-            case "Hash digest":
+            case "哈希摘要":
             default:
                 return hasshHash;
         }

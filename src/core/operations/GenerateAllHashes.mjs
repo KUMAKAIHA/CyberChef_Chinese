@@ -50,7 +50,7 @@ class GenerateAllHashes extends Operation {
         super();
 
         this.name = "生成所有哈希值";
-        this.module = "加密 / 编码";
+        this.module = "Crypto";
         this.description = "为输入生成所有可用的哈希值和校验和。";
         this.infoURL = "https://wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions";
         this.inputType = "ArrayBuffer";

@@ -22,17 +22,17 @@ class RenderImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Render Image";
+        this.name = "渲染图像";
         this.module = "Image";
-        this.description = "Displays the input as an image. Supports the following formats:<br><br><ul><li>jpg/jpeg</li><li>png</li><li>gif</li><li>webp</li><li>bmp</li><li>ico</li></ul>";
+        this.description = "将输入数据显示为图像。支持以下格式：<br><br><ul><li>jpg/jpeg</li><li>png</li><li>gif</li><li>webp</li><li>bmp</li><li>ico</li></ul>";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Raw", "Base64", "Hex"]
+                "value": ["原始数据", "Base64", "Hex"]
             }
         ];
         this.checks = [
@@ -76,7 +76,7 @@ class RenderImage extends Operation {
 
         // Determine file type
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type");
+            throw new OperationError("无效的文件类型");
         }
 
         return input;
@@ -98,7 +98,7 @@ class RenderImage extends Operation {
         if (mime) {
             dataURI += mime + ";";
         } else {
-            throw new OperationError("Invalid file type");
+            throw new OperationError("无效的文件类型");
         }
 
         // Add image data to URI

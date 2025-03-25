@@ -19,9 +19,9 @@ class JavaScriptMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "JavaScript Minify";
+        this.name = "JavaScript 代码压缩";
         this.module = "Code";
-        this.description = "Compresses JavaScript code.";
+        this.description = "压缩 JavaScript 代码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];
@@ -35,7 +35,7 @@ class JavaScriptMinify extends Operation {
     async run(input, args) {
         const result = await terser.minify(input);
         if (result.error) {
-            throw new OperationError(`Error minifying JavaScript. (${result.error})`);
+            throw new OperationError(`JavaScript 代码压缩出错。 (${result.error})`);
         }
         return result.code;
     }

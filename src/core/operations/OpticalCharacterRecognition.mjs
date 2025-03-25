@@ -27,20 +27,20 @@ class OpticalCharacterRecognition extends Operation {
     constructor() {
         super();
 
-        this.name = "Optical Character Recognition";
+        this.name = "光学字符识别";
         this.module = "OCR";
-        this.description = "Optical character recognition or optical character reader (OCR) is the mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text.<br><br>Supported image formats: png, jpg, bmp, pbm.";
+        this.description = "光学字符识别或光学字符读取器 (OCR) 是将打字、手写或印刷文本的图像机械或电子转换为机器编码文本。<br><br>支持的图像格式：png、jpg、bmp、pbm。";
         this.infoURL = "https://wikipedia.org/wiki/Optical_character_recognition";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Show confidence",
+                name: "显示置信度",
                 type: "boolean",
                 value: true
             },
             {
-                name: "OCR Engine Mode",
+                name: "OCR 引擎模式",
                 type: "option",
                 value: OEM_MODES,
                 defaultIndex: 1
@@ -60,14 +60,14 @@ class OpticalCharacterRecognition extends Operation {
 
         const type = isImage(input);
         if (!type) {
-            throw new OperationError("Unsupported file type (supported: jpg,png,pbm,bmp) or no file provided");
+            throw new OperationError("不支持的文件类型 (支持: jpg, png, pbm, bmp) 或未提供文件");
         }
 
         const assetDir = `${self.docURL}/assets/`;
         const oem = OEM_MODES.indexOf(oemChoice);
 
         try {
-            self.sendStatusMessage("Spinning up Tesseract worker...");
+            self.sendStatusMessage("正在启动 Tesseract 工作进程...");
             const image = `data:${type};base64,${toBase64(input)}`;
             const worker = await createWorker("eng", oem, {
                 workerPath: `${assetDir}tesseract/worker.min.js`,
@@ -79,16 +79,16 @@ class OpticalCharacterRecognition extends Operation {
                     }
                 }
             });
-            self.sendStatusMessage("Finding text...");
+            self.sendStatusMessage("正在查找文本...");
             const result = await worker.recognize(image);
 
             if (showConfidence) {
-                return `Confidence: ${result.data.confidence}%\n\n${result.data.text}`;
+                return `置信度: ${result.data.confidence}%\n\n${result.data.text}`;
             } else {
                 return result.data.text;
             }
         } catch (err) {
-            throw new OperationError(`Error performing OCR on image. (${err})`);
+            throw new OperationError(`执行图像 OCR 时出错。(${err})`);
         }
     }
 }

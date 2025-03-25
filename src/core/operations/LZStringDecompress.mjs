@@ -20,15 +20,15 @@ class LZStringDecompress extends Operation {
     constructor() {
         super();
 
-        this.name = "LZString Decompress";
+        this.name = "LZString 解压缩";
         this.module = "Compression";
-        this.description = "Decompresses data that was compressed with lz-string.";
+        this.description = "解压缩使用 lz-string 压缩的数据。";
         this.infoURL = "https://pieroxy.net/blog/pages/lz-string/index.html";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Compression Format",
+                name: "压缩格式",
                 type: "option",
                 defaultIndex: 0,
                 value: COMPRESSION_OUTPUT_FORMATS

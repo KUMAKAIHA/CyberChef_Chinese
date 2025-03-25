@@ -19,9 +19,9 @@ class PEMToJWK extends Operation {
     constructor() {
         super();
 
-        this.name = "JWK to PEM";
+        this.name = "PEM 转换为 JWK";
         this.module = "PublicKey";
-        this.description = "Converts Keys in JSON Web Key format to PEM format (PKCS#8).";
+        this.description = "将 JSON Web Key 格式的密钥转换为 PEM 格式 (PKCS#8)。";
         this.infoURL = "https://datatracker.ietf.org/doc/html/rfc7517";
         this.inputType = "string";
         this.outputType = "string";
@@ -54,16 +54,16 @@ class PEMToJWK extends Operation {
             // single key
             keys.push(inputJson);
         } else {
-            throw new OperationError("Input is not a JSON Web Key");
+            throw new OperationError("输入不是 JSON Web Key 格式");
         }
 
         let output = "";
         for (let i=0; i<keys.length; i++) {
             const jwk = keys[i];
             if (typeof jwk.kty !== "string") {
-                throw new OperationError("Invalid JWK format");
+                throw new OperationError("无效的 JWK 格式");
             } else if ("|RSA|EC|".indexOf(jwk.kty) === -1) {
-                throw new OperationError(`Unsupported JWK key type '${inputJson.kty}'`);
+                throw new OperationError(`不支持的 JWK 密钥类型 '${inputJson.kty}'`);
             }
 
             const key = r.KEYUTIL.getKey(jwk);

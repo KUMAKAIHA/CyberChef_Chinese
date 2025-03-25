@@ -20,31 +20,31 @@ class Register extends Operation {
     constructor() {
         super();
 
-        this.name = "Register";
+        this.name = "注册";
         this.flowControl = true;
         this.module = "Regex";
-        this.description = "Extract data from the input and store it in registers which can then be passed into subsequent operations as arguments. Regular expression capture groups are used to select the data to extract.<br><br>To use registers in arguments, refer to them using the notation <code>$Rn</code> where n is the register number, starting at 0.<br><br>For example:<br>Input: <code>Test</code><br>Extractor: <code>(.*)</code><br>Argument: <code>$R0</code> becomes <code>Test</code><br><br>Registers can be escaped in arguments using a backslash. e.g. <code>\\$R0</code> would become <code>$R0</code> rather than <code>Test</code>.";
+        this.description = "从输入中提取数据并存储到寄存器中，这些寄存器随后可以作为参数传递到后续的操作中。使用正则表达式捕获组来选择要提取的数据。<br><br>要在参数中使用寄存器，请使用 <code>$Rn</code> 符号，其中 n 是寄存器号，从 0 开始。<br><br>例如：<br>输入: <code>Test</code><br>提取器: <code>(.*)</code><br>参数: <code>$R0</code> 变为 <code>Test</code><br><br>寄存器可以在参数中使用反斜杠进行转义。例如，<code>\\$R0</code> 将变为 <code>$R0</code> 而不是 <code>Test</code>。";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression#Syntax";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Extractor",
+                "name": "提取器",
                 "type": "binaryString",
                 "value": "([\\s\\S]*)"
             },
             {
-                "name": "Case insensitive",
+                "name": "不区分大小写",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Multiline matching",
+                "name": "多行匹配",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Dot matches all",
+                "name": "点号匹配所有字符",
                 "type": "boolean",
                 "value": false
             }

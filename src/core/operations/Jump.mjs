@@ -18,20 +18,20 @@ class Jump extends Operation {
     constructor() {
         super();
 
-        this.name = "Jump";
+        this.name = "跳转";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "Jump forwards or backwards to the specified Label";
+        this.description = "向前或向后跳转到指定的标签";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Label name",
+                "name": "标签名称",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Maximum jumps (if jumping backwards)",
+                "name": "最大跳转次数 (如果向后跳转)",
                 "type": "number",
                 "value": 10
             }

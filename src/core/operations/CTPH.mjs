@@ -19,7 +19,7 @@ class CTPH extends Operation {
         super();
 
         this.name = "CTPH";
-        this.module = "哈希";
+        this.module = "Crypto";
         this.description = "上下文触发分段哈希（CTPH），也称为模糊哈希，可以匹配具有同源性的输入。这类输入具有相同顺序的字节序列，但这些序列之间的字节在内容和长度上可能有所不同。<br><br>CTPH 最初基于 Andrew Tridgell 博士的工作以及名为 SpamSum 的垃圾邮件检测器。Jesse Kornblum 对此方法进行了改编，并在 2006 年 DFRWS 会议上发表了一篇论文《使用上下文触发分段哈希识别几乎相同的文件》。";
         this.infoURL = "https://forensics.wiki/context_triggered_piecewise_hashing/";
         this.inputType = "string";

@@ -22,20 +22,20 @@ class ImageFilter extends Operation {
     constructor() {
         super();
 
-        this.name = "Image Filter";
+        this.name = "图像滤镜";
         this.module = "Image";
-        this.description = "Applies a greyscale or sepia filter to an image.";
+        this.description = "对图像应用灰度或棕褐色滤镜。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Filter type",
+                name: "滤镜类型",
                 type: "option",
                 value: [
-                    "Greyscale",
-                    "Sepia"
+                    "灰度",
+                    "棕褐色"
                 ]
             }
         ];
@@ -49,18 +49,18 @@ class ImageFilter extends Operation {
     async run(input, args) {
         const [filterType] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Applying " + filterType.toLowerCase() + " filter to image...");
+                self.sendStatusMessage("正在对图像应用 " + filterType.toLowerCase() + " 滤镜...");
             if (filterType === "Greyscale") {
                 image.greyscale();
             } else {
@@ -75,7 +75,7 @@ class ImageFilter extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error applying filter to image. (${err})`);
+            throw new OperationError(`应用滤镜到图像时出错。 (${err})`);
         }
     }
 
@@ -90,7 +90,7 @@ class ImageFilter extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

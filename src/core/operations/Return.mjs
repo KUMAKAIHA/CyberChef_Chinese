@@ -17,10 +17,10 @@ class Return extends Operation {
     constructor() {
         super();
 
-        this.name = "Return";
+        this.name = "返回";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "End execution of operations at this point in the recipe.";
+        this.description = "在此配方位置结束操作执行。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

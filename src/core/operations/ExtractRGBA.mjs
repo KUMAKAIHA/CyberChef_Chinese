@@ -23,7 +23,7 @@ class ExtractRGBA extends Operation {
         super();
 
         this.name = "提取 RGBA";
-        this.module = "图像";
+        this.module = "Image";
         this.description = "提取图像中每个像素的 RGBA 值。这些值有时用于隐写术以隐藏文本或数据。";
         this.infoURL = "https://wikipedia.org/wiki/RGBA_color_space";
         this.inputType = "ArrayBuffer";

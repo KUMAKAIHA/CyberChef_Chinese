@@ -18,9 +18,9 @@ class ParseURI extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse URI";
+        this.name = "解析 URI";
         this.module = "URL";
-        this.description = "Pretty prints complicated Uniform Resource Identifier (URI) strings for ease of reading. Particularly useful for Uniform Resource Locators (URLs) with a lot of arguments.";
+        this.description = "美化打印复杂的统一资源标识符 (URI) 字符串，使其易于阅读。对于包含大量参数的统一资源定位符 (URL) 尤其有用。";
         this.infoURL = "https://wikipedia.org/wiki/Uniform_Resource_Identifier";
         this.inputType = "string";
         this.outputType = "string";
@@ -37,11 +37,11 @@ class ParseURI extends Operation {
 
         let output = "";
 
-        if (uri.protocol) output += "Protocol:\t" + uri.protocol + "\n";
-        if (uri.auth) output += "Auth:\t\t" + uri.auth + "\n";
-        if (uri.hostname) output += "Hostname:\t" + uri.hostname + "\n";
-        if (uri.port) output += "Port:\t\t" + uri.port + "\n";
-        if (uri.pathname) output += "Path name:\t" + uri.pathname + "\n";
+        if (uri.protocol) output += "协议:\t" + uri.protocol + "\n";
+        if (uri.auth) output += "认证信息:\t\t" + uri.auth + "\n";
+        if (uri.hostname) output += "主机名:\t" + uri.hostname + "\n";
+        if (uri.port) output += "端口:\t\t" + uri.port + "\n";
+        if (uri.pathname) output += "路径名:\t" + uri.pathname + "\n";
         if (uri.query) {
             const keys = Object.keys(uri.query);
             let padding = 0;
@@ -50,7 +50,7 @@ class ParseURI extends Operation {
                 padding = (k.length > padding) ? k.length : padding;
             });
 
-            output += "Arguments:\n";
+            output += "参数:\n";
             for (const key in uri.query) {
                 output += "\t" + key.padEnd(padding, " ");
                 if (uri.query[key].length) {

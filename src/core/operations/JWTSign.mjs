@@ -20,25 +20,25 @@ class JWTSign extends Operation {
     constructor() {
         super();
 
-        this.name = "JWT Sign";
+        this.name = "JWT 签名";
         this.module = "Crypto";
-        this.description = "Signs a JSON object as a JSON Web Token using a provided secret / private key.<br><br>The key should be either the secret for HMAC algorithms or the PEM-encoded private key for RSA and ECDSA.";
+        this.description = "使用提供的密钥/私钥将 JSON 对象签名成 JSON Web Token。<br><br>密钥应为 HMAC 算法的密钥或 RSA 和 ECDSA 的 PEM 编码私钥。";
         this.infoURL = "https://wikipedia.org/wiki/JSON_Web_Token";
         this.inputType = "JSON";
         this.outputType = "string";
         this.args = [
             {
-                name: "Private/Secret Key",
+                name: "私钥/密钥",
                 type: "text",
-                value: "secret"
+                value: "密钥"
             },
             {
-                name: "Signing algorithm",
+                name: "签名算法",
                 type: "option",
                 value: JWT_ALGORITHMS
             },
             {
-                name: "Header",
+                name: "头部",
                 type: "text",
                 value: "{}"
             }
@@ -59,7 +59,7 @@ class JWTSign extends Operation {
                 header: JSON.parse(header || "{}")
             });
         } catch (err) {
-            throw new OperationError(`Error: Have you entered the key correctly? The key should be either the secret for HMAC algorithms or the PEM-encoded private key for RSA and ECDSA.
+            throw new OperationError(`错误：您是否正确输入了密钥？密钥应为 HMAC 算法的密钥或 RSA 和 ECDSA 的 PEM 编码私钥。
 
 ${err}`);
         }

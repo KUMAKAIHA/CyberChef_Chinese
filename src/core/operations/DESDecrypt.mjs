@@ -21,7 +21,7 @@ class DESDecrypt extends Operation {
         super();
 
         this.name = "DES 解密";
-        this.module = "加密 / 编码";
+        this.module = "Ciphers";
         this.description = "DES 曾是主流的加密算法，并作为美国联邦信息处理标准 (FIPS) 发布。由于其密钥长度较短，现在被认为是不安全的。<br><br><b>密钥：</b> DES 使用 8 字节（64 位）的密钥长度。<br><br><b>初始向量 (IV)：</b> 初始向量应为 8 字节长。如果未输入，则默认为 8 个空字节。<br><br><b>填充：</b> 在 CBC 和 ECB 模式下，默认使用 PKCS#7 填充。";
         this.infoURL = "https://wikipedia.org/wiki/Data_Encryption_Standard";
         this.inputType = "string";

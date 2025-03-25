@@ -18,7 +18,7 @@ class GenericCodeBeautify extends Operation {
         super();
 
         this.name = "通用代码美化";
-        this.module = "代码整理";
+        this.module = "Code";
         this.description = "尝试美化打印 C 风格的语言，例如 C、C++、C#、Java、PHP、JavaScript 等。<br><br>这可能无法完美地完成，并且结果代码可能无法再正常工作。此操作旨在使混淆或压缩的代码更易于阅读和理解。<br><br>以下功能可能无法正常工作：<ul><li>For 循环格式化</li><li>Do-While 循环格式化</li><li>Switch/Case 缩进</li><li>某些位移运算符</li></ul>";
         this.inputType = "string";
         this.outputType = "string";

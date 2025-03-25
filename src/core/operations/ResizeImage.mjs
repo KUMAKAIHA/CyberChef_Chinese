@@ -22,45 +22,45 @@ class ResizeImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Resize Image";
+        this.name = "调整图像大小";
         this.module = "Image";
-        this.description = "Resizes an image to the specified width and height values.";
+        this.description = "将图像调整为指定的宽度和高度值。";
         this.infoURL = "https://wikipedia.org/wiki/Image_scaling";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Unit type",
+                name: "单位类型",
                 type: "option",
-                value: ["Pixels", "Percent"]
+                value: ["像素", "百分比"]
             },
             {
-                name: "Maintain aspect ratio",
+                name: "保持宽高比",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Resizing algorithm",
+                name: "调整大小算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
-                    "Hermite",
-                    "Bezier"
+                    "最近邻",
+                    "双线性",
+                    "双三次",
+                    "埃尔米特",
+                    "贝塞尔"
                 ],
                 defaultIndex: 1
             }
@@ -88,23 +88,23 @@ class ResizeImage extends Operation {
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
-            if (unit === "Percent") {
+            if (unit === "百分比") {
                 width = image.getWidth() * (width / 100);
                 height = image.getHeight() * (height / 100);
             }
 
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Resizing image...");
+                self.sendStatusMessage("正在调整图像大小...");
             if (aspect) {
                 image.scaleToFit(width, height, resizeMap[resizeAlg]);
             } else {
@@ -119,7 +119,7 @@ class ResizeImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error resizing image. (${err})`);
+            throw new OperationError(`调整图像大小时出错。 (${err})`);
         }
     }
 
@@ -134,7 +134,7 @@ class ResizeImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -18,9 +18,9 @@ class ParseUserAgent extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse User Agent";
+        this.name = "解析 User Agent";
         this.module = "UserAgent";
-        this.description = "Attempts to identify and categorise information contained in a user-agent string.";
+        this.description = "尝试识别并分类 user-agent 字符串中包含的信息。";
         this.infoURL = "https://wikipedia.org/wiki/User_agent";
         this.inputType = "string";
         this.outputType = "string";
@@ -41,21 +41,21 @@ class ParseUserAgent extends Operation {
      */
     run(input, args) {
         const ua = UAParser(input);
-        return `Browser
-    Name: ${ua.browser.name || "unknown"}
-    Version: ${ua.browser.version || "unknown"}
-Device
-    Model: ${ua.device.model || "unknown"}
-    Type: ${ua.device.type || "unknown"}
-    Vendor: ${ua.device.vendor || "unknown"}
-Engine
-    Name: ${ua.engine.name || "unknown"}
-    Version: ${ua.engine.version || "unknown"}
-OS
-    Name: ${ua.os.name || "unknown"}
-    Version: ${ua.os.version || "unknown"}
+        return `浏览器
+    名称: ${ua.browser.name || "未知"}
+    版本: ${ua.browser.version || "未知"}
+设备
+    型号: ${ua.device.model || "未知"}
+    类型: ${ua.device.type || "未知"}
+    厂商: ${ua.device.vendor || "未知"}
+引擎
+    名称: ${ua.engine.name || "未知"}
+    版本: ${ua.engine.version || "未知"}
+操作系统
+    名称: ${ua.os.name || "未知"}
+    版本: ${ua.os.version || "未知"}
 CPU
-    Architecture: ${ua.cpu.architecture || "unknown"}`;
+    架构: ${ua.cpu.architecture || "未知"}`;
     }
 
 }

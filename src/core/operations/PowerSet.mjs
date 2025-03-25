@@ -17,15 +17,15 @@ class PowerSet extends Operation {
     constructor() {
         super();
 
-        this.name = "Power Set";
+        this.name = "幂集";
         this.module = "Default";
-        this.description = "Calculates all the subsets of a set.";
+        this.description = "计算一个集合的所有子集。";
         this.infoURL = "https://wikipedia.org/wiki/Power_set";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Item delimiter",
+                name: "项目分隔符",
                 type: "binaryString",
                 value: ","
             },

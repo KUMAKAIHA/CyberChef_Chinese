@@ -23,18 +23,18 @@ class MurmurHash3 extends Operation {
 
         this.name = "MurmurHash3";
         this.module = "Hashing";
-        this.description = "Generates a MurmurHash v3 for a string input and an optional seed input";
+        this.description = "为字符串输入和可选的种子输入生成 MurmurHash v3 哈希值";
         this.infoURL = "https://wikipedia.org/wiki/MurmurHash";
         this.inputType = "string";
         this.outputType = "number";
         this.args = [
             {
-                name: "Seed",
+                name: "种子",
                 type: "number",
                 value: 0
             },
             {
-                name: "Convert to Signed",
+                name: "转换为有符号数",
                 type: "boolean",
                 value: false
             }

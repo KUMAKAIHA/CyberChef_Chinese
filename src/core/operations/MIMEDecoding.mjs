@@ -22,9 +22,9 @@ class MIMEDecoding extends Operation {
     constructor() {
         super();
 
-        this.name = "MIME Decoding";
+        this.name = "MIME 解码";
         this.module = "Default";
-        this.description = "Enables the decoding of MIME message header extensions for non-ASCII text";
+        this.description = "启用对非 ASCII 文本的 MIME 消息头扩展进行解码";
         this.infoURL = "https://tools.ietf.org/html/rfc2047";
         this.inputType = "byteArray";
         this.outputType = "string";
@@ -134,7 +134,7 @@ class MIMEDecoding extends Operation {
             }
         }
 
-        throw new OperationError("Unhandled Charset");
+        throw new OperationError("未处理的字符集");
     }
 
     /**
@@ -149,7 +149,7 @@ class MIMEDecoding extends Operation {
                 decodedWord += " ";
             // Parse hex encoding
             } else if (encodedWord[i] === "=") {
-                if ((i + 2) >= encodedWord.length) throw new OperationError("Incorrectly Encoded Word");
+                if ((i + 2) >= encodedWord.length) throw new OperationError("编码错误的词");
                 const decodedHex = Utils.byteArrayToChars(fromHex(encodedWord.substring(i + 1, i + 3)));
                 decodedWord += decodedHex;
                 i += 2;
@@ -160,7 +160,7 @@ class MIMEDecoding extends Operation {
                 encodedWord[i] === "\t") {
                 decodedWord += encodedWord[i];
             } else {
-                throw new OperationError("Incorrectly Encoded Word");
+                throw new OperationError("编码错误的词");
             }
         }
 

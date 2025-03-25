@@ -22,9 +22,9 @@ class InvertImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Invert Image";
+        this.name = "反色图像";
         this.module = "Image";
-        this.description = "Invert the colours of an image.";
+        this.description = "反转图像的颜色。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -39,18 +39,18 @@ class InvertImage extends Operation {
      */
     async run(input, args) {
         if (!isImage(input)) {
-            throw new OperationError("Invalid input file format.");
+            throw new OperationError("无效的输入文件格式。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Inverting image...");
+                self.sendStatusMessage("正在反色图像...");
             image.invert();
 
             let imageBuffer;
@@ -61,7 +61,7 @@ class InvertImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error inverting image. (${err})`);
+            throw new OperationError(`反色图像时出错。(${err})`);
         }
     }
 
@@ -76,7 +76,7 @@ class InvertImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

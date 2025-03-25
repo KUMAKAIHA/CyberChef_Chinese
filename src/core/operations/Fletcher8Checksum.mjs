@@ -19,7 +19,7 @@ class Fletcher8Checksum extends Operation {
         super();
 
         this.name = "Fletcher-8 校验和";
-        this.module = "哈希";
+        this.module = "Crypto";
         this.description = "Fletcher 校验和算法是由 John Gould Fletcher 于 1970 年代后期在劳伦斯利弗莫尔实验室设计的位置相关的校验和算法。<br><br>Fletcher 校验和算法的目的是提供接近循环冗余校验的错误检测性能，但计算量要低于求和技术。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum";
         this.inputType = "ArrayBuffer";

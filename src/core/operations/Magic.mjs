@@ -23,29 +23,29 @@ class Magic extends Operation {
         this.name = "Magic";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "The Magic operation attempts to detect various properties of the input data and suggests which operations could help to make more sense of it.<br><br><b>Options</b><br><u>Depth:</u> If an operation appears to match the data, it will be run and the result will be analysed further. This argument controls the maximum number of levels of recursion.<br><br><u>Intensive mode:</u> When this is turned on, various operations like XOR, bit rotates, and character encodings are brute-forced to attempt to detect valid data underneath. To improve performance, only the first 100 bytes of the data is brute-forced.<br><br><u>Extensive language support:</u> At each stage, the relative byte frequencies of the data will be compared to average frequencies for a number of languages. The default set consists of ~40 of the most commonly used languages on the Internet. The extensive list consists of 284 languages and can result in many languages matching the data if their byte frequencies are similar.<br><br>Optionally enter a regular expression to match a string you expect to find to filter results (crib).";
+        this.description = "Magic 操作尝试检测输入数据的各种属性，并建议哪些操作可能有助于更好地理解数据。<br><br><b>选项</b><br><u>深度:</u> 如果某个操作似乎与数据匹配，它将被运行，并且结果将被进一步分析。此参数控制递归的最大层数。<br><br><u>强化模式:</u> 当此选项开启时，将暴力破解各种操作，如 XOR、位旋转和字符编码，以尝试检测底层有效数据。为了提高性能，仅对数据的前 100 个字节进行暴力破解。<br><br><u>广泛语言支持:</u> 在每个阶段，数据相对字节频率将与多种语言的平均频率进行比较。默认集包含互联网上约 40 种最常用的语言。广泛列表包含 284 种语言，如果它们的字节频率相似，可能会导致许多语言与数据匹配。<br><br>可选择输入一个正则表达式来匹配您期望找到的字符串以过滤结果 (关键词)。";
         this.infoURL = "https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic";
         this.inputType = "ArrayBuffer";
         this.outputType = "JSON";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Depth",
+                "name": "深度",
                 "type": "number",
                 "value": 3
             },
             {
-                "name": "Intensive mode",
+                "name": "强化模式",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Extensive language support",
+                "name": "广泛语言支持",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Crib (known plaintext string or regex)",
+                "name": "关键词 (已知明文字符串或正则表达式)",
                 "type": "string",
                 "value": ""
             }
@@ -92,9 +92,9 @@ class Magic extends Operation {
                 class='table table-hover table-sm table-bordered'
                 style='table-layout: fixed;'>
             <tr>
-                <th>Recipe (click to load)</th>
-                <th>Result snippet</th>
-                <th>Properties</th>
+                <th>操作链 (点击加载)</th>
+                <th>结果片段</th>
+                <th>属性</th>
             </tr>`;
 
         /**
@@ -121,14 +121,14 @@ class Magic extends Operation {
                 fileType = "",
                 matchingOps = "",
                 useful = "";
-            const entropy = `<span data-toggle="tooltip" data-container="body" title="Shannon Entropy is measured from 0 to 8. High entropy suggests encrypted or compressed data. Normal text is usually around 3.5 to 5.">Entropy: <span style="color: ${chooseColour(option.entropy)}">${option.entropy.toFixed(2)}</span></span>`,
-                validUTF8 = option.isUTF8 ? "<span data-toggle='tooltip' data-container='body' title='The data could be a valid UTF8 string based on its encoding.'>Valid UTF8</span>\n" : "";
+            const entropy = `<span data-toggle="tooltip" data-container="body" title="香农熵的测量范围为 0 到 8。高熵值表示数据可能经过加密或压缩。普通文本的熵值通常在 3.5 到 5 之间。">熵: <span style="color: ${chooseColour(option.entropy)}">${option.entropy.toFixed(2)}</span></span>`,
+                validUTF8 = option.isUTF8 ? "<span data-toggle='tooltip' data-container='body' title='根据其编码，数据可能是一个有效的 UTF8 字符串。'>有效的 UTF8 编码</span>\n" : "";
 
             if (option.languageScores[0].probability > 0) {
                 let likelyLangs = option.languageScores.filter(l => l.probability > 0);
                 if (likelyLangs.length < 1) likelyLangs = [option.languageScores[0]];
-                language = "<span data-toggle='tooltip' data-container='body' title='Based on a statistical comparison of the frequency of bytes in various languages. Ordered by likelihood.'>" +
-                    "Possible languages:\n    " +
+                language = "<span data-toggle='tooltip' data-container='body' title='基于对各种语言中字节频率的统计比较。按可能性排序。'>" +
+                    "可能的语言:\n    " +
                     likelyLangs.map(lang => {
                         return MagicLib.codeToLanguage(lang.lang);
                     }).join("\n    ") +
@@ -136,15 +136,15 @@ class Magic extends Operation {
             }
 
             if (option.fileType) {
-                fileType = `<span data-toggle="tooltip" data-container="body" title="Based on the presence of magic bytes.">File type: ${option.fileType.mime} (${option.fileType.ext})</span>\n`;
+                fileType = `<span data-toggle="tooltip" data-container="body" title="基于 Magic Bytes 检测。">文件类型: ${option.fileType.mime} (${option.fileType.ext})</span>\n`;
             }
 
             if (option.matchingOps.length) {
-                matchingOps = `Matching ops: ${[...new Set(option.matchingOps.map(op => op.op))].join(", ")}\n`;
+                matchingOps = `匹配的操作: ${[...new Set(option.matchingOps.map(op => op.op))].join(", ")}\n`;
             }
 
             if (option.useful) {
-                useful = "<span data-toggle='tooltip' data-container='body' title='This could be an operation that displays data in a useful way, such as rendering an image.'>Useful op detected</span>\n";
+                useful = "<span data-toggle='tooltip' data-container='body' title='这可能是一个以有用方式显示数据的操作，例如渲染图像。'>检测到有用的操作</span>\n";
             }
 
             output += `<tr>
@@ -157,7 +157,7 @@ class Magic extends Operation {
         output += "</table><script type='application/javascript'>$('[data-toggle=\"tooltip\"]').tooltip()</script>";
 
         if (!options.length) {
-            output = "Nothing of interest could be detected about the input data.\nHave you tried modifying the operation arguments?";
+            output = "未能检测到关于输入数据的任何有价值信息。\n您是否尝试修改操作参数？";
         }
 
         return output;

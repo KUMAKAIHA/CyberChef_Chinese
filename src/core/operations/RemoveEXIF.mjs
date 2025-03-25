@@ -19,12 +19,12 @@ class RemoveEXIF extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove EXIF";
+        this.name = "移除 EXIF 信息";
         this.module = "Image";
         this.description = [
-            "Removes EXIF data from a JPEG image.",
+            "从 JPEG 图像中移除 EXIF 数据。",
             "<br><br>",
-            "EXIF data embedded in photos usually contains information about the image file itself as well as the device used to create it.",
+            "照片中嵌入的 EXIF 数据通常包含关于图像文件本身以及用于创建它的设备的信息。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Exif";
         this.inputType = "ArrayBuffer";
@@ -47,7 +47,7 @@ class RemoveEXIF extends Operation {
         } catch (err) {
             // Simply return input if no EXIF data is found
             if (err === "Exif not found.") return input;
-            throw new OperationError(`Could not remove EXIF data from image: ${err}`);
+            throw new OperationError(`无法从图像中移除 EXIF 数据: ${err}`);
         }
     }
 

@@ -27,15 +27,15 @@ class RawDeflate extends Operation {
     constructor() {
         super();
 
-        this.name = "Raw Deflate";
+        this.name = "原始 Deflate";
         this.module = "Compression";
-        this.description = "Compresses data using the deflate algorithm with no headers.";
+        this.description = "使用 DEFLATE 算法压缩数据，不包含头部信息。";
         this.infoURL = "https://wikipedia.org/wiki/DEFLATE";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Compression type",
+                name: "压缩类型",
                 type: "option",
                 value: COMPRESSION_TYPE
             }

@@ -23,25 +23,25 @@ class PGPVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Verify";
+        this.name = "PGP 验证";
         this.module = "PGP";
         this.description = [
-            "Input: the ASCII-armoured encrypted PGP message you want to verify.",
+            "输入：需要验证的 ASCII 编码的 PGP 加密消息。",
             "<br><br>",
-            "Argument: the ASCII-armoured PGP public key of the signer",
+            "参数：签名者的 ASCII 编码的 PGP 公钥",
             "<br><br>",
-            "This operation uses PGP to decrypt a clearsigned message.",
+            "此操作使用 PGP 来验证已清除签名的消息。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "Pretty Good Privacy (PGP) 是一种加密标准 (OpenPGP)，用于加密、解密和签名消息。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此功能使用 PGP 的 Keybase 实现。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Public key of signer",
+                "name": "签名者的公钥",
                 "type": "text",
                 "value": ""
             }
@@ -59,7 +59,7 @@ class PGPVerify extends Operation {
             keyring = new kbpgp.keyring.KeyRing();
         let unboxedLiterals;
 
-        if (!publicKey) throw new OperationError("Enter the public key of the signer.");
+        if (!publicKey) throw new OperationError("请输入签名者的公钥。");
         const pubKey = await importPublicKey(publicKey);
         keyring.add_key_manager(pubKey);
 
@@ -74,7 +74,7 @@ class PGPVerify extends Operation {
                 const km = ds.get_key_manager();
                 if (km) {
                     const signer = km.get_userids_mark_primary()[0].components;
-                    let text = "Signed by ";
+                    let text = "签名者：";
                     if (signer.email || signer.username || signer.comment) {
                         if (signer.username) {
                             text += `${signer.username} `;
@@ -96,13 +96,13 @@ class PGPVerify extends Operation {
                     text += unboxedLiterals.toString();
                     return text.trim();
                 } else {
-                    throw new OperationError("Could not identify a key manager.");
+                    throw new OperationError("无法识别密钥管理器。");
                 }
             } else {
-                throw new OperationError("The data does not appear to be signed.");
+                throw new OperationError("数据似乎未签名。");
             }
         } catch (err) {
-            throw new OperationError(`Couldn't verify message: ${err}`);
+            throw new OperationError(`无法验证消息：${err}`);
         }
     }
 

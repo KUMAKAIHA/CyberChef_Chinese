@@ -19,9 +19,9 @@ class PubKeyFromPrivKey extends Operation {
     constructor() {
         super();
 
-        this.name = "Public Key from Private Key";
+        this.name = "从私钥获取公钥";
         this.module = "PublicKey";
-        this.description = "Extracts the Public Key from a Private Key.";
+        this.description = "从私钥中提取公钥。";
         this.infoURL = "https://en.wikipedia.org/wiki/PKCS_8";
         this.inputType = "string";
         this.outputType = "string";
@@ -44,7 +44,7 @@ class PubKeyFromPrivKey extends Operation {
             const footer = `-----END ${match[1]}-----`;
             const indexFooter = input.indexOf(footer, indexBase64);
             if (indexFooter === -1) {
-                throw new OperationError(`PEM footer '${footer}' not found`);
+                throw new OperationError(`PEM 尾部 '${footer}' 未找到`);
             }
 
             const privKeyPem = input.substring(match.index, indexFooter + footer.length);
@@ -52,7 +52,7 @@ class PubKeyFromPrivKey extends Operation {
             try {
                 privKey = r.KEYUTIL.getKey(privKeyPem);
             } catch (err) {
-                throw new OperationError(`Unsupported key type: ${err}`);
+                throw new OperationError(`不支持的密钥类型: ${err}`);
             }
             let pubKey;
             if (privKey.type && privKey.type === "EC") {
@@ -60,7 +60,7 @@ class PubKeyFromPrivKey extends Operation {
                 pubKey.setPublicKeyHex(privKey.generatePublicKeyHex());
             } else if (privKey.type && privKey.type === "DSA") {
                 if (!privKey.y) {
-                    throw new OperationError(`DSA Private Key in PKCS#8 is not supported`);
+                    throw new OperationError(`不支持 PKCS#8 中的 DSA 私钥`);
                 }
                 pubKey = new r.KJUR.crypto.DSA();
                 pubKey.setPublic(privKey.p, privKey.q, privKey.g, privKey.y);
@@ -68,7 +68,7 @@ class PubKeyFromPrivKey extends Operation {
                 pubKey = new r.RSAKey();
                 pubKey.setPublic(privKey.n, privKey.e);
             } else {
-                throw new OperationError(`Unsupported key type`);
+                throw new OperationError(`不支持的密钥类型`);
             }
             const pubKeyPem = r.KEYUTIL.getPEM(pubKey);
 

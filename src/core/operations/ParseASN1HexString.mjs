@@ -18,20 +18,20 @@ class ParseASN1HexString extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse ASN.1 hex string";
+        this.name = "解析 ASN.1 hex 字符串";
         this.module = "PublicKey";
-        this.description = "Abstract Syntax Notation One (ASN.1) is a standard and notation that describes rules and structures for representing, encoding, transmitting, and decoding data in telecommunications and computer networking.<br><br>This operation parses arbitrary ASN.1 data (encoded as an hex string: use the 'To Hex' operation if necessary) and presents the resulting tree.";
+        this.description = "抽象语法表示法一 (ASN.1) 是一种标准和表示法，描述了在电信和计算机网络中表示、编码、传输和解码数据的规则和结构。<br><br>此操作解析任意 ASN.1 数据（编码为十六进制字符串；如有必要，请使用“转换为 Hex”操作），并呈现结果树。";
         this.infoURL = "https://wikipedia.org/wiki/Abstract_Syntax_Notation_One";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Starting index",
+                "name": "起始索引",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Truncate octet strings longer than",
+                "name": "截断长度超过以下值的八位字节字符串",
                 "type": "number",
                 "value": 32
             }

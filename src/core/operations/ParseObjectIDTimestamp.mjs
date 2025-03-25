@@ -19,9 +19,9 @@ class ParseObjectIDTimestamp extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse ObjectID timestamp";
+        this.name = "解析 ObjectID 时间戳";
         this.module = "Serialise";
-        this.description = "Parse timestamp from MongoDB/BSON ObjectID hex string.";
+        this.description = "从 MongoDB/BSON ObjectID 十六进制字符串中解析时间戳。";
         this.infoURL = "https://docs.mongodb.com/manual/reference/method/ObjectId.getTimestamp/";
         this.inputType = "string";
         this.outputType = "string";

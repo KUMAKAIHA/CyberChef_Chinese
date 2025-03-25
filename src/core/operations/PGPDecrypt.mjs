@@ -22,29 +22,29 @@ class PGPDecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Decrypt";
+        this.name = "PGP 解密";
         this.module = "PGP";
         this.description = [
-            "Input: the ASCII-armoured PGP message you want to decrypt.",
+            "输入：您想要解密的 ASCII 编码 PGP 消息。",
             "<br><br>",
-            "Arguments: the ASCII-armoured PGP private key of the recipient, ",
-            "(and the private key password if necessary).",
+            "参数：接收者的 ASCII 编码 PGP 私钥，",
+            "（以及私钥密码，如果需要）。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "Pretty Good Privacy (PGP) 是一种加密标准 (OpenPGP)，用于加密、解密和签名消息。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此操作使用 Keybase 实现的 PGP。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Private key of recipient",
+                "name": "接收者的私钥",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Private key passphrase",
+                "name": "私钥密码",
                 "type": "string",
                 "value": ""
             }

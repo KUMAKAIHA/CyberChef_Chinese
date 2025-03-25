@@ -19,20 +19,20 @@ class JPathExpression extends Operation {
     constructor() {
         super();
 
-        this.name = "JPath expression";
+        this.name = "JPath 表达式";
         this.module = "Code";
-        this.description = "Extract information from a JSON object with a JPath query.";
+        this.description = "使用 JPath 查询从 JSON 对象中提取信息。";
         this.infoURL = "http://goessner.net/articles/JsonPath/";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Query",
+                name: "查询",
                 type: "string",
                 value: ""
             },
             {
-                name: "Result delimiter",
+                name: "结果分隔符",
                 type: "binaryShortString",
                 value: "\\n"
             }
@@ -51,7 +51,7 @@ class JPathExpression extends Operation {
         try {
             jsonObj = JSON.parse(input);
         } catch (err) {
-            throw new OperationError(`Invalid input JSON: ${err.message}`);
+            throw new OperationError(`无效的输入 JSON: ${err.message}`);
         }
 
         try {
@@ -60,7 +60,7 @@ class JPathExpression extends Operation {
                 json: jsonObj
             });
         } catch (err) {
-            throw new OperationError(`Invalid JPath expression: ${err.message}`);
+            throw new OperationError(`无效的 JPath 表达式: ${err.message}`);
         }
 
         return results.map(result => JSON.stringify(result)).join(delimiter);

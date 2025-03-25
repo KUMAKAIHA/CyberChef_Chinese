@@ -19,17 +19,17 @@ class RisonEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Rison Encode";
+        this.name = "Rison 编码";
         this.module = "Encodings";
-        this.description = "Rison, a data serialization format optimized for compactness in URIs. Rison is a slight variation of JSON that looks vastly superior after URI encoding. Rison still expresses exactly the same set of data structures as JSON, so data can be translated back and forth without loss or guesswork.";
+        this.description = "Rison 是一种数据序列化格式，针对 URI 的紧凑性进行了优化。 Rison 是 JSON 的一种变体，在 URI 编码后看起来明显更优。 Rison 仍然表达与 JSON 完全相同的数据结构集，因此数据可以在两者之间来回转换而不会丢失或产生歧义。";
         this.infoURL = "https://github.com/Nanonid/rison";
         this.inputType = "Object";
         this.outputType = "string";
         this.args = [
             {
-                name: "Encode Option",
+                name: "编码选项",
                 type: "option",
-                value: ["Encode", "Encode Object", "Encode Array", "Encode URI"]
+                value: ["编码", "编码对象", "编码数组", "编码 URI"]
             },
         ];
     }
@@ -42,16 +42,16 @@ class RisonEncode extends Operation {
     run(input, args) {
         const [encodeOption] = args;
         switch (encodeOption) {
-            case "Encode":
+            case "编码":
                 return rison.encode(input);
-            case "Encode Object":
+            case "编码对象":
                 return rison.encode_object(input);
-            case "Encode Array":
+            case "编码数组":
                 return rison.encode_array(input);
-            case "Encode URI":
+            case "编码 URI":
                 return rison.encode_uri(input);
             default:
-                throw new OperationError("Invalid encode option");
+                throw new OperationError("无效的编码选项");
         }
     }
 }

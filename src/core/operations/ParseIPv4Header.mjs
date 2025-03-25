@@ -22,15 +22,15 @@ class ParseIPv4Header extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse IPv4 header";
+        this.name = "解析 IPv4 头部";
         this.module = "Default";
-        this.description = "Given an IPv4 header, this operations parses and displays each field in an easily readable format.";
+        this.description = "给定一个 IPv4 头部，此操作会解析并以易于阅读的格式显示每个字段。";
         this.infoURL = "https://wikipedia.org/wiki/IPv4#Header";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }
@@ -98,28 +98,28 @@ class ParseIPv4Header extends Operation {
             checksumResult = givenChecksum + " (incorrect, should be " + correctChecksum + ")";
         }
 
-        output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Field</th><th>Value</th></tr>
-<tr><td>Version</td><td>${version}</td></tr>
-<tr><td>Internet Header Length (IHL)</td><td>${ihl} (${ihl * 4} bytes)</td></tr>
-<tr><td>Differentiated Services Code Point (DSCP)</td><td>${dscp}</td></tr>
-<tr><td>Explicit Congestion Notification (ECN)</td><td>${ecn}</td></tr>
-<tr><td>Total length</td><td>${length} bytes
-  IP header: ${ihl * 4} bytes
-  Data: ${length - ihl * 4} bytes</td></tr>
-<tr><td>Identification</td><td>0x${Utils.hex(identification)} (${identification})</td></tr>
-<tr><td>Flags</td><td>0x${Utils.hex(flags, 2)}
-  Reserved bit:${flags >> 2} (must be 0)
-  Don't fragment:${flags >> 1 & 1}
-  More fragments:${flags & 1}</td></tr>
-<tr><td>Fragment offset</td><td>${fragOffset}</td></tr>
-<tr><td>Time-To-Live</td><td>${ttl}</td></tr>
-<tr><td>Protocol</td><td>${protocol}, ${protocolInfo.protocol} (${protocolInfo.keyword})</td></tr>
-<tr><td>Header checksum</td><td>${checksumResult}</td></tr>
-<tr><td>Source IP address</td><td>${ipv4ToStr(srcIP)}</td></tr>
-<tr><td>Destination IP address</td><td>${ipv4ToStr(dstIP)}</td></tr>`;
+        output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>字段</th><th>值</th></tr>
+<tr><td>版本</td><td>${version}</td></tr>
+<tr><td>互联网头部长度 (IHL)</td><td>${ihl} (${ihl * 4} 字节)</td></tr>
+<tr><td>区分服务代码点 (DSCP)</td><td>${dscp}</td></tr>
+<tr><td>显式拥塞通知 (ECN)</td><td>${ecn}</td></tr>
+<tr><td>总长度</td><td>${length} 字节
+  IP 头部: ${ihl * 4} 字节
+  数据: ${length - ihl * 4} 字节</td></tr>
+<tr><td>标识</td><td>0x${Utils.hex(identification)} (${identification})</td></tr>
+<tr><td>标志</td><td>0x${Utils.hex(flags, 2)}
+  保留位:${flags >> 2} (必须为 0)
+  禁止分片:${flags >> 1 & 1}
+  更多分片:${flags & 1}</td></tr>
+<tr><td>分片偏移</td><td>${fragOffset}</td></tr>
+<tr><td>生存时间</td><td>${ttl}</td></tr>
+<tr><td>协议</td><td>${protocol}, ${protocolInfo.protocol} (${protocolInfo.keyword})</td></tr>
+<tr><td>头部校验和</td><td>${checksumResult}</td></tr>
+<tr><td>源 IP 地址</td><td>${ipv4ToStr(srcIP)}</td></tr>
+<tr><td>目标 IP 地址</td><td>${ipv4ToStr(dstIP)}</td></tr>`;
 
         if (ihl > 5) {
-            output += `<tr><td>Options</td><td>${toHex(options)}</td></tr>`;
+            output += `<tr><td>选项</td><td>${toHex(options)}</td></tr>`;
         }
 
         return output + "</table>";

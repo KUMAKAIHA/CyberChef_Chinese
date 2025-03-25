@@ -18,9 +18,9 @@ class HaversineDistance extends Operation {
     constructor() {
         super();
 
-        this.name = "Haversine distance";
+        this.name = "Haversine 距离";
         this.module = "Default";
-        this.description = "Returns the distance between two pairs of GPS latitude and longitude co-ordinates in metres.<br><br>e.g. <code>51.487263,-0.124323, 38.9517,-77.1467</code>";
+        this.description = "返回两组 GPS 纬度和经度坐标之间的距离，单位为米。<br><br>例如：<code>51.487263,-0.124323, 38.9517,-77.1467</code>";
         this.infoURL = "https://wikipedia.org/wiki/Haversine_formula";
         this.inputType = "string";
         this.outputType = "number";

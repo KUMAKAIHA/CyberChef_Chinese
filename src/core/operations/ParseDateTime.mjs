@@ -19,26 +19,26 @@ class ParseDateTime extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse DateTime";
+        this.name = "解析日期时间";
         this.module = "Default";
-        this.description = "Parses a DateTime string in your specified format and displays it in whichever timezone you choose with the following information:<ul><li>Date</li><li>Time</li><li>Period (AM/PM)</li><li>Timezone</li><li>UTC offset</li><li>Daylight Saving Time</li><li>Leap year</li><li>Days in this month</li><li>Day of year</li><li>Week number</li><li>Quarter</li></ul>Run with no input to see format string examples if required.";
+        this.description = "解析指定格式的日期时间字符串，并以您选择的时区显示，包含以下信息：<ul><li>日期</li><li>时间</li><li>期间 (AM/PM)</li><li>时区</li><li>UTC 偏移</li><li>夏令时</li><li>闰年</li><li>本月天数</li><li>一年中的第几天</li><li>周数</li><li>季度</li></ul>如果需要查看格式字符串示例，请在不输入任何内容的情况下运行。";
         this.infoURL = "https://momentjs.com/docs/#/parsing/string-format/";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Built in formats",
+                "name": "内置格式",
                 "type": "populateOption",
                 "value": DATETIME_FORMATS,
                 "target": 1
             },
             {
-                "name": "Input format string",
+                "name": "输入格式字符串",
                 "type": "binaryString",
                 "value": "DD/MM/YYYY HH:mm:ss"
             },
             {
-                "name": "Input timezone",
+                "name": "输入时区",
                 "type": "option",
                 "value": ["UTC"].concat(moment.tz.names())
             }
@@ -60,20 +60,20 @@ class ParseDateTime extends Operation {
             date = moment.tz(input, inputFormat, inputTimezone);
             if (!date || date.format() === "Invalid date") throw Error;
         } catch (err) {
-            return `Invalid format.\n\n${FORMAT_EXAMPLES}`;
+            return `无效的格式。\n\n${FORMAT_EXAMPLES}`;
         }
 
-        output += "Date: " + date.format("dddd Do MMMM YYYY") +
-            "\nTime: " + date.format("HH:mm:ss") +
-            "\nPeriod: " + date.format("A") +
-            "\nTimezone: " + date.format("z") +
-            "\nUTC offset: " + date.format("ZZ") +
-            "\n\nDaylight Saving Time: " + date.isDST() +
-            "\nLeap year: " + date.isLeapYear() +
-            "\nDays in this month: " + date.daysInMonth() +
-            "\n\nDay of year: " + date.dayOfYear() +
-            "\nWeek number: " + date.week() +
-            "\nQuarter: " + date.quarter();
+        output += "日期: " + date.format("dddd Do MMMM YYYY") +
+            "\n时间: " + date.format("HH:mm:ss") +
+            "\n期间: " + date.format("A") +
+            "\n时区: " + date.format("z") +
+            "\nUTC 偏移: " + date.format("ZZ") +
+            "\n\n夏令时: " + date.isDST() +
+            "\n闰年: " + date.isLeapYear() +
+            "\n本月天数: " + date.daysInMonth() +
+            "\n\n一年中的第几天: " + date.dayOfYear() +
+            "\n周数: " + date.week() +
+            "\n季度: " + date.quarter();
 
         return output;
     }

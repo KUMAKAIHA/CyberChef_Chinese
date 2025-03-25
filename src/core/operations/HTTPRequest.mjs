@@ -19,16 +19,16 @@ class HTTPRequest extends Operation {
     constructor() {
         super();
 
-        this.name = "HTTP request";
+        this.name = "HTTP 请求";
         this.module = "Default";
         this.description = [
-            "Makes an HTTP request and returns the response.",
+            "发起 HTTP 请求并返回响应。",
             "<br><br>",
-            "This operation supports different HTTP verbs like GET, POST, PUT, etc.",
+            "此操作支持不同的 HTTP 方法，例如 GET、POST、PUT 等。",
             "<br><br>",
-            "You can add headers line by line in the format <code>Key: Value</code>",
+            "您可以逐行添加请求头，格式为 <code>键: 值</code>",
             "<br><br>",
-            "The status code of the response, along with a limited selection of exposed headers, can be viewed by checking the 'Show response metadata' option. Only a limited set of response headers are exposed by the browser for security reasons.",
+            "可以通过勾选“显示响应元数据”选项查看响应的状态代码以及部分公开的标头。出于安全原因，浏览器仅公开有限的响应标头。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields";
         this.inputType = "string";
@@ -36,7 +36,7 @@ class HTTPRequest extends Operation {
         this.manualBake = true;
         this.args = [
             {
-                "name": "Method",
+                "name": "方法",
                 "type": "option",
                 "value": [
                     "GET", "POST", "HEAD",
@@ -50,20 +50,20 @@ class HTTPRequest extends Operation {
                 "value": ""
             },
             {
-                "name": "Headers",
+                "name": "请求头",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": [
-                    "Cross-Origin Resource Sharing",
-                    "No CORS (limited to HEAD, GET or POST)",
+                    "跨域资源共享 (CORS)",
+                    "无 CORS (仅限 HEAD, GET 或 POST)",
                 ]
             },
             {
-                "name": "Show response metadata",
+                "name": "显示响应元数据",
                 "type": "boolean",
                 "value": false
             }
@@ -106,7 +106,7 @@ class HTTPRequest extends Operation {
         return fetch(url, config)
             .then(r => {
                 if (r.status === 0 && r.type === "opaque") {
-                    throw new OperationError("Error: Null response. Try setting the connection mode to CORS.");
+                    throw new OperationError("错误：空响应。请尝试将连接模式设置为 CORS。");
                 }
 
                 if (showResponseMetadata) {
@@ -115,18 +115,18 @@ class HTTPRequest extends Operation {
                         headers += "    " + pair[0] + ": " + pair[1] + "\n";
                     }
                     return r.text().then(b => {
-                        return "####\n  Status: " + r.status + " " + r.statusText +
-                            "\n  Exposed headers:\n" + headers + "####\n\n" + b;
+                        return "####\n  状态： " + r.status + " " + r.statusText +
+                            "\n  公开的标头:\n" + headers + "####\n\n" + b;
                     });
                 }
                 return r.text();
             })
             .catch(e => {
                 throw new OperationError(e.toString() +
-                    "\n\nThis error could be caused by one of the following:\n" +
-                    " - An invalid URL\n" +
-                    " - Making a request to an insecure resource (HTTP) from a secure source (HTTPS)\n" +
-                    " - Making a cross-origin request to a server which does not support CORS\n");
+                    "\n\n此错误可能是由以下原因之一造成的：\n" +
+                    " - 无效的 URL\n" +
+                    " - 从安全来源 (HTTPS) 请求不安全资源 (HTTP)\n" +
+                    " - 向不支持 CORS 的服务器发起跨域请求\n");
             });
     }
 
@@ -139,8 +139,8 @@ class HTTPRequest extends Operation {
  * @private
  */
 const modeLookup = {
-    "Cross-Origin Resource Sharing": "cors",
-    "No CORS (limited to HEAD, GET or POST)": "no-cors",
+    "跨域资源共享 (CORS)": "cors",
+    "无 CORS (仅限 HEAD, GET 或 POST)": "no-cors",
 };
 
 

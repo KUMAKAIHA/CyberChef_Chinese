@@ -21,9 +21,9 @@ class PEMToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM to Hex";
+        this.name = "PEM 转换为 Hex";
         this.module = "Default";
-        this.description = "Converts PEM (Privacy Enhanced Mail) format to a hexadecimal DER (Distinguished Encoding Rules) string.";
+        this.description = "将 PEM (隐私增强邮件) 格式转换为十六进制 DER (区分编码规则) 字符串。";
         this.infoURL = "https://wikipedia.org/wiki/Privacy-Enhanced_Mail#Format";
         this.inputType = "string";
         this.outputType = "string";
@@ -51,7 +51,7 @@ class PEMToHex extends Operation {
             const footer = `-----END ${match[1]}-----`;
             const indexFooter = input.indexOf(footer, indexBase64);
             if (indexFooter === -1) {
-                throw new OperationError(`PEM footer '${footer}' not found`);
+                throw new OperationError(`PEM 尾部 '${footer}' 未找到`);
             }
 
             // decode base64 content

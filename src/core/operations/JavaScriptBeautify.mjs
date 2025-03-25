@@ -20,29 +20,29 @@ class JavaScriptBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "JavaScript Beautify";
+        this.name = "JavaScript 美化";
         this.module = "Code";
-        this.description = "Parses and pretty prints valid JavaScript code. Also works with JavaScript Object Notation (JSON).";
+        this.description = "解析并美化合法的 JavaScript 代码。也支持 JavaScript 对象表示法 (JSON)。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进字符串",
                 "type": "binaryShortString",
                 "value": "\\t"
             },
             {
-                "name": "Quotes",
+                "name": "引号",
                 "type": "option",
-                "value": ["Auto", "Single", "Double"]
+                "value": ["自动", "单引号", "双引号"]
             },
             {
-                "name": "Semicolons before closing braces",
+                "name": "在右花括号前添加分号",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Include comments",
+                "name": "包含注释",
                 "type": "boolean",
                 "value": true
             }
@@ -85,7 +85,7 @@ class JavaScriptBeautify extends Operation {
             result = escodegen.generate(AST, options);
         } catch (e) {
             // Leave original error so the user can see the detail
-            throw new OperationError("Unable to parse JavaScript.<br>" + e.message);
+            throw new OperationError("无法解析 JavaScript。<br>" + e.message);
         }
         return result;
     }

@@ -53,7 +53,7 @@ class MultipleBombe extends Operation {
     constructor() {
         super();
 
-        this.name = "Multiple Bombe";
+        this.name = "多 Bombe";
         this.module = "Bletchley";
         this.description = "Emulation of the Bombe machine used to attack Enigma. This version carries out multiple Bombe runs to handle unknown rotor configurations.<br><br>You should test your menu on the single Bombe operation before running it here. See the description of the Bombe operation for instructions on choosing a crib.<br><br>More detailed descriptions of the Enigma, Typex and Bombe operations <a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>can be found here</a>.";
         this.infoURL = "https://wikipedia.org/wiki/Bombe";
@@ -62,11 +62,11 @@ class MultipleBombe extends Operation {
         this.presentType = "html";
         this.args = [
             {
-                "name": "Standard Enigmas",
+                "name": "标准 Enigma 密码机",
                 "type": "populateMultiOption",
                 "value": [
                     {
-                        name: "German Service Enigma (First - 3 rotor)",
+                        name: "德军制式 Enigma 密码机 (第一版 - 3 转子)",
                         value: [
                             rotorsFormat(ROTORS, 0, 5),
                             "",
@@ -74,7 +74,7 @@ class MultipleBombe extends Operation {
                         ]
                     },
                     {
-                        name: "German Service Enigma (Second - 3 rotor)",
+                        name: "德军制式 Enigma 密码机 (第二版 - 3 转子)",
                         value: [
                             rotorsFormat(ROTORS, 0, 8),
                             "",
@@ -82,7 +82,7 @@ class MultipleBombe extends Operation {
                         ]
                     },
                     {
-                        name: "German Service Enigma (Third - 4 rotor)",
+                        name: "德军制式 Enigma 密码机 (第三版 - 4 转子)",
                         value: [
                             rotorsFormat(ROTORS, 0, 8),
                             rotorsFormat(ROTORS_FOURTH, 1, 2),
@@ -90,7 +90,7 @@ class MultipleBombe extends Operation {
                         ]
                     },
                     {
-                        name: "German Service Enigma (Fourth - 4 rotor)",
+                        name: "德军制式 Enigma 密码机 (第四版 - 4 转子)",
                         value: [
                             rotorsFormat(ROTORS, 0, 8),
                             rotorsFormat(ROTORS_FOURTH, 1, 3),
@@ -98,39 +98,39 @@ class MultipleBombe extends Operation {
                         ]
                     },
                     {
-                        name: "User defined",
+                        name: "用户自定义",
                         value: ["", "", ""]
                     },
                 ],
                 "target": [1, 2, 3]
             },
             {
-                name: "Main rotors",
+                name: "主转子",
                 type: "text",
                 value: ""
             },
             {
-                name: "4th rotor",
+                name: "第四转子",
                 type: "text",
                 value: ""
             },
             {
-                name: "Reflectors",
+                name: "反射器",
                 type: "text",
                 value: ""
             },
             {
-                name: "Crib",
+                name: "字谜短句 (Crib)",
                 type: "string",
                 value: ""
             },
             {
-                name: "Crib offset",
+                name: "字谜短句偏移量 (Crib 偏移量)",
                 type: "number",
                 value: 0
             },
             {
-                name: "Use checking machine",
+                name: "使用校验机",
                 type: "boolean",
                 value: true
             }
@@ -290,11 +290,11 @@ class MultipleBombe extends Operation {
      * @returns {html}
      */
     present(output) {
-        let html = `Bombe run on menu with ${output.nLoops} loop${output.nLoops === 1 ? "" : "s"} (2+ desirable). Note: Rotors and rotor positions are listed left to right, ignore stepping and the ring setting, and positions start at the beginning of the crib. Some plugboard settings are determined. A decryption preview starting at the beginning of the crib and ignoring stepping is also provided.\n`;
+        let html = `Bombe 运行菜单包含 ${output.nLoops} 循环${output.nLoops === 1 ? "" : "s"} (建议值 2 或更多)。注意：转子和转子位置从左到右列出，忽略步进和环设置，位置从字谜短句的开头算起。已确定部分插线板设置。还提供了从字谜短句开头开始且忽略步进的解密预览。\n`;
 
         for (const run of output.bombeRuns) {
-            html += `\nRotors: ${run.rotors.slice().reverse().join(", ")}\nReflector: ${run.reflector}\n`;
-            html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Rotor stops</th>  <th>Partial plugboard</th>  <th>Decryption preview</th></tr>\n";
+            html += `\n转子：${run.rotors.slice().reverse().join(", ")}\n反射器：${run.reflector}\n`;
+            html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>转子停位</th>  <th>部分插线板</th>  <th>解密预览</th></tr>\n";
             for (const [setting, stecker, decrypt] of run.result) {
                 html += `<tr><td>${setting}</td>  <td>${stecker}</td>  <td>${decrypt}</td></tr>\n`;
             }

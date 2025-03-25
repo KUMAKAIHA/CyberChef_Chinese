@@ -19,22 +19,22 @@ class JA4Fingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "JA4 Fingerprint";
+        this.name = "JA4 指纹";
         this.module = "Crypto";
-        this.description = "Generates a JA4 fingerprint to help identify TLS clients based on hashing together values from the Client Hello.<br><br>Input: A hex stream of the TLS or QUIC Client Hello packet application layer.";
+        this.description = "生成 JA4 指纹，通过哈希 TLS 客户端 Hello 中的值来帮助识别 TLS 客户端。<br><br>输入：TLS 或 QUIC 客户端 Hello 数据包应用层的十六进制流。";
         this.infoURL = "https://medium.com/foxio/ja4-network-fingerprinting-9376fe9ca637";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Base64", "Raw"]
+                value: ["Hex", "Base64", "原始数据"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["JA4", "JA4 Original Rendering", "JA4 Raw", "JA4 Raw Original Rendering", "All"]
+                value: ["JA4", "JA4 原始渲染", "JA4 原始", "JA4 原始渲染", "全部"]
             }
         ];
     }
@@ -53,13 +53,13 @@ class JA4Fingerprint extends Operation {
         switch (outputFormat) {
             case "JA4":
                 return ja4.JA4;
-            case "JA4 Original Rendering":
+            case "JA4 原始渲染":
                 return ja4.JA4_o;
-            case "JA4 Raw":
+            case "JA4 原始":
                 return ja4.JA4_r;
-            case "JA4 Raw Original Rendering":
+            case "JA4 原始渲染":
                 return ja4.JA4_ro;
-            case "All":
+            case "全部":
             default:
                 return `JA4:    ${ja4.JA4}
 JA4_o:  ${ja4.JA4_o}

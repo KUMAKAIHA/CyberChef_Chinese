@@ -17,30 +17,30 @@ class ROT47BruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "ROT47 Brute Force";
+        this.name = "ROT47 暴力破解";
         this.module = "Default";
-        this.description = "Try all meaningful amounts for ROT47.<br><br>Optionally you can enter your known plaintext (crib) to filter the result.";
+        this.description = "尝试所有 ROT47 的可能偏移量。<br><br>您可以选择输入已知的明文（crib）来过滤结果。";
         this.infoURL = "https://wikipedia.org/wiki/ROT13#Variants";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample length",
+                name: "样本长度",
                 type: "number",
                 value: 100
             },
             {
-                name: "Sample offset",
+                name: "样本偏移量",
                 type: "number",
                 value: 0
             },
             {
-                name: "Print amount",
+                name: "打印偏移量",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Crib (known plaintext string)",
+                name: "Crib (已知明文字符串)",
                 type: "string",
                 value: ""
             }
@@ -68,7 +68,7 @@ class ROT47BruteForce extends Operation {
             if (rotatedString.toLowerCase().indexOf(cribLower) >= 0) {
                 const rotatedStringEscaped = Utils.escapeWhitespace(rotatedString);
                 if (printAmount) {
-                    const amountStr = "Amount = " + (" " + amount).slice(-2) + ": ";
+                    const amountStr = "偏移量 = " + (" " + amount).slice(-2) + ": ";
                     result.push(amountStr + rotatedStringEscaped);
                 } else {
                     result.push(rotatedStringEscaped);

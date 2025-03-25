@@ -20,7 +20,7 @@ class FromHexContent extends Operation {
         super();
 
         this.name = "从 Hex 内容 转换";
-        this.module = "数据格式";
+        this.module = "Default";
         this.description = "将文本中的十六进制字节转换回原始字节。SNORT 使用此格式在 ASCII 文本中表示十六进制数据。<br><br>例如：<code>foo|3d|bar</code> 转换为 <code>foo=bar</code>。";
         this.infoURL = "http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node32.html#SECTION00451000000000000000";
         this.inputType = "string";

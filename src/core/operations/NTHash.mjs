@@ -18,9 +18,9 @@ class NTHash extends Operation {
     constructor() {
         super();
 
-        this.name = "NT Hash";
+        this.name = "NT 哈希";
         this.module = "Crypto";
-        this.description = "An NT Hash, sometimes referred to as an NTLM hash, is a method of storing passwords on Windows systems. It works by running MD4 on UTF-16LE encoded input. NTLM hashes are considered weak because they can be brute-forced very easily with modern hardware.";
+        this.description = "NT 哈希，有时也被称为 NTLM 哈希，是在 Windows 系统中存储密码的一种方法。其原理是对 UTF-16LE 编码的输入数据执行 MD4 运算。NTLM 哈希算法被认为安全性较弱，在现代硬件条件下极易遭受暴力破解攻击。";
         this.infoURL = "https://wikipedia.org/wiki/NT_LAN_Manager";
         this.inputType = "string";
         this.outputType = "string";

@@ -21,25 +21,25 @@ class JSONBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "JSON Beautify";
+        this.name = "JSON 美化";
         this.module = "Code";
-        this.description = "Indents and pretty prints JavaScript Object Notation (JSON) code.<br><br>Tags: json viewer, prettify, syntax highlighting";
+        this.description = "缩进并美化 JavaScript 对象表示法 (JSON) 代码。<br><br>标签：JSON 查看器，美化，语法高亮";
         this.inputType = "string";
         this.outputType = "string";
         this.presentType = "html";
         this.args = [
             {
-                name: "Indent string",
+                name: "缩进字符串",
                 type: "binaryShortString",
                 value: "    "
             },
             {
-                name: "Sort Object Keys",
+                name: "对象键排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Formatted",
+                name: "格式化",
                 type: "boolean",
                 value: true
             }

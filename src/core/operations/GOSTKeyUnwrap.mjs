@@ -22,7 +22,7 @@ class GOSTKeyUnwrap extends Operation {
         super();
 
         this.name = "GOST 密钥解封装";
-        this.module = "加密 / 编码";
+        this.module = "Ciphers";
         this.description = "使用 GOST 块密码算法解封装密钥。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";

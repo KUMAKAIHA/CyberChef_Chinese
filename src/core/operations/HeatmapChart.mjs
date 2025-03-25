@@ -27,60 +27,60 @@ class HeatmapChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Heatmap chart";
+        this.name = "热力图";
         this.module = "Charts";
-        this.description = "A heatmap is a graphical representation of data where the individual values contained in a matrix are represented as colors.";
+        this.description = "热力图是一种数据的图形表示，其中矩阵中包含的各个值以颜色表示。";
         this.infoURL = "https://wikipedia.org/wiki/Heat_map";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Record delimiter",
+                name: "记录分隔符",
                 type: "option",
                 value: RECORD_DELIMITER_OPTIONS,
             },
             {
-                name: "Field delimiter",
+                name: "字段分隔符",
                 type: "option",
                 value: FIELD_DELIMITER_OPTIONS,
             },
             {
-                name: "Number of vertical bins",
+                name: "垂直分箱数",
                 type: "number",
                 value: 25,
             },
             {
-                name: "Number of horizontal bins",
+                name: "水平分箱数",
                 type: "number",
                 value: 25,
             },
             {
-                name: "Use column headers as labels",
+                name: "使用列标题作为标签",
                 type: "boolean",
                 value: true,
             },
             {
-                name: "X label",
+                name: "X 轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Y label",
+                name: "Y 轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Draw bin edges",
+                name: "绘制分箱边缘",
                 type: "boolean",
                 value: false,
             },
             {
-                name: "Min colour value",
+                name: "最小颜色值",
                 type: "string",
                 value: COLOURS.min,
             },
             {
-                name: "Max colour value",
+                name: "最大颜色值",
                 type: "string",
                 value: COLOURS.max,
             },
@@ -104,8 +104,8 @@ class HeatmapChart extends Operation {
             minColour = args[8],
             maxColour = args[9],
             dimension = 500;
-        if (vBins <= 0) throw new OperationError("Number of vertical bins must be greater than 0");
-        if (hBins <= 0) throw new OperationError("Number of horizontal bins must be greater than 0");
+        if (vBins <= 0) throw new OperationError("垂直分箱数必须大于 0");
+        if (hBins <= 0) throw new OperationError("水平分箱数必须大于 0");
 
         let xLabel = args[5],
             yLabel = args[6];
@@ -188,8 +188,8 @@ class HeatmapChart extends Operation {
             .text(d => {
                 const count = d.length,
                     perc = 100.0 * d.length / values.length,
-                    tooltip = `Count: ${count}\n
-                               Percentage: ${perc.toFixed(2)}%\n
+                    tooltip = `计数: ${count}\n
+                               百分比: ${perc.toFixed(2)}%\n
                     `.replace(/\s{2,}/g, "\n");
                 return tooltip;
             });
@@ -233,8 +233,8 @@ class HeatmapChart extends Operation {
             yBounds = d3.extent(values, d => d[1]),
             bins = [];
 
-        if (xBounds[0] === xBounds[1]) throw "Cannot pack points. There is no difference between the minimum and maximum X coordinate.";
-        if (yBounds[0] === yBounds[1]) throw "Cannot pack points. There is no difference between the minimum and maximum Y coordinate.";
+        if (xBounds[0] === xBounds[1]) throw "无法打包点。X 坐标最大值和最小值相同。";
+        if (yBounds[0] === yBounds[1]) throw "无法打包点。Y 坐标最大值和最小值相同。";
 
         for (let y = 0; y < vBins; y++) {
             bins.push([]);

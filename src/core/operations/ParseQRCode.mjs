@@ -20,15 +20,15 @@ class ParseQRCode extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse QR Code";
+        this.name = "解析 QR 码";
         this.module = "Image";
-        this.description = "Reads an image file and attempts to detect and read a Quick Response (QR) code from the image.<br><br><u>Normalise Image</u><br>Attempts to normalise the image before parsing it to improve detection of a QR code.";
+        this.description = "读取图像文件，尝试检测并读取图像中的快速响应 (QR) 码。<br><br><u>标准化图像</u><br>尝试在解析图像之前对其进行标准化，以提高 QR 码的检测率。";
         this.infoURL = "https://wikipedia.org/wiki/QR_code";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Normalise image",
+                "name": "标准化图像",
                 "type": "boolean",
                 "value": false
             }
@@ -52,7 +52,7 @@ class ParseQRCode extends Operation {
         const [normalise] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
         return await parseQrCode(input, normalise);
     }

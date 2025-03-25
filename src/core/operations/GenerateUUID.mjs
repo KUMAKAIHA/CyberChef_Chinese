@@ -19,7 +19,7 @@ class GenerateUUID extends Operation {
         super();
 
         this.name = "生成 UUID";
-        this.module = "加密 / 编码";
+        this.module = "Crypto";
         this.description = "生成符合 RFC 4122 版本 4 标准的通用唯一识别码 (UUID)，也称为全局唯一识别码 (GUID)。<br><br>版本 4 UUID 依赖于随机数，本操作会尝试使用 <code>window.crypto</code> 生成随机数，如果不可用则回退到 <code>Math.random</code>。";
         this.infoURL = "https://wikipedia.org/wiki/Universally_unique_identifier";
         this.inputType = "string";

@@ -22,7 +22,7 @@ class Gzip extends Operation {
         super();
 
         this.name = "Gzip";
-        this.module = "压缩";
+        this.module = "Compression";
         this.description = "使用带有 gzip 头的 deflate 算法压缩数据。";
         this.infoURL = "https://wikipedia.org/wiki/Gzip";
         this.inputType = "ArrayBuffer";

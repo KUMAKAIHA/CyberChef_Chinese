@@ -17,45 +17,45 @@ class ROT13BruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "ROT13 Brute Force";
+        this.name = "ROT13 暴力破解";
         this.module = "Default";
-        this.description = "Try all meaningful amounts for ROT13.<br><br>Optionally you can enter your known plaintext (crib) to filter the result.";
+        this.description = "尝试 ROT13 的所有可能偏移量。<br><br>您可以选择输入已知的明文（提示）来过滤结果。";
         this.infoURL = "https://wikipedia.org/wiki/ROT13";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [
             {
-                name: "Rotate lower case chars",
+                name: "旋转小写字符",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Rotate upper case chars",
+                name: "旋转大写字符",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Rotate numbers",
+                name: "旋转数字",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sample length",
+                name: "样本长度",
                 type: "number",
                 value: 100
             },
             {
-                name: "Sample offset",
+                name: "样本偏移",
                 type: "number",
                 value: 0
             },
             {
-                name: "Print amount",
+                name: "打印偏移量",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Crib (known plaintext string)",
+                name: "提示（已知明文字符串）",
                 type: "string",
                 value: ""
             }
@@ -88,7 +88,7 @@ class ROT13BruteForce extends Operation {
             if (rotatedString.toLowerCase().indexOf(cribLower) >= 0) {
                 const rotatedStringEscaped = Utils.escapeWhitespace(rotatedString);
                 if (printAmount) {
-                    const amountStr = "Amount = " + (" " + amount).slice(-2) + ": ";
+                    const amountStr = "偏移量 = " + (" " + amount).slice(-2) + ": ";
                     result.push(amountStr + rotatedStringEscaped);
                 } else {
                     result.push(rotatedStringEscaped);

@@ -19,17 +19,17 @@ class RisonDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Rison Decode";
+        this.name = "Rison 解码";
         this.module = "Encodings";
-        this.description = "Rison, a data serialization format optimized for compactness in URIs. Rison is a slight variation of JSON that looks vastly superior after URI encoding. Rison still expresses exactly the same set of data structures as JSON, so data can be translated back and forth without loss or guesswork.";
+        this.description = "Rison 是一种数据序列化格式，针对 URI 的紧凑性进行了优化。 Rison 是 JSON 的一种变体，在 URI 编码后看起来明显更出色。 Rison 仍然表达与 JSON 完全相同的数据结构集，因此数据可以在两者之间来回转换而不会丢失或猜测。";
         this.infoURL = "https://github.com/Nanonid/rison";
         this.inputType = "string";
         this.outputType = "Object";
         this.args = [
             {
-                name: "Decode Option",
+                name: "解码选项",
                 type: "editableOption",
-                value: ["Decode", "Decode Object", "Decode Array"]
+                value: ["解码", "解码对象", "解码数组"]
             },
         ];
     }
@@ -42,14 +42,14 @@ class RisonDecode extends Operation {
     run(input, args) {
         const [decodeOption] = args;
         switch (decodeOption) {
-            case "Decode":
+            case "解码":
                 return rison.decode(input);
-            case "Decode Object":
+            case "解码对象":
                 return rison.decode_object(input);
-            case "Decode Array":
+            case "解码数组":
                 return rison.decode_array(input);
             default:
-                throw new OperationError("Invalid Decode option");
+                throw new OperationError("无效的解码选项");
         }
     }
 }

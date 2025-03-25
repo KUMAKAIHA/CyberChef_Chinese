@@ -19,9 +19,9 @@ class PEMToJWK extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM to JWK";
+        this.name = "PEM 转换为 JWK";
         this.module = "PublicKey";
-        this.description = "Converts Keys in PEM format to a JSON Web Key format.";
+        this.description = "将 PEM 格式的密钥转换为 JSON Web Key 格式。";
         this.infoURL = "https://datatracker.ietf.org/doc/html/rfc7517";
         this.inputType = "string";
         this.outputType = "string";
@@ -50,18 +50,18 @@ class PEMToJWK extends Operation {
             const footer = `-----END ${match[1]}-----`;
             const indexFooter = input.indexOf(footer, indexBase64);
             if (indexFooter === -1) {
-                throw new OperationError(`PEM footer '${footer}' not found`);
+                throw new OperationError(`PEM 尾部 '${footer}' 未找到`);
             }
 
             const pem = input.substring(match.index, indexFooter + footer.length);
             if (match[1].indexOf("KEY") !== -1) {
                 if (header === "-----BEGIN RSA PUBLIC KEY-----") {
-                    throw new OperationError("Unsupported RSA public key format. Only PKCS#8 is supported.");
+                    throw new OperationError("不支持 RSA 公钥格式。仅支持 PKCS#8 格式。");
                 }
 
                 const key = r.KEYUTIL.getKey(pem);
                 if (key.type === "DSA") {
-                    throw new OperationError("DSA keys are not supported for JWK");
+                    throw new OperationError("JWK 不支持 DSA 密钥");
                 }
                 const jwk = r.KEYUTIL.getJWKFromKey(key);
                 if (output.length > 0) {
@@ -78,7 +78,7 @@ class PEMToJWK extends Operation {
                 }
                 output += JSON.stringify(jwk);
             } else {
-                throw new OperationError(`Unsupported PEM type '${match[1]}'`);
+                throw new OperationError(`不支持的 PEM 类型 '${match[1]}'`);
             }
         }
         return output;

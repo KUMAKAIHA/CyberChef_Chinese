@@ -18,9 +18,9 @@ class NOT extends Operation {
     constructor() {
         super();
 
-        this.name = "NOT";
+        this.name = "非";
         this.module = "Default";
-        this.description = "Returns the inverse of each byte.";
+        this.description = "返回每个字节的反码。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#NOT";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";

@@ -18,15 +18,15 @@ class HexToPEM extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex to PEM";
+        this.name = "Hex 转换为 PEM";
         this.module = "PublicKey";
-        this.description = "Converts a hexadecimal DER (Distinguished Encoding Rules) string into PEM (Privacy Enhanced Mail) format.";
+        this.description = "将十六进制 DER（Distinguished Encoding Rules）字符串转换为 PEM（Privacy Enhanced Mail）格式。";
         this.infoURL = "https://wikipedia.org/wiki/Privacy-Enhanced_Mail";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Header string",
+                "name": "Header 字符串",
                 "type": "string",
                 "value": "CERTIFICATE"
             }

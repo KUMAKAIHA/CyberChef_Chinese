@@ -20,20 +20,20 @@ class RSAEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "RSA Encrypt";
+        this.name = "RSA 加密";
         this.module = "Ciphers";
-        this.description = "Encrypt a message with a PEM encoded RSA public key.";
+        this.description = "使用 PEM 编码的 RSA 公钥加密消息。";
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Public Key (PEM)",
+                name: "RSA 公钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN RSA PUBLIC KEY-----"
             },
             {
-                name: "Encryption Scheme",
+                name: "加密方案",
                 type: "argSelector",
                 value: [
                     {
@@ -50,7 +50,7 @@ class RSAEncrypt extends Operation {
                     }]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
             }
@@ -66,7 +66,7 @@ class RSAEncrypt extends Operation {
         const [pemKey, scheme, md] = args;
 
         if (pemKey.replace("-----BEGIN RSA PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请提供公钥。");
         }
         try {
             // Load public key

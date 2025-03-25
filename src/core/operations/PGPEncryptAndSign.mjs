@@ -22,36 +22,35 @@ class PGPEncryptAndSign extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Encrypt and Sign";
+        this.name = "PGP 加密并签名";
         this.module = "PGP";
         this.description = [
-            "Input: the cleartext you want to sign.",
+            "输入：您要签名的明文。",
             "<br><br>",
-            "Arguments: the ASCII-armoured private key of the signer (plus the private key password if necessary)",
-            "and the ASCII-armoured PGP public key of the recipient.",
+            "参数：签名者的 ASCII 编码私钥（如果需要，加上私钥密码）以及接收者的 ASCII 编码 PGP 公钥。",
             "<br><br>",
-            "This operation uses PGP to produce an encrypted digital signature.",
+            "此操作使用 PGP 生成加密的数字签名。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "Pretty Good Privacy (PGP) 是一种加密标准 (OpenPGP)，用于加密、解密和签名消息。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此功能使用 PGP 的 Keybase 实现。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Private key of signer",
+                "name": "签名者的私钥",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Private key passphrase",
+                "name": "私钥密码",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Public key of recipient",
+                "name": "接收者的公钥",
                 "type": "text",
                 "value": ""
             }
@@ -70,8 +69,8 @@ class PGPEncryptAndSign extends Operation {
             [privateKey, passphrase, publicKey] = args;
         let signedMessage;
 
-        if (!privateKey) throw new OperationError("Enter the private key of the signer.");
-        if (!publicKey) throw new OperationError("Enter the public key of the recipient.");
+        if (!privateKey) throw new OperationError("请输入签名者的私钥。");
+        if (!publicKey) throw new OperationError("请输入接收者的公钥。");
         const privKey = await importPrivateKey(privateKey, passphrase);
         const pubKey = await importPublicKey(publicKey);
 
@@ -83,7 +82,7 @@ class PGPEncryptAndSign extends Operation {
                 "asp": ASP
             });
         } catch (err) {
-            throw new OperationError(`Couldn't sign message: ${err}`);
+            throw new OperationError(`无法签名消息：${err}`);
         }
 
         return signedMessage;

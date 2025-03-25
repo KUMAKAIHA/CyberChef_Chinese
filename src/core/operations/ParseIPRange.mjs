@@ -20,25 +20,25 @@ class ParseIPRange extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse IP range";
+        this.name = "解析 IP 范围";
         this.module = "Default";
-        this.description = "Given a CIDR range (e.g. <code>10.0.0.0/24</code>), hyphenated range (e.g. <code>10.0.0.0 - 10.0.1.0</code>), or a list of IPs and/or CIDR ranges (separated by a new line), this operation provides network information and enumerates all IP addresses in the range.<br><br>IPv6 is supported but will not be enumerated.";
+        this.description = "给定 CIDR 范围 (例如 <code>10.0.0.0/24</code>)、连字符范围 (例如 <code>10.0.0.0 - 10.0.1.0</code>) 或 IP 和/或 CIDR 范围列表（以新行分隔），此操作提供网络信息并枚举该范围内的所有 IP 地址。<br><br>支持 IPv6，但不会被枚举。";
         this.infoURL = "https://wikipedia.org/wiki/Subnetwork";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Include network info",
+                "name": "包含网络信息",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Enumerate IP addresses",
+                "name": "枚举 IP 地址",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Allow large queries",
+                "name": "允许大型查询",
                 "type": "boolean",
                 "value": false
             }
@@ -79,7 +79,7 @@ class ParseIPRange extends Operation {
         } else if ((match = ipv6ListRegex.exec(input))) {
             return ipv6ListedRange(match, includeNetworkInfo);
         } else {
-            throw new OperationError("Invalid input.\n\nEnter either a CIDR range (e.g. 10.0.0.0/24) or a hyphenated range (e.g. 10.0.0.0 - 10.0.1.0). IPv6 also supported.");
+            throw new OperationError("输入无效。\n\n请输入 CIDR 范围 (例如 10.0.0.0/24) 或连字符范围 (例如 10.0.0.0 - 10.0.1.0)。也支持 IPv6。");
         }
     }
 

@@ -22,16 +22,16 @@ class PlayMedia extends Operation {
     constructor() {
         super();
 
-        this.name = "Play Media";
+        this.name = "播放媒体";
         this.module = "Default";
-        this.description = "Plays the input as audio or video depending on the type.<br><br>Tags: sound, movie, mp3, mp4, mov, webm, wav, ogg";
+        this.description = "根据类型，将输入内容作为音频或视频播放。<br><br>标签：声音，电影，mp3，mp4，mov，webm，wav，ogg";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
                 "value": ["Raw", "Base64", "Hex"]
             }
@@ -67,7 +67,7 @@ class PlayMedia extends Operation {
 
         // Determine file type
         if (!isType(/^(audio|video)/, input)) {
-            throw new OperationError("Invalid or unrecognised file type");
+            throw new OperationError("无效或无法识别的文件类型");
         }
 
         return input;
@@ -86,13 +86,13 @@ class PlayMedia extends Operation {
         const types = detectFileType(data);
         const matches = /^audio|video/.exec(types[0].mime);
         if (!matches) {
-            throw new OperationError("Invalid file type");
+            throw new OperationError("无效的文件类型");
         }
         const dataURI = `data:${types[0].mime};base64,${toBase64(data)}`;
         const element = matches[0];
 
         let html = `<${element} src='${dataURI}' type='${types[0].mime}' controls>`;
-        html += "<p>Unsupported media type.</p>";
+        html += "<p>不支持的媒体类型。</p>";
         html += `</${element}>`;
         return html;
     }

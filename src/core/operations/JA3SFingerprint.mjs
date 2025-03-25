@@ -18,7 +18,7 @@ import Stream from "../lib/Stream.mjs";
 import {runHash} from "../lib/Hash.mjs";
 
 /**
- * JA3S Fingerprint operation
+ * JA3SFingerprint operation
  */
 class JA3SFingerprint extends Operation {
 
@@ -28,22 +28,22 @@ class JA3SFingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "JA3S Fingerprint";
+        this.name = "JA3S 指纹";
         this.module = "Crypto";
-        this.description = "Generates a JA3S fingerprint to help identify TLS servers based on hashing together values from the Server Hello.<br><br>Input: A hex stream of the TLS Server Hello record application layer.";
+        this.description = "生成 JA3S 指纹，通过哈希 Server Hello 中的值来帮助识别 TLS 服务器。<br><br>输入：TLS Server Hello 记录应用层的十六进制流。";
         this.infoURL = "https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
                 value: ["Hex", "Base64", "Raw"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["Hash digest", "JA3S string", "Full details"]
+                value: ["哈希摘要", "JA3S 字符串", "完整详情"]
             }
         ];
     }
@@ -119,9 +119,9 @@ class JA3SFingerprint extends Operation {
         const ja3sHash = runHash("md5", Utils.strToArrayBuffer(ja3sStr));
 
         switch (outputFormat) {
-            case "JA3S string":
+            case "JA3S 字符串":
                 return ja3sStr;
-            case "Full details":
+            case "完整详情":
                 return `Hash digest:
 ${ja3sHash}
 
@@ -134,7 +134,7 @@ Cipher Suite:
 ${cipherSuite}
 Extensions:
 ${exts.join("-")}`;
-            case "Hash digest":
+            case "哈希摘要":
             default:
                 return ja3sHash;
         }

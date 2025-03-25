@@ -20,9 +20,9 @@ class LZMADecompress extends Operation {
     constructor() {
         super();
 
-        this.name = "LZMA Decompress";
+        this.name = "LZMA 解压缩";
         this.module = "Compression";
-        this.description = "Decompresses data using the Lempel-Ziv-Markov chain Algorithm.";
+        this.description = "使用 Lempel-Ziv-Markov 链算法解压缩数据。";
         this.infoURL = "https://wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -47,7 +47,7 @@ class LZMADecompress extends Operation {
                     resolve(new Int8Array(result).buffer);
                 }
             }, (percent) => {
-                if (isWorkerEnvironment()) self.sendStatusMessage(`Decompressing input: ${(percent*100).toFixed(2)}%`);
+                if (isWorkerEnvironment()) self.sendStatusMessage(`解压缩输入数据: ${(percent*100).toFixed(2)}%`);
             });
         });
     }

@@ -22,23 +22,23 @@ class PGPEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Encrypt";
+        this.name = "PGP 加密";
         this.module = "PGP";
         this.description = [
-            "Input: the message you want to encrypt.",
+            "输入：您想要加密的消息。",
             "<br><br>",
-            "Arguments: the ASCII-armoured PGP public key of the recipient.",
+            "参数：接收者的 ASCII 编码 PGP 公钥。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "Pretty Good Privacy (PGP) 是一种用于加密、解密和签名消息的加密标准 (OpenPGP)。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此功能使用 PGP 的 Keybase 实现。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Public key of recipient",
+                "name": "接收者的公钥",
                 "type": "text",
                 "value": ""
             }
@@ -57,7 +57,7 @@ class PGPEncrypt extends Operation {
             plainPubKey = args[0];
         let encryptedMessage;
 
-        if (!plainPubKey) throw new OperationError("Enter the public key of the recipient.");
+        if (!plainPubKey) throw new OperationError("请输入接收者的公钥。");
 
         const key = await importPublicKey(plainPubKey);
 
@@ -68,7 +68,7 @@ class PGPEncrypt extends Operation {
                 "asp": ASP
             });
         } catch (err) {
-            throw new OperationError(`Couldn't encrypt message with provided public key: ${err}`);
+            throw new OperationError(`无法使用提供的公钥加密消息: ${err}`);
         }
 
         return encryptedMessage.toString();

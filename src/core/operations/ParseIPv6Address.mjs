@@ -21,9 +21,9 @@ class ParseIPv6Address extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse IPv6 address";
+        this.name = "解析 IPv6 地址";
         this.module = "Default";
-        this.description = "Displays the longhand and shorthand versions of a valid IPv6 address.<br><br>Recognises all reserved ranges and parses encapsulated or tunnelled addresses including Teredo and 6to4.";
+        this.description = "显示有效 IPv6 地址的长格式和短格式版本。<br><br>识别所有保留范围，并解析封装或隧道地址，包括 Teredo 和 6to4。";
         this.infoURL = "https://wikipedia.org/wiki/IPv6_address";
         this.inputType = "string";
         this.outputType = "string";
@@ -44,42 +44,41 @@ class ParseIPv6Address extends Operation {
                 longhand = ipv6ToStr(ipv6),
                 shorthand = ipv6ToStr(ipv6, true);
 
-            output += "Longhand:  " + longhand + "\nShorthand: " + shorthand + "\n";
+            output += "长格式:  " + longhand + "\n短格式: " + shorthand + "\n";
 
             // Detect reserved addresses
             if (shorthand === "::") {
                 // Unspecified address
-                output += "\nUnspecified address corresponding to 0.0.0.0/32 in IPv4.";
-                output += "\nUnspecified address range: ::/128";
+                output += "\n\n未指定地址，对应 IPv4 中的 0.0.0.0/32。";
+                output += "\n未指定地址范围: ::/128";
             } else if (shorthand === "::1") {
                 // Loopback address
-                output += "\nLoopback address to the local host corresponding to 127.0.0.1/8 in IPv4.";
-                output += "\nLoopback addresses range: ::1/128";
+                output += "\n\n环回地址，指向本地主机，对应 IPv4 中的 127.0.0.1/8。";
+                output += "\n环回地址范围: ::1/128";
             } else if (ipv6[0] === 0 && ipv6[1] === 0 && ipv6[2] === 0 &&
                 ipv6[3] === 0 && ipv6[4] === 0 && ipv6[5] === 0xffff) {
                 // IPv4-mapped IPv6 address
-                output += "\nIPv4-mapped IPv6 address detected. IPv6 clients will be handled natively by default, and IPv4 clients appear as IPv6 clients at their IPv4-mapped IPv6 address.";
-                output += "\nMapped IPv4 address: " + ipv4ToStr((ipv6[6] << 16) + ipv6[7]);
-                output += "\nIPv4-mapped IPv6 addresses range: ::ffff:0:0/96";
+                output += "\n检测到 IPv4 映射 IPv6 地址。IPv6 客户端默认将以原生方式处理，而 IPv4 客户端将以其 IPv4 映射 IPv6 地址显示为 IPv6 客户端。";
+                output += "\n映射的 IPv4 地址: " + ipv4ToStr((ipv6[6] << 16) + ipv6[7]);
+                output += "\nIPv4 映射 IPv6 地址范围: ::ffff:0:0/96";
             } else if (ipv6[0] === 0 && ipv6[1] === 0 && ipv6[2] === 0 &&
                 ipv6[3] === 0 && ipv6[4] === 0xffff && ipv6[5] === 0) {
                 // IPv4-translated address
-                output += "\nIPv4-translated address detected. Used by Stateless IP/ICMP Translation (SIIT). See RFCs 6145 and 6052 for more details.";
-                output += "\nTranslated IPv4 address: " + ipv4ToStr((ipv6[6] << 16) + ipv6[7]);
-                output += "\nIPv4-translated addresses range: ::ffff:0:0:0/96";
+                output += "\n检测到 IPv4 转换地址。用于无状态 IP/ICMP 转换 (SIIT)。请参阅 RFC 6145 和 6052 了解更多详情。";
+                output += "\n转换的 IPv4 地址: " + ipv4ToStr((ipv6[6] << 16) + ipv6[7]);
+                output += "\nIPv4 转换地址范围: ::ffff:0:0:0/96";
             } else if (ipv6[0] === 0x100) {
                 // Discard prefix per RFC 6666
-                output += "\nDiscard prefix detected. This is used when forwarding traffic to a sinkhole router to mitigate the effects of a denial-of-service attack. See RFC 6666 for more details.";
-                output += "\nDiscard range: 100::/64";
+                output += "\n检测到丢弃前缀。这在将流量转发到黑洞路由器以减轻拒绝服务攻击的影响时使用。请参阅 RFC 6666 了解更多详情。";
+                output += "\n丢弃范围: 100::/64";
             } else if (ipv6[0] === 0x64 && ipv6[1] === 0xff9b && ipv6[2] === 0 &&
                 ipv6[3] === 0 && ipv6[4] === 0 && ipv6[5] === 0) {
                 // IPv4/IPv6 translation per RFC 6052
-                output += "\n'Well-Known' prefix for IPv4/IPv6 translation detected. See RFC 6052 for more details.";
-                output += "\nTranslated IPv4 address: " + ipv4ToStr((ipv6[6] << 16) + ipv6[7]);
-                output += "\n'Well-Known' prefix range: 64:ff9b::/96";
+                output += "\n检测到 IPv4/IPv6 转换的“众所周知”前缀。请参阅 RFC 6052 了解更多详情。";
+                output += "\n“众所周知”前缀范围: 64:ff9b::/96";
             } else if (ipv6[0] === 0x2001 && ipv6[1] === 0) {
                 // Teredo tunneling
-                output += "\nTeredo tunneling IPv6 address detected\n";
+                output += "\n检测到 Teredo 隧道 IPv6 地址\n";
                 const serverIpv4  = (ipv6[2] << 16) + ipv6[3],
                     udpPort     = (~ipv6[5]) & 0xffff,
                     clientIpv4  = ~((ipv6[6] << 16) + ipv6[7]),
@@ -89,162 +88,161 @@ class ParseIPv6Address extends Operation {
                     flagUg      = (ipv6[4] >>> 8) & 3,
                     flagRandom2 = ipv6[4] & 255;
 
-                output += "\nServer IPv4 address: " + ipv4ToStr(serverIpv4) +
-                    "\nClient IPv4 address: " + ipv4ToStr(clientIpv4) +
-                    "\nClient UDP port:     " + udpPort +
-                    "\nFlags:" +
-                    "\n\tCone:    " + flagCone;
+                output += "\n服务器 IPv4 地址: " + ipv4ToStr(serverIpv4) +
+                    "\n客户端 IPv4 地址: " + ipv4ToStr(clientIpv4) +
+                    "\n客户端 UDP 端口:     " + udpPort +
+                    "\n标志:" +
+                    "\n\t锥形 NAT:    " + flagCone;
 
                 if (flagCone) {
-                    output += " (Client is behind a cone NAT)";
+                    output += " (客户端位于锥形 NAT 之后)";
                 } else {
-                    output += " (Client is not behind a cone NAT)";
+                    output += " (客户端不位于锥形 NAT 之后)";
                 }
 
                 output += "\n\tR:       " + flagR;
 
                 if (flagR) {
-                    output += " Error: This flag should be set to 0. See RFC 5991 and RFC 4380.";
+                    output += " 错误：此标志应设置为 0。请参阅 RFC 5991 和 RFC 4380。";
                 }
 
-                output += "\n\tRandom1: " + Utils.bin(flagRandom1, 4) +
+                output += "\n\t随机数 1: " + Utils.bin(flagRandom1, 4) +
                     "\n\tUG:      " + Utils.bin(flagUg, 2);
 
                 if (flagUg) {
-                    output += " Error: This flag should be set to 00. See RFC 4380.";
+                    output += " 错误：此标志应设置为 00。请参阅 RFC 4380。";
                 }
 
-                output += "\n\tRandom2: " + Utils.bin(flagRandom2, 8);
+                output += "\n\t随机数 2: " + Utils.bin(flagRandom2, 8);
 
                 if (!flagR && !flagUg && flagRandom1 && flagRandom2) {
-                    output += "\n\nThis is a valid Teredo address which complies with RFC 4380 and RFC 5991.";
+                    output += "\n\n这是一个有效的 Teredo 地址，符合 RFC 4380 和 RFC 5991。";
                 } else if (!flagR && !flagUg) {
-                    output += "\n\nThis is a valid Teredo address which complies with RFC 4380, however it does not comply with RFC 5991 (Teredo Security Updates) as there are no randomised bits in the flag field.";
+                    output += "\n\n这是一个有效的 Teredo 地址，符合 RFC 4380，但不符合 RFC 5991（Teredo 安全更新），因为标志字段中没有随机位。";
                 } else {
-                    output += "\n\nThis is an invalid Teredo address.";
+                    output += "\n\n这是一个无效的 Teredo 地址。";
                 }
-                output += "\n\nTeredo prefix range: 2001::/32";
+                output += "\n\nTeredo 前缀范围: 2001::/32";
             } else if (ipv6[0] === 0x2001 && ipv6[1] === 0x2 && ipv6[2] === 0) {
                 // Benchmarking
-                output += "\nAssigned to the Benchmarking Methodology Working Group (BMWG) for benchmarking IPv6. Corresponds to 198.18.0.0/15 for benchmarking IPv4. See RFC 5180 for more details.";
-                output += "\nBMWG range: 2001:2::/48";
+                output += "\n分配给基准测试方法工作组 (BMWG) 用于 IPv6 基准测试。对应于 IPv4 基准测试的 198.18.0.0/15。请参阅 RFC 5180 了解更多详情。";
+                output += "\nBMWG 范围: 2001:2::/48";
             } else if (ipv6[0] === 0x2001 && ipv6[1] >= 0x10 && ipv6[1] <= 0x1f) {
                 // ORCHIDv1
-                output += "\nDeprecated, previously ORCHIDv1 (Overlay Routable Cryptographic Hash Identifiers).\nORCHIDv1 range: 2001:10::/28\nORCHIDv2 now uses 2001:20::/28.";
+                output += "\n已弃用，之前为 ORCHIDv1（Overlay Routable Cryptographic Hash Identifiers）。\nORCHIDv1 范围: 2001:10::/28\nORCHIDv2 现在使用 2001:20::/28。";
             } else if (ipv6[0] === 0x2001 && ipv6[1] >= 0x20 && ipv6[1] <= 0x2f) {
                 // ORCHIDv2
-                output += "\nORCHIDv2 (Overlay Routable Cryptographic Hash Identifiers).\nThese are non-routed IPv6 addresses used for Cryptographic Hash Identifiers.";
-                output += "\nORCHIDv2 range: 2001:20::/28";
+                output += "\nORCHIDv2（Overlay Routable Cryptographic Hash Identifiers）。\n这些是非路由 IPv6 地址，用于加密哈希标识符。";
+                output += "\nORCHIDv2 范围: 2001:20::/28";
             } else if (ipv6[0] === 0x2001 && ipv6[1] === 0xdb8) {
                 // Documentation
-                output += "\nThis is a documentation IPv6 address. This range should be used whenever an example IPv6 address is given or to model networking scenarios. Corresponds to 192.0.2.0/24, 198.51.100.0/24, and 203.0.113.0/24 in IPv4.";
-                output += "\nDocumentation range: 2001:db8::/32";
+                output += "\n这是一个文档 IPv6 地址。每当给出示例 IPv6 地址或建模网络场景时，都应使用此范围。对应于 IPv4 中的 192.0.2.0/24、198.51.100.0/24 和 203.0.113.0/24。";
+                output += "\n文档范围: 2001:db8::/32";
             } else if (ipv6[0] === 0x2002) {
                 // 6to4
-                output += "\n6to4 transition IPv6 address detected. See RFC 3056 for more details." +
-                    "\n6to4 prefix range: 2002::/16";
+                output += "\n检测到 6to4 过渡 IPv6 地址。请参阅 RFC 3056 了解更多详情。\n6to4 前缀范围: 2002::/16";
 
                 const v4Addr = ipv4ToStr((ipv6[1] << 16) + ipv6[2]),
                     slaId = ipv6[3],
                     interfaceIdStr = ipv6[4].toString(16) + ipv6[5].toString(16) + ipv6[6].toString(16) + ipv6[7].toString(16),
                     interfaceId = new BigNumber(interfaceIdStr, 16);
 
-                output += "\n\nEncapsulated IPv4 address: " + v4Addr +
+                output += "\n\n封装的 IPv4 地址: " + v4Addr +
                     "\nSLA ID: " + slaId +
-                    "\nInterface ID (base 16): " + interfaceIdStr +
-                    "\nInterface ID (base 10): " + interfaceId.toString();
+                    "\n接口 ID (base 16): " + interfaceIdStr +
+                    "\n接口 ID (base 10): " + interfaceId.toString();
             } else if (ipv6[0] >= 0xfc00 && ipv6[0] <= 0xfdff) {
                 // Unique local address
-                output += "\nThis is a unique local address comparable to the IPv4 private addresses 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16. See RFC 4193 for more details.";
-                output += "\nUnique local addresses range: fc00::/7";
+                output += "\n这是一个唯一的本地地址，类似于 IPv4 私有地址 10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16。请参阅 RFC 4193 了解更多详情。";
+                output += "\n唯一本地地址范围: fc00::/7";
             } else if (ipv6[0] >= 0xfe80 && ipv6[0] <= 0xfebf) {
                 // Link-local address
-                output += "\nThis is a link-local address comparable to the auto-configuration addresses 169.254.0.0/16 in IPv4.";
-                output += "\nLink-local addresses range: fe80::/10";
+                output += "\n这是一个链路本地地址，类似于 IPv4 中的自动配置地址 169.254.0.0/16。";
+                output += "\n链路本地地址范围: fe80::/10";
             } else if (ipv6[0] >= 0xff00) {
                 // Multicast
-                output += "\nThis is a reserved multicast address.";
-                output += "\nMulticast addresses range: ff00::/8";
+                output += "\n这是一个保留的组播地址。";
+                output += "\n组播地址范围: ff00::/8";
 
                 switch (ipv6[0]) {
                     case 0xff01:
-                        output += "\n\nReserved Multicast Block for Interface Local Scope";
+                        output += "\n\n接口本地范围的保留组播块";
                         break;
                     case 0xff02:
-                        output += "\n\nReserved Multicast Block for Link Local Scope";
+                        output += "\n\n链路本地范围的保留组播块";
                         break;
                     case 0xff03:
-                        output += "\n\nReserved Multicast Block for Realm Local Scope";
+                        output += "\n\nRealm 本地范围的保留组播块";
                         break;
                     case 0xff04:
-                        output += "\n\nReserved Multicast Block for Admin Local Scope";
+                        output += "\n\n管理本地范围的保留组播块";
                         break;
                     case 0xff05:
-                        output += "\n\nReserved Multicast Block for Site Local Scope";
+                        output += "\n\n站点本地范围的保留组播块";
                         break;
                     case 0xff08:
-                        output += "\n\nReserved Multicast Block for Organisation Local Scope";
+                        output += "\n\n组织本地范围的保留组播块";
                         break;
                     case 0xff0e:
-                        output += "\n\nReserved Multicast Block for Global Scope";
+                        output += "\n\n全局范围的保留组播块";
                         break;
                 }
 
                 if (ipv6[6] === 1) {
                     if (ipv6[7] === 2) {
-                        output += "\nReserved Multicast Address for 'All DHCP Servers and Relay Agents (defined in RFC3315)'";
+                        output += "\n“所有 DHCP 服务器和中继代理（在 RFC3315 中定义）”的保留组播地址";
                     } else if (ipv6[7] === 3) {
-                        output += "\nReserved Multicast Address for 'All LLMNR Hosts (defined in RFC4795)'";
+                        output += "\n“所有 LLMNR 主机（在 RFC4795 中定义）”的保留组播地址";
                     }
                 } else {
                     switch (ipv6[7]) {
                         case 1:
-                            output += "\nReserved Multicast Address for 'All nodes'";
+                            output += "\n“所有节点”的保留组播地址";
                             break;
                         case 2:
-                            output += "\nReserved Multicast Address for 'All routers'";
+                            output += "\n“所有路由器”的保留组播地址";
                             break;
                         case 5:
-                            output += "\nReserved Multicast Address for 'OSPFv3 - All OSPF routers'";
+                            output += "\n“OSPFv3 - 所有 OSPF 路由器”的保留组播地址";
                             break;
                         case 6:
-                            output += "\nReserved Multicast Address for 'OSPFv3 - All Designated Routers'";
+                            output += "\n“OSPFv3 - 所有指定路由器”的保留组播地址";
                             break;
                         case 8:
-                            output += "\nReserved Multicast Address for 'IS-IS for IPv6 Routers'";
+                            output += "\n“IS-IS for IPv6 路由器”的保留组播地址";
                             break;
                         case 9:
-                            output += "\nReserved Multicast Address for 'RIP Routers'";
+                            output += "\n“RIP 路由器”的保留组播地址";
                             break;
                         case 0xa:
-                            output += "\nReserved Multicast Address for 'EIGRP Routers'";
+                            output += "\n“EIGRP 路由器”的保留组播地址";
                             break;
                         case 0xc:
-                            output += "\nReserved Multicast Address for 'Simple Service Discovery Protocol'";
+                            output += "\n“简单服务发现协议”的保留组播地址";
                             break;
                         case 0xd:
-                            output += "\nReserved Multicast Address for 'PIM Routers'";
+                            output += "\n“PIM 路由器”的保留组播地址";
                             break;
                         case 0x16:
-                            output += "\nReserved Multicast Address for 'MLDv2 Reports (defined in RFC3810)'";
+                            output += "\n“MLDv2 报告（在 RFC3810 中定义）”的保留组播地址";
                             break;
                         case 0x6b:
-                            output += "\nReserved Multicast Address for 'Precision Time Protocol v2 Peer Delay Measurement Messages'";
+                            output += "\n“精确时间协议 v2 对等延迟测量消息”的保留组播地址";
                             break;
                         case 0xfb:
-                            output += "\nReserved Multicast Address for 'Multicast DNS'";
+                            output += "\n“组播 DNS”的保留组播地址";
                             break;
                         case 0x101:
-                            output += "\nReserved Multicast Address for 'Network Time Protocol'";
+                            output += "\n“网络时间协议”的保留组播地址";
                             break;
                         case 0x108:
-                            output += "\nReserved Multicast Address for 'Network Information Service'";
+                            output += "\n“网络信息服务”的保留组播地址";
                             break;
                         case 0x114:
-                            output += "\nReserved Multicast Address for 'Experiments'";
+                            output += "\n“实验”的保留组播地址";
                             break;
                         case 0x181:
-                            output += "\nReserved Multicast Address for 'Precision Time Protocol v2 Messages (exc. Peer Delay)'";
+                            output += "\n“精确时间协议 v2 消息（不包括对等延迟）”的保留组播地址";
                             break;
                     }
                 }
@@ -253,7 +251,7 @@ class ParseIPv6Address extends Operation {
 
             // Detect possible EUI-64 addresses
             if (((ipv6[5] & 0xff) === 0xff) && (ipv6[6] >>> 8 === 0xfe)) {
-                output += "\n\nThis IPv6 address contains a modified EUI-64 address, identified by the presence of FF:FE in the 12th and 13th octets.";
+                output += "\n\n此 IPv6 地址包含一个修改后的 EUI-64 地址，通过第 12 和第 13 个八位字节中存在 FF:FE 来识别。";
 
                 const intIdent = Utils.hex(ipv6[4] >>> 8) + ":" + Utils.hex(ipv6[4] & 0xff) + ":" +
                     Utils.hex(ipv6[5] >>> 8) + ":" + Utils.hex(ipv6[5] & 0xff) + ":" +
@@ -262,11 +260,11 @@ class ParseIPv6Address extends Operation {
                     mac = Utils.hex((ipv6[4] >>> 8) ^ 2) + ":" + Utils.hex(ipv6[4] & 0xff) + ":" +
                     Utils.hex(ipv6[5] >>> 8) + ":" + Utils.hex(ipv6[6] & 0xff) + ":" +
                     Utils.hex(ipv6[7] >>> 8) + ":" + Utils.hex(ipv6[7] & 0xff);
-                output += "\nInterface identifier: " + intIdent +
-                    "\nMAC address:          " + mac;
+                output += "\n接口标识符: " + intIdent +
+                    "\nMAC 地址:          " + mac;
             }
         } else {
-            throw new OperationError("Invalid IPv6 address");
+            throw new OperationError("无效的 IPv6 地址");
         }
         return output;
     }

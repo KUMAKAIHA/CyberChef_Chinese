@@ -22,16 +22,16 @@ class ParseUDP extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse UDP";
+        this.name = "解析 UDP";
         this.module = "Default";
-        this.description = "Parses a UDP header and payload (if present).";
+        this.description = "解析 UDP 头部和负载（如果存在）。";
         this.infoURL = "https://wikipedia.org/wiki/User_Datagram_Protocol";
         this.inputType = "string";
         this.outputType = "json";
         this.presentType = "html";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
                 value: ["Hex", "Raw"]
             }

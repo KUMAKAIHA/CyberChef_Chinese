@@ -21,7 +21,7 @@ class GenerateRSAKeyPair extends Operation {
         super();
 
         this.name = "生成 RSA 密钥对";
-        this.module = "加密 / 编码";
+        this.module = "Crypto";
         this.description = `生成具有指定位数的 RSA 密钥对。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";

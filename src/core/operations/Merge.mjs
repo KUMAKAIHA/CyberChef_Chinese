@@ -17,15 +17,15 @@ class Merge extends Operation {
     constructor() {
         super();
 
-        this.name = "Merge";
+        this.name = "合并";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "Consolidate all branches back into a single trunk. The opposite of Fork. Unticking the Merge All checkbox will only consolidate all branches up to the nearest Fork/Subsection.";
+        this.description = "将所有分支合并回主干。与 Fork 操作相反。取消选中“全部合并”复选框将仅合并所有分支到最近的 Fork/Subsection 操作。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Merge All",
+                name: "全部合并",
                 type: "boolean",
                 value: true,
             }

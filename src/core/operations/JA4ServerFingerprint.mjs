@@ -9,7 +9,7 @@ import Utils from "../Utils.mjs";
 import {toJA4S} from "../lib/JA4.mjs";
 
 /**
- * JA4Server Fingerprint operation
+ * JA4ServerFingerprint operation
  */
 class JA4ServerFingerprint extends Operation {
 
@@ -19,20 +19,20 @@ class JA4ServerFingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "JA4Server Fingerprint";
+        this.name = "JA4Server 指纹";
         this.module = "Crypto";
-        this.description = "Generates a JA4Server Fingerprint (JA4S) to help identify TLS servers or sessions based on hashing together values from the Server Hello.<br><br>Input: A hex stream of the TLS or QUIC Server Hello packet application layer.";
+        this.description = "生成 JA4Server 指纹 (JA4S)，通过对服务器 Hello 报文中的值进行哈希，以帮助识别 TLS 服务器或会话。<br><br>输入：TLS 或 QUIC 服务器 Hello 数据包应用层的十六进制流。";
         this.infoURL = "https://medium.com/foxio/ja4-network-fingerprinting-9376fe9ca637";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
                 value: ["Hex", "Base64", "Raw"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
                 value: ["JA4S", "JA4S Raw", "Both"]
             }

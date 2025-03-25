@@ -21,15 +21,15 @@ class Median extends Operation {
     constructor() {
         super();
 
-        this.name = "Median";
+        this.name = "中位数";
         this.module = "Default";
-        this.description = "Computes the median of a number list. If an item in the string is not a number it is excluded from the list.<br><br>e.g. <code>0x0a 8 1 .5</code> becomes <code>4.5</code>";
+        this.description = "计算数字列表的中位数。如果字符串中的项目不是数字，则会将其从列表中排除。<br><br>例如：<code>0x0a 8 1 .5</code> 变为 <code>4.5</code>";
         this.infoURL = "https://wikipedia.org/wiki/Median";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": ARITHMETIC_DELIM_OPTIONS,
             }

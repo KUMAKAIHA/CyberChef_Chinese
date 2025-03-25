@@ -21,7 +21,7 @@ class CSSSelector extends Operation {
         super();
 
         this.name = "CSS 选择器";
-        this.module = "代码整理";
+        this.module = "Code";
         this.description = "使用 CSS 选择器从 HTML 文档中提取信息";
         this.infoURL = "https://wikipedia.org/wiki/Cascading_Style_Sheets#Selector";
         this.inputType = "string";

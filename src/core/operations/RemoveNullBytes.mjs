@@ -17,9 +17,9 @@ class RemoveNullBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove null bytes";
+        this.name = "移除空字节";
         this.module = "Default";
-        this.description = "Removes all null bytes (<code>0x00</code>) from the input.";
+        this.description = "从输入中移除所有空字节 (<code>0x00</code>)。";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";
         this.args = [];

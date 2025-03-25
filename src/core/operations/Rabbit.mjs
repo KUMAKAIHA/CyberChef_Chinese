@@ -22,37 +22,37 @@ class Rabbit extends Operation {
 
         this.name = "Rabbit";
         this.module = "Ciphers";
-        this.description = "Rabbit is a high-speed stream cipher introduced in 2003 and defined in RFC 4503.<br><br>The cipher uses a 128-bit key and an optional 64-bit initialization vector (IV).<br><br>big-endian: based on RFC4503 and RFC3447<br>little-endian: compatible with Crypto++";
+        this.description = "Rabbit 是一种高速流密码，于 2003 年引入，并在 RFC 4503 中定义。<br><br>该密码使用 128 位密钥和可选的 64 位初始化向量 (IV)。<br><br>大端序 (big-endian)：基于 RFC4503 和 RFC3447<br>小端序 (little-endian)：与 Crypto++ 兼容";
         this.infoURL = "https://wikipedia.org/wiki/Rabbit_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "IV (初始化向量)",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Endianness",
+                "name": "字节序",
                 "type": "option",
-                "value": ["Big", "Little"]
+                "value": ["大端", "小端"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始数据", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始数据", "Hex"]
             }
         ];
     }
@@ -69,7 +69,7 @@ class Rabbit extends Operation {
             inputType = args[3],
             outputType = args[4];
 
-        const littleEndian = endianness === "Little";
+        const littleEndian = endianness === "小端";
 
         if (key.length !== 16) {
             throw new OperationError(`Invalid key length: ${key.length} bytes (expected: 16)`);

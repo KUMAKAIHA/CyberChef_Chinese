@@ -19,20 +19,20 @@ class RotateRight extends Operation {
     constructor() {
         super();
 
-        this.name = "Rotate right";
+        this.name = "右循环移位";
         this.module = "Default";
-        this.description = "Rotates each byte to the right by the number of bits specified, optionally carrying the excess bits over to the next byte. Currently only supports 8-bit values.";
+        this.description = "将每个字节向右循环移动指定的位数，可以选择将溢出的位移到下一个字节。目前仅支持 8 位值。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bit_shifts";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Amount",
+                name: "位数",
                 type: "number",
                 value: 1
             },
             {
-                name: "Carry through",
+                name: "进位",
                 type: "boolean",
                 value: false
             }

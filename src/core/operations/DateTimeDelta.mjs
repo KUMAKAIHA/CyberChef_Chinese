@@ -20,7 +20,7 @@ class DateTimeDelta extends Operation {
         super();
 
         this.name = "日期时间差";
-        this.module = "日期 / 时间";
+        this.module = "Default";
         this.description = "根据输入的日期时间值和时间差值（增量）计算新的日期时间值。";
         this.inputType = "string";
         this.outputType = "html";

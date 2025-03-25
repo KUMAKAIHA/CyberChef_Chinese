@@ -18,16 +18,16 @@ class Reverse extends Operation {
     constructor() {
         super();
 
-        this.name = "Reverse";
+        this.name = "反转";
         this.module = "Default";
-        this.description = "Reverses the input string.";
+        this.description = "反转输入字符串。";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "By",
+                "name": "按",
                 "type": "option",
-                "value": ["Byte", "Character", "Line"],
+                "value": ["字节", "字符", "行"],
                 "defaultIndex": 1
             }
         ];

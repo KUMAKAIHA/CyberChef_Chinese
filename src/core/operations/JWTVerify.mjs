@@ -20,17 +20,17 @@ class JWTVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "JWT Verify";
+        this.name = "JWT 验证";
         this.module = "Crypto";
-        this.description = "Verifies that a JSON Web Token is valid and has been signed with the provided secret / private key.<br><br>The key should be either the secret for HMAC algorithms or the PEM-encoded public key for RSA and ECDSA.";
+        this.description = "验证 JSON Web Token 是否有效，以及是否使用提供的密钥/私钥进行了签名。<br><br>密钥应为 HMAC 算法的密钥，或 RSA 和 ECDSA 的 PEM 编码公钥。";
         this.infoURL = "https://wikipedia.org/wiki/JSON_Web_Token";
         this.inputType = "string";
         this.outputType = "JSON";
         this.args = [
             {
-                name: "Public/Secret Key",
+                name: "公钥/密钥",
                 type: "text",
-                value: "secret"
+                value: "密钥"
             },
         ];
     }

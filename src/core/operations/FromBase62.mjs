@@ -21,7 +21,7 @@ class FromBase62 extends Operation {
         super();
 
         this.name = "从 Base62 转换";
-        this.module = "数据格式";
+        this.module = "Default";
         this.description = "Base62 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用并由计算机处理。 高基数会产生比十进制或十六进制系统更短的字符串。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";

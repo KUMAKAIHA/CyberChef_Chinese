@@ -19,7 +19,7 @@ class Fletcher32Checksum extends Operation {
         super();
 
         this.name = "Fletcher-32 校验和";
-        this.module = "哈希";
+        this.module = "Crypto";
         this.description = "Fletcher 校验和是一种用于计算位置相关的校验和算法，由 John Gould Fletcher 于 1970 年代后期在劳伦斯利弗莫尔实验室设计。<br><br>Fletcher 校验和的目标是以接近循环冗余校验的错误检测性能，但计算量更低，与求和技术相关。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum#Fletcher-32";
         this.inputType = "ArrayBuffer";

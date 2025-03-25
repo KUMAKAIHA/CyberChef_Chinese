@@ -21,9 +21,9 @@ class NormaliseImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Normalise Image";
+        this.name = "规范化图像";
         this.module = "Image";
-        this.description = "Normalise the image colours.";
+        this.description = "规范化图像颜色。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -38,14 +38,14 @@ class NormaliseImage extends Operation {
      */
     async run(input, args) {
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error opening image file. (${err})`);
+            throw new OperationError(`打开图像文件时出错。 (${err})`);
         }
 
         try {
@@ -59,7 +59,7 @@ class NormaliseImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error normalising image. (${err})`);
+            throw new OperationError(`规范化图像时出错。 (${err})`);
         }
     }
 
@@ -74,7 +74,7 @@ class NormaliseImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

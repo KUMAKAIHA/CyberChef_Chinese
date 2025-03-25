@@ -21,7 +21,7 @@ class GOSTHash extends Operation {
         super();
 
         this.name = "GOST 哈希";
-        this.module = "哈希";
+        this.module = "Crypto";
         this.description = "GOST 哈希函数，在 GOST R 34.11-94 和 GOST 34.311-95 标准中定义，是一种 256 位的密码散列函数。它最初在俄罗斯国家标准 GOST R 34.11-94《信息技术 - 密码信息安全 - 哈希函数》中定义。CIS 其他成员国使用的等效标准是 GOST 34.311-95。<br><br>此函数不应与另一个 Streebog 哈希函数混淆，后者在 GOST R 34.11-2012 标准的新修订版中定义。<br><br>GOST 哈希函数基于 GOST 分组密码。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(hash_function)";
         this.inputType = "ArrayBuffer";

@@ -19,19 +19,19 @@ class ProtobufEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Protobuf Encode";
+        this.name = "Protobuf 编码";
         this.module = "Protobuf";
-        this.description = "Encodes a valid JSON object into a protobuf byte array using the input .proto schema.";
+        this.description = "将有效的 JSON 对象使用输入的 .proto schema 编码为 protobuf 字节数组。";
         this.infoURL = "https://developers.google.com/protocol-buffers/docs/encoding";
         this.inputType = "JSON";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Schema (.proto text)",
+                name: "Schema (.proto 文本)",
                 type: "text",
                 value: "",
                 rows: 8,
-                hint: "Drag and drop is enabled on this ingredient"
+                hint: "此功能支持拖拽操作"
             }
         ];
     }

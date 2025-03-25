@@ -17,9 +17,9 @@ class RemoveDiacritics extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove Diacritics";
+        this.name = "移除音调符号";
         this.module = "Default";
-        this.description = "Replaces accented characters with their latin character equivalent. Accented characters are made up of Unicode combining characters, so unicode text formatting such as strikethroughs and underlines will also be removed.";
+        this.description = "将重音字符替换为对应的拉丁字符。重音字符由 Unicode 组合字符构成，因此 Unicode 文本格式，例如删除线和下划线，也将被移除。";
         this.infoURL = "https://wikipedia.org/wiki/Diacritic";
         this.inputType = "string";
         this.outputType = "string";

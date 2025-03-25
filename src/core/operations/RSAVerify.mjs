@@ -21,30 +21,30 @@ class RSAVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "RSA Verify";
+        this.name = "RSA 验证";
         this.module = "Ciphers";
-        this.description = "Verify a message against a signature and a public PEM encoded RSA key.";
+        this.description = "使用公钥 PEM 格式的 RSA 密钥，验证消息的签名。";
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Public Key (PEM)",
+                name: "RSA 公钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN RSA PUBLIC KEY-----"
             },
             {
-                name: "Message",
+                name: "消息",
                 type: "text",
                 value: ""
             },
             {
-                name: "Message format",
+                name: "消息格式",
                 type: "option",
-                value: ["Raw", "Hex", "Base64"]
+                value: ["原始数据", "Hex", "Base64"]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
             }
@@ -59,7 +59,7 @@ class RSAVerify extends Operation {
     run(input, args) {
         const [pemKey, message, format, mdAlgo] = args;
         if (pemKey.replace("-----BEGIN RSA PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请提供公钥。");
         }
         try {
             // Load public key
@@ -70,7 +70,7 @@ class RSAVerify extends Operation {
             md.update(messageStr, "raw");
             // Compare signed message digest and generated message digest
             const result = pubKey.verify(md.digest().bytes(), input);
-            return result ? "Verified OK" : "Verification Failure";
+            return result ? "验证成功" : "验证失败";
         } catch (err) {
             if (err.message === "Encrypted message length is invalid.") {
                 throw new OperationError(`Signature length (${err.length}) does not match expected length based on key (${err.expected}).`);

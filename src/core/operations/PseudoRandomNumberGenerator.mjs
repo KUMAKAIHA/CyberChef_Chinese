@@ -21,22 +21,22 @@ class PseudoRandomNumberGenerator extends Operation {
     constructor() {
         super();
 
-        this.name = "Pseudo-Random Number Generator";
+        this.name = "伪随机数生成器";
         this.module = "Ciphers";
-        this.description = "A cryptographically-secure pseudo-random number generator (PRNG).<br><br>This operation uses the browser's built-in <code>crypto.getRandomValues()</code> method if available. If this cannot be found, it falls back to a Fortuna-based PRNG algorithm.";
+        this.description = "一个密码学安全的伪随机数生成器 (PRNG)。<br><br>此操作在可用时使用浏览器的内置 <code>crypto.getRandomValues()</code> 方法。如果找不到，则回退到基于 Fortuna 的 PRNG 算法。";
         this.infoURL = "https://wikipedia.org/wiki/Pseudorandom_number_generator";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Number of bytes",
+                "name": "字节数",
                 "type": "number",
                 "value": 32
             },
             {
-                "name": "Output as",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Hex", "Integer", "Byte array", "Raw"]
+                "value": ["Hex", "整数", "字节数组", "原始数据"]
             }
         ];
     }
@@ -68,14 +68,14 @@ class PseudoRandomNumberGenerator extends Operation {
         switch (outputAs) {
             case "Hex":
                 return forge.util.bytesToHex(bytes);
-            case "Integer":
+            case "整数":
                 for (i = bytes.length - 1; i >= 0; i--) {
                     value = value.times(256).plus(bytes.charCodeAt(i));
                 }
                 return value.toFixed();
-            case "Byte array":
+            case "字节数组":
                 return JSON.stringify(Utils.strToCharcode(bytes));
-            case "Raw":
+            case "原始数据":
             default:
                 return bytes;
         }

@@ -23,16 +23,16 @@ class RandomizeColourPalette extends Operation {
     constructor() {
         super();
 
-        this.name = "Randomize Colour Palette";
+        this.name = "随机化调色板";
         this.module = "Image";
-        this.description = "Randomizes each colour in an image's colour palette. This can often reveal text or symbols that were previously a very similar colour to their surroundings, a technique sometimes used in Steganography.";
+        this.description = "随机化图像调色板中的每种颜色。这通常可以揭示以前颜色与其周围环境非常相似的文本或符号，这是一种有时用于隐写术的技术。";
         this.infoURL = "https://wikipedia.org/wiki/Indexed_color";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Seed",
+                name: "种子",
                 type: "string",
                 value: ""
             }
@@ -45,7 +45,7 @@ class RandomizeColourPalette extends Operation {
      * @returns {ArrayBuffer}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请输入有效的图像文件。");
 
         const seed = args[0] || (Math.random().toString().substr(2)),
             parsedImage = await Jimp.read(input),

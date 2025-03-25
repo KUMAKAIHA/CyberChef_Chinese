@@ -18,9 +18,9 @@ class IndexOfCoincidence extends Operation {
     constructor() {
         super();
 
-        this.name = "Index of Coincidence";
+        this.name = "重合指数";
         this.module = "Default";
-        this.description = "Index of Coincidence (IC) is the probability of two randomly selected characters being the same. This can be used to determine whether text is readable or random, with English text having an IC of around 0.066. IC can therefore be a sound method to automate frequency analysis.";
+        this.description = "重合指数 (IC) 是指两个随机选择的字符相同的概率。它可以用来判断文本是可读的还是随机的，英文文本的 IC 值约为 0.066。因此，IC 可以作为自动化频率分析的一种可靠方法。";
         this.infoURL = "https://wikipedia.org/wiki/Index_of_coincidence";
         this.inputType = "string";
         this.outputType = "number";
@@ -67,14 +67,14 @@ class IndexOfCoincidence extends Operation {
      * @returns {html}
      */
     present(ic) {
-        return `Index of Coincidence: ${ic}
-Normalized: ${ic * 26}
+        return `重合指数: ${ic}
+已归一化: ${ic * 26}
 <br><canvas id='chart-area'></canvas><br>
-- 0 represents complete randomness (all characters are unique), whereas 1 represents no randomness (all characters are identical).
-- English text generally has an IC of between 0.67 to 0.78.
-- 'Random' text is determined by the probability that each letter occurs the same number of times as another.
+- 0 代表完全随机性（所有字符都是唯一的），而 1 代表没有随机性（所有字符都相同）。
+- 英文文本的 IC 值通常在 0.67 到 0.78 之间。
+- “随机”文本由每个字母与另一个字母出现次数相同的概率决定。
 
-The graph shows the IC of the input data. A low IC generally means that the text is random, compressed or encrypted.
+该图表显示输入数据的 IC 值。较低的 IC 值通常意味着文本是随机的、压缩的或加密的。
 
 <script type='application/javascript'>
   var canvas = document.getElementById("chart-area"),
@@ -88,7 +88,7 @@ The graph shows the IC of the input data. A low IC generally means that the text
 
   CanvasComponents.drawScaleBar(canvas, ic, 0.25, [
     {
-      label: "English text",
+      label: "英文文本",
       min: 0.05,
       max: 0.08
     },

@@ -25,38 +25,38 @@ class Lorenz extends Operation {
 
         this.name = "Lorenz";
         this.module = "Bletchley";
-        this.description = "The Lorenz SZ40/42 cipher attachment was a WW2 German rotor cipher machine with twelve rotors which attached in-line between remote teleprinters.<br><br>It used the Vernam cipher with two groups of five rotors (named the psi(ψ) wheels and chi(χ) wheels at Bletchley Park) to create two pseudorandom streams of five bits, encoded in ITA2, which were XOR added to the plaintext. Two other rotors, dubbed the mu(μ) or motor wheels, could hold up the stepping of the psi wheels meaning they stepped intermittently.<br><br>Each rotor has a different number of cams/lugs around their circumference which could be set active or inactive changing the key stream.<br><br>Three models of the Lorenz are emulated, SZ40, SZ42a and SZ42b and three example wheel patterns (the lug settings) are included (KH, ZMUG & BREAM) with the option to set a custom set using the letter 'x' for active or '.' for an inactive lug.<br><br>The input can either be plaintext or ITA2 when sending and ITA2 when receiving.<br><br>To learn more, Virtual Lorenz, an online, browser based simulation of the Lorenz SZ40/42 is available at <a href='https://lorenz.virtualcolossus.co.uk' target='_blank'>lorenz.virtualcolossus.co.uk</a>.<br><br>A more detailed description of this operation can be found <a href='https://github.com/gchq/CyberChef/wiki/Lorenz-SZ' target='_blank'>here</a>.";
+        this.description = "Lorenz SZ40/42 密码机附件是二战时期德国的转子密码机，带有十二个转子，以内联方式连接在远程电传打字机之间。<br><br>它使用 Vernam 密码，带有两组五个转子（在布莱切利公园分别称为 psi(ψ) 轮和 chi(χ) 轮），以创建两个伪随机的五位比特流，以 ITA2 编码，并与明文进行异或运算。另外两个转子，称为 mu(μ) 或电机轮，可以保持 psi 轮的步进，意味着它们是间歇性步进的。<br><br>每个转子在其圆周周围具有不同数量的凸轮/突耳，可以设置为活动或非活动状态，从而改变密钥流。<br><br>模拟了三种型号的 Lorenz 密码机：SZ40、SZ42a 和 SZ42b，并包括了三种示例轮型模式（突耳设置）（KH、ZMUG 和 BREAM），可以选择使用字母 'x' 表示活动突耳，'.' 表示非活动突耳来设置自定义模式。<br><br>输入可以是发送时的明文或 ITA2，以及接收时的 ITA2。<br><br>要了解更多信息，请访问 Virtual Lorenz，这是一个在线的、基于浏览器的 Lorenz SZ40/42 模拟器：<a href='https://lorenz.virtualcolossus.co.uk' target='_blank'>lorenz.virtualcolossus.co.uk</a>。<br><br>关于此操作的更详细描述，请访问 <a href='https://github.com/gchq/CyberChef/wiki/Lorenz-SZ' target='_blank'>here</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Lorenz_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Model",
+                name: "型号",
                 type: "option",
                 value: ["SZ40", "SZ42a", "SZ42b"]
             },
             {
-                name: "Wheel Pattern",
+                name: "轮型模式",
                 type: "argSelector",
                 value: [
                     {
-                        name: "KH Pattern",
+                        name: "KH 模式",
                         off: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     },
                     {
-                        name: "ZMUG Pattern",
+                        name: "ZMUG 模式",
                         off: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     },
                     {
-                        name: "BREAM Pattern",
+                        name: "BREAM 模式",
                         off: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     },
                     {
-                        name: "No Pattern",
+                        name: "无模式",
                         off: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     },
                     {
-                        name: "Custom",
+                        name: "自定义",
                         on: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     }
                 ]
@@ -67,153 +67,153 @@ class Lorenz extends Operation {
                 value: false
             },
             {
-                name: "Mode",
+                name: "模式",
                 type: "argSelector",
                 value: [
                     {
-                        name: "Send",
+                        name: "发送",
                         on: [4],
                         off: [5]
                     },
                     {
-                        name: "Receive",
+                        name: "接收",
                         off: [4],
                         on: [5]
                     }
                 ]
             },
             {
-                name: "Input Type",
+                name: "输入类型",
                 type: "option",
                 value: ["Plaintext", "ITA2"]
             },
             {
-                name: "Output Type",
+                name: "输出类型",
                 type: "option",
                 value: ["Plaintext", "ITA2"]
             },
             {
-                name: "ITA2 Format",
+                name: "ITA2 格式",
                 type: "option",
                 value: ["5/8/9", "+/-/."]
             },
             {
-                name: "Ψ1 start (1-43)",
+                name: "Ψ1 起始位置 (1-43)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Ψ2 start (1-47)",
+                name: "Ψ2 起始位置 (1-47)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Ψ3 start (1-51)",
+                name: "Ψ3 起始位置 (1-51)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Ψ4 start (1-53)",
+                name: "Ψ4 起始位置 (1-53)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Ψ5 start (1-59)",
+                name: "Ψ5 起始位置 (1-59)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Μ37 start (1-37)",
+                name: "Μ37 起始位置 (1-37)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Μ61 start (1-61)",
+                name: "Μ61 起始位置 (1-61)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Χ1 start (1-41)",
+                name: "Χ1 起始位置 (1-41)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Χ2 start (1-31)",
+                name: "Χ2 起始位置 (1-31)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Χ3 start (1-29)",
+                name: "Χ3 起始位置 (1-29)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Χ4 start (1-26)",
+                name: "Χ4 起始位置 (1-26)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Χ5 start (1-23)",
+                name: "Χ5 起始位置 (1-23)",
                 type: "number",
                 value: 1
             },
             {
-                name: "Ψ1 lugs (43)",
+                name: "Ψ1 凸轮 (43)",
                 type: "string",
                 value: ".x...xx.x.x..xxx.x.x.xxxx.x.x.x.x.x..x.xx.x"
             },
             {
-                name: "Ψ2 lugs (47)",
+                name: "Ψ2 凸轮 (47)",
                 type: "string",
                 value: ".xx.x.xxx..x.x.x..x.xx.x.xxx.x....x.xx.x.x.x..x"
             },
             {
-                name: "Ψ3 lugs (51)",
+                name: "Ψ3 凸轮 (51)",
                 type: "string",
                 value: ".x.x.x..xxx....x.x.xx.x.x.x..xxx.x.x..x.x.xx..x.x.x"
             },
             {
-                name: "Ψ4 lugs (53)",
+                name: "Ψ4 凸轮 (53)",
                 type: "string",
                 value: ".xx...xxxxx.x.x.xx...x.xx.x.x..x.x.xx.x..x.x.x.x.x.x."
             },
             {
-                name: "Ψ5 lugs (59)",
+                name: "Ψ5 凸轮 (59)",
                 type: "string",
                 value: "xx...xx.x..x.xx.x...x.x.x.x.x.x.x.x.xx..xxxx.x.x...xx.x..x."
             },
             {
-                name: "Μ37 lugs (37)",
+                name: "Μ37 凸轮 (37)",
                 type: "string",
                 value: "x.x.x.x.x.x...x.x.x...x.x.x...x.x...."
             },
             {
-                name: "Μ61 lugs (61)",
+                name: "Μ61 凸轮 (61)",
                 type: "string",
                 value: ".xxxx.xxxx.xxx.xxxx.xx....xxx.xxxx.xxxx.xxxx.xxxx.xxx.xxxx..."
             },
             {
-                name: "Χ1 lugs (41)",
+                name: "Χ1 凸轮 (41)",
                 type: "string",
                 value: ".x...xxx.x.xxxx.x...x.x..xxx....xx.xxxx.."
             },
             {
-                name: "Χ2 lugs (31)",
+                name: "Χ2 凸轮 (31)",
                 type: "string",
                 value: "x..xxx...x.xxxx..xx..x..xx.xx.."
             },
             {
-                name: "Χ3 lugs (29)",
+                name: "Χ3 凸轮 (29)",
                 type: "string",
                 value: "..xx..x.xxx...xx...xx..xx.xx."
             },
             {
-                name: "Χ4 lugs (26)",
+                name: "Χ4 凸轮 (26)",
                 type: "string",
                 value: "xx..x..xxxx..xx.xxx....x.."
             },
             {
-                name: "Χ5 lugs (23)",
+                name: "Χ5 凸轮 (23)",
                 type: "string",
                 value: "xx..xx....xxxx.x..x.x.."
             }

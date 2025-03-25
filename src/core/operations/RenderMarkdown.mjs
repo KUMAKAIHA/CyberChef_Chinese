@@ -19,20 +19,20 @@ class RenderMarkdown extends Operation {
     constructor() {
         super();
 
-        this.name = "Render Markdown";
+        this.name = "渲染 Markdown";
         this.module = "Code";
-        this.description = "Renders input Markdown as HTML. HTML rendering is disabled to avoid XSS.";
+        this.description = "将输入的 Markdown 渲染为 HTML。为了避免 XSS，HTML 渲染已禁用。";
         this.infoURL = "https://wikipedia.org/wiki/Markdown";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Autoconvert URLs to links",
+                name: "自动将 URL 转换为链接",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Enable syntax highlighting",
+                name: "启用语法高亮",
                 type: "boolean",
                 value: true
             }

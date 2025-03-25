@@ -19,27 +19,27 @@ class ProtobufDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Protobuf Decode";
+        this.name = "Protobuf 解码";
         this.module = "Protobuf";
-        this.description = "Decodes any Protobuf encoded data to a JSON representation of the data using the field number as the field key.<br><br>If a .proto schema is defined, the encoded data will be decoded with reference to the schema. Only one message instance will be decoded. <br><br><u>Show Unknown Fields</u><br>When a schema is used, this option shows fields that are present in the input data but not defined in the schema.<br><br><u>Show Types</u><br>Show the type of a field next to its name. For undefined fields, the wiretype and example types are shown instead.";
+        this.description = "将任何 Protobuf 编码的数据解码为 JSON 格式，并使用字段编号作为字段键。<br><br>如果定义了 .proto schema，编码数据将参考该 schema 进行解码。仅解码一个消息实例。 <br><br><u>显示未知字段</u><br>当使用 schema 时，此选项显示输入数据中存在但未在 schema 中定义的字段。<br><br><u>显示类型</u><br>在其名称旁边显示字段的类型。对于未定义的字段，则显示 wiretype 和示例类型。";
         this.infoURL = "https://wikipedia.org/wiki/Protocol_Buffers";
         this.inputType = "ArrayBuffer";
         this.outputType = "JSON";
         this.args = [
             {
-                name: "Schema (.proto text)",
+                name: "Schema (.proto 文本)",
                 type: "text",
                 value: "",
                 rows: 8,
-                hint: "Drag and drop is enabled on this ingredient"
+                hint: "此功能支持拖拽操作"
             },
             {
-                name: "Show Unknown Fields",
+                name: "显示未知字段",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Show Types",
+                name: "显示类型",
                 type: "boolean",
                 value: false
             }
