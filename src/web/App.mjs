@@ -285,12 +285,12 @@ class App {
         // Add edit button to first category (Favourites)
         const favCat = document.querySelector("#categories a");
         favCat.appendChild(document.getElementById("edit-favourites"));
-        favCat.setAttribute("data-help-title", "Favourite operations");
-        favCat.setAttribute("data-help", `<p>This category displays your favourite operations.</p>
+        favCat.setAttribute("data-help-title", "收藏操作");
+        favCat.setAttribute("data-help", `<p>此分类显示您的收藏操作。</p>
         <ul>
-            <li><b>To add:</b> drag an operation over the Favourites category</li>
-            <li><b>To reorder:</b> Click on the 'Edit favourites' button and drag operations up and down in the list provided</li>
-            <li><b>To remove:</b> Click on the 'Edit favourites' button and hit the delete button next to the operation you want to remove</li>
+            <li><b>添加：</b> 将操作拖动到收藏分类</li>
+            <li><b>重新排序：</b> 点击“编辑收藏”按钮，并在提供的列表中上下拖动操作</li>
+            <li><b>移除：</b> 点击“编辑收藏”按钮，并点击要移除的操作旁边的删除按钮</li>
         </ul>`);
     }
 
@@ -387,8 +387,7 @@ class App {
             if (favourites[i] in this.operations) {
                 validFavs.push(favourites[i]);
             } else {
-                this.alert(`The operation "${Utils.escapeHtml(favourites[i])}" is no longer available. ` +
-                    "It has been removed from your favourites.");
+                this.alert(`操作"${Utils.escapeHtml(favourites[i])}" 不再可用，已从收藏中移除。`);
             }
         }
         return validFavs;
@@ -403,7 +402,7 @@ class App {
     saveFavourites(favourites) {
         if (!this.isLocalStorageAvailable()) {
             this.alert(
-                "Your security settings do not allow access to local storage so your favourites cannot be saved.",
+                "您的安全设置不允许访问本地存储，因此收藏操作无法保存。",
                 5000
             );
             return false;
@@ -434,7 +433,7 @@ class App {
         const favourites = JSON.parse(localStorage.favourites);
 
         if (favourites.indexOf(name) >= 0) {
-            this.alert(`'${name}' is already in your favourites`, 3000);
+            this.alert(`操作"${name}"已在收藏中`, 3000);
             return;
         }
 
@@ -650,7 +649,7 @@ class App {
 
         // const compareURL = `https://github.com/gchq/CyberChef/compare/v${prev.join(".")}...v${PKG_VERSION}`;
 
-        let compileInfo = `<a href='https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md'>Last build: ${timeSinceCompile.substr(0, 1).toUpperCase() + timeSinceCompile.substr(1)} ago</a>`;
+        let compileInfo = `<a href='https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md'>最后构建: ${timeSinceCompile} 前</a>`;
 
         if (window.compileMessage !== "") {
             compileInfo += " - " + window.compileMessage;
@@ -659,8 +658,8 @@ class App {
         const notice = document.getElementById("notice");
         notice.innerHTML = compileInfo;
         notice.setAttribute("title", Utils.stripHtmlTags(window.compileMessage));
-        notice.setAttribute("data-help-title", "Last build");
-        notice.setAttribute("data-help", "This live version of CyberChef is updated whenever new commits are added to the master branch of the CyberChef repository. It represents the latest, most up-to-date build of CyberChef.");
+        notice.setAttribute("data-help-title", "最后构建");
+        notice.setAttribute("data-help", "这个在线版本的CyberChef在master分支有新提交时自动更新，代表了最新最前沿的构建版本。");
     }
 
 

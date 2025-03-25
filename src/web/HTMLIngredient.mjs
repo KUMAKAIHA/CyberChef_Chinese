@@ -85,7 +85,7 @@ class HTMLIngredient {
                 </div>`;
                 break;
             case "toggleString":
-                html += `<div class="form-group input-group ing-wide" data-help-title="Multi-type ingredients" data-help="Selecting a data type from the dropdown will change how the ingredient is interpreted by the operation.">
+                html += `<div class="form-group input-group ing-wide" data-help-title="多类型选项" data-help="从下拉菜单中选择数据类型将改变操作对该参数的解析方式。">
                     <div class="toggle-string">
                         <label for="${this.id}"
                             ${this.hint ? `data-toggle="tooltip" title="${this.hint}"` : ""}
@@ -168,7 +168,7 @@ class HTMLIngredient {
                 break;
             case "populateOption":
             case "populateMultiOption":
-                html += `<div class="form-group ing-medium" data-help-title="Population dropdowns" data-help="Selecting a value from this dropdown will populate some of the other ingredients for this operation with pre-canned values.">
+                html += `<div class="form-group ing-medium" data-help-title="预设选项下拉菜单" data-help="从此下拉菜单中选择一个值将为该操作的其他部分填充预设值。">
                     <label for="${this.id}"
                         ${this.hint ? `data-toggle="tooltip" title="${this.hint}"` : ""}
                         class="bmd-label-floating">${this.name}</label>
@@ -217,7 +217,7 @@ class HTMLIngredient {
                             data-boundary="scrollParent"
                             aria-haspopup="true"
                             aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                            <span class="sr-only">切换下拉菜单</span>
                         </button>
                         <div class="dropdown-menu editable-option-menu">`;
                 for (i = 0; i < this.value.length; i++) {
@@ -248,7 +248,7 @@ class HTMLIngredient {
                             data-boundary="scrollParent"
                             aria-haspopup="true"
                             aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                            <span class="sr-only">切换下拉菜单</span>
                         </button>
                         <div class="dropdown-menu editable-option-menu">`;
                 for (i = 0; i < this.value.length; i++) {
@@ -275,7 +275,7 @@ class HTMLIngredient {
                 </div>`;
                 break;
             case "argSelector":
-                html += `<div class="form-group inline ing-medium" data-help-title="Ingredient selector" data-help="Selecting options in this dropdown will configure which operation ingredients are visible.">
+                html += `<div class="form-group inline ing-medium" data-help-title="参数选择器" data-help="在此下拉菜单中选择选项将配置显示的操作参数。">
                     <label for="${this.id}"
                         ${this.hint ? `data-toggle="tooltip" title="${this.hint}"` : ""}
                         class="bmd-label-floating inline">${this.name}</label>
