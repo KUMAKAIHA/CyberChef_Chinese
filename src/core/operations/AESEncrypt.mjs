@@ -20,27 +20,27 @@ class AESEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "AES Encrypt";
+        this.name = "AES 加密";
         this.module = "Ciphers";
-        this.description = "Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.<br><br><b>Key:</b> The following algorithms will be used based on the size of the key:<ul><li>16 bytes = AES-128</li><li>24 bytes = AES-192</li><li>32 bytes = AES-256</li></ul>You can generate a password-based key using one of the KDF operations.<br><br><b>IV:</b> The Initialization Vector should be 16 bytes long. If not entered, it will default to 16 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.";
+        this.description = "高级加密标准 (AES) 是美国联邦信息处理标准 (FIPS)。它是经过 5 年的流程，评估了 15 种竞争设计后选定的。<br><br><b>密钥:</b> 将根据密钥大小使用以下算法：<ul><li>16 字节 = AES-128</li><li>24 字节 = AES-192</li><li>32 字节 = AES-256</li></ul>您可以使用 KDF 操作之一生成基于密码的密钥。<br><br><b>IV（初始化向量）:</b> 初始化向量应为 16 字节长。如果未输入，则默认为 16 个空字节。<br><br><b>填充:</b> 在 CBC 和 ECB 模式下，将使用 PKCS#7 填充。";
         this.infoURL = "https://wikipedia.org/wiki/Advanced_Encryption_Standard";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始化向量 (IV)",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "argSelector",
                 "value": [
                     {
@@ -70,17 +70,17 @@ class AESEncrypt extends Operation {
                 ]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始数据", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["Hex", "原始数据"]
             },
             {
-                "name": "Additional Authenticated Data",
+                "name": "附加认证数据",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
@@ -104,12 +104,12 @@ class AESEncrypt extends Operation {
             aad = Utils.convertToByteString(args[5].string, args[5].option);
 
         if ([16, 24, 32].indexOf(key.length) < 0) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效的密钥长度: ${key.length} 字节
 
-The following algorithms will be used based on the size of the key:
-  16 bytes = AES-128
-  24 bytes = AES-192
-  32 bytes = AES-256`);
+将根据密钥大小使用以下算法：
+  16 字节 = AES-128
+  24 字节 = AES-192
+  32 字节 = AES-256`);
         }
 
         input = Utils.convertToByteString(input, inputType);
@@ -125,13 +125,13 @@ The following algorithms will be used based on the size of the key:
         if (outputType === "Hex") {
             if (mode === "GCM") {
                 return cipher.output.toHex() + "\n\n" +
-                    "Tag: " + cipher.mode.tag.toHex();
+                    "标签: " + cipher.mode.tag.toHex();
             }
             return cipher.output.toHex();
         } else {
             if (mode === "GCM") {
                 return cipher.output.getBytes() + "\n\n" +
-                    "Tag: " + cipher.mode.tag.getBytes();
+                    "标签: " + cipher.mode.tag.getBytes();
             }
             return cipher.output.getBytes();
         }

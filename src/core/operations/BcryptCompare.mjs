@@ -20,15 +20,15 @@ class BcryptCompare extends Operation {
     constructor() {
         super();
 
-        this.name = "Bcrypt compare";
+        this.name = "Bcrypt 比较";
         this.module = "Crypto";
-        this.description = "Tests whether the input matches the given bcrypt hash. To test multiple possible passwords, use the 'Fork' operation.";
+        this.description = "测试输入是否与给定的 Bcrypt 哈希值匹配。要测试多个可能的密码，请使用 'Fork' 操作。";
         this.infoURL = "https://wikipedia.org/wiki/Bcrypt";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Hash",
+                "name": "哈希值",
                 "type": "string",
                 "value": ""
             }
@@ -46,10 +46,10 @@ class BcryptCompare extends Operation {
         const match = await bcrypt.compare(input, hash, null, p => {
             // Progress callback
             if (isWorkerEnvironment())
-                self.sendStatusMessage(`Progress: ${(p * 100).toFixed(0)}%`);
+                self.sendStatusMessage(`进度: ${(p * 100).toFixed(0)}%`);
         });
 
-        return match ? "Match: " + input : "No match";
+        return match ? "匹配： " + input : "不匹配";
 
     }
 

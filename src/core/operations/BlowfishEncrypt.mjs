@@ -21,37 +21,37 @@ class BlowfishEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "Blowfish Encrypt";
+        this.name = "Blowfish 加密";
         this.module = "Ciphers";
-        this.description = "Blowfish is a symmetric-key block cipher designed in 1993 by Bruce Schneier and included in a large number of cipher suites and encryption products. AES now receives more attention.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.";
+        this.description = "Blowfish 是一种对称密钥分组密码，由 Bruce Schneier 于 1993 年设计，并包含在大量的密码套件和加密产品中。目前 AES 受到更多关注。<br><br><b>IV（初始化向量）:</b> 初始化向量应为 8 字节长。如果未输入，则默认为 8 个空字节。";
         this.infoURL = "https://wikipedia.org/wiki/Blowfish_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始化向量 (IV)",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["Raw", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }
@@ -71,13 +71,11 @@ class BlowfishEncrypt extends Operation {
             outputType = args[4];
 
         if (key.length < 4 || key.length > 56) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
-
-Blowfish's key length needs to be between 4 and 56 bytes (32-448 bits).`);
+            throw new OperationError(`无效的密钥长度：${key.length} 字节\n\nBlowfish 密钥长度必须在 4 到 56 字节（32-448 位）之间。`);
         }
 
         if (mode !== "ECB" && iv.length !== 8) {
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes. Expected 8 bytes.`);
+            throw new OperationError(`无效的初始化向量长度：${iv.length} 字节。应为 8 字节。`);
         }
 
         input = Utils.convertToByteString(input, inputType);

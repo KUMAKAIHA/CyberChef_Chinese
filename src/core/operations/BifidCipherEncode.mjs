@@ -19,15 +19,15 @@ class BifidCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bifid Cipher Encode";
+        this.name = "双密码编码";
         this.module = "Ciphers";
-        this.description = "The Bifid cipher is a cipher which uses a Polybius square in conjunction with transposition, which can be fairly difficult to decipher without knowing the alphabet keyword.";
+        this.description = "双密码是一种结合了波利比奥斯方阵和换位的密码，在不知道字母表关键词的情况下相当难以破译。";
         this.infoURL = "https://wikipedia.org/wiki/Bifid_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Keyword",
+                "name": "关键词",
                 "type": "string",
                 "value": ""
             }
@@ -54,7 +54,7 @@ class BifidCipherEncode extends Operation {
 
 
         if (!/^[A-Z]+$/.test(keywordStr) && keyword.length > 0)
-            throw new OperationError("The key must consist only of letters in the English alphabet");
+            throw new OperationError("密钥必须仅包含英文字母");
 
         const polybius = genPolybiusSquare(keywordStr);
 

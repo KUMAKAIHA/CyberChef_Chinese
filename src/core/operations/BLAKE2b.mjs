@@ -23,23 +23,23 @@ class BLAKE2b extends Operation {
 
         this.name = "BLAKE2b";
         this.module = "Hashing";
-        this.description = `Performs BLAKE2b hashing on the input.  
-        <br><br> BLAKE2b is a flavour of the BLAKE cryptographic hash function that is optimized for 64-bit platforms and produces digests of any size between 1 and 64 bytes.
-        <br><br> Supports the use of an optional key.`;
+        this.description = `对输入执行 BLAKE2b 哈希运算。  
+        <br><br> BLAKE2b 是 BLAKE 密码学哈希函数的一种变体，针对 64 位平台进行了优化，并可生成 1 到 64 字节之间任意大小的摘要。
+        <br><br> 支持使用可选密钥。`;
         this.infoURL = "https://wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2b_algorithm";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Size",
+                "name": "大小",
                 "type": "option",
                 "value": ["512", "384", "256", "160", "128"]
             }, {
-                "name": "Output Encoding",
+                "name": "输出编码",
                 "type": "option",
                 "value": ["Hex", "Base64", "Raw"]
             }, {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["UTF8", "Decimal", "Base64", "Hex", "Latin1"]
@@ -58,7 +58,7 @@ class BLAKE2b extends Operation {
         if (key.length === 0) {
             key = null;
         } else if (key.length > 64) {
-            throw new OperationError(["Key cannot be greater than 64 bytes", "It is currently " + key.length + " bytes."].join("\n"));
+            throw new OperationError(["密钥长度不能超过 64 字节", "当前长度为 " + key.length + " 字节。"].join("\n"));
         }
 
         input = new Uint8Array(input);
@@ -70,7 +70,7 @@ class BLAKE2b extends Operation {
             case "Raw":
                 return Utils.arrayBufferToStr(blakejs.blake2b(input, key, outSize / 8).buffer);
             default:
-                return new OperationError("Unsupported Output Type");
+                return new OperationError("不支持的输出类型");
         }
     }
 

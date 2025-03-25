@@ -21,13 +21,13 @@ class Bcrypt extends Operation {
 
         this.name = "Bcrypt";
         this.module = "Crypto";
-        this.description = "bcrypt is a password hashing function designed by Niels Provos and David Mazi\xe8res, based on the Blowfish cipher, and presented at USENIX in 1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, the iteration count (rounds) can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power.<br><br>Enter the password in the input to generate its hash.";
+        this.description = "bcrypt是由Niels Provos和David Mazieres设计的密码哈希函数，它基于Blowfish密码，并在1999年的USENIX上提出。除了使用盐来防止彩虹表攻击外，bcrypt还是一个自适应函数：随着时间的推移，可以增加迭代计数（轮数）使其速度变慢，从而即使计算能力不断增强，它仍然能够抵抗暴力搜索攻击。<br><br>在输入框中输入密码以生成其哈希值。";
         this.infoURL = "https://wikipedia.org/wiki/Bcrypt";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Rounds",
+                "name": "轮数",
                 "type": "number",
                 "value": 10
             }
@@ -46,7 +46,7 @@ class Bcrypt extends Operation {
         return await bcrypt.hash(input, salt, null, p => {
             // Progress callback
             if (isWorkerEnvironment())
-                self.sendStatusMessage(`Progress: ${(p * 100).toFixed(0)}%`);
+                self.sendStatusMessage(`进度: ${(p * 100).toFixed(0)}%`);
         });
 
     }

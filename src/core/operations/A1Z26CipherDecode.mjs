@@ -20,15 +20,15 @@ class A1Z26CipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "A1Z26 Cipher Decode";
+        this.name = "A1Z26 密码解码";
         this.module = "Ciphers";
-        this.description = "Converts alphabet order numbers into their corresponding  alphabet character.<br><br>e.g. <code>1</code> becomes <code>a</code> and <code>2</code> becomes <code>b</code>.";
+        this.description = "将字母顺序数字转换为其对应的字母字符。<br><br>例如，<code>1</code> 变为 <code>a</code>，<code>2</code> 变为 <code>b</code>。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: DELIM_OPTIONS
             }
@@ -37,27 +37,27 @@ class A1Z26CipherDecode extends Operation {
             {
                 pattern:  "^\\s*([12]?[0-9] )+[12]?[0-9]\\s*$",
                 flags:  "",
-                args:   ["Space"]
+                args:   ["空格"]
             },
             {
                 pattern:  "^\\s*([12]?[0-9],)+[12]?[0-9]\\s*$",
                 flags:  "",
-                args:   ["Comma"]
+                args:   ["逗号"]
             },
             {
                 pattern:  "^\\s*([12]?[0-9];)+[12]?[0-9]\\s*$",
                 flags:  "",
-                args:   ["Semi-colon"]
+                args:   ["分号"]
             },
             {
                 pattern:  "^\\s*([12]?[0-9]:)+[12]?[0-9]\\s*$",
                 flags:  "",
-                args:   ["Colon"]
+                args:   ["冒号"]
             },
             {
                 pattern:  "^\\s*([12]?[0-9]\\n)+[12]?[0-9]\\s*$",
                 flags:  "",
-                args:   ["Line feed"]
+                args:   ["换行符"]
             },
             {
                 pattern:  "^\\s*([12]?[0-9]\\r\\n)+[12]?[0-9]\\s*$",
@@ -83,7 +83,7 @@ class A1Z26CipherDecode extends Operation {
         let latin1 = "";
         for (let i = 0; i < bites.length; i++) {
             if (bites[i] < 1 || bites[i] > 26) {
-                throw new OperationError("Error: all numbers must be between 1 and 26.");
+                throw new OperationError("错误：所有数字必须在 1 到 26 之间。");
             }
             latin1 += Utils.chr(parseInt(bites[i], 10) + 96);
         }

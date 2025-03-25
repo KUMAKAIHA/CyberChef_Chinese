@@ -19,15 +19,15 @@ class AvroToJSON extends Operation {
     constructor() {
         super();
 
-        this.name = "Avro to JSON";
+        this.name = "Avro 转换为 JSON";
         this.module = "Serialise";
-        this.description = "Converts Avro encoded data into JSON.";
+        this.description = "将 Avro 编码的数据转换为 JSON。";
         this.infoURL = "https://wikipedia.org/wiki/Apache_Avro";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Force Valid JSON",
+                name: "强制输出有效 JSON",
                 type: "boolean",
                 value: true
             }
@@ -41,7 +41,7 @@ class AvroToJSON extends Operation {
      */
     run(input, args) {
         if (input.byteLength <= 0) {
-            throw new OperationError("Please provide an input.");
+            throw new OperationError("请提供输入。");
         }
 
         const forceJSON = args[0];
@@ -56,7 +56,7 @@ class AvroToJSON extends Operation {
                     result.push(obj);
                 })
                 .on("error", function () {
-                    reject(new OperationError("Error parsing Avro file."));
+                    reject(new OperationError("解析 Avro 文件时出错。"));
                 })
                 .on("end", function () {
                     if (forceJSON) {

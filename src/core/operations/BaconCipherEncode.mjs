@@ -21,30 +21,30 @@ class BaconCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bacon Cipher Encode";
+        this.name = "培根密码编码";
         this.module = "Default";
-        this.description = "Bacon's cipher or the Baconian cipher is a method of steganography devised by Francis Bacon in 1605. A message is concealed in the presentation of text, rather than its content.";
+        this.description = "培根密码是由弗朗西斯·培根于1605年设计的一种隐写术方法。消息被隐藏在文本的呈现方式中，而不是其内容中。";
         this.infoURL = "https://wikipedia.org/wiki/Bacon%27s_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Alphabet",
+                "name": "字母表",
                 "type": "option",
                 "value": Object.keys(BACON_ALPHABETS)
             },
             {
-                "name": "Translation",
+                "name": "转换",
                 "type": "option",
                 "value": BACON_TRANSLATIONS_FOR_ENCODING
             },
             {
-                "name": "Keep extra characters",
+                "name": "保留额外字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Invert Translation",
+                "name": "反转转换",
                 "type": "boolean",
                 "value": false
             }

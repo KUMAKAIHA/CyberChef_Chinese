@@ -18,15 +18,15 @@ class Argon2Compare extends Operation {
     constructor() {
         super();
 
-        this.name = "Argon2 compare";
+        this.name = "Argon2 比较";
         this.module = "Crypto";
-        this.description = "Tests whether the input matches the given Argon2 hash. To test multiple possible passwords, use the 'Fork' operation.";
+        this.description = "测试输入是否与给定的 Argon2 哈希匹配。要测试多个可能的密码，请使用“Fork”操作。";
         this.infoURL = "https://wikipedia.org/wiki/Argon2";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Encoded hash",
+                "name": "编码哈希",
                 "type": "string",
                 "value": ""
             }
@@ -47,9 +47,9 @@ class Argon2Compare extends Operation {
                 encoded
             });
 
-            return `Match: ${input}`;
+            return `匹配: ${input}`;
         } catch (err) {
-            return "No match";
+            return "不匹配";
         }
     }
 

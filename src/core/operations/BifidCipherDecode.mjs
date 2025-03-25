@@ -19,15 +19,15 @@ class BifidCipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bifid Cipher Decode";
+        this.name = "双密码解码";
         this.module = "Ciphers";
-        this.description = "The Bifid cipher is a cipher which uses a Polybius square in conjunction with transposition, which can be fairly difficult to decipher without knowing the alphabet keyword.";
+        this.description = "双密码是一种结合了波利比奥斯方阵和换位的密码，在不知道字母关键词的情况下可能很难解密。";
         this.infoURL = "https://wikipedia.org/wiki/Bifid_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Keyword",
+                "name": "关键词",
                 "type": "string",
                 "value": ""
             }

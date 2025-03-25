@@ -21,34 +21,34 @@ class AESKeyWrap extends Operation {
     constructor() {
         super();
 
-        this.name = "AES Key Wrap";
+        this.name = "AES 密钥封装";
         this.module = "Ciphers";
-        this.description = "A key wrapping algorithm defined in RFC3394, which is used to protect keys in untrusted storage or communications, using AES.<br><br>This algorithm uses an AES key (KEK: key-encryption key) and a 64-bit IV to encrypt 64-bit blocks.";
+        this.description = "RFC3394 中定义的密钥包装算法，用于在使用 AES 的情况下保护非信任存储或通信中的密钥。<br><br>此算法使用 AES 密钥（KEK：密钥加密密钥）和一个 64 位 IV 来加密 64 位块。";
         this.infoURL = "https://wikipedia.org/wiki/Key_wrap";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key (KEK)",
+                "name": "密钥 (KEK)",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始向量 (IV)",
                 "type": "toggleString",
                 "value": "a6a6a6a6a6a6a6a6",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["Hex", "原始数据"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["Hex", "原始数据"]
             },
         ];
     }
@@ -65,14 +65,14 @@ class AESKeyWrap extends Operation {
             outputType = args[3];
 
         if (kek.length !== 16 && kek.length !== 24 && kek.length !== 32) {
-            throw new OperationError("KEK must be either 16, 24, or 32 bytes (currently " + kek.length + " bytes)");
+            throw new OperationError("KEK 必须是 16、24 或 32 字节（当前为 " + kek.length + " 字节）");
         }
         if (iv.length !== 8) {
-            throw new OperationError("IV must be 8 bytes (currently " + iv.length + " bytes)");
+            throw new OperationError("IV 必须是 8 字节（当前为 " + iv.length + " 字节）");
         }
         const inputData = Utils.convertToByteString(input, inputType);
         if (inputData.length % 8 !== 0 || inputData.length < 16) {
-            throw new OperationError("input must be 8n (n>=2) bytes (currently " + inputData.length + " bytes)");
+            throw new OperationError("输入数据必须是 8n (n>=2) 字节（当前为 " + inputData.length + " 字节）");
         }
 
         const cipher = forge.cipher.createCipher("AES-ECB", kek);

@@ -27,67 +27,67 @@ class Bombe extends Operation {
 
         this.name = "Bombe";
         this.module = "Bletchley";
-        this.description = "Emulation of the Bombe machine used at Bletchley Park to attack Enigma, based on work by Polish and British cryptanalysts.<br><br>To run this you need to have a 'crib', which is some known plaintext for a chunk of the target ciphertext, and know the rotors used. (See the 'Bombe (multiple runs)' operation if you don't know the rotors.) The machine will suggest possible configurations of the Enigma. Each suggestion has the rotor start positions (left to right) and known plugboard pairs.<br><br>Choosing a crib: First, note that Enigma cannot encrypt a letter to itself, which allows you to rule out some positions for possible cribs. Secondly, the Bombe does not simulate the Enigma's middle rotor stepping. The longer your crib, the more likely a step happened within it, which will prevent the attack working. However, other than that, longer cribs are generally better. The attack produces a 'menu' which maps ciphertext letters to plaintext, and the goal is to produce 'loops': for example, with ciphertext ABC and crib CAB, we have the mappings A&lt;-&gt;C, B&lt;-&gt;A, and C&lt;-&gt;B, which produces a loop A-B-C-A. The more loops, the better the crib. The operation will output this: if your menu has too few loops or is too short, a large number of incorrect outputs will usually be produced. Try a different crib. If the menu seems good but the right answer isn't produced, your crib may be wrong, or you may have overlapped the middle rotor stepping - try a different crib.<br><br>Output is not sufficient to fully decrypt the data. You will have to recover the rest of the plugboard settings by inspection. And the ring position is not taken into account: this affects when the middle rotor steps. If your output is correct for a bit, and then goes wrong, adjust the ring and start position on the right-hand rotor together until the output improves. If necessary, repeat for the middle rotor.<br><br>By default this operation runs the checking machine, a manual process to verify the quality of Bombe stops, on each stop, discarding stops which fail. If you want to see how many times the hardware actually stops for a given input, disable the checking machine.<br><br>More detailed descriptions of the Enigma, Typex and Bombe operations <a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>can be found here</a>.";
+        this.description = "布莱切利园用于攻击 Enigma 密码机的 Bombe 机器的模拟，基于波兰和英国密码分析家的工作。<br><br>要运行此操作，你需要有一个“密文片段”（crib），即目标密文块的一些已知明文，并知道使用的转子。（如果你不知道转子，请参阅“Bombe (multiple runs)”操作。）该机器将建议 Enigma 的可能配置。每个建议都包含转子起始位置（从左到右）和已知的跳线板对。<br><br>选择密文片段：首先，请注意 Enigma 无法将字母加密为其自身，这使你可以排除一些可能的密文片段位置。其次，Bombe 不模拟 Enigma 的中间转子步进。你的密文片段越长，其中发生步进的可能性就越大，这将阻止攻击工作。但是，除此之外，较长的密文片段通常更好。该攻击产生一个“菜单”，该菜单将密文字母映射到明文，目标是产生“环路”：例如，对于密文 ABC 和密文片段 CAB，我们有映射 A&lt;-&gt;C、B&lt;-&gt;A 和 C&lt;-&gt;B，这产生一个环路 A-B-C-A。环路越多，密文片段越好。该操作将输出此内容：如果你的菜单环路太少或太短，通常会产生大量不正确的输出。尝试不同的密文片段。如果菜单看起来不错，但没有产生正确的答案，则你的密文片段可能不正确，或者你可能重叠了中间转子步进 - 请尝试不同的密文片段。<br><br>输出不足以完全解密数据。你必须通过检查来恢复其余的跳线板设置。并且没有考虑环位设置：这会影响中间转子何时步进。如果你的输出在一段时间内是正确的，然后出错，请同时调整右侧转子上的环和起始位置，直到输出改善。如有必要，对中间转子重复此操作。<br><br>默认情况下，此操作在每个停位上运行检查机，这是一个手动过程，用于验证 Bombe 停位的质量，并丢弃失败的停位。如果你想查看硬件对于给定输入实际停止了多少次，请禁用检查机。<br><br>有关 Enigma、Typex 和 Bombe 操作的更详细描述，<a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>请点击此处</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Bombe";
         this.inputType = "string";
         this.outputType = "JSON";
         this.presentType = "html";
         this.args = [
             {
-                name: "Model",
+                name: "模型",
                 type: "argSelector",
                 value: [
                     {
-                        name: "3-rotor",
+                        name: "3 转子",
                         off: [1]
                     },
                     {
-                        name: "4-rotor",
+                        name: "4 转子",
                         on: [1]
                     }
                 ]
             },
             {
-                name: "Left-most (4th) rotor",
+                name: "最左侧（第四）转子",
                 type: "editableOption",
                 value: ROTORS_FOURTH,
                 defaultIndex: 0
             },
             {
-                name: "Left-hand rotor",
+                name: "左侧转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 0
             },
             {
-                name: "Middle rotor",
+                name: "中间转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 1
             },
             {
-                name: "Right-hand rotor",
+                name: "右侧转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 2
             },
             {
-                name: "Reflector",
+                name: "反射器",
                 type: "editableOption",
                 value: REFLECTORS
             },
             {
-                name: "Crib",
+                name: "密文片段",
                 type: "string",
                 value: ""
             },
             {
-                name: "Crib offset",
+                name: "密文片段偏移量",
                 type: "number",
                 value: 0
             },
             {
-                name: "Use checking machine",
+                name: "使用检查机",
                 type: "boolean",
                 value: true
             }
@@ -101,7 +101,7 @@ class Bombe extends Operation {
      * @param {number} progress - Progress (as a float in the range 0..1)
      */
     updateStatus(nLoops, nStops, progress) {
-        const msg = `Bombe run with ${nLoops} loop${nLoops === 1 ? "" : "s"} in menu (2+ desirable): ${nStops} stops, ${Math.floor(100 * progress)}% done`;
+        const msg = `Bombe 运行，菜单中有 ${nLoops} 个环路（期望 2+）：${nStops} 个停位，完成 ${Math.floor(100 * progress)}%`;
         self.sendStatusMessage(msg);
     }
 
@@ -118,7 +118,7 @@ class Bombe extends Operation {
         const check = args[8];
         const rotors = [];
         for (let i=0; i<4; i++) {
-            if (i === 0 && model === "3-rotor") {
+            if (i === 0 && model === "3 转子") {
                 // No fourth rotor
                 continue;
             }
@@ -166,8 +166,8 @@ class Bombe extends Operation {
      * @returns {html}
      */
     present(output) {
-        let html = `Bombe run on menu with ${output.nLoops} loop${output.nLoops === 1 ? "" : "s"} (2+ desirable). Note: Rotor positions are listed left to right and start at the beginning of the crib, and ignore stepping and the ring setting. Some plugboard settings are determined. A decryption preview starting at the beginning of the crib and ignoring stepping is also provided.\n\n`;
-        html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Rotor stops</th>  <th>Partial plugboard</th>  <th>Decryption preview</th></tr>\n";
+        let html = `Bombe 在菜单上运行，环路数为 ${output.nLoops} 个${output.nLoops === 1 ? "" : "s"}（期望 2+）。注意：转子位置从左到右列出，从密文片段的开头开始，并忽略步进和环设置。确定了一些跳线板设置。还提供了从密文片段开头开始并忽略步进的解密预览。\n\n`;
+        html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>转子停位</th>  <th>部分跳线板</th>  <th>解密预览</th></tr>\n";
         for (const [setting, stecker, decrypt] of output.result) {
             html += `<tr><td>${setting}</td>  <td>${stecker}</td>  <td>${decrypt}</td></tr>\n`;
         }

@@ -22,47 +22,47 @@ class AddTextToImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Add Text To Image";
+        this.name = "向图像添加文本";
         this.module = "Image";
-        this.description = "Adds text onto an image.<br><br>Text can be horizontally or vertically aligned, or the position can be manually specified.<br>Variants of the Roboto font face are available in any size or colour.";
+        this.description = "向图片添加文本。<br><br>文本可以水平或垂直对齐，或者手动指定位置。<br>Roboto 字体有多种变体，可以设置任何尺寸或颜色。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Text",
+                name: "文本",
                 type: "string",
                 value: ""
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
-                value: ["None", "Left", "Center", "Right"]
+                value: ["无", "左", "居中", "右"]
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
-                value: ["None", "Top", "Middle", "Bottom"]
+                value: ["无", "顶端", "中间", "底端"]
             },
             {
-                name: "X position",
+                name: "X 坐标",
                 type: "number",
                 value: 0
             },
             {
-                name: "Y position",
+                name: "Y 坐标",
                 type: "number",
                 value: 0
             },
             {
-                name: "Size",
+                name: "大小",
                 type: "number",
                 value: 32,
                 min: 8
             },
             {
-                name: "Font face",
+                name: "字体",
                 type: "option",
                 value: [
                     "Roboto",
@@ -72,28 +72,28 @@ class AddTextToImage extends Operation {
                 ]
             },
             {
-                name: "Red",
+                name: "红色",
                 type: "number",
                 value: 255,
                 min: 0,
                 max: 255
             },
             {
-                name: "Green",
+                name: "绿色",
                 type: "number",
                 value: 255,
                 min: 0,
                 max: 255
             },
             {
-                name: "Blue",
+                name: "蓝色",
                 type: "number",
                 value: 255,
                 min: 0,
                 max: 255
             },
             {
-                name: "Alpha",
+                name: "透明度",
                 type: "number",
                 value: 255,
                 min: 0,

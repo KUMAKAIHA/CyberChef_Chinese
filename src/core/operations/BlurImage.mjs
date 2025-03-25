@@ -23,24 +23,24 @@ class BlurImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Blur Image";
+        this.name = "模糊图像";
         this.module = "Image";
-        this.description = "Applies a blur effect to the image.<br><br>Gaussian blur is much slower than fast blur, but produces better results.";
+        this.description = "对图像应用模糊效果。<br><br>高斯模糊比快速模糊慢得多，但效果更好。";
         this.infoURL = "https://wikipedia.org/wiki/Gaussian_blur";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Amount",
+                name: "强度",
                 type: "number",
                 value: 5,
                 min: 1
             },
             {
-                name: "Type",
+                name: "类型",
                 type: "option",
-                value: ["Fast", "Gaussian"]
+                value: ["快速", "高斯"]
             }
         ];
     }
@@ -54,25 +54,25 @@ class BlurImage extends Operation {
         const [blurAmount, blurType] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
             switch (blurType) {
-                case "Fast":
+                case "快速":
                     if (isWorkerEnvironment())
-                        self.sendStatusMessage("Fast blurring image...");
+                        self.sendStatusMessage("正在快速模糊图像...");
                     image.blur(blurAmount);
                     break;
-                case "Gaussian":
+                case "高斯":
                     if (isWorkerEnvironment())
-                        self.sendStatusMessage("Gaussian blurring image...");
+                        self.sendStatusMessage("正在高斯模糊图像...");
                     image = gaussianBlur(image, blurAmount);
                     break;
             }
@@ -85,7 +85,7 @@ class BlurImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error blurring image. (${err})`);
+            throw new OperationError(`模糊图像时出错。 (${err})`);
         }
     }
 
@@ -101,7 +101,7 @@ class BlurImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

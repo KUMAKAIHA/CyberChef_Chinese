@@ -18,9 +18,9 @@ class Adler32Checksum extends Operation {
     constructor() {
         super();
 
-        this.name = "Adler-32 Checksum";
+        this.name = "Adler-32 校验和";
         this.module = "Crypto";
-        this.description = "Adler-32 is a checksum algorithm which was invented by Mark Adler in 1995, and is a modification of the Fletcher checksum. Compared to a cyclic redundancy check of the same length, it trades reliability for speed (preferring the latter).<br><br>Adler-32 is more reliable than Fletcher-16, and slightly less reliable than Fletcher-32.";
+        this.description = "Adler-32 是一种校验和算法，由 Mark Adler 于 1995 年发明，是 Fletcher 校验和的改进版本。与相同长度的循环冗余校验相比，它牺牲了可靠性以换取速度（更偏向于后者）。<br><br>Adler-32 比 Fletcher-16 更可靠，但比 Fletcher-32 稍逊。";
         this.infoURL = "https://wikipedia.org/wiki/Adler-32";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

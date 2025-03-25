@@ -20,15 +20,15 @@ class Bzip2Decompress extends Operation {
     constructor() {
         super();
 
-        this.name = "Bzip2 Decompress";
+        this.name = "Bzip2 解压缩";
         this.module = "Compression";
-        this.description = "Decompresses data using the Bzip2 algorithm.";
+        this.description = "使用 Bzip2 算法解压缩数据。";
         this.infoURL = "https://wikipedia.org/wiki/Bzip2";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Use low-memory, slower decompression algorithm",
+                name: "使用低内存、较慢的解压缩算法",
                 type: "boolean",
                 value: false
             }
@@ -50,12 +50,12 @@ class Bzip2Decompress extends Operation {
     async run(input, args) {
         const [small] = args;
         if (input.byteLength <= 0) {
-            throw new OperationError("Please provide an input.");
+            throw new OperationError("请提供输入。");
         }
-        if (isWorkerEnvironment()) self.sendStatusMessage("Loading Bzip2...");
+        if (isWorkerEnvironment()) self.sendStatusMessage("正在加载 Bzip2...");
         return new Promise((resolve, reject) => {
             Bzip2().then(bzip2 => {
-                if (isWorkerEnvironment()) self.sendStatusMessage("Decompressing data...");
+                if (isWorkerEnvironment()) self.sendStatusMessage("正在解压缩数据...");
                 const inpArray = new Uint8Array(input);
                 const bzip2cc = bzip2.decompressBZ2(inpArray, small ? 1 : 0);
                 if (bzip2cc.error !== 0) {

@@ -19,9 +19,9 @@ class BcryptParse extends Operation {
     constructor() {
         super();
 
-        this.name = "Bcrypt parse";
+        this.name = "Bcrypt 解析";
         this.module = "Crypto";
-        this.description = "Parses a bcrypt hash to determine the number of rounds used, the salt, and the password hash.";
+        this.description = "解析 Bcrypt 哈希以确定使用的轮数、盐值和密码哈希。";
         this.infoURL = "https://wikipedia.org/wiki/Bcrypt";
         this.inputType = "string";
         this.outputType = "string";
@@ -35,12 +35,12 @@ class BcryptParse extends Operation {
      */
     async run(input, args) {
         try {
-            return `Rounds: ${bcrypt.getRounds(input)}
-Salt: ${bcrypt.getSalt(input)}
-Password hash: ${input.split(bcrypt.getSalt(input))[1]}
-Full hash: ${input}`;
+            return `轮数：${bcrypt.getRounds(input)}
+盐值：${bcrypt.getSalt(input)}
+密码哈希：${input.split(bcrypt.getSalt(input))[1]}
+完整哈希：${input}`;
         } catch (err) {
-            throw new OperationError("Error: " + err.toString());
+            throw new OperationError("错误：" + err.toString());
         }
     }
 

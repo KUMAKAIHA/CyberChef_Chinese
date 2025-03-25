@@ -29,72 +29,71 @@ const ioTypes = ["string", "byteArray", "number", "html", "ArrayBuffer", "BigNum
 const schema = {
     properties: {
         opName: {
-            description: "The operation name should be short but descriptive.",
+            description: "操作名称应该简短但具有描述性。",
             example: "URL Decode",
-            prompt: "Operation name",
+            prompt: "操作名称",
             type: "string",
             pattern: /^[\w\s-/().]+$/,
             required: true,
-            message: "Operation names should consist of letters, numbers or the following symbols: _-/()."
+            message: "操作名称应由字母、数字或以下符号组成： _-/()."
         },
         module: {
-            description: `Modules are used to group operations that rely on large libraries. Any operation that is not in the Default module will be loaded in dynamically when it is first called. All operations in the same module will also be loaded at this time. This system prevents the CyberChef web app from getting too bloated and taking a long time to load initially.
-If your operation does not rely on a library, just leave this blank and it will be added to the Default module. If it relies on the same library as other operations, enter the name of the module those operations are in. If it relies on a new large library, enter a new module name (capitalise the first letter).`,
+            description: `模块用于对依赖大型库的操作进行分组。 任何不在默认模块中的操作将在首次调用时动态加载。 同一模块中的所有操作也将在此时加载。 此系统可防止 CyberChef Web 应用程序过于臃肿并导致初始加载时间过长。\n如果您的操作不依赖于任何库，请留空，它将被添加到默认模块。 如果它依赖于与其他操作相同的库，请输入这些操作所在的模块名称。 如果它依赖于新的大型库，请输入新的模块名称（首字母大写）。`,
             example: "Crypto",
-            prompt: "Module",
+            prompt: "模块",
             type: "string",
             pattern: /^[A-Z][A-Za-z\d]+$/,
-            message: "Module names should start with a capital letter and not contain any spaces or symbols.",
+            message: "模块名称应以大写字母开头，并且不包含任何空格或符号。",
             default: "Default"
         },
         description: {
-            description: "The description should explain what the operation is and how it works. It can describe how the arguments should be entered and give examples of expected input and output. HTML markup is supported. Use <code> tags for examples. The description is scanned during searches, so include terms that are likely to be searched for when someone is looking for your operation.",
+            description: "描述应解释操作是什么以及它是如何工作的。 它可以描述如何输入参数，并提供预期输入和输出的示例。 支持 HTML 标记。 对示例使用 <code> 标签。 描述会在搜索期间被扫描，因此请包含在有人查找您的操作时可能搜索的术语。",
             example: "Converts URI/URL percent-encoded characters back to their raw values.<br><br>e.g. <code>%3d</code> becomes <code>=</code>",
-            prompt: "Description",
+            prompt: "描述",
             type: "string"
         },
         infoURL: {
-            description: "An optional URL for an external site can be added to give more information about the operation. Wikipedia links are often suitable. If linking to Wikipedia, use an international link (e.g. https://wikipedia.org/...) rather than a localised link (e.g. https://en.wikipedia.org/...).",
+            description: "可以添加指向外部站点的可选 URL，以提供有关操作的更多信息。 Wikipedia 链接通常是合适的。 如果链接到 Wikipedia，请使用国际链接（例如 https://wikipedia.org/...）而不是本地化链接（例如 https://en.wikipedia.org/...）。",
             example: "https://wikipedia.org/wiki/Percent-encoding",
-            prompt: "Information URL",
+            prompt: "信息 URL",
             type: "string",
         },
         inputType: {
-            description: `The input type defines how the input data will be presented to your operation. Check the project wiki for a full description of each type. The options are: ${ioTypes.join(", ")}.`,
+            description: `输入类型定义了输入数据将如何呈现给您的操作。 请查看项目 Wiki 以获取每种类型的完整描述。 选项包括：${ioTypes.join(", ")}。`,
             example: "string",
-            prompt: "Input type",
+            prompt: "输入类型",
             type: "string",
-            pattern: new RegExp(`^(${ioTypes.join("|")})$`),
+            pattern: new RegExp(`^(${ioTypes.join("|")})`),
             required: true,
-            message: `The input type should be one of: ${ioTypes.join(", ")}.`
+            message: `输入类型应为以下之一：${ioTypes.join(", ")}。`
         },
         outputType: {
-            description: `The output type tells CyberChef what sort of data you are returning from your operation. Check the project wiki for a full description of each type. The options are: ${ioTypes.join(", ")}.`,
+            description: `输出类型告诉 CyberChef 您从操作返回的数据类型。 请查看项目 Wiki 以获取每种类型的完整描述。 选项包括：${ioTypes.join(", ")}。`,
             example: "string",
-            prompt: "Output type",
+            prompt: "输出类型",
             type: "string",
-            pattern: new RegExp(`^(${ioTypes.join("|")})$`),
+            pattern: new RegExp(`^(${ioTypes.join("|")})`),
             required: true,
-            message: `The output type should be one of: ${ioTypes.join(", ")}.`
+            message: `输出类型应为以下之一：${ioTypes.join(", ")}。`
         },
         highlight: {
-            description: "If your operation does not change the length of the input in any way, we can enable highlighting. If it does change the length in a predictable way, we may still be able to enable highlighting and calculate the correct offsets. If this is not possible, we will disable highlighting for this operation.",
+            description: "如果您的操作不会以任何方式更改输入的长度，我们可以启用高亮显示。 如果它确实以可预测的方式更改了长度，我们仍然可能能够启用高亮显示并计算正确的偏移量。 如果不可能，我们将禁用此操作的高亮显示。",
             example: "true/false",
-            prompt: "Enable highlighting",
+            prompt: "启用高亮显示",
             type: "boolean",
             default: "false",
-            message: "Enter true or false to specify if highlighting should be enabled."
+            message: "输入 true 或 false 以指定是否应启用高亮显示。"
         },
         authorName: {
-            description: "Your name or username will be added to the @author tag for this operation.",
+            description: "您的姓名或用户名将添加到此操作的 @author 标签。",
             example: "n1474335",
-            prompt: "Username",
+            prompt: "用户名",
             type: "string"
         },
         authorEmail: {
-            description: "Your email address will also be added to the @author tag for this operation.",
+            description: "您的电子邮件地址也将添加到此操作的 @author 标签。",
             example: "n1474335@gmail.com",
-            prompt: "Email",
+            prompt: "电子邮件",
             type: "string"
         }
     }
@@ -106,7 +105,7 @@ for (const prop in schema.properties) {
     p.description = "\n" + colors.white(p.description) + colors.cyan("\nExample: " + p.example) + "\n" + colors.green(p.prompt);
 }
 
-console.log("\n\nThis script will generate a new operation template based on the information you provide. These values can be changed manually later.".yellow);
+console.log("\n\n此脚本将根据您提供的信息生成新的操作模板。 这些值稍后可以手动更改。".yellow);
 
 prompt.message = "";
 prompt.delimiter = ":".green;
@@ -115,7 +114,7 @@ prompt.start();
 
 prompt.get(schema, (err, result) => {
     if (err) {
-        console.log("\nExiting build script.");
+        console.log("\n退出构建脚本。");
         process.exit(0);
     }
 
@@ -212,19 +211,18 @@ export default ${moduleName};
 
     const filename = path.join(dir, `./${moduleName}.mjs`);
     if (fs.existsSync(filename)) {
-        console.log(`${filename} already exists. It has NOT been overwritten.`.red);
-        console.log("Choose a different operation name to avoid conflicts.");
+        console.log(`${filename} 已存在。 它没有被覆盖。`.red);
+        console.log("选择不同的操作名称以避免冲突。");
         process.exit(0);
     }
     fs.writeFileSync(filename, template);
 
-    console.log(`\nOperation template written to ${colors.green(filename)}`);
-    console.log(`\nNext steps:
-1. Add your operation to ${colors.green("src/core/config/Categories.json")}
-2. Write your operation code.
-3. Write tests in ${colors.green("tests/operations/tests/")}
-4. Run ${colors.cyan("npm run lint")} and ${colors.cyan("npm run test")}
-5. Submit a Pull Request to get your operation added to the official CyberChef repository.`);
+    console.log(`\n操作模板已写入 ${colors.green(filename)}`);
+    console.log(`\n下一步：
+1. 将您的操作添加到 ${colors.green("src/core/config/Categories.json")}
+2. 编写您的操作代码。
+3. 在 ${colors.green("tests/operations/tests/")} 中编写测试
+4. 运行 ${colors.cyan("npm run lint")} 和 ${colors.cyan("npm run test")}
+5. 提交 Pull Request 以将您的操作添加到官方 CyberChef 存储库。`);
 
 });
-

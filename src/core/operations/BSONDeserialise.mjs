@@ -19,9 +19,9 @@ class BSONDeserialise extends Operation {
     constructor() {
         super();
 
-        this.name = "BSON deserialise";
+        this.name = "BSON 反序列化";
         this.module = "Serialise";
-        this.description = "BSON is a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database. It is a binary form for representing simple data structures, associative arrays (called objects or documents in MongoDB), and various data types of specific interest to MongoDB. The name 'BSON' is based on the term JSON and stands for 'Binary JSON'.<br><br>Input data should be in a raw bytes format.";
+        this.description = "BSON 是一种计算机数据交换格式，主要用作 MongoDB 数据库中的数据存储和网络传输格式。它是一种二进制形式，用于表示简单的数据结构、关联数组（在 MongoDB 中称为对象或文档）以及 MongoDB 特别感兴趣的各种数据类型。“BSON”这个名称基于术语 JSON，代表“二进制 JSON”。<br><br>输入数据应为原始字节格式。";
         this.infoURL = "https://wikipedia.org/wiki/BSON";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
