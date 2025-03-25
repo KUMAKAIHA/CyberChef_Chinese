@@ -36,7 +36,7 @@ function main() {
         "正则表达式",
         "熵",
         "分支",
-        "魔法"
+        "Magic"
     ];
 
     const defaultOptions = {

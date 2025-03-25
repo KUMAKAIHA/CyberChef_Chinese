@@ -57,7 +57,7 @@ class JA4Fingerprint extends Operation {
                 return ja4.JA4_o;
             case "JA4 原始":
                 return ja4.JA4_r;
-            case "JA4 原始渲染":
+            case "JA4 原始数据渲染":
                 return ja4.JA4_ro;
             case "全部":
             default:

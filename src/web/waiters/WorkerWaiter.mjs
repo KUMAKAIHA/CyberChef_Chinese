@@ -469,7 +469,7 @@ class WorkerWaiter {
         if (typeof nextInput.inputNum === "string") nextInput.inputNum = parseInt(nextInput.inputNum, 10);
 
         log.debug(`Baking input ${nextInput.inputNum}.`);
-        this.manager.output.updateOutputMessage(`正在烘焙输入 ${nextInput.inputNum}...`, nextInput.inputNum, false);
+        this.manager.output.updateOutputMessage(`正在处理输入 ${nextInput.inputNum}...`, nextInput.inputNum, false);
         this.manager.output.updateOutputStatus("baking", nextInput.inputNum);
 
         this.chefWorkers[workerIdx].inputNum = nextInput.inputNum;
@@ -565,7 +565,7 @@ class WorkerWaiter {
     queueInputError(inputData) {
         this.loadingOutputs--;
         if (this.app.baking && inputData.bakeId === this.bakeId) {
-            this.manager.output.updateOutputError("排队烘焙输入时出错", inputData.inputNum, 0);
+            this.manager.output.updateOutputError("排队处理输入时出错", inputData.inputNum, 0);
 
             if (this.inputNums.length === 0) return;
 
@@ -619,7 +619,7 @@ class WorkerWaiter {
             this.app.bake(step);
 
             for (let i = 0; i < this.inputNums.length; i++) {
-                this.manager.output.updateOutputMessage(`输入 ${inputNums[i]} 尚未烘焙`, inputNums[i], false);
+                this.manager.output.updateOutputMessage(`输入 ${inputNums[i]} 尚未处理`, inputNums[i], false);
                 this.manager.output.updateOutputStatus("pending", inputNums[i]);
             }
 
@@ -838,12 +838,12 @@ class WorkerWaiter {
             const bakingStr = progress.baking.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
 
             let msg = "总数：" + totalStr;
-            msg += "<br>已烘焙：" + bakedStr;
+            msg += "<br>已处理：" + bakedStr;
 
             if (progress.pending > 0) {
-                msg += "<br>待烘焙：" + pendingStr;
+                msg += "<br>待处理：" + pendingStr;
             } else if (progress.baking > 0) {
-                msg += "<br>正在烘焙：" + bakingStr;
+                msg += "<br>正在处理：" + bakingStr;
             }
             bakeInfo.innerHTML = msg;
             bakeInfo.style.display = "";

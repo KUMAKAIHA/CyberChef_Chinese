@@ -5,7 +5,7 @@
  */
 
 /**
- * 用于处理烘焙过程计时的等待器。
+ * 用于处理处理过程计时的等待器。
  */
 class TimingWaiter {
 
@@ -55,7 +55,7 @@ class TimingWaiter {
     }
 
     /**
-     * 烘焙主要阶段的耗时
+     * 处理主要阶段的耗时
      *
      * @param {number} inputNum
      * @returns {number}
@@ -70,7 +70,7 @@ class TimingWaiter {
             !input.inputEncodingStart)
             return 0;
 
-        // 输入编码可能在烘焙触发之前发生，因此单独计算
+        // 输入编码可能在处理触发之前发生，因此单独计算
         const inputEncodingTotal = input.inputEncodingEnd - input.inputEncodingStart;
 
         let total = 0, outputDecodingTotal = 0;
@@ -94,7 +94,7 @@ class TimingWaiter {
     }
 
     /**
-     * 已完成烘焙的总耗时
+     * 已完成处理的总耗时
      *
      * @param {number} inputNum
      * @returns {number}
@@ -109,7 +109,7 @@ class TimingWaiter {
             !input.inputEncodingStart)
             return 0;
 
-        // 输入编码可能在烘焙触发之前发生，因此单独计算
+        // 输入编码可能在处理触发之前发生，因此单独计算
         const inputEncodingTotal = input.inputEncodingEnd - input.inputEncodingStart;
 
         let total = 0;

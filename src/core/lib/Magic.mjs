@@ -166,7 +166,7 @@ class Magic {
         }
 
         // Character encodings
-        const encodings = OperationConfig["Encode text"].args[0].value;
+        const encodings = OperationConfig["文本编码"].args[0].value;
 
         /**
          * Test character encodings and add them if they change the data.
@@ -194,8 +194,8 @@ class Magic {
             }
         };
 
-        await testEnc("Encode text");
-        await testEnc("Decode text");
+        await testEnc("文本编码");
+        await testEnc("文本解码");
 
         return results;
     }
