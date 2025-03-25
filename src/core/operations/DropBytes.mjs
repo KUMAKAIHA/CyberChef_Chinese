@@ -17,24 +17,24 @@ class DropBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "Drop bytes";
+        this.name = "丢弃字节";
         this.module = "Default";
-        this.description = "Cuts a slice of the specified number of bytes out of the data. Negative values are allowed.";
+        this.description = "从数据中截取指定字节数的部分。允许使用负值。";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Start",
+                "name": "起始位置",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Length",
+                "name": "长度",
                 "type": "number",
                 "value": 5
             },
             {
-                "name": "Apply to each line",
+                "name": "应用于每行",
                 "type": "boolean",
                 "value": false
             }

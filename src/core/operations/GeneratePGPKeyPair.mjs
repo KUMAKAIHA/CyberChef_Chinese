@@ -25,30 +25,30 @@ class GeneratePGPKeyPair extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate PGP Key Pair";
+        this.name = "生成 PGP 密钥对";
         this.module = "PGP";
-        this.description = `Generates a new public/private PGP key pair. Supports RSA and Eliptic Curve (EC) keys.<br><br>${cryptNotice}`;
+        this.description = `生成新的公钥/私钥 PGP 密钥对。支持 RSA 和椭圆曲线 (EC) 密钥。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key type",
+                "name": "密钥类型",
                 "type": "option",
                 "value": ["RSA-1024", "RSA-2048", "RSA-4096", "ECC-256", "ECC-384", "ECC-521"]
             },
             {
-                "name": "Password (optional)",
+                "name": "密码 (可选)",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Name (optional)",
+                "name": "名称 (可选)",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Email (optional)",
+                "name": "电子邮件 (可选)",
                 "type": "string",
                 "value": ""
             }
@@ -112,7 +112,7 @@ class GeneratePGPKeyPair extends Operation {
                 const publicKey = await promisify(signedKey.export_pgp_public.bind(signedKey))({});
                 resolve(privateKey + "\n" + publicKey.trim());
             } catch (err) {
-                reject(`Error whilst generating key pair: ${err}`);
+                reject(`生成密钥对时出错：${err}`);
             }
         });
     }

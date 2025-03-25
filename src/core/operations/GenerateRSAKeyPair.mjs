@@ -20,15 +20,15 @@ class GenerateRSAKeyPair extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate RSA Key Pair";
-        this.module = "Ciphers";
-        this.description = `Generate an RSA key pair with a given number of bits.<br><br>${cryptNotice}`;
+        this.name = "生成 RSA 密钥对";
+        this.module = "加密 / 编码";
+        this.description = `生成具有指定位数的 RSA 密钥对。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Key Length",
+                name: "RSA 密钥长度",
                 type: "option",
                 value: [
                     "1024",
@@ -37,7 +37,7 @@ class GenerateRSAKeyPair extends Operation {
                 ]
             },
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "PEM",

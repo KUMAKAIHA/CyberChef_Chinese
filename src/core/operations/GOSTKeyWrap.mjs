@@ -21,37 +21,37 @@ class GOSTKeyWrap extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Key Wrap";
+        this.name = "GOST 密钥封装";
         this.module = "Ciphers";
-        this.description = "A key wrapping algorithm for protecting keys in untrusted storage using one of the GOST block cipers.";
+        this.description = "使用 GOST 块密码之一保护非可信存储中密钥的密钥封装算法。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Key",
+                name: "密钥",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "User Key Material",
+                name: "用户密钥材料",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Input type",
+                name: "输入类型",
                 type: "option",
-                value: ["Raw", "Hex"]
+                value: ["原始数据", "Hex"]
             },
             {
-                name: "Output type",
+                name: "输出类型",
                 type: "option",
-                value: ["Hex", "Raw"]
+                value: ["Hex", "原始数据"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -74,7 +74,7 @@ class GOSTKeyWrap extends Operation {
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             },
             {
-                name: "Key wrapping",
+                name: "密钥封装方式",
                 type: "option",
                 value: ["NO", "CP", "SC"]
             }

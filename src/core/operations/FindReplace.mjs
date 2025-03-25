@@ -19,41 +19,41 @@ class FindReplace extends Operation {
     constructor() {
         super();
 
-        this.name = "Find / Replace";
+        this.name = "查找 / 替换";
         this.module = "Regex";
-        this.description = "Replaces all occurrences of the first string with the second.<br><br>Includes support for regular expressions (regex), simple strings and extended strings (which support \\n, \\r, \\t, \\b, \\f and escaped hex bytes using \\x notation, e.g. \\x00 for a null byte).";
+        this.description = "将第一个字符串的所有匹配项替换为第二个字符串。<br><br>支持正则表达式 (regex)、简单字符串和扩展字符串（支持 \\n、\\r、\\t、\\b、\\f 和使用 \\x 表示法的转义十六进制字节，例如 \\x00 代表空字节）。";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Find",
+                "name": "查找",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Regex", "Extended (\\n, \\t, \\x...)", "Simple string"]
+                "toggleValues": ["正则表达式", "扩展 (\\n, \\t, \\x...)", "简单字符串"]
             },
             {
-                "name": "Replace",
+                "name": "替换",
                 "type": "binaryString",
                 "value": ""
             },
             {
-                "name": "Global match",
+                "name": "全局匹配",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Case insensitive",
+                "name": "不区分大小写",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Multiline matching",
+                "name": "多行匹配",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Dot matches all",
+                "name": "点号匹配所有字符",
                 "type": "boolean",
                 "value": false
             }

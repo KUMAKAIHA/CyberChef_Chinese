@@ -24,22 +24,22 @@ class Colossus extends Operation {
      */
     constructor() {
         super();
-        this.name = "Colossus";
+        this.name = "科洛萨斯";
         this.module = "Bletchley";
-        this.description = "Colossus is the name of the world's first electronic computer. Ten Colossi were designed by Tommy Flowers and built at the Post Office Research Labs at Dollis Hill in 1943 during World War 2. They assisted with the breaking of the German Lorenz cipher attachment, a machine created to encipher communications between Hitler and his generals on the front lines.<br><br>To learn more, Virtual Colossus, an online, browser based simulation of a Colossus computer is available at <a href='https://virtualcolossus.co.uk' target='_blank'>virtualcolossus.co.uk</a>.<br><br>A more detailed description of this operation can be found <a href='https://github.com/gchq/CyberChef/wiki/Colossus' target='_blank'>here</a>.";
+        this.description = "科洛萨斯是世界上第一台电子计算机的名称。汤米·弗劳尔斯设计了十台科洛萨斯计算机，并在 1943 年二战期间于多利斯希尔的邮局研究实验室建造。它们协助破解了德国 Lorenz 密码机附件，这是一种为希特勒及其前线将军之间的通信加密而制造的机器。<br><br>要了解更多信息，请访问 <a href='https://virtualcolossus.co.uk' target='_blank'>virtualcolossus.co.uk</a>，Virtual Colossus 是一个在线的、基于浏览器的科洛萨斯计算机模拟器。<br><br>有关此操作的更详细描述，请访问 <a href='https://github.com/gchq/CyberChef/wiki/Colossus' target='_blank'>此处</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Colossus_computer";
         this.inputType = "string";
         this.outputType = "JSON";
         this.presentType = "html";
         this.args = [
             {
-                name: "Input",
+                name: "输入",
                 type: "label"
             },
             {
-                name: "Pattern",
+                name: "模式",
                 type: "option",
-                value: ["KH Pattern", "ZMUG Pattern", "BREAM Pattern"]
+                value: ["KH 模式", "ZMUG 模式", "BREAM 模式"]
             },
             {
                 name: "QBusZ",
@@ -57,43 +57,43 @@ class Colossus extends Operation {
                 value: ["", "Ψ", "ΔΨ"]
             },
             {
-                name: "Limitation",
+                name: "限制",
                 type: "option",
-                value: ["None", "Χ2", "Χ2 + P5", "X2 + Ψ1", "X2 + Ψ1 + P5"]
+                value: ["无", "Χ2", "Χ2 + P5", "X2 + Ψ1", "X2 + Ψ1 + P5"]
             },
             {
-                name: "K Rack Option",
+                name: "K 支架选项",
                 type: "argSelector",
                 value: [
                     {
-                        name: "Select Program",
+                        name: "选择程序",
                         on: [7],
                         off: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
                     },
                     {
-                        name: "Top Section - Conditional",
+                        name: "顶部区域 - 条件",
                         on: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
                         off: [7, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
                     },
                     {
-                        name: "Bottom Section - Addition",
+                        name: "底部区域 - 加法",
                         on: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
                         off: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
                     },
                     {
-                        name: "Advanced",
+                        name: "高级",
                         on: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
                         off: [7]
                     }
                 ]
             },
             {
-                name: "Program to run",
+                name: "要运行的程序",
                 type: "option",
-                value: ["", "Letter Count", "1+2=. (1+2 Break In, Find X1,X2)", "4=5=/1=2 (Given X1,X2 find X4,X5)", "/,5,U (Count chars to find X3)"]
+                value: ["", "字母计数", "1+2=. (1+2 突入, 查找 X1,X2)", "4=5=/1=2 (给定 X1,X2 查找 X4,X5)", "/,5,U (计数字符查找 X3)"]
             },
             {
-                name: "K Rack: Conditional",
+                name: "K 支架：条件",
                 type: "label"
             },
             {
@@ -217,12 +217,12 @@ class Colossus extends Operation {
                 value: ["", "1", "2", "3", "4", "5"]
             },
             {
-                name: "Negate All",
+                name: "全部取反",
                 type: "boolean",
                 value: false
             },
             {
-                name: "K Rack: Addition",
+                name: "K 支架：加法",
                 type: "label"
             },
             {
@@ -273,81 +273,81 @@ class Colossus extends Operation {
                 defaultIndex: 1
             },
             {
-                name: "Master Control Panel",
+                name: "主控制面板",
                 type: "label"
             },
             {
-                name: "Set Total",
+                name: "设置总数",
                 type: "number",
                 value: 0
             },
             {
-                name: "Fast Step",
+                name: "快速步进",
                 type: "option",
                 value: ["", "X1", "X2", "X3", "X4", "X5", "M37", "M61", "S1", "S2", "S3", "S4", "S5"]
             },
             {
-                name: "Slow Step",
+                name: "慢速步进",
                 type: "option",
                 value: ["", "X1", "X2", "X3", "X4", "X5", "M37", "M61", "S1", "S2", "S3", "S4", "S5"]
             },
             {
-                name: "Start Χ1",
+                name: "起始 Χ1",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Χ2",
+                name: "起始 Χ2",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Χ3",
+                name: "起始 Χ3",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Χ4",
+                name: "起始 Χ4",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Χ5",
+                name: "起始 Χ5",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start M61",
+                name: "起始 M61",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start M37",
+                name: "起始 M37",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Ψ1",
+                name: "起始 Ψ1",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Ψ2",
+                name: "起始 Ψ2",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Ψ3",
+                name: "起始 Ψ3",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Ψ4",
+                name: "起始 Ψ4",
                 type: "number",
                 value: 1
             },
             {
-                name: "Start Ψ5",
+                name: "起始 Ψ5",
                 type: "number",
                 value: 1
             }
@@ -568,10 +568,10 @@ class Colossus extends Operation {
      * @returns {html}
      */
     present(output) {
-        let html = "Colossus Printer\n\n";
+        let html = "科洛萨斯打印机\n\n";
         html += output.printout + "\n\n";
-        html += "Colossus Counters\n\n";
-        html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>C1</th>  <th>C2</th>  <th>C3</th>  <th>C4</th>  <th>C5</th></tr>\n";
+        html += "科洛萨斯计数器\n\n";
+        html += "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>计数器 1</th>  <th>计数器 2</th>  <th>计数器 3</th>  <th>计数器 4</th>  <th>计数器 5</th></tr>\n";
         html += "<tr>";
         for (const ct of output.counters) {
             html += `<td>${ct}</td>\n`;

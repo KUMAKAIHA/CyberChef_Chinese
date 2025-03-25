@@ -21,18 +21,18 @@ class ECDSAVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "ECDSA Verify";
+        this.name = "ECDSA 验证";
         this.module = "Ciphers";
-        this.description = "Verify a message against a signature and a public PEM encoded EC key.";
+        this.description = "使用 PEM 编码的 EC 公钥验证消息的签名。";
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
                 value: [
-                    "Auto",
+                    "自动",
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
@@ -40,7 +40,7 @@ class ECDSAVerify extends Operation {
                 ]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: [
                     "SHA-256",
@@ -51,12 +51,12 @@ class ECDSAVerify extends Operation {
                 ]
             },
             {
-                name: "ECDSA Public Key (PEM)",
+                name: "ECDSA 公钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN PUBLIC KEY-----"
             },
             {
-                name: "Message",
+                name: "消息",
                 type: "text",
                 value: ""
             }
@@ -73,7 +73,7 @@ class ECDSAVerify extends Operation {
         const [, mdAlgo, keyPem, msg] = args;
 
         if (keyPem.replace("-----BEGIN PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请提供公钥。");
         }
 
         // detect input format
@@ -110,7 +110,7 @@ class ECDSAVerify extends Operation {
         let signatureASN1Hex;
         switch (inputFormat) {
             case "Auto":
-                throw new OperationError("Signature format could not be detected");
+                throw new OperationError("无法检测签名格式");
             case "ASN.1 HEX":
                 signatureASN1Hex = input;
                 break;
@@ -124,10 +124,10 @@ class ECDSAVerify extends Operation {
             case "Raw JSON": {
                 if (!inputJson) inputJson = JSON.parse(input);
                 if (!inputJson.r) {
-                    throw new OperationError('No "r" value in the signature JSON');
+                    throw new OperationError('签名 JSON 中缺少 "r" 值');
                 }
                 if (!inputJson.s) {
-                    throw new OperationError('No "s" value in the signature JSON');
+                    throw new OperationError('签名 JSON 中缺少 "s" 值');
                 }
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.hexRSSigToASN1Sig(inputJson.r, inputJson.s);
                 break;
@@ -139,15 +139,15 @@ class ECDSAVerify extends Operation {
         const sig = new r.KJUR.crypto.Signature({ alg: internalAlgorithmName });
         const key = r.KEYUTIL.getKey(keyPem);
         if (key.type !== "EC") {
-            throw new OperationError("Provided key is not an EC key.");
+            throw new OperationError("提供的密钥不是 EC 密钥。");
         }
         if (!key.isPublic) {
-            throw new OperationError("Provided key is not a public key.");
+            throw new OperationError("提供的密钥不是公钥。");
         }
         sig.init(key);
         sig.updateString(msg);
         const result = sig.verify(signatureASN1Hex);
-        return result ? "Verified OK" : "Verification Failure";
+        return result ? "验证成功" : "验证失败";
     }
 }
 

@@ -21,14 +21,14 @@ class Filter extends Operation {
     constructor() {
         super();
 
-        this.name = "Filter";
+        this.name = "过滤";
         this.module = "Regex";
-        this.description = "Splits up the input using the specified delimiter and then filters each branch based on a regular expression.";
+        this.description = "使用指定分隔符拆分输入，并基于正则表达式过滤每个分支。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": INPUT_DELIM_OPTIONS
             },
@@ -38,7 +38,7 @@ class Filter extends Operation {
                 "value": ""
             },
             {
-                "name": "Invert condition",
+                "name": "反转条件",
                 "type": "boolean",
                 "value": false
             }

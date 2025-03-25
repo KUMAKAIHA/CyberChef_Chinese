@@ -5,15 +5,15 @@
  */
 
 /**
- * Waiter to handle timing of the baking process.
+ * 用于处理烘焙过程计时的等待器。
  */
 class TimingWaiter {
 
     /**
-     * TimingWaiter constructor.
+     * TimingWaiter 构造函数。
      *
-     * @param {App} app - The main view object for CyberChef.
-     * @param {Manager} manager - The CyberChef event manager.
+     * @param {App} app - CyberChef 的主视图对象。
+     * @param {Manager} manager - CyberChef 事件管理器。
      */
     constructor(app, manager) {
         this.app = app;
@@ -21,7 +21,7 @@ class TimingWaiter {
 
         this.inputs = {};
         /*
-            Inputs example:
+            输入示例：
             "1": {
                 "inputEncodingStart": 0,
                 "inputEncodingEnd": 0,
@@ -39,7 +39,7 @@ class TimingWaiter {
 
 
     /**
-     * Record the time for an input
+     * 记录输入的耗时
      *
      * @param {string} event
      * @param {number} inputNum
@@ -55,7 +55,7 @@ class TimingWaiter {
     }
 
     /**
-     * The duration of the main stages of a bake
+     * 烘焙主要阶段的耗时
      *
      * @param {number} inputNum
      * @returns {number}
@@ -63,14 +63,14 @@ class TimingWaiter {
     duration(inputNum) {
         const input = this.inputs[inputNum.toString()];
 
-        // If this input has not been encoded yet, we cannot calculate a time
+        // 如果此输入尚未编码，则无法计算时间
         if (!input ||
             !input.trigger ||
             !input.inputEncodingEnd ||
             !input.inputEncodingStart)
             return 0;
 
-        // input encoding can happen before a bake is triggered, so it is calculated separately
+        // 输入编码可能在烘焙触发之前发生，因此单独计算
         const inputEncodingTotal = input.inputEncodingEnd - input.inputEncodingStart;
 
         let total = 0, outputDecodingTotal = 0;
@@ -94,7 +94,7 @@ class TimingWaiter {
     }
 
     /**
-     * The total time for a completed bake
+     * 已完成烘焙的总耗时
      *
      * @param {number} inputNum
      * @returns {number}
@@ -102,14 +102,14 @@ class TimingWaiter {
     overallDuration(inputNum) {
         const input = this.inputs[inputNum.toString()];
 
-        // If this input has not been encoded yet, we cannot calculate a time
+        // 如果此输入尚未编码，则无法计算时间
         if (!input ||
             !input.trigger ||
             !input.inputEncodingEnd ||
             !input.inputEncodingStart)
             return 0;
 
-        // input encoding can happen before a bake is triggered, so it is calculated separately
+        // 输入编码可能在烘焙触发之前发生，因此单独计算
         const inputEncodingTotal = input.inputEncodingEnd - input.inputEncodingStart;
 
         let total = 0;
@@ -132,7 +132,7 @@ class TimingWaiter {
     }
 
     /**
-     * Prints out the time between stages
+     * 打印阶段之间的时间
      *
      * @param {number} inputNum
      * @returns {string}
@@ -153,7 +153,7 @@ class TimingWaiter {
     }
 
     /**
-     * Logs every interval
+     * 记录每个时间间隔
      *
      * @param {number} inputNum
      */

@@ -18,15 +18,15 @@ class FromModhex extends Operation {
     constructor() {
         super();
 
-        this.name = "From Modhex";
+        this.name = "从 Modhex 转换";
         this.module = "Default";
-        this.description = "Converts a modhex byte string back into its raw value.";
+        this.description = "将 Modhex 字节字符串转换回其原始值。";
         this.infoURL = "https://en.wikipedia.org/wiki/YubiKey#ModHex";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: FROM_MODHEX_DELIM_OPTIONS
             }
@@ -35,32 +35,32 @@ class FromModhex extends Operation {
             {
                 pattern: "^(?:[cbdefghijklnrtuv]{2})+$",
                 flags: "i",
-                args: ["None"]
+                args: ["无"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?: [cbdefghijklnrtuv]{2})*$",
                 flags: "i",
-                args: ["Space"]
+                args: ["空格"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?:,[cbdefghijklnrtuv]{2})*$",
                 flags: "i",
-                args: ["Comma"]
+                args: ["逗号"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?:;[cbdefghijklnrtuv]{2})*$",
                 flags: "i",
-                args: ["Semi-colon"]
+                args: ["分号"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?::[cbdefghijklnrtuv]{2})*$",
                 flags: "i",
-                args: ["Colon"]
+                args: ["冒号"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?:\\n[cbdefghijklnrtuv]{2})*$",
                 flags: "i",
-                args: ["Line feed"]
+                args: ["换行符"]
             },
             {
                 pattern: "^[cbdefghijklnrtuv]{2}(?:\\r\\n[cbdefghijklnrtuv]{2})*$",

@@ -19,15 +19,15 @@ class FromBase extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base";
+        this.name = "从 Base 转换";
         this.module = "Default";
-        this.description = "Converts a number to decimal from a given numerical base.";
+        this.description = "将一个给定进制的数字转换为十进制。";
         this.infoURL = "https://wikipedia.org/wiki/Radix";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Radix",
+                "name": "进制",
                 "type": "number",
                 "value": 36
             }
@@ -42,7 +42,7 @@ class FromBase extends Operation {
     run(input, args) {
         const radix = args[0];
         if (radix < 2 || radix > 36) {
-            throw new OperationError("Error: Radix argument must be between 2 and 36");
+            throw new OperationError("错误：进制参数必须在 2 到 36 之间");
         }
 
         const number = input.replace(/\s/g, "").split(".");

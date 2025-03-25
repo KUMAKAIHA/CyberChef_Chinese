@@ -22,9 +22,9 @@ class DitherImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Dither Image";
+        this.name = "图像抖动";
         this.module = "Image";
-        this.description = "Apply a dither effect to an image.";
+        this.description = "对图像应用抖动效果。";
         this.infoURL = "https://wikipedia.org/wiki/Dither";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -39,18 +39,18 @@ class DitherImage extends Operation {
      */
     async run(input, args) {
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Applying dither to image...");
+                self.sendStatusMessage("正在对图像应用抖动...");
             image.dither565();
 
             let imageBuffer;
@@ -61,7 +61,7 @@ class DitherImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error applying dither to image. (${err})`);
+            throw new OperationError(`对图像应用抖动时出错。(${err})`);
         }
     }
 
@@ -76,7 +76,7 @@ class DitherImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

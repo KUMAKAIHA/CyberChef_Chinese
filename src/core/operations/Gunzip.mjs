@@ -20,9 +20,9 @@ class Gunzip extends Operation {
     constructor() {
         super();
 
-        this.name = "Gunzip";
+        this.name = "Gunzip 解压缩";
         this.module = "Compression";
-        this.description = "Decompresses data which has been compressed using the deflate algorithm with gzip headers.";
+        this.description = "解压缩使用 gzip 头部以 deflate 算法压缩的数据。";
         this.infoURL = "https://wikipedia.org/wiki/Gzip";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";

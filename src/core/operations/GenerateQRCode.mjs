@@ -22,33 +22,33 @@ class GenerateQRCode extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate QR Code";
+        this.name = "生成 QR 码";
         this.module = "Image";
-        this.description = "Generates a Quick Response (QR) code from the input text.<br><br>A QR code is a type of matrix barcode (or two-dimensional barcode) first designed in 1994 for the automotive industry in Japan. A barcode is a machine-readable optical label that contains information about the item to which it is attached.";
+        this.description = "从输入文本生成快速响应 (QR) 码。<br><br>QR 码是一种矩阵条码（或二维条码），最初于 1994 年在日本为汽车工业设计。条码是一种机器可读的光学标签，包含有关其所附着物品的信息。";
         this.infoURL = "https://wikipedia.org/wiki/QR_code";
         this.inputType = "string";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Image Format",
+                "name": "图像格式",
                 "type": "option",
                 "value": ["PNG", "SVG", "EPS", "PDF"]
             },
             {
-                "name": "Module size (px)",
+                "name": "模块大小 (像素)",
                 "type": "number",
                 "value": 5,
                 "min": 1
             },
             {
-                "name": "Margin (num modules)",
+                "name": "边距 (模块数)",
                 "type": "number",
                 "value": 4,
                 "min": 0
             },
             {
-                "name": "Error correction",
+                "name": "纠错级别",
                 "type": "option",
                 "value": ["Low", "Medium", "Quartile", "High"],
                 "defaultIndex": 1
@@ -80,7 +80,7 @@ class GenerateQRCode extends Operation {
         if (format === "PNG") {
             const type = isImage(dataArray);
             if (!type) {
-                throw new OperationError("Invalid file type.");
+                throw new OperationError("无效的文件类型。");
             }
 
             return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

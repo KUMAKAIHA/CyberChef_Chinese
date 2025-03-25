@@ -20,21 +20,21 @@ class ChangeIPFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Change IP format";
+        this.name = "更改 IP 格式";
         this.module = "Default";
-        this.description = "Convert an IP address from one format to another, e.g. <code>172.20.23.54</code> to <code>ac141736</code>";
+        this.description = "将 IP 地址从一种格式转换为另一种格式，例如 <code>172.20.23.54</code> 转换为 <code>ac141736</code>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
+                "value": ["点分十进制", "十进制", "八进制", "十六进制"]
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
+                "value": ["点分十进制", "十进制", "八进制", "十六进制"]
             }
         ];
     }
@@ -78,7 +78,7 @@ class ChangeIPFormat extends Operation {
                     baIp = fromHex(lines[i]);
                     break;
                 default:
-                    throw new OperationError("Unsupported input IP format");
+                    throw new OperationError("不支持的输入 IP 格式");
             }
 
             let ddIp;
@@ -110,7 +110,7 @@ class ChangeIPFormat extends Operation {
                     output += hexIp + "\n";
                     break;
                 default:
-                    throw new OperationError("Unsupported output IP format");
+                    throw new OperationError("不支持的输出 IP 格式");
             }
         }
 

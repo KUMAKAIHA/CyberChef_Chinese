@@ -18,25 +18,25 @@ class DropNthBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "Drop nth bytes";
+        this.name = "丢弃第n个字节";
         this.module = "Default";
-        this.description = "Drops every nth byte starting with a given byte.";
+        this.description = "从指定的字节开始，丢弃每第n个字节。";
         this.infoURL = "";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Drop every",
+                name: "丢弃频率",
                 type: "number",
                 value: 4
             },
             {
-                name: "Starting at",
+                name: "起始位置",
                 type: "number",
                 value: 0
             },
             {
-                name: "Apply to each line",
+                name: "逐行应用",
                 type: "boolean",
                 value: false
             }
@@ -54,10 +54,10 @@ class DropNthBytes extends Operation {
         const eachLine = args[2];
 
         if (parseInt(n, 10) !== n || n <= 0) {
-            throw new OperationError("'Drop every' must be a positive integer.");
+            throw new OperationError("'丢弃频率' 必须是正整数。");
         }
         if (parseInt(start, 10) !== start || start < 0) {
-            throw new OperationError("'Starting at' must be a positive or zero integer.");
+            throw new OperationError("'起始位置' 必须是正整数或零。");
         }
 
         let offset = 0;

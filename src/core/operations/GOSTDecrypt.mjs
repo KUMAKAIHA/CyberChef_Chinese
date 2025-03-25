@@ -21,37 +21,37 @@ class GOSTDecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Decrypt";
+        this.name = "GOST 解密";
         this.module = "Ciphers";
-        this.description = "The GOST block cipher (Magma), defined in the standard GOST 28147-89 (RFC 5830), is a Soviet and Russian government standard symmetric key block cipher with a block size of 64 bits. The original standard, published in 1989, did not give the cipher any name, but the most recent revision of the standard, GOST R 34.12-2015 (RFC 7801, RFC 8891), specifies that it may be referred to as Magma. The GOST hash function is based on this cipher. The new standard also specifies a new 128-bit block cipher called Kuznyechik.<br><br>Developed in the 1970s, the standard had been marked 'Top Secret' and then downgraded to 'Secret' in 1990. Shortly after the dissolution of the USSR, it was declassified and it was released to the public in 1994. GOST 28147 was a Soviet alternative to the United States standard algorithm, DES. Thus, the two are very similar in structure.";
+        this.description = "GOST 分组密码 (Magma) 在标准 GOST 28147-89 (RFC 5830) 中定义，是苏联和俄罗斯政府标准的对称密钥分组密码，分组大小为 64 位。最初的标准于 1989 年发布，没有给该密码命名，但最新修订的标准 GOST R 34.12-2015 (RFC 7801, RFC 8891) 规定，它可以被称为 Magma。GOST 哈希函数基于此密码。新标准还规定了一种新的 128 位分组密码，称为 Kuznyechik。<br><br>该标准于 1970 年代开发，最初被标记为“绝密”，然后在 1990 年降级为“秘密”。在苏联解体后不久，它被解密，并于 1994 年公开发布。GOST 28147 是美国标准算法 DES 的苏联替代方案。因此，两者在结构上非常相似。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Key",
+                name: "密钥",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "IV",
+                name: "初始向量 (IV)",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Input type",
+                name: "输入类型",
                 type: "option",
-                value: ["Hex", "Raw"]
+                value: ["Hex", "原始数据"]
             },
             {
-                name: "Output type",
+                name: "输出类型",
                 type: "option",
-                value: ["Raw", "Hex"]
+                value: ["原始数据", "Hex"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -69,22 +69,22 @@ class GOSTDecrypt extends Operation {
                 ]
             },
             {
-                name: "sBox",
+                name: "S-Box",
                 type: "option",
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             },
             {
-                name: "Block mode",
+                name: "块模式",
                 type: "option",
                 value: ["ECB", "CFB", "OFB", "CTR", "CBC"]
             },
             {
-                name: "Key meshing mode",
+                name: "密钥网格模式",
                 type: "option",
                 value: ["NO", "CP"]
             },
             {
-                name: "Padding",
+                name: "填充",
                 type: "option",
                 value: ["NO", "PKCS5", "ZERO", "RANDOM", "BIT"]
             }

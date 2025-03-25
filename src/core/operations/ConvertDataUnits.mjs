@@ -17,20 +17,20 @@ class ConvertDataUnits extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert data units";
+        this.name = "转换数据单位";
         this.module = "Default";
-        this.description = "Converts a unit of data to another format.";
+        this.description = "将数据单位转换为另一种格式。";
         this.infoURL = "https://wikipedia.org/wiki/Orders_of_magnitude_(data)";
         this.inputType = "BigNumber";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Input units",
+                "name": "输入单位",
                 "type": "option",
                 "value": DATA_UNITS
             },
             {
-                "name": "Output units",
+                "name": "输出单位",
                 "type": "option",
                 "value": DATA_UNITS
             }
@@ -52,60 +52,60 @@ class ConvertDataUnits extends Operation {
 }
 
 const DATA_UNITS = [
-    "Bits (b)", "Nibbles", "Octets", "Bytes (B)",
-    "[Binary bits (2^n)]", "Kibibits (Kib)", "Mebibits (Mib)", "Gibibits (Gib)", "Tebibits (Tib)", "Pebibits (Pib)", "Exbibits (Eib)", "Zebibits (Zib)", "Yobibits (Yib)", "[/Binary bits (2^n)]",
-    "[Decimal bits (10^n)]", "Decabits", "Hectobits", "Kilobits (Kb)", "Megabits (Mb)", "Gigabits (Gb)", "Terabits (Tb)", "Petabits (Pb)", "Exabits (Eb)", "Zettabits (Zb)", "Yottabits (Yb)", "[/Decimal bits (10^n)]",
-    "[Binary bytes (8 x 2^n)]", "Kibibytes (KiB)", "Mebibytes (MiB)", "Gibibytes (GiB)", "Tebibytes (TiB)", "Pebibytes (PiB)", "Exbibytes (EiB)", "Zebibytes (ZiB)", "Yobibytes (YiB)", "[/Binary bytes (8 x 2^n)]",
-    "[Decimal bytes (8 x 10^n)]", "Kilobytes (KB)", "Megabytes (MB)", "Gigabytes (GB)", "Terabytes (TB)", "Petabytes (PB)", "Exabytes (EB)", "Zettabytes (ZB)", "Yottabytes (YB)", "[/Decimal bytes (8 x 10^n)]"
+    "比特 (b)", "半字节", "八位字节", "字节 (B)",
+    "[二进制位 (2^n)]", "千比特 (Kib)", "兆比特 (Mib)", "吉比特 (Gib)", "太比特 (Tib)", "拍比特 (Pib)", "艾比特 (Eib)", "泽比特 (Zib)", "尧比特 (Yib)", "[/二进制位 (2^n)]",
+    "[十进制位 (10^n)]", "十比特", "百比特", "千比特 (Kb)", "兆比特 (Mb)", "吉比特 (Gb)", "太比特 (Tb)", "拍比特 (Pb)", "艾比特 (Eb)", "泽比特 (Zb)", "尧比特 (Yb)", "[/十进制位 (10^n)]",
+    "[二进制字节 (8 x 2^n)]", "千字节 (KiB)", "兆字节 (MiB)", "吉字节 (GiB)", "太字节 (TiB)", "拍字节 (PiB)", "艾字节 (EiB)", "泽字节 (ZiB)", "尧字节 (YiB)", "[/二进制字节 (8 x 2^n)]",
+    "[十进制字节 (8 x 10^n)]", "千字节 (KB)", "兆字节 (MB)", "吉字节 (GB)", "太字节 (TB)", "拍字节 (PB)", "艾字节 (EB)", "泽字节 (ZB)", "尧字节 (YB)", "[/十进制字节 (8 x 10^n)]"
 ];
 
 const DATA_FACTOR = { // Multiples of a bit
-    "Bits (b)":        1,
-    "Nibbles":         4,
-    "Octets":          8,
-    "Bytes (B)":       8,
+    "比特 (b)":        1,
+    "半字节":         4,
+    "八位字节":          8,
+    "字节 (B)":       8,
 
     // Binary bits (2^n)
-    "Kibibits (Kib)":  1024,
-    "Mebibits (Mib)":  1048576,
-    "Gibibits (Gib)":  1073741824,
-    "Tebibits (Tib)":  1099511627776,
-    "Pebibits (Pib)":  1125899906842624,
-    "Exbibits (Eib)":  1152921504606846976,
-    "Zebibits (Zib)":  1180591620717411303424,
-    "Yobibits (Yib)":  1208925819614629174706176,
+    "千比特 (Kib)":  1024,
+    "兆比特 (Mib)":  1048576,
+    "吉比特 (Gib)":  1073741824,
+    "太比特 (Tib)":  1099511627776,
+    "拍比特 (Pib)":  1125899906842624,
+    "艾比特 (Eib)":  1152921504606846976,
+    "泽比特 (Zib)":  1180591620717411303424,
+    "尧比特 (Yib)":  1208925819614629174706176,
 
     // Decimal bits (10^n)
-    "Decabits":        10,
-    "Hectobits":       100,
-    "Kilobits (Kb)":   1e3,
-    "Megabits (Mb)":   1e6,
-    "Gigabits (Gb)":   1e9,
-    "Terabits (Tb)":   1e12,
-    "Petabits (Pb)":   1e15,
-    "Exabits (Eb)":    1e18,
-    "Zettabits (Zb)":  1e21,
-    "Yottabits (Yb)":  1e24,
+    "十比特":        10,
+    "百比特":       100,
+    "千比特 (Kb)":   1e3,
+    "兆比特 (Mb)":   1e6,
+    "吉比特 (Gb)":   1e9,
+    "太比特 (Tb)":   1e12,
+    "拍比特 (Pb)":   1e15,
+    "艾比特 (Eb)":    1e18,
+    "泽比特 (Zb)":  1e21,
+    "尧比特 (Yb)":  1e24,
 
     // Binary bytes (8 x 2^n)
-    "Kibibytes (KiB)": 8192,
-    "Mebibytes (MiB)": 8388608,
-    "Gibibytes (GiB)": 8589934592,
-    "Tebibytes (TiB)": 8796093022208,
-    "Pebibytes (PiB)": 9007199254740992,
-    "Exbibytes (EiB)": 9223372036854775808,
-    "Zebibytes (ZiB)": 9444732965739290427392,
-    "Yobibytes (YiB)": 9671406556917033397649408,
+    "千字节 (KiB)": 8192,
+    "兆字节 (MiB)": 8388608,
+    "吉字节 (GiB)": 8589934592,
+    "太字节 (TiB)": 8796093022208,
+    "拍字节 (PiB)": 9007199254740992,
+    "艾字节 (EiB)": 9223372036854775808,
+    "泽字节 (ZiB)": 9444732965739290427392,
+    "尧字节 (YiB)": 9671406556917033397649408,
 
     // Decimal bytes (8 x 10^n)
-    "Kilobytes (KB)":  8e3,
-    "Megabytes (MB)":  8e6,
-    "Gigabytes (GB)":  8e9,
-    "Terabytes (TB)":  8e12,
-    "Petabytes (PB)":  8e15,
-    "Exabytes (EB)":   8e18,
-    "Zettabytes (ZB)": 8e21,
-    "Yottabytes (YB)": 8e24,
+    "千字节 (KB)":  8e3,
+    "兆字节 (MB)":  8e6,
+    "吉字节 (GB)":  8e9,
+    "太字节 (TB)":  8e12,
+    "拍字节 (PB)":  8e15,
+    "艾字节 (EB)":   8e18,
+    "泽字节 (ZB)": 8e21,
+    "尧字节 (YB)": 8e24,
 };
 
 

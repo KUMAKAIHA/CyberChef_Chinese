@@ -19,45 +19,45 @@ class DateTimeDelta extends Operation {
     constructor() {
         super();
 
-        this.name = "DateTime Delta";
-        this.module = "Default";
-        this.description = "Calculates a new DateTime value given an input DateTime value and a time difference (delta) from the input DateTime value.";
+        this.name = "日期时间差";
+        this.module = "日期 / 时间";
+        this.description = "根据输入的日期时间值和时间差值（增量）计算新的日期时间值。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Built in formats",
+                "name": "内置格式",
                 "type": "populateOption",
                 "value": DATETIME_FORMATS,
                 "target": 1
             },
             {
-                "name": "Input format string",
+                "name": "输入格式字符串",
                 "type": "binaryString",
                 "value": "DD/MM/YYYY HH:mm:ss"
             },
             {
-                "name": "Time Operation",
+                "name": "时间操作",
                 "type": "option",
-                "value": ["Add", "Subtract"]
+                "value": ["添加", "减去"]
             },
             {
-                "name": "Days",
+                "name": "天",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Hours",
+                "name": "小时",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Minutes",
+                "name": "分钟",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Seconds",
+                "name": "秒",
                 "type": "number",
                 "value": 0
             }
@@ -85,7 +85,7 @@ class DateTimeDelta extends Operation {
             date = moment.tz(input, inputFormat, inputTimezone);
             if (!date || date.format() === "Invalid date") throw Error;
         } catch (err) {
-            return `Invalid format.\n\n${FORMAT_EXAMPLES}`;
+            return `无效的格式。\n\n${FORMAT_EXAMPLES}`;
         }
         let newDate;
         if (operationType === "Add") {

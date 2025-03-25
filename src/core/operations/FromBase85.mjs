@@ -20,25 +20,25 @@ class FromBase85 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base85";
+        this.name = "从 Base85 转换";
         this.module = "Default";
-        this.description = "Base85 (also called Ascii85) is a notation for encoding arbitrary byte data. It is usually more efficient that Base64.<br><br>This operation decodes data from an ASCII string (with an alphabet of your choosing, presets included).<br><br>e.g. <code>BOu!rD]j7BEbo7</code> becomes <code>hello world</code><br><br>Base85 is commonly used in Adobe's PostScript and PDF file formats.";
+        this.description = "Base85（也称为 Ascii85）是一种用于编码任意字节数据的表示法。它通常比 Base64 更高效。<br><br>此操作从 ASCII 字符串（使用您选择的字母表，包含预设）解码数据。<br><br>例如：<code>BOu!rD]j7BEbo7</code> 转换为 <code>hello world</code><br><br>Base85 通常用于 Adobe 的 PostScript 和 PDF 文件格式。";
         this.infoURL = "https://wikipedia.org/wiki/Ascii85";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字母表",
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除非字母表字符",
                 type: "boolean",
                 value: true
             },
             {
-                name: "All-zero group char",
+                name: "全零组字符",
                 type: "binaryShortString",
                 value: "z",
                 maxLength: 1
@@ -101,7 +101,7 @@ class FromBase85 extends Operation {
 
         // Remove non-alphabet characters
         if (removeNonAlphChars) {
-            const re = new RegExp("[^~" + allZeroGroupChar +alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
+            const re = new RegExp("[^~" + allZeroGroupChar +alphabet.replace(/[[\]\\\-^$]/g, "\\{{input}}") + "]", "g");
             input = input.replace(re, "");
             // Remove delimiters again if present (incase of non-alphabet characters in front/behind delimiters)
             const matches = input.match(/^<~(.+?)~>$/);

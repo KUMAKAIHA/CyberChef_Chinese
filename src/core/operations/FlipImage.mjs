@@ -22,18 +22,18 @@ class FlipImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Flip Image";
+        this.name = "翻转图像";
         this.module = "Image";
-        this.description = "Flips an image along its X or Y axis.";
+        this.description = "沿 X 轴或 Y 轴翻转图像。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Axis",
+                name: "轴向",
                 type: "option",
-                value: ["Horizontal", "Vertical"]
+                value: ["水平", "垂直"]
             }
         ];
     }
@@ -46,23 +46,23 @@ class FlipImage extends Operation {
     async run(input, args) {
         const [flipAxis] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid input file type.");
+            throw new OperationError("无效的输入文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Flipping image...");
+                self.sendStatusMessage("正在翻转图像...");
             switch (flipAxis) {
-                case "Horizontal":
+                case "水平":
                     image.flip(true, false);
                     break;
-                case "Vertical":
+                case "垂直":
                     image.flip(false, true);
                     break;
             }
@@ -75,7 +75,7 @@ class FlipImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error flipping image. (${err})`);
+            throw new OperationError(`翻转图像时出错。 (${err})`);
         }
     }
 
@@ -90,7 +90,7 @@ class FlipImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

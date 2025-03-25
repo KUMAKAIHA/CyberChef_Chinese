@@ -18,14 +18,14 @@ class ExtractDates extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract dates";
+        this.name = "提取日期";
         this.module = "Regex";
-        this.description = "Extracts dates in the following formats<ul><li><code>yyyy-mm-dd</code></li><li><code>dd/mm/yyyy</code></li><li><code>mm/dd/yyyy</code></li></ul>Dividers can be any of /, -, . or space";
+        this.description = "提取以下格式的日期：<ul><li><code>yyyy-mm-dd</code></li><li><code>dd/mm/yyyy</code></li><li><code>mm/dd/yyyy</code></li></ul>分隔符可以是 /, -, . 或空格";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Display total",
+                "name": "显示总数",
                 "type": "boolean",
                 "value": false
             }

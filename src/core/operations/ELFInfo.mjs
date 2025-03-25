@@ -20,9 +20,9 @@ class ELFInfo extends Operation {
     constructor() {
         super();
 
-        this.name = "ELF Info";
+        this.name = "ELF 信息";
         this.module = "Default";
-        this.description = "Implements readelf-like functionality. This operation will extract the ELF Header, Program Headers, Section Headers and Symbol Table for an ELF file.";
+        this.description = "实现类似 readelf 的功能。此操作将提取 ELF 文件的 ELF 头部、程序头部、节区头部和符号表。";
         this.infoURL = "https://www.wikipedia.org/wiki/Executable_and_Linkable_Format";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -122,7 +122,7 @@ class ELFInfo extends Operation {
             ehResult.push("Format:".padEnd(align) + `${format === 1 ? "32-bit" : "64-bit"}`);
 
             endianness = stream.readInt(1) === 1 ? "le" : "be";
-            ehResult.push("Endianness:".padEnd(align) + `${endianness === "le" ? "Little" : "Big"}`);
+            ehResult.push("Endianness:".padEnd(align) + `${endianness === "le" ? "小端序" : "大端序"}`);
 
             ehResult.push("Version:".padEnd(align) + `${stream.readInt(1).toString()}`);
 
@@ -882,22 +882,22 @@ class ELFInfo extends Operation {
 
         input = new Uint8Array(input);
         const stream = new Stream(input);
-        const result = ["=".repeat(align) + " ELF Header " + "=".repeat(align)];
+        const result = ["=".repeat(align) + " ELF 头部 " + "=".repeat(align)];
         result.push(elfHeader(stream) + "\n");
 
         getNamesOffset(stream);
 
-        result.push("=".repeat(align) + " Program Header " + "=".repeat(align));
+        result.push("=".repeat(align) + " 程序头部 " + "=".repeat(align));
         stream.moveTo(phoff);
         for (let i = 0; i < phEntries; i++)
             result.push(programHeader(stream) + "\n");
 
-        result.push("=".repeat(align) + " Section Header " + "=".repeat(align));
+        result.push("=".repeat(align) + " 节区头部 " + "=".repeat(align));
         stream.moveTo(shoff);
         for (let i = 0; i < shEntries; i++)
             result.push(sectionHeader(stream) + "\n");
 
-        result.push("=".repeat(align) + " Symbol Table " + "=".repeat(align));
+        result.push("=".repeat(align) + " 符号表 " + "=".repeat(align));
 
         stream.moveTo(symtabOffset);
         let elem = "";

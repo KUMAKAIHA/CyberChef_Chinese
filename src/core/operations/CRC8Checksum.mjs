@@ -20,15 +20,15 @@ class CRC8Checksum extends Operation {
     constructor() {
         super();
 
-        this.name = "CRC-8 Checksum";
+        this.name = "CRC-8 校验和";
         this.module = "Crypto";
-        this.description = "A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.<br><br>The CRC was invented by W. Wesley Peterson in 1961.";
+        this.description = "循环冗余校验码 (CRC) 是一种错误检测码，常用于数字网络和存储设备中，以检测原始数据的意外更改。<br><br>CRC 由 W. Wesley Peterson 于 1961 年发明。";
         this.infoURL = "https://wikipedia.org/wiki/Cyclic_redundancy_check";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Algorithm",
+                "name": "算法",
                 "type": "option",
                 "value": [
                     "CRC-8",
@@ -149,7 +149,7 @@ class CRC8Checksum extends Operation {
             case "CRC-8/WCDMA":
                 return this.calculateCRC8(input, 0x9B, 0x0, true, true, 0x0);
             default:
-                throw new OperationError("Unknown checksum algorithm");
+                throw new OperationError("未知的校验和算法");
         }
     }
 }

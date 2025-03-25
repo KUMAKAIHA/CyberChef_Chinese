@@ -19,9 +19,9 @@ class ExtractIPAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract IP addresses";
+        this.name = "提取 IP 地址";
         this.module = "Regex";
-        this.description = "Extracts all IPv4 and IPv6 addresses.<br><br>Warning: Given a string <code>710.65.0.456</code>, this will match <code>10.65.0.45</code> so always check the original input!";
+        this.description = "提取所有 IPv4 和 IPv6 地址。<br><br>警告：如果输入字符串为 <code>710.65.0.456</code>，则会匹配到 <code>10.65.0.45</code>，请务必检查原始输入！";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
@@ -36,22 +36,22 @@ class ExtractIPAddresses extends Operation {
                 value: false
             },
             {
-                name: "Remove local IPv4 addresses",
+                name: "移除本地 IPv4 地址",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -97,7 +97,7 @@ class ExtractIPAddresses extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总共找到：${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

@@ -195,12 +195,12 @@ class BindingsWaiter {
             <td>Ctrl+${modMac}+o</td>
         </tr>
         <tr>
-            <td>将光标置于配方中下一个操作的第一个参数栏</td>
+            <td>将光标置于配方中下一个操作的首个参数栏</td>
             <td>Ctrl+${modWinLin}+.</td>
             <td>Ctrl+${modMac}+.</td>
         </tr>
         <tr>
-            <td>将光标置于配方中第n个操作的第一个参数栏</td>
+            <td>将光标置于配方中第n个操作的首个参数栏</td>
             <td>Ctrl+${modWinLin}+[1-9]</td>
             <td>Ctrl+${modMac}+[1-9]</td>
         </tr>

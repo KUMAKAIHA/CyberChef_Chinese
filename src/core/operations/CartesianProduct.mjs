@@ -18,20 +18,20 @@ class CartesianProduct extends Operation {
     constructor() {
         super();
 
-        this.name = "Cartesian Product";
+        this.name = "笛卡尔积";
         this.module = "Default";
-        this.description = "Calculates the cartesian product of multiple sets of data, returning all possible combinations.";
+        this.description = "计算多个数据集的笛卡尔积，返回所有可能的组合。";
         this.infoURL = "https://wikipedia.org/wiki/Cartesian_product";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "样本分隔符",
                 type: "binaryString",
                 value: "\\n\\n"
             },
             {
-                name: "Item delimiter",
+                name: "项目分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -46,8 +46,7 @@ class CartesianProduct extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || sets.length < 2) {
-            throw new OperationError("Incorrect number of sets, perhaps you" +
-                " need to modify the sample delimiter or add more samples?");
+            throw new OperationError("数据集数量不正确，或许您需要修改样本分隔符或添加更多样本？");
         }
     }
 

@@ -18,20 +18,20 @@ class GenerateDeBruijnSequence extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate De Bruijn Sequence";
+        this.name = "生成 De Bruijn 序列";
         this.module = "Default";
-        this.description = "Generates rolling keycode combinations given a certain alphabet size and key length.";
+        this.description = "根据给定的字母表大小和密钥长度，生成滚动的密钥代码组合。";
         this.infoURL = "https://wikipedia.org/wiki/De_Bruijn_sequence";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet size (k)",
+                name: "字母表大小 (k)",
                 type: "number",
                 value: 2
             },
             {
-                name: "Key length (n)",
+                name: "密钥长度 (n)",
                 type: "number",
                 value: 3
             }
@@ -47,15 +47,15 @@ class GenerateDeBruijnSequence extends Operation {
         const [k, n] = args;
 
         if (k < 2 || k > 9) {
-            throw new OperationError("Invalid alphabet size, required to be between 2 and 9 (inclusive).");
+            throw new OperationError("无效的字母表大小，必须在 2 到 9 之间（包含两端）。");
         }
 
         if (n < 2) {
-            throw new OperationError("Invalid key length, required to be at least 2.");
+            throw new OperationError("无效的密钥长度，必须至少为 2。");
         }
 
         if (Math.pow(k, n) > 50000) {
-            throw new OperationError("Too many permutations, please reduce k^n to under 50,000.");
+            throw new OperationError("排列组合过多，请将 k^n 减少到 50,000 以下。");
         }
 
         const a = new Array(k * n).fill(0);

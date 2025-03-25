@@ -23,18 +23,18 @@ class Entropy extends Operation {
     constructor() {
         super();
 
-        this.name = "Entropy";
+        this.name = "熵";
         this.module = "Charts";
-        this.description = "Shannon Entropy, in the context of information theory, is a measure of the rate at which information is produced by a source of data. It can be used, in a broad sense, to detect whether data is likely to be structured or unstructured. 8 is the maximum, representing highly unstructured, 'random' data. English language text usually falls somewhere between 3.5 and 5. Properly encrypted or compressed data should have an entropy of over 7.5.";
+        this.description = "香农熵在信息论中，是衡量数据源产生信息速率的指标。广义上，它可以用来检测数据是否可能为结构化或非结构化。8 是最大值，代表高度非结构化的“随机”数据。英文文本通常介于 3.5 和 5 之间。经过适当加密或压缩的数据，熵值应超过 7.5。";
         this.infoURL = "https://wikipedia.org/wiki/Entropy_(information_theory)";
         this.inputType = "ArrayBuffer";
         this.outputType = "json";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Visualisation",
+                "name": "可视化",
                 "type": "option",
-                "value": ["Shannon scale", "Histogram (Bar)", "Histogram (Line)", "Curve", "Image"]
+                "value": ["香农尺度", "柱状图 (柱形)", "柱状图 (折线)", "曲线", "图像"]
             }
         ];
     }
@@ -203,7 +203,7 @@ class Entropy extends Operation {
             .attr("stroke", "steelblue")
             .attr("d", line);
 
-        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "", "Byte", "Byte Frequency");
+        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "", "字节", "字节频率");
 
         return svg._groups[0][0].outerHTML;
     }
@@ -246,7 +246,7 @@ class Entropy extends Operation {
             .attr("height", dataPoint => yScale(yExtent[0]) - yScale(dataPoint))
             .attr("fill", "blue");
 
-        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "", "Byte", "Byte Frequency");
+        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "", "字节", "字节频率");
 
         return svg._groups[0][0].outerHTML;
     }
@@ -291,7 +291,7 @@ class Entropy extends Operation {
             svg.selectAll("path").attr("fill", "none").attr("stroke", "steelblue");
         }
 
-        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "Scanning Entropy", "Block", "Entropy");
+        this.createAxes(svg, xScale, yScale, svgHeight, svgWidth, margins, "扫描熵", "块", "熵");
 
         return svg._groups[0][0].outerHTML;
     }
@@ -348,13 +348,13 @@ class Entropy extends Operation {
      * @returns {HTML}
      */
     createShannonEntropyVisualization(entropy) {
-        return `Shannon entropy: ${entropy}
+        return `香农熵: ${entropy}
         <br><canvas id='chart-area'></canvas><br>
-        - 0 represents no randomness (i.e. all the bytes in the data have the same value) whereas 8, the maximum, represents a completely random string.
-        - Standard English text usually falls somewhere between 3.5 and 5.
-        - Properly encrypted or compressed data of a reasonable length should have an entropy of over 7.5.
+        - 0 代表无随机性（即数据中的所有字节都具有相同的值），而最大值 8 代表完全随机的字符串。
+        - 标准英文文本通常介于 3.5 和 5 之间。
+        - 长度合理的经过适当加密或压缩的数据，其熵值应超过 7.5。
 
-        The following results show the entropy of chunks of the input data. Chunks with particularly high entropy could suggest encrypted or compressed sections.
+        以下结果显示输入数据块的熵。熵值特别高的块可能表明是加密或压缩的部分。
 
         <br><script>
             var canvas = document.getElementById("chart-area"),
@@ -367,11 +367,11 @@ class Entropy extends Operation {
 
             CanvasComponents.drawScaleBar(canvas, entropy, 8, [
                 {
-                    label: "English text",
+                    label: "英文文本",
                     min: 3.5,
                     max: 5
                 },{
-                    label: "Encrypted/compressed",
+                    label: "加密/压缩",
                     min: 7.5,
                     max: 8
                 }
@@ -389,13 +389,13 @@ class Entropy extends Operation {
         input = new Uint8Array(input);
 
         switch (visualizationType) {
-            case "Histogram (Bar)":
-            case "Histogram (Line)":
+            case "柱状图 (柱形)":
+            case "柱状图 (折线)":
                 return this.calculateByteFrequency(input);
-            case "Curve":
-            case "Image":
+            case "曲线":
+            case "图像":
                 return this.calculateScanningEntropy(input).entropyData;
-            case "Shannon scale":
+            case "香农尺度":
             default:
                 return this.calculateShannonEntropy(input);
         }
@@ -412,15 +412,15 @@ class Entropy extends Operation {
         const visualizationType = args[0];
 
         switch (visualizationType) {
-            case "Histogram (Bar)":
+            case "柱状图 (柱形)":
                 return this.createByteFrequencyBarHistogram(entropyData);
-            case "Histogram (Line)":
+            case "柱状图 (折线)":
                 return this.createByteFrequencyLineHistogram(entropyData);
-            case "Curve":
+            case "曲线":
                 return this.createEntropyCurve(entropyData);
-            case "Image":
+            case "图像":
                 return this.createEntropyImage(entropyData);
-            case "Shannon scale":
+            case "香农尺度":
             default:
                 return this.createShannonEntropyVisualization(entropyData);
         }

@@ -21,37 +21,37 @@ class GOSTKeyUnwrap extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Key Unwrap";
-        this.module = "Ciphers";
-        this.description = "A decryptor for keys wrapped using one of the GOST block ciphers.";
+        this.name = "GOST 密钥解封装";
+        this.module = "加密 / 编码";
+        this.description = "使用 GOST 块密码算法解封装密钥。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Key",
+                name: "密钥",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "User Key Material",
+                name: "用户密钥材料",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Input type",
+                name: "输入类型",
                 type: "option",
                 value: ["Hex", "Raw"]
             },
             {
-                name: "Output type",
+                name: "输出类型",
                 type: "option",
                 value: ["Raw", "Hex"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -74,7 +74,7 @@ class GOSTKeyUnwrap extends Operation {
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             },
             {
-                name: "Key wrapping",
+                name: "密钥封装方式",
                 type: "option",
                 value: ["NO", "CP", "SC"]
             }
@@ -108,7 +108,7 @@ class GOSTKeyUnwrap extends Operation {
                 blockLength = 128;
                 break;
             default:
-                throw new OperationError(`Unknown algorithm version: ${version}`);
+                throw new OperationError(`未知算法版本: ${version}`);
         }
 
         const sBoxVal = versionNum === 1989 ? sBox : null;
@@ -131,7 +131,7 @@ class GOSTKeyUnwrap extends Operation {
             return outputType === "Hex" ? out : Utils.byteArrayToChars(fromHex(out));
         } catch (err) {
             if (err.toString().includes("Invalid typed array length")) {
-                throw new OperationError("Incorrect input length. Must be a multiple of the block size.");
+                throw new OperationError("输入长度不正确。必须是块大小的倍数。");
             }
             throw new OperationError(err);
         }

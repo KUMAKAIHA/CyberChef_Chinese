@@ -19,12 +19,12 @@ class EncodeText extends Operation {
     constructor() {
         super();
 
-        this.name = "Encode text";
+        this.name = "文本编码";
         this.module = "Encodings";
         this.description = [
-            "Encodes text into the chosen character encoding.",
+            "将文本编码为选择的字符编码。",
             "<br><br>",
-            "Supported charsets are:",
+            "支持的字符集包括：",
             "<ul>",
             Object.keys(CHR_ENC_CODE_PAGES).map(e => `<li>${e}</li>`).join("\n"),
             "</ul>",
@@ -34,7 +34,7 @@ class EncodeText extends Operation {
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Encoding",
+                "name": "编码",
                 "type": "option",
                 "value": Object.keys(CHR_ENC_CODE_PAGES)
             }

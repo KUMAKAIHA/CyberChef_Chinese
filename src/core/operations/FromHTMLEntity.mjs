@@ -18,9 +18,9 @@ class FromHTMLEntity extends Operation {
     constructor() {
         super();
 
-        this.name = "From HTML Entity";
+        this.name = "从 HTML 实体 转换";
         this.module = "Encodings";
-        this.description = "Converts HTML entities back to characters<br><br>e.g. <code>&amp;<span>amp;</span></code> becomes <code>&amp;</code>";
+        this.description = "将 HTML 实体转换回字符<br><br>例如：<code>&amp;<span>amp;</span></code> 变为 <code>&amp;</code>";
         this.infoURL = "https://wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references";
         this.inputType = "string";
         this.outputType = "string";

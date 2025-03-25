@@ -19,9 +19,9 @@ class ExtractFilePaths extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract file paths";
+        this.name = "提取文件路径";
         this.module = "Regex";
-        this.description = "Extracts anything that looks like a Windows or UNIX file path.<br><br>Note that if UNIX is selected, there will likely be a lot of false positives.";
+        this.description = "提取所有看起来像 Windows 或 UNIX 文件路径的内容。<br><br>请注意，如果选择 UNIX，可能会出现很多误报。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
@@ -36,17 +36,17 @@ class ExtractFilePaths extends Operation {
                 value: true
             },
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -90,7 +90,7 @@ class ExtractFilePaths extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总共找到：${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

@@ -17,10 +17,10 @@ class Comment extends Operation {
     constructor() {
         super();
 
-        this.name = "Comment";
+        this.name = "注释";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "Provides a place to write comments within the flow of the recipe. This operation has no computational effect.";
+        this.description = "提供一个在 recipe 流程中编写注释的位置。此操作没有计算效果。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [

@@ -19,32 +19,32 @@ class DefangURL extends Operation {
     constructor() {
         super();
 
-        this.name = "Defang URL";
+        this.name = "URL 去毒化";
         this.module = "Default";
-        this.description = "Takes a Universal Resource Locator (URL) and 'Defangs' it; meaning the URL becomes invalid, neutralising the risk of accidentally clicking on a malicious link.<br><br>This is often used when dealing with malicious links or IOCs.<br><br>Works well when combined with the 'Extract URLs' operation.";
+        this.description = "对通用资源定位符 (URL) 进行“去毒化”处理；即使 URL 失效，从而消除意外点击恶意链接的风险。\n\n这通常用于处理恶意链接或 IOC。\n\n与“提取 URL”操作结合使用效果更佳。";
         this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Escape dots",
+                name: "转义点号",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Escape http",
+                name: "转义 http",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Escape ://",
+                name: "转义 ://",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Process",
+                name: "处理",
                 type: "option",
-                value: ["Valid domains and full URLs", "Only full URLs", "Everything"]
+                value: ["有效域名和完整 URL", "仅完整 URL", "全部"]
             }
         ];
     }
@@ -58,7 +58,7 @@ class DefangURL extends Operation {
         const [dots, http, slashes, process] = args;
 
         switch (process) {
-            case "Valid domains and full URLs":
+            case "有效域名和完整 URL":
                 input = input.replace(URL_REGEX, x => {
                     return defangURL(x, dots, http, slashes);
                 });
@@ -66,12 +66,12 @@ class DefangURL extends Operation {
                     return defangURL(x, dots, http, slashes);
                 });
                 break;
-            case "Only full URLs":
+            case "仅完整 URL":
                 input = input.replace(URL_REGEX, x => {
                     return defangURL(x, dots, http, slashes);
                 });
                 break;
-            case "Everything":
+            case "全部":
                 input = defangURL(input, dots, http, slashes);
                 break;
         }

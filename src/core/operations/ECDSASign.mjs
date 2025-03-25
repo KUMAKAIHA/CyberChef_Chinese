@@ -21,20 +21,20 @@ class ECDSASign extends Operation {
     constructor() {
         super();
 
-        this.name = "ECDSA Sign";
+        this.name = "ECDSA 签名";
         this.module = "Ciphers";
-        this.description = "Sign a plaintext message with a PEM encoded EC key.";
+        this.description = "使用 PEM 编码的 EC 密钥对纯文本消息进行签名。";
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "ECDSA Private Key (PEM)",
+                name: "ECDSA 私钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN EC PRIVATE KEY-----"
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: [
                     "SHA-256",
@@ -45,7 +45,7 @@ class ECDSASign extends Operation {
                 ]
             },
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "ASN.1 HEX",
@@ -66,7 +66,7 @@ class ECDSASign extends Operation {
         const [keyPem, mdAlgo, outputFormat] = args;
 
         if (keyPem.replace("-----BEGIN EC PRIVATE KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a private key.");
+            throw new OperationError("请提供私钥。");
         }
 
         const internalAlgorithmName = mdAlgo.replace("-", "") + "withECDSA";

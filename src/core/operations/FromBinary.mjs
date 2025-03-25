@@ -20,20 +20,20 @@ class FromBinary extends Operation {
     constructor() {
         super();
 
-        this.name = "From Binary";
+        this.name = "从 二进制 转换";
         this.module = "Default";
-        this.description = "Converts a binary string back into its raw form.<br><br>e.g. <code>01001000 01101001</code> becomes <code>Hi</code>";
+        this.description = "将二进制字符串转换回其原始形式。<br><br>例如：<code>01001000 01101001</code> 变为 <code>Hi</code>";
         this.infoURL = "https://wikipedia.org/wiki/Binary_code";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": BIN_DELIM_OPTIONS
             },
             {
-                "name": "Byte Length",
+                "name": "字节长度",
                 "type": "number",
                 "value": 8,
                 "min": 1
@@ -43,32 +43,32 @@ class FromBinary extends Operation {
             {
                 pattern: "^(?:[01]{8})+$",
                 flags: "",
-                args: ["None"]
+                args: ["无"]
             },
             {
                 pattern: "^(?:[01]{8})(?: [01]{8})*$",
                 flags: "",
-                args: ["Space"]
+                args: ["空格"]
             },
             {
                 pattern: "^(?:[01]{8})(?:,[01]{8})*$",
                 flags: "",
-                args: ["Comma"]
+                args: ["逗号"]
             },
             {
                 pattern: "^(?:[01]{8})(?:;[01]{8})*$",
                 flags: "",
-                args: ["Semi-colon"]
+                args: ["分号"]
             },
             {
                 pattern: "^(?:[01]{8})(?::[01]{8})*$",
                 flags: "",
-                args: ["Colon"]
+                args: ["冒号"]
             },
             {
                 pattern: "^(?:[01]{8})(?:\\n[01]{8})*$",
                 flags: "",
-                args: ["Line feed"]
+                args: ["换行符"]
             },
             {
                 pattern: "^(?:[01]{8})(?:\\r\\n[01]{8})*$",

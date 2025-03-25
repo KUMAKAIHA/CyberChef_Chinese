@@ -22,40 +22,40 @@ class ExtractLSB extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract LSB";
+        this.name = "提取 LSB";
         this.module = "Image";
-        this.description = "Extracts the Least Significant Bit data from each pixel in an image. This is a common way to hide data in Steganography.";
+        this.description = "从图像中每个像素提取最低有效位数据。这是一种常见的隐写术数据隐藏方法。";
         this.infoURL = "https://wikipedia.org/wiki/Bit_numbering#Least_significant_bit_in_digital_steganography";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Colour Pattern #1",
+                name: "颜色模式 #1",
                 type: "option",
                 value: COLOUR_OPTIONS,
             },
             {
-                name: "Colour Pattern #2",
+                name: "颜色模式 #2",
                 type: "option",
                 value: ["", ...COLOUR_OPTIONS],
             },
             {
-                name: "Colour Pattern #3",
+                name: "颜色模式 #3",
                 type: "option",
                 value: ["", ...COLOUR_OPTIONS],
             },
             {
-                name: "Colour Pattern #4",
+                name: "颜色模式 #4",
                 type: "option",
                 value: ["", ...COLOUR_OPTIONS],
             },
             {
-                name: "Pixel Order",
+                name: "像素顺序",
                 type: "option",
-                value: ["Row", "Column"],
+                value: ["行", "列"],
             },
             {
-                name: "Bit",
+                name: "位",
                 type: "number",
                 value: 0
             }
@@ -68,7 +68,7 @@ class ExtractLSB extends Operation {
      * @returns {byteArray}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请选择有效的图像文件。");
 
         const bit = 7 - args.pop(),
             pixelOrder = args.pop(),
@@ -79,12 +79,12 @@ class ExtractLSB extends Operation {
             rgba = parsedImage.bitmap.data;
 
         if (bit < 0 || bit > 7) {
-            throw new OperationError("Error: Bit argument must be between 0 and 7");
+            throw new OperationError("错误：位参数必须在 0 到 7 之间");
         }
 
         let i, combinedBinary = "";
 
-        if (pixelOrder === "Row") {
+        if (pixelOrder === "行") {
             for (i = 0; i < rgba.length; i += 4) {
                 for (const colour of colours) {
                     combinedBinary += Utils.bin(rgba[i + colour])[bit];

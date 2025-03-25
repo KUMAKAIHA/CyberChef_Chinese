@@ -21,20 +21,20 @@ class FromBase45 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base45";
+        this.name = "从 Base45 转换";
         this.module = "Default";
-        this.description = "Base45 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system. Base45 is optimized for usage with QR codes.";
+        this.description = "Base45 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用和计算机处理。较高的基数会产生比十进制或十六进制系统更短的字符串。Base45 针对 QR 码的使用进行了优化。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字母表",
                 type: "string",
                 value: ALPHABET
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除非字母表字符",
                 type: "boolean",
                 value: true
             },
@@ -58,7 +58,7 @@ class FromBase45 extends Operation {
 
         // Remove non-alphabet characters
         if (removeNonAlphChars) {
-            const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
+            const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\{{input}}") + "]", "g");
             input = input.replace(re, "");
         }
 
@@ -68,14 +68,14 @@ class FromBase45 extends Operation {
             for (const c of triple) {
                 const idx = alphabet.indexOf(c);
                 if (idx === -1) {
-                    throw new OperationError(`Character not in alphabet: '${c}'`);
+                    throw new OperationError(`字符不在字母表中: '${c}'`);
                 }
                 b *= 45;
                 b += idx;
             }
 
             if (b > 65535) {
-                throw new OperationError(`Triplet too large: '${triple.join("")}'`);
+                throw new OperationError(`三字节组过大: '${triple.join("")}'`);
             }
 
             if (triple.length > 2) {

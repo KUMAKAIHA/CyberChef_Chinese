@@ -19,14 +19,14 @@ class ExtractEXIF extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract EXIF";
+        this.name = "提取 EXIF 信息";
         this.module = "Image";
         this.description = [
-            "Extracts EXIF data from an image.",
+            "从图像中提取 EXIF 数据。",
             "<br><br>",
-            "EXIF data is metadata embedded in images (JPEG, JPG, TIFF) and audio files.",
+            "EXIF 数据是嵌入在图像 (JPEG, JPG, TIFF) 和音频文件中的元数据。",
             "<br><br>",
-            "EXIF data from photos usually contains information about the image file itself as well as the device used to create it.",
+            "照片的 EXIF 数据通常包含关于图像文件本身以及用于创建它的设备的信息。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Exif";
         this.inputType = "ArrayBuffer";
@@ -51,10 +51,10 @@ class ExtractEXIF extends Operation {
             }
 
             const numTags = lines.length;
-            lines.unshift(`Found ${numTags} tags.\n`);
+            lines.unshift(`找到 ${numTags} 个标签。\n`);
             return lines.join("\n");
         } catch (err) {
-            throw new OperationError(`Could not extract EXIF data from image: ${err}`);
+            throw new OperationError(`无法从图像中提取 EXIF 数据：${err}`);
         }
     }
 

@@ -18,20 +18,20 @@ class FromBase32 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base32";
+        this.name = "从 Base32 转换";
         this.module = "Default";
-        this.description = "Base32 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. It uses a smaller set of characters than Base64, usually the uppercase alphabet and the numbers 2 to 7.";
+        this.description = "Base32 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用和计算机处理。它使用的字符集比 Base64 小，通常使用大写字母和数字 2 到 7。";
         this.infoURL = "https://wikipedia.org/wiki/Base32";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字符集",
                 type: "binaryString",
                 value: "A-Z2-7="
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除非字符集字符",
                 type: "boolean",
                 value: true
             }
@@ -63,7 +63,7 @@ class FromBase32 extends Operation {
             i = 0;
 
         if (removeNonAlphChars) {
-            const re = new RegExp("[^" + alphabet.replace(/[\]\\\-^]/g, "\\$&") + "]", "g");
+            const re = new RegExp("[^" + alphabet.replace(/[\]\\\-^]/g, "\\{{input}}") + "]", "g");
             input = input.replace(re, "");
         }
 

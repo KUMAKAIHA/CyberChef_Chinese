@@ -21,16 +21,16 @@ class ConvertImageFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert Image Format";
+        this.name = "转换图像格式";
         this.module = "Image";
-        this.description = "Converts an image between different formats. Supported formats:<br><ul><li>Joint Photographic Experts Group (JPEG)</li><li>Portable Network Graphics (PNG)</li><li>Bitmap (BMP)</li><li>Tagged Image File Format (TIFF)</li></ul><br>Note: GIF files are supported for input, but cannot be outputted.";
+        this.description = "在不同图像格式之间转换。支持的格式:<br><ul><li>Joint Photographic Experts Group (JPEG)</li><li>Portable Network Graphics (PNG)</li><li>Bitmap (BMP)</li><li>Tagged Image File Format (TIFF)</li></ul><br>注意：GIF 文件支持作为输入，但不支持作为输出。";
         this.infoURL = "https://wikipedia.org/wiki/Image_file_formats";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "JPEG",
@@ -40,26 +40,26 @@ class ConvertImageFormat extends Operation {
                 ]
             },
             {
-                name: "JPEG Quality",
+                name: "JPEG 质量",
                 type: "number",
                 value: 80,
                 min: 1,
                 max: 100
             },
             {
-                name: "PNG Filter Type",
+                name: "PNG 过滤器类型",
                 type: "option",
                 value: [
-                    "Auto",
+                    "自动",
                     "None",
                     "Sub",
                     "Up",
-                    "Average",
+                    "平均",
                     "Paeth"
                 ]
             },
             {
-                name: "PNG Deflate Level",
+                name: "PNG Deflate 压缩级别",
                 type: "number",
                 value: 9,
                 min: 0,
@@ -94,13 +94,13 @@ class ConvertImageFormat extends Operation {
         const mime = formatMap[format];
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file format.");
+            throw new OperationError("无效的文件格式。");
         }
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error opening image file. (${err})`);
+            throw new OperationError(`打开图像文件时出错。 (${err})`);
         }
         try {
             switch (format) {
@@ -116,7 +116,7 @@ class ConvertImageFormat extends Operation {
             const imageBuffer = await image.getBufferAsync(mime);
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error converting image format. (${err})`);
+            throw new OperationError(`转换图像格式时出错。 (${err})`);
         }
     }
 
@@ -132,7 +132,7 @@ class ConvertImageFormat extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

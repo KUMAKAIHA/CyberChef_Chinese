@@ -19,36 +19,36 @@ class DeriveEVPKey extends Operation {
     constructor() {
         super();
 
-        this.name = "Derive EVP key";
+        this.name = "派生 EVP 密钥";
         this.module = "Ciphers";
-        this.description = "This operation performs a password-based key derivation function (PBKDF) used extensively in OpenSSL. In many applications of cryptography, user security is ultimately dependent on a password, and because a password usually can't be used directly as a cryptographic key, some processing is required.<br><br>A salt provides a large set of keys for any given password, and an iteration count increases the cost of producing keys from a password, thereby also increasing the difficulty of attack.<br><br>If you leave the salt argument empty, a random salt will be generated.";
+        this.description = "此操作执行密码学密钥派生函数 (PBKDF)，该函数广泛用于 OpenSSL 中。在许多密码学应用中，用户安全最终依赖于密码，但由于密码通常不能直接用作加密密钥，因此需要进行一些处理。\n\n盐值 (salt) 为任何给定的密码提供了大量的密钥集合，而迭代次数增加了从密码生成密钥的成本，从而也增加了攻击的难度。\n\n如果将盐值参数留空，则会生成随机盐值。";
         this.infoURL = "https://wikipedia.org/wiki/Key_derivation_function";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Passphrase",
+                "name": "口令",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["UTF8", "Latin1", "Hex", "Base64"]
             },
             {
-                "name": "Key size",
+                "name": "密钥长度",
                 "type": "number",
                 "value": 128
             },
             {
-                "name": "Iterations",
+                "name": "迭代次数",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Hashing function",
+                "name": "哈希函数",
                 "type": "option",
                 "value": ["SHA1", "SHA256", "SHA384", "SHA512", "MD5"]
             },
             {
-                "name": "Salt",
+                "name": "盐值",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]

@@ -17,20 +17,20 @@ class ConvertSpeed extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert speed";
+        this.name = "转换速度单位";
         this.module = "Default";
-        this.description = "Converts a unit of speed to another format.";
+        this.description = "将速度单位转换为另一种格式。";
         this.infoURL = "https://wikipedia.org/wiki/Orders_of_magnitude_(speed)";
         this.inputType = "BigNumber";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Input units",
+                "name": "输入单位",
                 "type": "option",
                 "value": SPEED_UNITS
             },
             {
-                "name": "Output units",
+                "name": "输出单位",
                 "type": "option",
                 "value": SPEED_UNITS
             }
@@ -52,10 +52,10 @@ class ConvertSpeed extends Operation {
 }
 
 const SPEED_UNITS = [
-    "[Metric]", "Metres per second (m/s)", "Kilometres per hour (km/h)", "[/Metric]",
-    "[Imperial]", "Miles per hour (mph)", "Knots (kn)", "[/Imperial]",
-    "[Comparisons]", "Human hair growth rate", "Bamboo growth rate", "World's fastest snail", "Usain Bolt's top speed", "Jet airliner cruising speed", "Concorde", "SR-71 Blackbird", "Space Shuttle", "International Space Station", "[/Comparisons]",
-    "[Scientific]", "Sound in standard atmosphere", "Sound in water", "Lunar escape velocity", "Earth escape velocity", "Earth's solar orbit", "Solar system's Milky Way orbit", "Milky Way relative to the cosmic microwave background", "Solar escape velocity", "Neutron star escape velocity (0.3c)", "Light in a diamond (0.4136c)", "Signal in an optical fibre (0.667c)", "Light (c)", "[/Scientific]",
+    "[公制]", "米每秒 (m/s)", "千米每小时 (km/h)", "[/公制]",
+    "[英制]", "英里每小时 (mph)", "节 (kn)", "[/英制]",
+    "[比较]", "人类头发的生长速度", "竹子生长速度", "世界上最快的蜗牛", "尤塞恩·博尔特的最高速度", "喷气式客机巡航速度", "协和飞机", "SR-71 黑鸟", "航天飞机", "国际空间站", "[/比较]",
+    "[科学]", "标准大气中的声速", "水中的声速", "月球逃逸速度", "地球逃逸速度", "地球的太阳轨道速度", "太阳系绕银河系轨道速度", "银河系相对于宇宙微波背景的速度", "太阳逃逸速度", "中子星逃逸速度 (0.3c)", "钻石中的光速 (0.4136c)", "光纤中的信号速度 (0.667c)", "光速 (c)", "[/科学]",
 ];
 
 const SPEED_FACTOR = { // Multiples of m/s

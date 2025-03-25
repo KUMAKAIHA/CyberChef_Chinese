@@ -104,7 +104,7 @@ class OutputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "Output",
+                    label: "输出",
                     timing: this.manager.timing,
                     tabNumGetter: function() {
                         return this.manager.tabs.getActiveTab("output");
@@ -981,8 +981,8 @@ class OutputWaiter {
         const downloadButton = document.getElementById("save-all-to-file");
 
         downloadButton.classList.add("spin");
-        downloadButton.title = `Zipping ${inputNums.length} files...`;
-        downloadButton.setAttribute("data-original-title", `Zipping ${inputNums.length} files...`);
+        downloadButton.title = `正在压缩 ${inputNums.length} 个文件...`;
+        downloadButton.setAttribute("data-original-title", `正在压缩 ${inputNums.length} 个文件...`);
 
         downloadButton.firstElementChild.innerHTML = "autorenew";
 
@@ -1016,8 +1016,8 @@ class OutputWaiter {
 
         const downloadButton = document.getElementById("save-all-to-file");
         downloadButton.classList.remove("spin");
-        downloadButton.title = "Save all outputs to a zip file";
-        downloadButton.setAttribute("data-original-title", "Save all outputs to a zip file");
+        downloadButton.title = "将所有输出保存到 zip 文件";
+        downloadButton.setAttribute("data-original-title", "将所有输出保存到 zip 文件");
         downloadButton.firstElementChild.innerHTML = "archive";
     }
 
@@ -1201,7 +1201,7 @@ class OutputWaiter {
         const min = this.getSmallestInputNum(),
             max = this.getLargestInputNum();
 
-        let tabNum = window.prompt(`Enter tab number (${min} - ${max}):`, this.manager.tabs.getActiveTab("output").toString());
+        let tabNum = window.prompt(`输入标签页号码 (${min} - ${max}):`, this.manager.tabs.getActiveTab("output").toString());
         if (tabNum === null) return;
         tabNum = parseInt(tabNum, 10);
 
@@ -1455,7 +1455,7 @@ class OutputWaiter {
         magicButton.classList.add("hidden");
         magicButton.classList.remove("pulse");
         magicButton.setAttribute("data-recipe", "");
-        magicButton.setAttribute("data-original-title", "魔法！");
+        magicButton.setAttribute("data-original-title", "Magic！");
     }
 
     /**
@@ -1595,11 +1595,11 @@ class OutputWaiter {
                 output.status === "stale" && showStale ||
                 output.status === "inactive" && showStale) {
                 const outDisplay = {
-                    "pending": "Not baked yet",
-                    "baking": "Baking",
-                    "error": output.error || "Errored",
-                    "stale": "Stale (output is out of date)",
-                    "inactive": "Not baked yet"
+                    "pending": "尚未处理",
+                    "baking": "正在处理",
+                    "error": output.error || "发生错误",
+                    "stale": "已过期 (输出已过时)",
+                    "inactive": "尚未处理"
                 };
 
                 // If the output has a dish object, check it against the filter

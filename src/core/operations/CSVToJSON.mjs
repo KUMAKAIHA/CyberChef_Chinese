@@ -19,27 +19,27 @@ class CSVToJSON extends Operation {
     constructor() {
         super();
 
-        this.name = "CSV to JSON";
+        this.name = "CSV 转换为 JSON";
         this.module = "Default";
-        this.description = "Converts a CSV file to JSON format.";
+        this.description = "将 CSV 文件转换为 JSON 格式。";
         this.infoURL = "https://wikipedia.org/wiki/Comma-separated_values";
         this.inputType = "string";
         this.outputType = "JSON";
         this.args = [
             {
-                name: "Cell delimiters",
+                name: "单元格分隔符",
                 type: "binaryShortString",
                 value: ","
             },
             {
-                name: "Row delimiters",
+                name: "行分隔符",
                 type: "binaryShortString",
                 value: "\\r\\n"
             },
             {
-                name: "Format",
+                name: "格式",
                 type: "option",
-                value: ["Array of dictionaries", "Array of arrays"]
+                value: ["字典数组", "数组的数组"]
             }
         ];
     }
@@ -56,11 +56,11 @@ class CSVToJSON extends Operation {
         try {
             json = Utils.parseCSV(input, cellDelims.split(""), rowDelims.split(""));
         } catch (err) {
-            throw new OperationError("Unable to parse CSV: " + err);
+            throw new OperationError("无法解析 CSV: " + err);
         }
 
         switch (format) {
-            case "Array of dictionaries":
+            case "字典数组":
                 header = json[0];
                 return json.slice(1).map(row => {
                     const obj = {};
@@ -69,7 +69,7 @@ class CSVToJSON extends Operation {
                     });
                     return obj;
                 });
-            case "Array of arrays":
+            case "数组的数组":
             default:
                 return json;
         }

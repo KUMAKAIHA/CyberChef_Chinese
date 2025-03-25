@@ -21,38 +21,38 @@ class GOSTVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Verify";
+        this.name = "GOST 验证";
         this.module = "Ciphers";
-        this.description = "Verify the signature of a plaintext message using one of the GOST block ciphers. Enter the signature in the MAC field.";
+        this.description = "使用 GOST 块密码之一验证纯文本消息的签名。在 MAC 字段中输入签名。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Key",
+                name: "密钥",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "IV",
+                name: "初始向量 (IV)",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "MAC",
+                name: "消息认证码 (MAC)",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Input type",
+                name: "输入类型",
                 type: "option",
                 value: ["Raw", "Hex"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -70,7 +70,7 @@ class GOSTVerify extends Operation {
                 ]
             },
             {
-                name: "sBox",
+                name: "S-盒",
                 type: "option",
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             }
@@ -125,7 +125,7 @@ class GOSTVerify extends Operation {
             const cipher = GostEngine.getGostCipher(algorithm);
             const out = cipher.verify(Hex.decode(key), Hex.decode(mac), Hex.decode(input));
 
-            return out ? "The signature matches" : "The signature does not match";
+            return out ? "签名匹配" : "签名不匹配";
         } catch (err) {
             throw new OperationError(err);
         }

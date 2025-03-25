@@ -22,45 +22,45 @@ class CropImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Crop Image";
+        this.name = "裁剪图像";
         this.module = "Image";
-        this.description = "Crops an image to the specified region, or automatically crops edges.<br><br><b><u>Autocrop</u></b><br>Automatically crops same-colour borders from the image.<br><br><u>Autocrop tolerance</u><br>A percentage value for the tolerance of colour difference between pixels.<br><br><u>Only autocrop frames</u><br>Only crop real frames (all sides must have the same border)<br><br><u>Symmetric autocrop</u><br>Force autocrop to be symmetric (top/bottom and left/right are cropped by the same amount)<br><br><u>Autocrop keep border</u><br>The number of pixels of border to leave around the image.";
+        this.description = "将图像裁剪到指定区域，或自动裁剪边缘。<br><br><b><u>自动裁剪</u></b><br>自动裁剪图像中颜色相同的边框。<br><br><u>自动裁剪容差</u><br>像素之间颜色差异容差的百分比值。<br><br><u>仅自动裁剪边框</u><br>仅裁剪实际边框（所有边都必须具有相同的边框）<br><br><u>对称自动裁剪</u><br>强制自动裁剪对称（顶部/底部和左侧/右侧裁剪量相同）<br><br><u>自动裁剪保留边框</u><br>在图像周围保留的边框像素数。";
         this.infoURL = "https://wikipedia.org/wiki/Cropping_(image)";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "X Position",
+                name: "X 坐标",
                 type: "number",
                 value: 0,
                 min: 0
             },
             {
-                name: "Y Position",
+                name: "Y 坐标",
                 type: "number",
                 value: 0,
                 min: 0
             },
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 10,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 10,
                 min: 1
             },
             {
-                name: "Autocrop",
+                name: "自动裁剪",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Autocrop tolerance (%)",
+                name: "自动裁剪容差 (%)",
                 type: "number",
                 value: 0.02,
                 min: 0,
@@ -68,17 +68,17 @@ class CropImage extends Operation {
                 step: 0.01
             },
             {
-                name: "Only autocrop frames",
+                name: "仅自动裁剪边框",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Symmetric autocrop",
+                name: "对称自动裁剪",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Autocrop keep border (px)",
+                name: "自动裁剪保留边框 (像素)",
                 type: "number",
                 value: 0,
                 min: 0

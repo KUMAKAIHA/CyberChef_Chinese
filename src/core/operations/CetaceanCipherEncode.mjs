@@ -18,9 +18,9 @@ class CetaceanCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Cetacean Cipher Encode";
+        this.name = "鲸鱼密码编码";
         this.module = "Ciphers";
-        this.description = "Converts any input into Cetacean Cipher. <br/><br/>e.g. <code>hi</code> becomes <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code>";
+        this.description = "将任何输入转换为鲸鱼密码。<br/><br/>例如：<code>hi</code> 变为 <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code>";
         this.infoURL = "https://hitchhikers.fandom.com/wiki/Dolphins";
         this.inputType = "string";
         this.outputType = "string";

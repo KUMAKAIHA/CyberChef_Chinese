@@ -565,7 +565,7 @@ class WorkerWaiter {
     queueInputError(inputData) {
         this.loadingOutputs--;
         if (this.app.baking && inputData.bakeId === this.bakeId) {
-            this.manager.output.updateOutputError("排队烘焙输入时出错.", inputData.inputNum, 0);
+            this.manager.output.updateOutputError("排队烘焙输入时出错", inputData.inputNum, 0);
 
             if (this.inputNums.length === 0) return;
 
@@ -619,7 +619,7 @@ class WorkerWaiter {
             this.app.bake(step);
 
             for (let i = 0; i < this.inputNums.length; i++) {
-                this.manager.output.updateOutputMessage(`输入 ${inputNums[i]} 尚未烘焙.`, inputNums[i], false);
+                this.manager.output.updateOutputMessage(`输入 ${inputNums[i]} 尚未烘焙`, inputNums[i], false);
                 this.manager.output.updateOutputStatus("pending", inputNums[i]);
             }
 

@@ -31,14 +31,14 @@ class ExtractFiles extends Operation {
         // Flatten categories and remove duplicates
         supportedExts = [].concat(...supportedExts).unique();
 
-        this.name = "Extract Files";
+        this.name = "提取文件";
         this.module = "Default";
-        this.description = `Performs file carving to attempt to extract files from the input.<br><br>This operation is currently capable of carving out the following formats:
+        this.description = `执行文件雕刻以尝试从输入中提取文件。<br><br>此操作目前能够雕刻出以下格式：
             <ul>
                 <li>
                 ${supportedExts.join("</li><li>")}
                 </li>
-            </ul>Minimum File Size can be used to prune small false positives.`;
+            </ul>最小文件大小可用于修剪小的误报。`;
         this.infoURL = "https://forensics.wiki/file_carving";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";
@@ -51,12 +51,12 @@ class ExtractFiles extends Operation {
             };
         }).concat([
             {
-                name: "Ignore failed extractions",
+                name: "忽略失败的提取",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Minimum File Size",
+                name: "最小文件大小",
                 type: "number",
                 value: 100
             }
@@ -92,8 +92,7 @@ class ExtractFiles extends Operation {
             } catch (err) {
                 if (!ignoreFailedExtractions && err.message.indexOf("No extraction algorithm available") < 0) {
                     errors.push(
-                        `Error while attempting to extract ${detectedFile.fileDetails.name} ` +
-                        `at offset ${detectedFile.offset}:\n` +
+                        `尝试在偏移量 ${detectedFile.offset} 处提取 ${detectedFile.fileDetails.name} 时出错：\n` +
                         `${err.message}`
                     );
                 }

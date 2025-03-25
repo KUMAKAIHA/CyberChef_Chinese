@@ -26,17 +26,17 @@ import OperationConfig from "../core/config/OperationConfig.json" assert {type: 
  */
 function main() {
     const defaultFavourites = [
-        "To Base64",
-        "From Base64",
-        "To Hex",
-        "From Hex",
-        "To Hexdump",
-        "From Hexdump",
-        "URL Decode",
-        "Regular expression",
-        "Entropy",
-        "Fork",
-        "Magic"
+        "转换为 Base64",
+        "从 Base64 转换",
+        "转换为 Hex",
+        "从 Hex 转换",
+        "转换为 Hexdump",
+        "从 Hexdump 转换",
+        "URL 解码",
+        "正则表达式",
+        "熵",
+        "分支",
+        "魔法"
     ];
 
     const defaultOptions = {
@@ -67,4 +67,3 @@ window.compileMessage = COMPILE_MSG;
 window.CanvasComponents = CanvasComponents;
 
 document.addEventListener("DOMContentLoaded", main, false);
-

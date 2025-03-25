@@ -18,9 +18,9 @@ class Fletcher8Checksum extends Operation {
     constructor() {
         super();
 
-        this.name = "Fletcher-8 Checksum";
-        this.module = "Crypto";
-        this.description = "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s.<br><br>The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the lower computational effort associated with summation techniques.";
+        this.name = "Fletcher-8 校验和";
+        this.module = "哈希";
+        this.description = "Fletcher 校验和算法是由 John Gould Fletcher 于 1970 年代后期在劳伦斯利弗莫尔实验室设计的位置相关的校验和算法。<br><br>Fletcher 校验和算法的目的是提供接近循环冗余校验的错误检测性能，但计算量要低于求和技术。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

@@ -17,25 +17,25 @@ class FangURL extends Operation {
     constructor() {
         super();
 
-        this.name = "Fang URL";
+        this.name = "URL 去毒化";
         this.module = "Default";
-        this.description = "Takes a 'Defanged' Universal Resource Locator (URL) and 'Fangs' it. Meaning, it removes the alterations (defanged) that render it useless so that it can be used again.";
-        this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
+        this.description = "将“去毒化”的通用资源定位符 (URL) 还原。 也就是说，它会移除使其失效的修改（去毒化），以便可以再次使用。";
+        this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the_things/22744/";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Restore [.]",
+                name: "还原 [.]",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Restore hxxp",
+                name: "还原 hxxp",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Restore ://",
+                name: "还原 ://",
                 type: "boolean",
                 value: true
             }

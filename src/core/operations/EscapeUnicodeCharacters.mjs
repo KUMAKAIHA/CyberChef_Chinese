@@ -17,29 +17,29 @@ class EscapeUnicodeCharacters extends Operation {
     constructor() {
         super();
 
-        this.name = "Escape Unicode Characters";
+        this.name = "转义 Unicode 字符";
         this.module = "Default";
-        this.description = "Converts characters to their unicode-escaped notations.<br><br>Supports the prefixes:<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>e.g. <code>σου</code> becomes <code>\\u03C3\\u03BF\\u03C5</code>";
+        this.description = "将字符转换为 Unicode 转义表示法。<br><br>支持以下前缀：<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>例如：<code>σου</code> 变为 <code>\\u03C3\\u03BF\\u03C5</code>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Prefix",
+                "name": "前缀",
                 "type": "option",
                 "value": ["\\u", "%u", "U+"]
             },
             {
-                "name": "Encode all chars",
+                "name": "编码所有字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Padding",
+                "name": "填充",
                 "type": "number",
                 "value": 4
             },
             {
-                "name": "Uppercase hex",
+                "name": "十六进制大写",
                 "type": "boolean",
                 "value": true
             }

@@ -98,7 +98,7 @@ class TabWaiter {
 
         const newTabContent = document.createElement("div");
         newTabContent.classList.add(`${io}-tab-content`);
-        newTabContent.innerText = `标签 ${inputNum.toString()}`; // 修改：将"Tab"翻译为"标签"
+        newTabContent.innerText = `标签 ${inputNum.toString()}`;
         newTabContent.addEventListener("wheel", this.manager[io].scrollTab.bind(this.manager[io]), {passive: false});
         newTab.appendChild(newTabContent);
 
@@ -108,7 +108,7 @@ class TabWaiter {
             newTabButton.type = "button";
             newTabButton.className = "btn btn-primary bmd-btn-icon btn-close-tab";
             newTabButtonIcon.classList.add("material-icons");
-            newTabButtonIcon.innerText = "关闭"; // 修改：将"clear"翻译为"关闭"
+            newTabButtonIcon.innerText = "关闭";
             newTabButton.appendChild(newTabButtonIcon);
             newTabButton.addEventListener("click", this.manager.input.removeTabClick.bind(this.manager.input));
             newTab.appendChild(newTabButton);
@@ -217,7 +217,7 @@ class TabWaiter {
         const tab = this.getTabItem(inputNum, io);
         if (tab === null) return;
 
-        let headerData = `标签 ${inputNum}`; // 修改：将"Tab"翻译为"标签"
+        let headerData = `标签 ${inputNum}`;
         if (data.length > 0) {
             headerData = data.slice(0, 100);
             headerData = `${inputNum}: ${headerData}`;

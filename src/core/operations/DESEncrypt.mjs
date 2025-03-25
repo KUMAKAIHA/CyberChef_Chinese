@@ -20,15 +20,15 @@ class DESEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "DES Encrypt";
+        this.name = "DES 加密";
         this.module = "Ciphers";
-        this.description = "DES is a previously dominant algorithm for encryption, and was published as an official U.S. Federal Information Processing Standard (FIPS). It is now considered to be insecure due to its small key size.<br><br><b>Key:</b> DES uses a key length of 8 bytes (64 bits).<br><br>You can generate a password-based key using one of the KDF operations.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.";
+        this.description = "DES 是一种以前占主导地位的加密算法，并曾作为美国联邦信息处理标准 (FIPS) 发布。由于其密钥长度较小，现在被认为是不安全的。<br><br><b>密钥:</b> DES 使用 8 字节（64 位）的密钥长度。<br><br>您可以使用 KDF 操作之一生成基于密码的密钥。<br><br><b>IV:</b> 初始向量应为 8 字节长。如果未输入，则默认为 8 个空字节。<br><br><b>填充:</b> 在 CBC 和 ECB 模式下，将使用 PKCS#7 填充。";
         this.infoURL = "https://wikipedia.org/wiki/Data_Encryption_Standard";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
@@ -40,17 +40,17 @@ class DESEncrypt extends Operation {
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["Raw", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }
@@ -68,15 +68,15 @@ class DESEncrypt extends Operation {
             [,, mode, inputType, outputType] = args;
 
         if (key.length !== 8) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效密钥长度: ${key.length} 字节
 
-DES uses a key length of 8 bytes (64 bits).`);
+DES 使用 8 字节（64 位）的密钥长度。`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes
+            throw new OperationError(`无效 IV 长度: ${iv.length} 字节
 
-DES uses an IV length of 8 bytes (64 bits).
-Make sure you have specified the type correctly (e.g. Hex vs UTF8).`);
+DES 使用 8 字节（64 位）的 IV 长度。
+请确保您已正确指定类型（例如 Hex 与 UTF8）。`);
         }
 
         input = Utils.convertToByteString(input, inputType);

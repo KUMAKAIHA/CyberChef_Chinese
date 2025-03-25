@@ -19,21 +19,21 @@ class CipherSaber2Decrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "CipherSaber2 Decrypt";
+        this.name = "CipherSaber2 解密";
         this.module = "Crypto";
-        this.description = "CipherSaber is a simple symmetric encryption protocol based on the RC4 stream cipher. It gives reasonably strong protection of message confidentiality, yet it's designed to be simple enough that even novice programmers can memorize the algorithm and implement it from scratch.";
+        this.description = "CipherSaber 是一个基于 RC4 流密码的简单对称加密协议。它为消息保密性提供了相当强的保护，而且它的设计非常简单，即使是新手程序员也可以记住该算法并从头开始实现它。";
         this.infoURL = "https://wikipedia.org/wiki/CipherSaber";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Key",
+                name: "密钥",
                 type: "toggleString",
                 value: "",
                 toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Rounds",
+                name: "轮数",
                 type: "number",
                 value: 20
             }

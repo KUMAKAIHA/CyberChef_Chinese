@@ -19,25 +19,25 @@ class Fork extends Operation {
     constructor() {
         super();
 
-        this.name = "Fork";
+        this.name = "分支";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "Split the input data up based on the specified delimiter and run all subsequent operations on each branch separately.<br><br>For example, to decode multiple Base64 strings, enter them all on separate lines then add the 'Fork' and 'From Base64' operations to the recipe. Each string will be decoded separately.";
+        this.description = "根据指定的分隔符拆分输入数据，并在每个分支上分别运行所有后续操作。<br><br>例如，要解码多个 Base64 字符串，请将它们都输入在不同的行上，然后向 recipe 添加“分支”和“从 Base64 转换”操作。每个字符串将被单独解码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Split delimiter",
+                "name": "拆分分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             },
             {
-                "name": "Merge delimiter",
+                "name": "合并分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             },
             {
-                "name": "Ignore errors",
+                "name": "忽略错误",
                 "type": "boolean",
                 "value": false
             }

@@ -17,9 +17,9 @@ class GetAllCasings extends Operation {
     constructor() {
         super();
 
-        this.name = "Get All Casings";
+        this.name = "获取所有大小写变体";
         this.module = "Default";
-        this.description = "Outputs all possible casing variations of a string.";
+        this.description = "输出字符串所有可能的大小写变体。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";

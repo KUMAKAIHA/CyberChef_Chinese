@@ -26,7 +26,7 @@
         <title>CyberChef</title>
 
         <meta name="copyright" content="Crown Copyright 2016-<%= htmlWebpackPlugin.options.compileYear %>" />
-        <meta name="description" content="The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis" />
+        <meta name="description" content="网络安全瑞士军刀 - 一款用于加密、编码、压缩和数据分析的 Web 应用程序" />
         <meta name="keywords" content="base64, hex, decode, encode, encrypt, decrypt, compress, decompress, regex, regular expressions, hash, crypt, hexadecimal, user agent, url, certificate, x.509, parser, JSON, gzip,  md5, sha1, aes, des, blowfish, xor" />
 
         <link rel="icon" type="image/ico" href="<%- require('../static/images/favicon.ico') %>" />
@@ -142,13 +142,13 @@
             <div id="preloader-error" class="loading-error"></div>
         </div>
         <!-- End preloader overlay -->
-        <button type="button" aria-label="Edit Favourites" class="btn btn-warning bmd-btn-icon" id="edit-favourites" data-toggle="tooltip" title="编辑收藏夹">
+        <button type="button" aria-label="编辑收藏夹" class="btn btn-warning bmd-btn-icon" id="edit-favourites" data-toggle="tooltip" title="编辑收藏夹">
             <i class="material-icons" aria-hidden="true">star</i>
         </button>
         <div id="content-wrapper">
             <div id="banner" class="row">
                 <div class="col" style="text-align: left; padding-left: 10px;">
-                    <a href="#" data-toggle="modal" data-target="#download-modal" data-help-title="下载 CyberChef" data-help="<p>CyberChef 可以下载到本地运行或托管在您自己的网络中。它没有服务器端组件，因此只需解压缩 ZIP 文件并确保文件可访问即可。</p><p>作为用户，值得注意的是，非官方版本的 CyberChef 可能已被修改以引入输入和/或 Recipe 泄露。如果可以访问官方、开源、最新的 CyberChef 版本，我们建议始终使用该版本，其地址为 <a href='https://gchq.github.io/CyberChef'>https://gchq.github.io/CyberChef</a>。</p><p>您可以使用浏览器开发者控制台 (F12) 中的“网络”选项卡来检查网站发出的网络请求。这可以确认在烘焙 CyberChef Recipe 时没有数据上传。</p>">下载 CyberChef <i class="material-icons">file_download</i></a>
+                    <a href="#" data-toggle="modal" data-target="#download-modal" data-help-title="下载 CyberChef" data-help="<p>CyberChef 可以下载到本地运行或托管在您自己的网络中。它没有服务器端组件，因此只需解压缩 ZIP 文件并确保文件可访问即可。</p><p>作为用户，值得注意的是，非官方版本的 CyberChef 可能已被修改以引入输入和/或步骤泄露。如果可以访问官方、开源、最新的 CyberChef 版本，我们建议始终使用该版本，其地址为 <a href='https://gchq.github.io/CyberChef'>https://gchq.github.io/CyberChef</a>。</p><p>您可以使用浏览器开发者控制台 (F12) 中的“网络”选项卡来检查网站发出的网络请求。这可以确认在执行 CyberChef 步骤时没有数据上传。</p>">下载 CyberChef <i class="material-icons">file_download</i></a>
                 </div>
                 <div class="col-md-6" id="notice-wrapper">
                     <span id="notice">
@@ -169,7 +169,7 @@
             </div>
             <div id="workspace-wrapper">
                 <div id="operations" class="split split-horizontal no-select">
-                    <div class="title no-select" data-help-title="操作列表" data-help="<p>“操作”列表包含 CyberChef 中的所有操作，并按类别排列。某些操作可能出现在多个类别中。您可以使用搜索框搜索操作。</p><p>要使用操作，请双击它或将其拖到“Recipe”窗格中。然后，您将能够配置其参数（或 CyberChef 术语中的“配料”）。</p>">
+                    <div class="title no-select" data-help-title="操作列表" data-help="<p>“操作”列表包含 CyberChef 中的所有操作，并按类别排列。某些操作可能出现在多个类别中。您可以使用搜索框搜索操作。</p><p>要使用操作，请双击它或将其拖到“步骤”窗格中。然后，您将能够配置其参数（或 CyberChef 术语中的“配料”）。</p>">
                         操作
                         <span class="op-count"></span>
                     </div>
@@ -178,20 +178,20 @@
                     <div id="categories" class="panel-group no-select"></div>
                 </div>
 
-                <div id="recipe" class="split split-horizontal no-select" data-help-title="Recipe 窗格" data-help="<p>“Recipe”窗格用于配置您选择的操作。如果您是程序员，请将这些操作视为函数。如果您不是程序员，则这些操作类似于蛋糕 Recipe 中的步骤。输入数据将根据 Recipe 中的操作进行处理。</p><ul><li>要重新排序，只需将操作拖放到您需要的顺序即可</li><li>要删除操作，请双击它或将其拖到“Recipe”窗格外部</li></ul><p>可以配置参数（或 CyberChef 术语中的“配料”）以更改操作处理数据的方式。</p>">
+                <div id="recipe" class="split split-horizontal no-select" data-help-title="步骤窗格" data-help="<p>“步骤”窗格用于配置您选择的操作。如果您是程序员，请将这些操作视为函数。如果您不是程序员，则这些操作类似于蛋糕菜单中的步骤。输入数据将根据步骤中的操作进行处理。</p><ul><li>要重新排序，只需将操作拖放到您需要的顺序即可</li><li>要删除操作，请双击它或将其拖到“步骤”窗格外部</li></ul><p>可以配置参数（或 CyberChef 术语中的“配料”）以更改操作处理数据的方式。</p>">
                     <div class="title no-select">
-                        Recipe
+                        步骤
                         <span class="pane-controls hide-on-maximised-output">
-                            <button type="button" aria-label="Hide arguments" class="btn btn-primary bmd-btn-icon" id="hide-icon" data-toggle="tooltip" title="隐藏参数" hide-args="false" data-help-title="隐藏 Recipe 中每个操作的参数视图" data-help="单击“隐藏参数”将隐藏 Recipe 中每个操作的所有参数视图，以便在 Recipe 中操作过多时节省空间">
+                            <button type="button" aria-label="Hide arguments" class="btn btn-primary bmd-btn-icon" id="hide-icon" data-toggle="tooltip" title="隐藏参数" hide-args="false" data-help-title="隐藏步骤中每个操作的参数视图" data-help="单击“隐藏参数”将隐藏步骤中每个操作的所有参数视图，以便在步骤中操作过多时节省空间">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </button>
-                            <button type="button" aria-label="Save recipe" class="btn btn-primary bmd-btn-icon" id="save" data-toggle="tooltip" title="保存 Recipe" data-help-title="保存 Recipe" data-help="<p>Recipe 可以用几种不同的格式表示并保存，以便日后使用。您可以复制 Recipe 配置并将其保存在离线位置以供日后使用，也可以使用浏览器的本地存储。</p><ul><li><b>深度链接：</b>共享 CyberChef Recipe 的最简单方法是复制深度链接，可以从地址栏（它会随着 Recipe 或输入更改而更新）或从“保存 Recipe”窗格复制。当您访问此链接时，Recipe 和输入将从您上次离开的位置填充。</li><li><b>Chef 格式：</b>这种自定义格式旨在紧凑且易于阅读。它是 CyberChef URL 中使用的格式，因此它主要使用不必在 URL 编码中转义的字符，这使得稍微更容易理解 CyberChef URL 包含的内容。</li><li><b>Clean JSON：</b>此 JSON 格式使用空格和缩进，使 Recipe 易于阅读。</li><li><b>Compact JSON：</b>这是 Recipe 可以用 JSON 表示的最紧凑方式。</li><li><b>本地存储：</b>或者，您可以在“Recipe 名称”字段中输入名称并保存到浏览器的本地存储。然后，只要您使用相同的浏览器配置文件，就可以从“加载 Recipe”窗格加载 Recipe。请注意，如果您的浏览器配置文件被清除，您可能会丢失此数据。</li></ul>">
+                            <button type="button" aria-label="Save recipe" class="btn btn-primary bmd-btn-icon" id="save" data-toggle="tooltip" title="保存步骤" data-help-title="保存步骤" data-help="<p>步骤可以用几种不同的格式表示并保存，以便日后使用。您可以复制步骤配置并将其保存在离线位置以供日后使用，也可以使用浏览器的本地存储。</p><ul><li><b>深度链接：</b>共享 CyberChef 步骤的最简单方法是复制深度链接，可以从地址栏（它会随着步骤或输入更改而更新）或从“保存步骤”窗格复制。当您访问此链接时，步骤和输入将从您上次离开的位置填充。</li><li><b>Chef 格式：</b>这种自定义格式旨在紧凑且易于阅读。它是 CyberChef URL 中使用的格式，因此它主要使用不必在 URL 编码中转义的字符，这使得稍微更容易理解 CyberChef URL 包含的内容。</li><li><b>Clean JSON：</b>此 JSON 格式使用空格和缩进，使步骤易于阅读。</li><li><b>Compact JSON：</b>这是步骤可以用 JSON 表示的最紧凑方式。</li><li><b>本地存储：</b>或者，您可以在“步骤名称”字段中输入名称并保存到浏览器的本地存储。然后，只要您使用相同的浏览器配置文件，就可以从“加载步骤”窗格加载步骤。请注意，如果您的浏览器配置文件被清除，您可能会丢失此数据。</li></ul>">
                                 <i class="material-icons" aria-hidden="true">save</i>
                             </button>
-                            <button type="button" aria-label="Load recipe" class="btn btn-primary bmd-btn-icon" id="load" data-toggle="tooltip" title="加载 Recipe" data-help-title="加载 Recipe" data-help="<p>可以使用以下方法之一加载已保存的 Recipe：</p><ul><li>如果您有 CyberChef 深度链接，只需访问该链接，Recipe 和输入将自动填充。</li><li>如果您有任何已接受格式的 Recipe 字符串，请将其粘贴到“加载 Recipe”窗格文本框中，然后单击“加载”。</li><li>如果您已将 Recipe 保存到浏览器的本地存储，则应在“加载 Recipe”窗格的下拉菜单中找到它。如果它不在那里，则您可能没有使用相同的浏览器配置文件，或者您的配置文件可能已被清除。</li></ul>">
+                            <button type="button" aria-label="Load recipe" class="btn btn-primary bmd-btn-icon" id="load" data-toggle="tooltip" title="加载步骤" data-help-title="加载步骤" data-help="<p>可以使用以下方法之一加载已保存的步骤：</p><ul><li>如果您有 CyberChef 深度链接，只需访问该链接，步骤和输入将自动填充。</li><li>如果您有任何已接受格式的步骤字符串，请将其粘贴到“加载步骤”窗格文本框中，然后单击“加载”。</li><li>如果您已将步骤保存到浏览器的本地存储，则应在“加载步骤”窗格的下拉菜单中找到它。如果它不在那里，则您可能没有使用相同的浏览器配置文件，或者您的配置文件可能已被清除。</li></ul>">
                                 <i class="material-icons" aria-hidden="true">folder</i>
                             </button>
-                            <button type="button" aria-label="Clear recipe" class="btn btn-primary bmd-btn-icon" id="clr-recipe" data-toggle="tooltip" title="清除 Recipe" data-help-title="清除 Recipe" data-help="单击“清除 Recipe”按钮将从 Recipe 中删除所有操作。它不会清除输入，但如果启用了“自动烘焙”，它将触发烘焙，这将更改输出的值。">
+                            <button type="button" aria-label="Clear recipe" class="btn btn-primary bmd-btn-icon" id="clr-recipe" data-toggle="tooltip" title="清除步骤" data-help-title="清除步骤" data-help="单击“清除步骤”按钮将从步骤中删除所有操作。它不会清除输入，但如果启用了“自动执行”，它将触发执行，这将更改输出的值。">
                                 <i class="material-icons" aria-hidden="true">delete</i>
                             </button>
                         </span>
@@ -200,20 +200,20 @@
 
                     <div id="controls" class="no-select hide-on-maximised-output">
                         <div id="controls-content">
-                            <button type="button" class="mx-2 btn btn-lg btn-secondary" id="step" data-toggle="tooltip" title="单步执行 Recipe" data-help-title="单步执行 Recipe" data-help="<p>“单步执行”按钮允许您一次执行一个操作，而不是从头到尾运行整个 Recipe。</p><p>“单步执行”允许您检查 Recipe 每个阶段的数据，并了解传递给下一个操作的内容。</p>">
-                                单步执行
+                            <button type="button" class="mx-2 btn btn-lg btn-secondary" id="step" data-toggle="tooltip" title="单步执行步骤" data-help-title="单步执行步骤" data-help="<p>“单步执行”按钮允许您一次执行一个操作，而不是从头到尾运行整个步骤。</p><p>“单步执行”允许您检查步骤每个阶段的数据，并了解传递给下一个操作的内容。</p>">
+                                步
                             </button>
 
-                            <button type="button" class="mx-2 btn btn-lg btn-success btn-raised btn-block" id="bake" data-help-title="烘焙" data-help="<p>“烘焙”使 CyberChef 使用您的数据运行 Recipe。这涉及三个步骤：</p><ol><li>输入中的数据使用在输入状态栏中选择的字符编码编码为字节。</li><li>数据依次通过 Recipe 中的每个操作运行，一个操作的输出作为其输入馈送到下一个操作。</li><li>Recipe 中最后一个操作的结果使用在输出状态栏中选择的字符编码解码为输出文本。</li></ol><p>如果有多个输入，“烘焙”按钮会导致同时烘焙每个输入。</p>">
+                            <button type="button" class="mx-2 btn btn-lg btn-success btn-raised btn-block" id="bake" data-help-title="执行" data-help="<p>“执行”使 CyberChef 使用您的数据运行步骤。这涉及三个步骤：</p><ol><li>输入中的数据使用在输入状态栏中选择的字符编码编码为字节。</li><li>数据依次通过步骤中的每个操作运行，一个操作的输出作为其输入馈送到下一个操作。</li><li>步骤中最后一个操作的结果使用在输出状态栏中选择的字符编码解码为输出文本。</li></ol><p>如果有多个输入，“执行”按钮会导致同时执行每个输入。</p>">
                                 <img aria-hidden="true" src="<%- require('../static/images/cook_male-32x32.png') %>" alt="Chef Icon"/>
-                                <span>烘焙！</span>
+                                <span>执行！</span>
                             </button>
 
                             <div class="form-group" style="display: contents;">
-                                <div class="mx-1 checkbox" data-help-title="自动烘焙" data-help="<p>启用“自动烘焙”后，每当输入或 Recipe 中的任何内容发生更改时，CyberChef 都会使用 Recipe 烘焙输入。</p>这包括：<ul><li>添加或删除操作</li><li>修改操作参数</li><li>编辑输入</li><li>更改输入字符编码</li></ul><p>如果有多个输入，则“自动烘焙”触发时仅烘焙当前活动的选项卡。您可以使用“烘焙”按钮手动烘焙所有输入。</p>">
+                                <div class="mx-1 checkbox" data-help-title="自动执行" data-help="<p>启用“自动执行”后，每当输入或步骤中的任何内容发生更改时，CyberChef 都会使用步骤执行输入。</p>这包括：<ul><li>添加或删除操作</li><li>修改操作参数</li><li>编辑输入</li><li>更改输入字符编码</li></ul><p>如果有多个输入，则“自动执行”触发时仅执行当前活动的选项卡。您可以使用“执行”按钮手动执行所有输入。</p>">
                                     <label id="auto-bake-label">
                                         <input type="checkbox" checked="checked" id="auto-bake">
-                                        <br>自动烘焙
+                                        <br>自动执行
                                     </label>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                             <label for="input-text">输入</label>
                             <span class="pane-controls">
                                 <div class="io-info" id="input-files-info"></div>
-                                <button type="button" aria-label="Add new input tab" class="btn btn-primary bmd-btn-icon" id="btn-new-tab" data-toggle="tooltip" title="添加新的输入选项卡" data-help-title="选项卡" data-help="<p>可以创建新选项卡以支持多个输入。这些选项卡具有自己关联的字符编码和 EOL 分隔符，如其状态栏中所定义。</p><p>URL 栏中的深度链接仅包含有关当前活动选项卡的信息。</p>">
+                                <button type="button" aria-label="添加新的输入选项卡" class="btn btn-primary bmd-btn-icon" id="btn-new-tab" data-toggle="tooltip" title="添加新的输入选项卡" data-help-title="选项卡" data-help="<p>可以创建新选项卡以支持多个输入。这些选项卡具有自己关联的字符编码和 EOL 分隔符，如其状态栏中所定义。</p><p>URL 栏中的深度链接仅包含有关当前活动选项卡的信息。</p>">
                                     <i class="material-icons" aria-hidden="true">add</i>
                                 </button>
                                 <button type="button" aria-label="Open folder as input" class="btn btn-primary bmd-btn-icon" id="btn-open-folder" data-toggle="tooltip" title="将文件夹作为输入打开" data-help-title="打开文件夹" data-help="<p>您可以将整个文件夹打开到 CyberChef 中，这将导致每个文件加载到单独的输入选项卡中。</p><p>CyberChef 可以处理大量输入文件，但请注意，性能可能会受到影响，尤其是在文件大小较大的情况下。</p><p>也可以通过将文件夹拖到“输入”窗格上并放下它们来加载文件夹。</p>">
@@ -238,7 +238,7 @@
                                     <i class="material-icons" aria-hidden="true">input</i>
                                     <input type="file" id="open-file" style="display: none" multiple>
                                 </button>
-                                <button type="button" aria-label="Clear input and output" class="btn btn-primary bmd-btn-icon" id="clr-io" data-toggle="tooltip" title="清除输入和输出" data-help-title="清除输入和输出" data-help="单击“清除输入和输出”按钮将删除所有输入和输出。它不会清除 Recipe。">
+                                <button type="button" aria-label="Clear input and output" class="btn btn-primary bmd-btn-icon" id="clr-io" data-toggle="tooltip" title="清除输入和输出" data-help-title="清除输入和输出" data-help="单击“清除输入和输出”按钮将删除所有输入和输出。它不会清除步骤。">
                                     <i class="material-icons" aria-hidden="true">delete</i>
                                 </button>
                                 <button type="button" aria-label="Reset pane layout" class="btn btn-primary bmd-btn-icon" id="reset-layout" data-toggle="tooltip" title="重置窗格布局" data-help-title="重置窗格布局" data-help="可以调整 CyberChef 的窗格大小以适合您的焦点区域。此按钮会将窗格大小重置为其默认配置。">
@@ -276,12 +276,12 @@
                         </div>
                     </div>
 
-                    <div id="output" class="split" data-help-title="输出窗格" data-help="<p>此窗格显示 Recipe 在处理您的输入后产生的结果。</p><p>CyberChef 尽最大努力尽可能准确地表示数据，以确保您确切知道自己在处理什么。不可打印字符使用控制字符图片表示，例如，空字节 (0x00) 显示为此：<span title='Control character null' aria-label='Control character null' class='cm-specialChar'>␀</span>。</p><p>从输出中复制这些字符时，原始字节值将复制到您的剪贴板中，而不是控制字符图片本身。</p>">
+                    <div id="output" class="split" data-help-title="输出窗格" data-help="<p>此窗格显示步骤在处理您的输入后产生的结果。</p><p>CyberChef 尽最大努力尽可能准确地表示数据，以确保您确切知道自己在处理什么。不可打印字符使用控制字符图片表示，例如，空字节 (0x00) 显示为此：<span title='Control character null' aria-label='Control character null' class='cm-specialChar'>␀</span>。</p><p>从输出中复制这些字符时，原始字节值将复制到您的剪贴板中，而不是控制字符图片本身。</p>">
                         <div class="title no-select">
                             <label for="output-text">输出</label>
                             <span class="pane-controls">
                                 <div class="io-info" id="bake-info"></div>
-                                <button type="button" class="btn btn-primary bmd-btn-icon" id="save-all-to-file" data-toggle="tooltip" title="将所有输出保存到 zip 文件" style="display: none" data-help-title="将所有输出保存到 zip 文件" data-help="<p>当使用多个选项卡式输入和输出进行操作时，您可以使用此按钮一次性将所有输出保存到 ZIP 文件中。</p><p>使用“烘焙”按钮一次性烘焙所有输入。</p><p>您将可以选择指定输出的文件扩展名，也可以让 CyberChef 尝试检测每个输出的文件类型。如果输出的类型不明确，CyberChef 将使用“.dat”扩展名。</p>">
+                                <button type="button" class="btn btn-primary bmd-btn-icon" id="save-all-to-file" data-toggle="tooltip" title="将所有输出保存到 zip 文件" style="display: none" data-help-title="将所有输出保存到 zip 文件" data-help="<p>当使用多个选项卡式输入和输出进行操作时，您可以使用此按钮一次性将所有输出保存到 ZIP 文件中。</p><p>使用“执行”按钮一次性执行所有输入。</p><p>您将可以选择指定输出的文件扩展名，也可以让 CyberChef 尝试检测每个输出的文件类型。如果输出的类型不明确，CyberChef 将使用“.dat”扩展名。</p>">
                                         <i class="material-icons">archive</i>
                                     </button>
                                 <button type="button" aria-label="save" class="btn btn-primary bmd-btn-icon" id="save-to-file" data-toggle="tooltip" title="将输出保存到文件" data-help-title="将输出保存到文件" data-help="可以将当前活动的输出保存到文件。系统将提示您指定文件名。CyberChef 将尝试根据数据猜测正确的文件扩展名。如果无法检测到文件类型，则扩展名默认为“.dat”，但可以手动更改。">
@@ -293,17 +293,17 @@
                                 <button type="button" aria-label="replace input with output" class="btn btn-primary bmd-btn-icon" id="switch" data-toggle="tooltip" title="用输出替换输入" data-help-title="用输出替换输入" data-help="<p>此按钮将当前活动的输出数据移动到当前活动的输入选项卡中，覆盖已有的任何数据。</p><p>输入字符编码和 EOL 序列将更改为与当前输出值匹配，以便正确解释数据。</p>">
                                     <i class="material-icons" aria-hidden="true">open_in_browser</i>
                                 </button>
-                                <button type="button" aria-label="maximise output pane" class="btn btn-primary bmd-btn-icon" id="maximise-output" data-toggle="tooltip" title="最大化输出窗格" data-help-title="最大化输出窗格" data-help="此按钮允许您以最大尺寸查看“输出”窗格，从而隐藏“操作”、“Recipe”和“输入”窗格。您可以通过再次单击同一按钮将窗格恢复到正常大小。">
+                                <button type="button" aria-label="maximise output pane" class="btn btn-primary bmd-btn-icon" id="maximise-output" data-toggle="tooltip" title="最大化输出窗格" data-help-title="最大化输出窗格" data-help="此按钮允许您以最大尺寸查看“输出”窗格，从而隐藏“操作”、“步骤”和“输入”窗格。您可以通过再次单击同一按钮将窗格恢复到正常大小。">
                                     <i class="material-icons" aria-hidden="true">fullscreen</i>
                                 </button>
                             </span>
 
-                            <button type="button" class="btn btn-primary bmd-btn-icon hidden" id="magic" data-toggle="tooltip" title="Magic!" data-html="true" data-help-title="CyberChef Magic!" data-help="<p>CyberChef 最好的功能之一是它能够自动检测哪些操作可能更好地理解您的数据。“Magic”按钮在 CyberChef 根据输出中的数据为您提供建议操作时出现。</p><p>单击该按钮会将建议的操作添加到您的 Recipe 中。</p><p>此后台 Magic 检测将检查您的输出最多三层深度，并尝试使用一系列技术来解包它。要获得更多控制，请使用“Magic”操作，该操作允许您配置更大的深度并根据各种参数进行筛选。</p><p>有关 CyberChef Magic 的更多信息，请访问 <a href='https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic'>此处</a>。</p>">
+                            <button type="button" class="btn btn-primary bmd-btn-icon hidden" id="magic" data-toggle="tooltip" title="Magic!" data-html="true" data-help-title="CyberChef Magic!" data-help="<p>CyberChef 最好的功能之一是它能够自动检测哪些操作可能更好地理解您的数据。“Magic”按钮在 CyberChef 根据输出中的数据为您提供建议操作时出现。</p><p>单击该按钮会将建议的操作添加到您的步骤中。</p><p>此后台 Magic 检测将检查您的输出最多三层深度，并尝试使用一系列技术来解包它。要获得更多控制，请使用“Magic”操作，该操作允许您配置更大的深度并根据各种参数进行筛选。</p><p>有关 CyberChef Magic 的更多信息，请访问 <a href='https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic'>此处</a>。</p>">
                                 <svg width="22" height="22" viewBox="0 0 24 24">
                                     <path d="M7.5,5.6L5,7L6.4,4.5L5,2L7.5,3.4L10,2L8.6,4.5L10,7L7.5,5.6M19.5,15.4L22,14L20.6,16.5L22,19L19.5,17.6L17,19L18.4,16.5L17,14L19.5,15.4M22,2L20.6,4.5L22,7L19.5,5.6L17,7L18.4,4.5L17,2L19.5,3.4L22,2M13.34,12.78L15.78,10.34L13.66,8.22L11.22,10.66L13.34,12.78M14.37,7.29L16.71,9.63C17.1,10 17.1,10.65 16.71,11.04L5.04,22.71C4.65,23.1 4,23.1 3.63,22.71L1.29,20.37C0.9,20 0.9,19.35 1.29,18.96L12.96,7.29C13.35,6.9 14,6.9 14.37,7.29Z" />
                                 </svg>
                             </button>
-                            <span id="stale-indicator" class="hidden" data-toggle="tooltip" title="输出已过时。自生成此输出以来，输入或 Recipe 已更改。再次烘焙以获取新值。" data-help-title="过时指示器" data-help="当 Recipe 或输入已更改但输出尚未更新以反映这一点时，将显示过时指示器。当“自动烘焙”关闭时，它最常显示，并指示您需要烘焙才能看到准确的输出。">
+                            <span id="stale-indicator" class="hidden" data-toggle="tooltip" title="输出已过时。自生成此输出以来，输入或步骤已更改。再次执行以获取新值。" data-help-title="过时指示器" data-help="当步骤或输入已更改但输出尚未更新以反映这一点时，将显示过时指示器。当“自动执行”关闭时，它最常显示，并指示您需要执行才能看到准确的输出。">
                                 <i class="material-icons">access_time</i>
                             </span>
                         </div>
@@ -347,7 +347,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" data-help-proxy="#save">
                     <div class="modal-header">
-                        <h5 class="modal-title">保存 Recipe</h5>
+                        <h5 class="modal-title">保存步骤</h5>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -375,9 +375,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="save-name" class="bmd-label-floating">Recipe 名称</label>
+                            <label for="save-name" class="bmd-label-floating">步骤名称</label>
                             <input type="text" class="form-control" id="save-name">
-                            <span class="bmd-help">使用此名称将您的 Recipe 保存到本地存储，或复制它以便稍后加载</span>
+                            <span class="bmd-help">使用此名称将您的步骤保存到本地存储，或复制它以便稍后加载</span>
                         </div>
                     </div>
                     <div class="modal-footer" id="save-footer">
@@ -389,7 +389,7 @@
                             <h6 style="display: inline">深度链接</h6>
                             <div class="save-link-options">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="save-link-recipe-checkbox" checked> 包括 Recipe
+                                    <input type="checkbox" id="save-link-recipe-checkbox" checked> 包括步骤
                                 </label>
                                 <label class="checkbox-inline">
                                     <input type="checkbox" id="save-link-input-checkbox" checked> 包括输入
@@ -407,18 +407,18 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content" data-help-proxy="#load">
                     <div class="modal-header">
-                        <h5 class="modal-title">加载 Recipe</h5>
+                        <h5 class="modal-title">加载步骤</h5>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="load-name" class="bmd-label-floating">Recipe 名称</label>
+                            <label for="load-name" class="bmd-label-floating">步骤名称</label>
                             <select class="form-control" id="load-name"></select>
-                            <span class="bmd-help">通过从下拉列表中选择 Recipe 的名称，从本地存储加载 Recipe</span>
+                            <span class="bmd-help">通过从下拉列表中选择步骤的名称，从本地存储加载步骤</span>
                         </div>
                         <div class="form-group">
-                            <label for="load-text" class="bmd-label-floating">Recipe</label>
+                            <label for="load-text" class="bmd-label-floating">步骤</label>
                             <textarea class="form-control" id="load-text" rows="5"></textarea>
-                            <span class="bmd-help">通过将 Recipe 粘贴到此框中来加载 Recipe</span>
+                            <span class="bmd-help">通过将步骤粘贴到此框中来加载步骤</span>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -465,7 +465,7 @@
                         <div class="checkbox option-item">
                             <label for="updateUrl">
                                 <input type="checkbox" option="updateUrl" id="updateUrl" checked>
-                                当输入或 Recipe 更改时更新 URL
+                                当输入或步骤更改时更新 URL
                             </label>
                         </div>
 
@@ -677,7 +677,7 @@
 
 
                                 <h5><strong>如何</strong></h5>
-                                <p>该界面在设计时以简洁为核心。复杂的技术现在变得像拖放一样简单。简单的功能可以组合起来构建“Recipe”，可能会产生复杂的分析，这些分析可以与其他用户共享并与他们的输入一起使用。</p>
+                                <p>该界面在设计时以简洁为核心。复杂的技术现在变得像拖放一样简单。简单的功能可以组合起来构建“步骤”，可能会产生复杂的分析，这些分析可以与其他用户共享并与他们的输入一起使用。</p>
                                 <p>对于那些习惯编写代码的人来说，CyberChef 是一种快速高效的方式来为问题原型化解决方案，一旦证明有效，就可以编写脚本。</p><br>
 
 
@@ -701,7 +701,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     </div>
-                    <a href="https://github.com/gchq/CyberChef">
+                    <a href="https://github.com/KUMAKAIHA/CyberChef_Chinese">
                         <img aria-hidden="true" style="position: absolute; top: 0; right: 0; border: 0;" src="<%- require('../static/images/fork_me.png') %>" alt="Fork me on GitHub">
                     </a>
                 </div>
@@ -793,7 +793,7 @@
                         <h5 class="modal-title">查找输出选项卡</h5>
                     </div>
                     <div class="modal-body" id="output-tab-body">
-                        <h6>烘焙状态</h6>
+                        <h6>执行状态</h6>
                         <div id="output-find-options">
                             <ul id="output-find-options-checkboxes">
                                 <li class="checkbox output-find-option">
@@ -805,13 +805,13 @@
                                 <li class="checkbox output-find-option">
                                     <label for="output-show-baking">
                                         <input type="checkbox" id="output-show-baking" checked="">
-                                        烘焙中
+                                        执行中
                                     </label>
                                 </li>
                                 <li class="checkbox output-find-option">
                                     <label for="output-show-baked">
                                         <input type="checkbox" id="output-show-baked" checked="">
-                                        已烘焙
+                                        已执行
                                     </label>
                                 </li>
                                 <li class="checkbox output-find-option">
@@ -856,7 +856,7 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                            CyberChef 完全在您的浏览器中运行，没有服务器端组件，这意味着您的输入数据和 Recipe 配置不会发送到任何地方，无论您使用的是 CyberChef 的实时官方版本还是下载的独立版本（假设它是未修改的）。
+                            CyberChef 完全在您的浏览器中运行，没有服务器端组件，这意味着您的输入数据和步骤配置不会发送到任何地方，无论您使用的是 CyberChef 的实时官方版本还是下载的独立版本（假设它是未修改的）。
                         </p>
                         <p>
                             有三个操作会调用外部服务，即“在地图上显示”操作，它从 wikimedia.org 下载地图切片；“DNS over HTTPS”操作，它使用 Google 或 Cloudflare 服务解析 DNS 请求；以及“HTTP 请求”操作，它调用您输入的配置 URL。您可以使用浏览器的开发者控制台 (F12) 并查看“网络”选项卡来确认发出了哪些网络请求。

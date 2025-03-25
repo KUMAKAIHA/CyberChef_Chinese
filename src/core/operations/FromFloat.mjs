@@ -20,31 +20,31 @@ class FromFloat extends Operation {
     constructor() {
         super();
 
-        this.name = "From Float";
+        this.name = "从 浮点数 转换";
         this.module = "Default";
-        this.description = "Convert from IEEE754 Floating Point Numbers";
+        this.description = "从 IEEE754 浮点数转换";
         this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Endianness",
+                "name": "字节序",
                 "type": "option",
                 "value": [
-                    "Big Endian",
-                    "Little Endian"
+                    "大端序",
+                    "小端序"
                 ]
             },
             {
-                "name": "Size",
+                "name": "大小",
                 "type": "option",
                 "value": [
-                    "Float (4 bytes)",
-                    "Double (8 bytes)"
+                    "单精度浮点数 (4 字节)",
+                    "双精度浮点数 (8 字节)"
                 ]
             },
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }
@@ -61,8 +61,8 @@ class FromFloat extends Operation {
 
         const [endianness, size, delimiterName] = args;
         const delim = Utils.charRep(delimiterName || "Space");
-        const byteSize = size === "Double (8 bytes)" ? 8 : 4;
-        const isLE = endianness === "Little Endian";
+        const byteSize = size === "双精度浮点数 (8 字节)" ? 8 : 4;
+        const isLE = endianness === "小端序";
         const mLen = byteSize === 4 ? 23 : 52;
         const floats = input.split(delim);
 

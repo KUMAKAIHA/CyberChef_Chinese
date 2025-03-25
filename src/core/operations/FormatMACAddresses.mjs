@@ -17,40 +17,40 @@ class FormatMACAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Format MAC addresses";
+        this.name = "格式化 MAC 地址";
         this.module = "Default";
-        this.description = "Displays given MAC addresses in multiple different formats.<br><br>Expects addresses in a list separated by newlines, spaces or commas.<br><br>WARNING: There are no validity checks.";
+        this.description = "以多种不同格式显示给定的 MAC 地址。<br><br>地址应以列表形式给出，并以换行符、空格或逗号分隔。<br><br>警告：没有进行有效性检查。";
         this.infoURL = "https://wikipedia.org/wiki/MAC_address#Notational_conventions";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Output case",
+                "name": "输出大小写",
                 "type": "option",
-                "value": ["Both", "Upper only", "Lower only"]
+                "value": ["两者", "仅大写", "仅小写"]
             },
             {
-                "name": "No delimiter",
+                "name": "无分隔符",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Dash delimiter",
+                "name": "短划线分隔符",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Colon delimiter",
+                "name": "冒号分隔符",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Cisco style",
+                "name": "Cisco 样式",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "IPv6 interface ID",
+                "name": "IPv6 接口 ID",
                 "type": "boolean",
                 "value": false
             }
@@ -88,13 +88,13 @@ class FormatMACAddresses extends Operation {
             bite = bite.toString(16).padStart(2, "0");
             macIPv6 = bite + macIPv6.slice(2);
 
-            if (outputCase === "Lower only") {
+            if (outputCase === "仅小写") {
                 if (noDelim) outputList.push(cleanMac);
                 if (dashDelim) outputList.push(macHyphen);
                 if (colonDelim) outputList.push(macColon);
                 if (ciscoStyle) outputList.push(macCisco);
                 if (ipv6IntID) outputList.push(macIPv6);
-            } else if (outputCase === "Upper only") {
+            } else if (outputCase === "仅大写") {
                 if (noDelim) outputList.push(cleanMac.toUpperCase());
                 if (dashDelim) outputList.push(macHyphen.toUpperCase());
                 if (colonDelim) outputList.push(macColon.toUpperCase());

@@ -5,15 +5,15 @@
  */
 
 /**
- * Waiter to handle events related to the CyberChef options.
+ * 用于处理与 CyberChef 选项相关的事件的等待器。
  */
 class OptionsWaiter {
 
     /**
-     * OptionsWaiter constructor.
+     * OptionsWaiter 构造函数。
      *
-     * @param {App} app - The main view object for CyberChef.
-     * @param {Manager} manager - The CyberChef event manager.
+     * @param {App} app - CyberChef 的主视图对象。
+     * @param {Manager} manager - CyberChef 事件管理器。
      */
     constructor(app, manager) {
         this.app = app;
@@ -21,14 +21,14 @@ class OptionsWaiter {
     }
 
     /**
-     * Loads options and sets values of switches and inputs to match them.
+     * 加载选项并设置开关和输入的值以匹配它们。
      *
      * @param {Object} options
      */
     load(options) {
         Object.assign(this.app.options, options);
 
-        // Set options to match object
+        // 设置选项以匹配对象
         document.querySelectorAll("#options-body input[type=checkbox]").forEach(cbox => {
             cbox.checked = this.app.options[cbox.getAttribute("option")];
         });
@@ -48,15 +48,15 @@ class OptionsWaiter {
             }
         });
 
-        // Initialise options
+        // 初始化选项
         this.setWordWrap();
         this.manager.ops.setCatCount();
     }
 
 
     /**
-     * Handler for options click events.
-     * Displays the options pane.
+     * 选项点击事件的处理程序。
+     * 显示选项面板。
      *
      * @param {event} e
      */
@@ -67,8 +67,8 @@ class OptionsWaiter {
 
 
     /**
-     * Handler for reset options click events.
-     * Resets options back to their default values.
+     * 重置选项点击事件的处理程序。
+     * 将选项重置为默认值。
      */
     resetOptionsClick() {
         this.load(this.app.doptions);
@@ -76,7 +76,7 @@ class OptionsWaiter {
 
 
     /**
-     * Handler for switch change events.
+     * 开关更改事件的处理程序。
      *
      * @param {event} e
      */
@@ -90,7 +90,7 @@ class OptionsWaiter {
 
 
     /**
-     * Handler for number change events.
+     * 数字更改事件的处理程序。
      *
      * @param {event} e
      */
@@ -104,7 +104,7 @@ class OptionsWaiter {
 
 
     /**
-     * Handler for select change events.
+     * 选择更改事件的处理程序。
      *
      * @param {event} e
      */
@@ -116,10 +116,10 @@ class OptionsWaiter {
     }
 
     /**
-     * Modifies an option value and saves it to local storage.
+     * 修改选项值并将其保存到本地存储。
      *
-     * @param {string} option - The option to be updated
-     * @param {string|number|boolean} value - The new value of the option
+     * @param {string} option - 要更新的选项
+     * @param {string|number|boolean} value - 选项的新值
      */
     updateOption(option, value) {
         log.debug(`Setting ${option} to ${value}`);
@@ -131,7 +131,7 @@ class OptionsWaiter {
 
 
     /**
-     * Sets or unsets word wrap on the input and output depending on the wordWrap option value.
+     * 根据 wordWrap 选项值设置或取消设置输入和输出的自动换行。
      */
     setWordWrap() {
         this.manager.input.setWordWrap(this.app.options.wordWrap);
@@ -140,7 +140,7 @@ class OptionsWaiter {
 
 
     /**
-     * Theme change event listener
+     * 主题更改事件监听器
      *
      * @param {Event} e
      */
@@ -151,20 +151,20 @@ class OptionsWaiter {
 
 
     /**
-     * Changes the theme by setting the class of the <html> element.
+     * 通过设置 <html> 元素的 class 来更改主题。
      *
      * @param (string} theme
      */
     changeTheme(theme) {
         document.querySelector(":root").className = theme;
 
-        // Update theme selection
+        // 更新主题选择
         const themeSelect = document.getElementById("theme");
         themeSelect.selectedIndex = themeSelect.querySelector(`option[value="${theme}"`).index;
     }
 
     /**
-     * Applies the user's preferred color scheme using the `prefers-color-scheme` media query.
+     * 使用 `prefers-color-scheme` 媒体查询应用用户首选的颜色方案。
      */
     applyPreferredColorScheme() {
         const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -173,7 +173,7 @@ class OptionsWaiter {
     }
 
     /**
-     * Changes the console logging level.
+     * 更改控制台日志记录级别。
      *
      * @param {Event} e
      */

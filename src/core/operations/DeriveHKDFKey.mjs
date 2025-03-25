@@ -20,27 +20,27 @@ class DeriveHKDFKey extends Operation {
     constructor() {
         super();
 
-        this.name = "Derive HKDF key";
+        this.name = "派生 HKDF 密钥";
         this.module = "Crypto";
-        this.description = "A simple Hashed Message Authenticaton Code (HMAC)-based key derivation function (HKDF), defined in RFC5869.";
+        this.description = "一个简单的基于哈希消息认证码 (HMAC) 的密钥派生函数 (HKDF)，定义在 RFC5869 中。";
         this.infoURL = "https://wikipedia.org/wiki/HKDF";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Salt",
+                "name": "盐",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "Decimal", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Info",
+                "name": "信息",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "Decimal", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Hashing function",
+                "name": "哈希函数",
                 "type": "option",
                 "value": [
                     "MD2",
@@ -67,25 +67,25 @@ class DeriveHKDFKey extends Operation {
                 "defaultIndex": 6
             },
             {
-                "name": "Extract mode",
+                "name": "提取模式",
                 "type": "argSelector",
                 "value": [
                     {
-                        "name": "with salt",
+                        "name": "使用盐",
                         "on": [0]
                     },
                     {
-                        "name": "no salt",
+                        "name": "无盐",
                         "off": [0]
                     },
                     {
-                        "name": "skip",
+                        "name": "跳过",
                         "off": [0]
                     }
                 ]
             },
             {
-                "name": "L (number of output octets)",
+                "name": "L (输出字节数)",
                 "type": "number",
                 "value": 16,
                 "min": 0
@@ -109,10 +109,10 @@ class DeriveHKDFKey extends Operation {
             HashLen = hasher.finalize().length;
 
         if (L < 0) {
-            throw new OperationError("L must be non-negative");
+            throw new OperationError("L 必须是非负数");
         }
         if (L > 255 * HashLen) {
-            throw new OperationError("L too large (maximum length for " + args[2] + " is " + (255 * HashLen) + ")");
+            throw new OperationError("L 过大 (对于 " + args[2] + " 的最大长度为 " + (255 * HashLen) + ")");
         }
 
         const hmacHash = function(key, data) {

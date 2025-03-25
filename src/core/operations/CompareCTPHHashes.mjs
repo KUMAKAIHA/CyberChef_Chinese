@@ -21,15 +21,15 @@ class CompareCTPHHashes extends Operation {
     constructor() {
         super();
 
-        this.name = "Compare CTPH hashes";
+        this.name = "比较 CTPH 哈希值";
         this.module = "Crypto";
-        this.description = "Compares two Context Triggered Piecewise Hashing (CTPH) fuzzy hashes to determine the similarity between them on a scale of 0 to 100.";
+        this.description = "比较两个上下文触发分段哈希 (CTPH) 模糊哈希值，以确定它们之间的相似度，范围从 0 到 100。";
         this.infoURL = "https://forensics.wiki/context_triggered_piecewise_hashing/";
         this.inputType = "string";
         this.outputType = "Number";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": HASH_DELIM_OPTIONS
             }
@@ -43,7 +43,7 @@ class CompareCTPHHashes extends Operation {
      */
     run(input, args) {
         const samples = input.split(Utils.charRep(args[0]));
-        if (samples.length !== 2) throw new OperationError("Incorrect number of samples.");
+        if (samples.length !== 2) throw new OperationError("样本数量不正确。");
         return ctphjs.similarity(samples[0], samples[1]);
     }
 

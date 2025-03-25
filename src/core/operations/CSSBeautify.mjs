@@ -18,14 +18,14 @@ class CSSBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "CSS Beautify";
+        this.name = "CSS 美化";
         this.module = "Code";
-        this.description = "Indents and prettifies Cascading Style Sheets (CSS) code.";
+        this.description = "缩进并美化层叠样式表 (CSS) 代码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进字符串",
                 "type": "binaryShortString",
                 "value": "\\t"
             }

@@ -20,20 +20,20 @@ class CSSSelector extends Operation {
     constructor() {
         super();
 
-        this.name = "CSS selector";
-        this.module = "Code";
-        this.description = "Extract information from an HTML document with a CSS selector";
+        this.name = "CSS 选择器";
+        this.module = "代码整理";
+        this.description = "使用 CSS 选择器从 HTML 文档中提取信息";
         this.infoURL = "https://wikipedia.org/wiki/Cascading_Style_Sheets#Selector";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "CSS selector",
+                "name": "CSS 选择器",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             }
@@ -58,14 +58,14 @@ class CSSSelector extends Operation {
         try {
             dom = parser.parseFromString(input);
         } catch (err) {
-            throw new OperationError("Invalid input HTML.");
+            throw new OperationError("无效的 HTML 输入.");
         }
 
         try {
             const matcher = nwmatcher({document: dom});
             result = matcher.select(query, dom);
         } catch (err) {
-            throw new OperationError("Invalid CSS Selector. Details:\n" + err.message);
+            throw new OperationError("无效的 CSS 选择器。详情：\n" + err.message);
         }
 
         const nodeToString = function(node) {

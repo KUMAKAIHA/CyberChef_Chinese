@@ -18,9 +18,9 @@ class Fletcher64Checksum extends Operation {
     constructor() {
         super();
 
-        this.name = "Fletcher-64 Checksum";
+        this.name = "Fletcher-64 校验和";
         this.module = "Crypto";
-        this.description = "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s.<br><br>The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the lower computational effort associated with summation techniques.";
+        this.description = "Fletcher 校验和算法是由 John Gould Fletcher 于 1970 年代后期在劳伦斯利弗莫尔实验室设计的位置相关校验和算法。<br><br>Fletcher 校验和算法的目的是提供接近循环冗余校验的错误检测性能，但计算量更低，与求和技术相关。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum#Fletcher-64";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

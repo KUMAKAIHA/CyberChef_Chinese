@@ -19,20 +19,20 @@ class FromMorseCode extends Operation {
     constructor() {
         super();
 
-        this.name = "From Morse Code";
+        this.name = "从 莫尔斯电码 转换";
         this.module = "Default";
-        this.description = "Translates Morse Code into (upper case) alphanumeric characters.";
+        this.description = "将莫尔斯电码翻译成（大写）字母数字字符。";
         this.infoURL = "https://wikipedia.org/wiki/Morse_code";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Letter delimiter",
+                "name": "字母分隔符",
                 "type": "option",
                 "value": LETTER_DELIM_OPTIONS
             },
             {
-                "name": "Word delimiter",
+                "name": "单词分隔符",
                 "type": "option",
                 "value": WORD_DELIM_OPTIONS
             }

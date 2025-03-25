@@ -26,10 +26,10 @@ class DetectFileType extends Operation {
     constructor() {
         super();
 
-        this.name = "Detect File Type";
+        this.name = "检测文件类型";
         this.module = "Default";
-        this.description = "Attempts to guess the MIME (Multipurpose Internet Mail Extensions) type of the data based on 'magic bytes'.<br><br>Currently supports the following file types: " +
-            exts + ".";
+        this.description = "尝试基于“魔术字节”猜测数据的 MIME（多用途互联网邮件扩展）类型。<br><br>目前支持以下文件类型：" +
+            exts + "。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_file_signatures";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -58,15 +58,15 @@ class DetectFileType extends Operation {
         const types = detectFileType(data, categories);
 
         if (!types.length) {
-            return "Unknown file type. Have you tried checking the entropy of this data to determine whether it might be encrypted or compressed?";
+            return "未知文件类型。您是否尝试检查此数据的熵，以确定它是否可能被加密或压缩？";
         } else {
             const results = types.map(type => {
-                let output = `File type:   ${type.name}
-Extension:   ${type.extension}
-MIME type:   ${type.mime}\n`;
+                let output = `文件类型：   ${type.name}
+扩展名：   ${type.extension}
+MIME 类型：   ${type.mime}\n`;
 
                 if (type?.description?.length) {
-                    output += `Description: ${type.description}\n`;
+                    output += `描述： ${type.description}\n`;
                 }
 
                 return output;

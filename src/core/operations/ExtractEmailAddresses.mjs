@@ -19,24 +19,24 @@ class ExtractEmailAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract email addresses";
+        this.name = "提取电子邮件地址";
         this.module = "Regex";
-        this.description = "Extracts all email addresses from the input.";
+        this.description = "从输入中提取所有电子邮件地址。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -62,7 +62,7 @@ class ExtractEmailAddresses extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总共找到: ${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

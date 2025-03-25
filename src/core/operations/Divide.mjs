@@ -22,14 +22,14 @@ class Divide extends Operation {
     constructor() {
         super();
 
-        this.name = "Divide";
+        this.name = "除法";
         this.module = "Default";
-        this.description = "Divides a list of numbers. If an item in the string is not a number it is excluded from the list.<br><br>e.g. <code>0x0a 8 .5</code> becomes <code>2.5</code>";
+        this.description = "对数字列表执行除法运算。如果字符串中的项目不是数字，则会从列表中排除。<br><br>例如：<code>0x0a 8 .5</code> 变为 <code>2.5</code>";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": ARITHMETIC_DELIM_OPTIONS,
             }

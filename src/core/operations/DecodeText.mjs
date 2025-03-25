@@ -19,12 +19,12 @@ class DecodeText extends Operation {
     constructor() {
         super();
 
-        this.name = "Decode text";
+        this.name = "文本解码";
         this.module = "Encodings";
         this.description = [
-            "Decodes text from the chosen character encoding.",
+            "从所选字符编码中解码文本。",
             "<br><br>",
-            "Supported charsets are:",
+            "支持的字符集包括：",
             "<ul>",
             Object.keys(CHR_ENC_CODE_PAGES).map(e => `<li>${e}</li>`).join("\n"),
             "</ul>",
@@ -34,7 +34,7 @@ class DecodeText extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                "name": "Encoding",
+                "name": "编码",
                 "type": "option",
                 "value": Object.keys(CHR_ENC_CODE_PAGES)
             }

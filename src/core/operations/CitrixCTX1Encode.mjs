@@ -18,9 +18,9 @@ class CitrixCTX1Encode extends Operation {
     constructor() {
         super();
 
-        this.name = "Citrix CTX1 Encode";
+        this.name = "Citrix CTX1 编码";
         this.module = "Encodings";
-        this.description = "Encodes strings to Citrix CTX1 password format.";
+        this.description = "将字符串编码为 Citrix CTX1 密码格式。";
         this.infoURL = "https://www.reddit.com/r/AskNetsec/comments/1s3r6y/citrix_ctx1_hash_decoding/";
         this.inputType = "string";
         this.outputType = "byteArray";

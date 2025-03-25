@@ -16,9 +16,9 @@ class ConvertToNATOAlphabet extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert to NATO alphabet";
+        this.name = "转换为 NATO 音标字母";
         this.module = "Default";
-        this.description = "Converts characters to their representation in the NATO phonetic alphabet.";
+        this.description = "将字符转换为北约音标字母中的表示形式。";
         this.infoURL = "https://wikipedia.org/wiki/NATO_phonetic_alphabet";
         this.inputType = "string";
         this.outputType = "string";
@@ -74,9 +74,9 @@ const lookup = {
     "7": "Seven ",
     "8": "Eight ",
     "9": "Nine ",
-    ",": "Comma ",
-    "/": "Fraction bar ",
-    ".": "Full stop ",
+    ",": "逗号 ",
+    "/": "分数线 ",
+    ".": "句点 ",
 };
 
 export default ConvertToNATOAlphabet;

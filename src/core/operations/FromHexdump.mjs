@@ -20,9 +20,9 @@ class FromHexdump extends Operation {
     constructor() {
         super();
 
-        this.name = "From Hexdump";
+        this.name = "从 Hexdump 转换";
         this.module = "Default";
-        this.description = "Attempts to convert a hexdump back into raw data. This operation supports many different hexdump variations, but probably not all. Make sure you verify that the data it gives you is correct before continuing analysis.";
+        this.description = "尝试将 hexdump 转换回原始数据。此操作支持多种不同的 hexdump 变体，但可能并非全部。请务必验证其提供的数据是否正确，然后再继续分析。";
         this.infoURL = "https://wikipedia.org/wiki/Hex_dump";
         this.inputType = "string";
         this.outputType = "byteArray";

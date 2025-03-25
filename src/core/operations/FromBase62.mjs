@@ -20,15 +20,15 @@ class FromBase62 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base62";
-        this.module = "Default";
-        this.description = "Base62 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system.";
+        this.name = "从 Base62 转换";
+        this.module = "数据格式";
+        this.description = "Base62 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用并由计算机处理。 高基数会产生比十进制或十六进制系统更短的字符串。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字母表",
                 type: "string",
                 value: "0-9A-Za-z"
             }
@@ -45,7 +45,7 @@ class FromBase62 extends Operation {
         const alphabet = Utils.expandAlphRange(args[0]).join("");
         const BN62 = BigNumber.clone({ ALPHABET: alphabet });
 
-        const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
+        const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\{{input}}") + "]", "g");
         input = input.replace(re, "");
 
         // Read number in using Base62 alphabet

@@ -20,15 +20,15 @@ class FromUNIXTimestamp extends Operation {
     constructor() {
         super();
 
-        this.name = "From UNIX Timestamp";
+        this.name = "从 UNIX 时间戳转换";
         this.module = "Default";
-        this.description = "Converts a UNIX timestamp to a datetime string.<br><br>e.g. <code>978346800</code> becomes <code>Mon 1 January 2001 11:00:00 UTC</code><br><br>A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).";
+        this.description = "将 UNIX 时间戳转换为日期时间字符串。<br><br>例如：<code>978346800</code> 变为 <code>Mon 1 January 2001 11:00:00 UTC</code><br><br>UNIX 时间戳是一个 32 位值，表示自 1970 年 1 月 1 日 UTC（UNIX 纪元）以来的秒数。";
         this.infoURL = "https://wikipedia.org/wiki/Unix_time";
         this.inputType = "number";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Units",
+                "name": "单位",
                 "type": "option",
                 "value": UNITS
             }
@@ -37,22 +37,22 @@ class FromUNIXTimestamp extends Operation {
             {
                 pattern: "^1?\\d{9}$",
                 flags: "",
-                args: ["Seconds (s)"]
+                args: ["秒 (s)"]
             },
             {
                 pattern: "^1?\\d{12}$",
                 flags: "",
-                args: ["Milliseconds (ms)"]
+                args: ["毫秒 (ms)"]
             },
             {
                 pattern: "^1?\\d{15}$",
                 flags: "",
-                args: ["Microseconds (μs)"]
+                args: ["微秒 (μs)"]
             },
             {
                 pattern: "^1?\\d{18}$",
                 flags: "",
-                args: ["Nanoseconds (ns)"]
+                args: ["纳秒 (ns)"]
             }
         ];
     }
@@ -83,7 +83,7 @@ class FromUNIXTimestamp extends Operation {
             d = moment(input / 1000000);
             return d.tz("UTC").format("ddd D MMMM YYYY HH:mm:ss.SSS") + " UTC";
         } else {
-            throw new OperationError("Unrecognised unit");
+            throw new OperationError("无法识别的单位");
         }
     }
 

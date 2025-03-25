@@ -20,15 +20,15 @@ class GOSTHash extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Hash";
-        this.module = "Hashing";
-        this.description = "The GOST hash function, defined in the standards GOST R 34.11-94 and GOST 34.311-95 is a 256-bit cryptographic hash function. It was initially defined in the Russian national standard GOST R 34.11-94 <i>Information Technology – Cryptographic Information Security – Hash Function</i>. The equivalent standard used by other member-states of the CIS is GOST 34.311-95.<br><br>This function must not be confused with a different Streebog hash function, which is defined in the new revision of the standard GOST R 34.11-2012.<br><br>The GOST hash function is based on the GOST block cipher.";
+        this.name = "GOST 哈希";
+        this.module = "哈希";
+        this.description = "GOST 哈希函数，在 GOST R 34.11-94 和 GOST 34.311-95 标准中定义，是一种 256 位的密码散列函数。它最初在俄罗斯国家标准 GOST R 34.11-94《信息技术 - 密码信息安全 - 哈希函数》中定义。CIS 其他成员国使用的等效标准是 GOST 34.311-95。<br><br>此函数不应与另一个 Streebog 哈希函数混淆，后者在 GOST R 34.11-2012 标准的新修订版中定义。<br><br>GOST 哈希函数基于 GOST 分组密码。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(hash_function)";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -44,7 +44,7 @@ class GOSTHash extends Operation {
                 ]
             },
             {
-                name: "Digest length",
+                name: "摘要长度",
                 type: "option",
                 value: ["256", "512"]
             },

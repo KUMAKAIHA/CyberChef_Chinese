@@ -19,29 +19,29 @@ class ExtractDomains extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract domains";
+        this.name = "提取域名";
         this.module = "Regex";
-        this.description = "Extracts fully qualified domain names.<br>Note that this will not include paths. Use <strong>Extract URLs</strong> to find entire URLs.";
+        this.description = "提取完整限定域名。<br>请注意，这不包括路径。使用 <strong>提取 URL</strong> 来查找完整的 URL。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Underscore (DMARC, DKIM, etc)",
+                name: "下划线 (DMARC, DKIM 等)",
                 type: "boolean",
                 value: false
             }
@@ -65,7 +65,7 @@ class ExtractDomains extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总共找到：${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

@@ -21,32 +21,32 @@ class ECDSASignatureConversion extends Operation {
     constructor() {
         super();
 
-        this.name = "ECDSA Signature Conversion";
+        this.name = "ECDSA 签名转换";
         this.module = "Ciphers";
-        this.description = "Convert an ECDSA signature between hex, asn1 and json.";
+        this.description = "在 hex、asn1 和 json 之间转换 ECDSA 签名。";
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
                 value: [
-                    "Auto",
+                    "自动",
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
-                    "Raw JSON"
+                    "原始 JSON"
                 ]
             },
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
-                    "Raw JSON"
+                    "原始 JSON"
                 ]
             }
         ];
@@ -95,7 +95,7 @@ class ECDSASignatureConversion extends Operation {
         let signatureASN1Hex;
         switch (inputFormat) {
             case "Auto":
-                throw new OperationError("Signature format could not be detected");
+                throw new OperationError("无法检测签名格式");
             case "ASN.1 HEX":
                 signatureASN1Hex = input;
                 break;
@@ -109,10 +109,10 @@ class ECDSASignatureConversion extends Operation {
             case "Raw JSON": {
                 if (!inputJson) inputJson = JSON.parse(input);
                 if (!inputJson.r) {
-                    throw new OperationError('No "r" value in the signature JSON');
+                    throw new OperationError('签名 JSON 中缺少 "r" 值');
                 }
                 if (!inputJson.s) {
-                    throw new OperationError('No "s" value in the signature JSON');
+                    throw new OperationError('签名 JSON 中缺少 "s" 值');
                 }
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.hexRSSigToASN1Sig(inputJson.r, inputJson.s);
                 break;

@@ -18,14 +18,14 @@ class CSSMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "CSS Minify";
+        this.name = "CSS 压缩";
         this.module = "Code";
-        this.description = "Compresses Cascading Style Sheets (CSS) code.";
+        this.description = "压缩层叠样式表 (CSS) 代码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Preserve comments",
+                "name": "保留注释",
                 "type": "boolean",
                 "value": false
             }

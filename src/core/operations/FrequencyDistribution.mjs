@@ -19,21 +19,21 @@ class FrequencyDistribution extends Operation {
     constructor() {
         super();
 
-        this.name = "Frequency distribution";
+        this.name = "频率分布";
         this.module = "Default";
-        this.description = "Displays the distribution of bytes in the data as a graph.";
+        this.description = "以图表形式显示数据中字节的分布。";
         this.infoURL = "https://wikipedia.org/wiki/Frequency_distribution";
         this.inputType = "ArrayBuffer";
         this.outputType = "json";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Show 0%s",
+                "name": "显示 0",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Show ASCII",
+                "name": "显示 ASCII 字符",
                 "type": "boolean",
                 "value": true
             }
@@ -85,9 +85,9 @@ class FrequencyDistribution extends Operation {
 
         // Print
         let output = `<canvas id='chart-area'></canvas><br>
-Total data length: ${freq.dataLength}
-Number of bytes represented: ${freq.bytesRepresented}
-Number of bytes not represented: ${256 - freq.bytesRepresented}
+数据总长度: ${freq.dataLength}
+已表示字节数: ${freq.bytesRepresented}
+未表示字节数: ${256 - freq.bytesRepresented}
 
 <script>
     var canvas = document.getElementById("chart-area"),
@@ -97,10 +97,10 @@ Number of bytes not represented: ${256 - freq.bytesRepresented}
     canvas.width = parentRect.width * 0.95;
     canvas.height = parentRect.height * 0.9;
 
-    CanvasComponents.drawBarChart(canvas, scores, "Byte", "Frequency %", 16, 6);
+    CanvasComponents.drawBarChart(canvas, scores, "字节", "频率 %", 16, 6);
 </script>
 <table class="table table-hover table-sm">
-    <tr><th>Byte</th>${showAscii ? "<th>ASCII</th>" : ""}<th>Percentage</th><th></th></tr>`;
+    <tr><th>字节</th>${showAscii ? "<th>ASCII 字符</th>" : ""}<th>百分比</th><th></th></tr>`;
 
         for (let i = 0; i < 256; i++) {
             if (freq.distribution[i] || showZeroes) {

@@ -19,15 +19,15 @@ class FromOctal extends Operation {
     constructor() {
         super();
 
-        this.name = "From Octal";
+        this.name = "从 八进制 转换";
         this.module = "Default";
-        this.description = "Converts an octal byte string back into its raw value.<br><br>e.g. <code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code> becomes the UTF-8 encoded string <code>Γειά σου</code>";
+        this.description = "将八进制字节字符串转换回其原始值。<br><br>例如：<code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code> 转换为 UTF-8 编码的字符串 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Octal";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }
@@ -36,27 +36,27 @@ class FromOctal extends Operation {
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?: (?:[0-7]{1,2}|[123][0-7]{2}))*$",
                 flags: "",
-                args: ["Space"]
+                args: ["空格"]
             },
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?:,(?:[0-7]{1,2}|[123][0-7]{2}))*$",
                 flags: "",
-                args: ["Comma"]
+                args: ["逗号"]
             },
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?:;(?:[0-7]{1,2}|[123][0-7]{2}))*$",
                 flags: "",
-                args: ["Semi-colon"]
+                args: ["分号"]
             },
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?::(?:[0-7]{1,2}|[123][0-7]{2}))*$",
                 flags: "",
-                args: ["Colon"]
+                args: ["冒号"]
             },
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?:\\n(?:[0-7]{1,2}|[123][0-7]{2}))*$",
                 flags: "",
-                args: ["Line feed"]
+                args: ["换行符"]
             },
             {
                 pattern: "^(?:[0-7]{1,2}|[123][0-7]{2})(?:\\r\\n(?:[0-7]{1,2}|[123][0-7]{2}))*$",

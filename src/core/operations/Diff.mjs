@@ -20,43 +20,43 @@ class Diff extends Operation {
     constructor() {
         super();
 
-        this.name = "Diff";
+        this.name = "差异";
         this.module = "Diff";
-        this.description = "Compares two inputs (separated by the specified delimiter) and highlights the differences between them.";
+        this.description = "比较两个输入（通过指定分隔符分隔），并高亮显示它们之间的差异。";
         this.infoURL = "https://wikipedia.org/wiki/File_comparison";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Sample delimiter",
+                "name": "样本分隔符",
                 "type": "binaryString",
                 "value": "\\n\\n"
             },
             {
-                "name": "Diff by",
+                "name": "差异比较方式",
                 "type": "option",
-                "value": ["Character", "Word", "Line", "Sentence", "CSS", "JSON"]
+                "value": ["字符", "单词", "行", "句子", "CSS", "JSON"]
             },
             {
-                "name": "Show added",
+                "name": "显示添加内容",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Show removed",
+                "name": "显示移除内容",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Show subtraction",
+                "name": "显示未修改内容",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Ignore whitespace",
+                "name": "忽略空白字符",
                 "type": "boolean",
                 "value": false,
-                "hint": "Relevant for word and line"
+                "hint": "与单词和行模式相关"
             }
         ];
     }
@@ -87,24 +87,24 @@ class Diff extends Operation {
         }
 
         switch (diffBy) {
-            case "Character":
+            case "字符":
                 diff = jsdiff.diffChars(samples[0], samples[1]);
                 break;
-            case "Word":
+            case "单词":
                 if (ignoreWhitespace) {
                     diff = jsdiff.diffWords(samples[0], samples[1]);
                 } else {
                     diff = jsdiff.diffWordsWithSpace(samples[0], samples[1]);
                 }
                 break;
-            case "Line":
+            case "行":
                 if (ignoreWhitespace) {
                     diff = jsdiff.diffTrimmedLines(samples[0], samples[1]);
                 } else {
                     diff = jsdiff.diffLines(samples[0], samples[1]);
                 }
                 break;
-            case "Sentence":
+            case "句子":
                 diff = jsdiff.diffSentences(samples[0], samples[1]);
                 break;
             case "CSS":
@@ -114,7 +114,7 @@ class Diff extends Operation {
                 diff = jsdiff.diffJson(samples[0], samples[1]);
                 break;
             default:
-                throw new OperationError("Invalid 'Diff by' option.");
+                throw new OperationError("无效的“差异比较方式”选项。");
         }
 
         for (let i = 0; i < diff.length; i++) {

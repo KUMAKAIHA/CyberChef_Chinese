@@ -17,15 +17,15 @@ class CaesarBoxCipher extends Operation {
     constructor() {
         super();
 
-        this.name = "Caesar Box Cipher";
+        this.name = "凯撒箱密码";
         this.module = "Ciphers";
-        this.description = "Caesar Box is a transposition cipher used in the Roman Empire, in which letters of the message are written in rows in a square (or a rectangle) and then, read by column.";
+        this.description = "凯撒箱密码是一种在罗马帝国使用的换位密码，它将消息的字母按行写入正方形（或矩形）中，然后按列读取。";
         this.infoURL = "https://www.dcode.fr/caesar-box-cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Box Height",
+                name: "箱体高度",
                 type: "number",
                 value: 1
             }

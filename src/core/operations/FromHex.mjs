@@ -19,15 +19,15 @@ class FromHex extends Operation {
     constructor() {
         super();
 
-        this.name = "From Hex";
+        this.name = "从 Hex 转换";
         this.module = "Default";
-        this.description = "Converts a hexadecimal byte string back into its raw value.<br><br>e.g. <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code> becomes the UTF-8 encoded string <code>Γειά σου</code>";
+        this.description = "将十六进制字节字符串转换回其原始值。<br><br>例如，<code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code> 转换为 UTF-8 编码的字符串 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: FROM_HEX_DELIM_OPTIONS
             }
@@ -36,32 +36,32 @@ class FromHex extends Operation {
             {
                 pattern: "^(?:[\\dA-F]{2})+$",
                 flags: "i",
-                args: ["None"]
+                args: ["无"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?: [\\dA-F]{2})*$",
                 flags: "i",
-                args: ["Space"]
+                args: ["空格"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?:,[\\dA-F]{2})*$",
                 flags: "i",
-                args: ["Comma"]
+                args: ["逗号"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?:;[\\dA-F]{2})*$",
                 flags: "i",
-                args: ["Semi-colon"]
+                args: ["分号"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?::[\\dA-F]{2})*$",
                 flags: "i",
-                args: ["Colon"]
+                args: ["冒号"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?:\\n[\\dA-F]{2})*$",
                 flags: "i",
-                args: ["Line feed"]
+                args: ["换行符"]
             },
             {
                 pattern: "^[\\dA-F]{2}(?:\\r\\n[\\dA-F]{2})*$",
@@ -76,7 +76,7 @@ class FromHex extends Operation {
             {
                 pattern: "^0x[\\dA-F]{2}(?:,0x[\\dA-F]{2})*$",
                 flags: "i",
-                args: ["0x with comma"]
+                args: ["带逗号的 0x"]
             },
             {
                 pattern: "^(?:\\\\x[\\dA-F]{2})+$",
@@ -92,7 +92,7 @@ class FromHex extends Operation {
      * @returns {byteArray}
      */
     run(input, args) {
-        const delim = args[0] || "Auto";
+        const delim = args[0] || "自动";
         return fromHex(input, delim, 2);
     }
 
@@ -106,7 +106,7 @@ class FromHex extends Operation {
      * @returns {Object[]} pos
      */
     highlight(pos, args) {
-        if (args[0] === "Auto") return false;
+        if (args[0] === "自动") return false;
         const delim = Utils.charRep(args[0] || "Space"),
             len = delim === "\r\n" ? 1 : delim.length,
             width = len + 2;

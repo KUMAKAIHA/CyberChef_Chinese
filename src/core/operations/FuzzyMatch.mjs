@@ -19,56 +19,56 @@ class FuzzyMatch extends Operation {
     constructor() {
         super();
 
-        this.name = "Fuzzy Match";
+        this.name = "模糊匹配";
         this.module = "Default";
-        this.description = "Conducts a fuzzy search to find a pattern within the input based on weighted criteria.<br><br>e.g. A search for <code>dpan</code> will match on <code><b>D</b>on't <b>Pan</b>ic</code>";
+        this.description = "根据加权标准对输入内容进行模糊搜索，以查找模式。<br><br>例如，搜索 <code>dpan</code> 将匹配 <code><b>D</b>on't <b>Pan</b>ic</code>";
         this.infoURL = "https://wikipedia.org/wiki/Fuzzy_matching_(computer-assisted_translation)";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Search",
+                name: "搜索",
                 type: "binaryString",
                 value: ""
             },
             {
-                name: "Sequential bonus",
+                name: "连续匹配奖励",
                 type: "number",
                 value: DEFAULT_WEIGHTS.sequentialBonus,
-                hint: "Bonus for adjacent matches"
+                hint: "相邻匹配的奖励"
             },
             {
-                name: "Separator bonus",
+                name: "分隔符奖励",
                 type: "number",
                 value: DEFAULT_WEIGHTS.separatorBonus,
-                hint: "Bonus if match occurs after a separator"
+                hint: "如果匹配发生在分隔符之后则奖励"
             },
             {
-                name: "Camel bonus",
+                name: "驼峰式奖励",
                 type: "number",
                 value: DEFAULT_WEIGHTS.camelBonus,
-                hint: "Bonus if match is uppercase and previous is lower"
+                hint: "如果匹配是大写字母且前一个是小写字母则奖励"
             },
             {
-                name: "First letter bonus",
+                name: "首字母奖励",
                 type: "number",
                 value: DEFAULT_WEIGHTS.firstLetterBonus,
-                hint: "Bonus if the first letter is matched"
+                hint: "如果首字母匹配则奖励"
             },
             {
-                name: "Leading letter penalty",
+                name: "前导字母惩罚",
                 type: "number",
                 value: DEFAULT_WEIGHTS.leadingLetterPenalty,
-                hint: "Penalty applied for every letter in the input before the first match"
+                hint: "对输入中在首次匹配之前出现的每个字母施加惩罚"
             },
             {
-                name: "Max leading letter penalty",
+                name: "最大前导字母惩罚",
                 type: "number",
                 value: DEFAULT_WEIGHTS.maxLeadingLetterPenalty,
-                hint: "Maxiumum penalty for leading letters"
+                hint: "前导字母的最大惩罚"
             },
             {
-                name: "Unmatched letter penalty",
+                name: "未匹配字母惩罚",
                 type: "number",
                 value: DEFAULT_WEIGHTS.unmatchedLetterPenalty
             },
@@ -94,7 +94,7 @@ class FuzzyMatch extends Operation {
         const matches = fuzzyMatch(searchStr, input, true, weights);
 
         if (!matches) {
-            return "No matches.";
+            return "未找到匹配项。";
         }
 
         let result = "", pos = 0, hlClass = "hl1";

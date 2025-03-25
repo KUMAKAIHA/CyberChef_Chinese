@@ -17,9 +17,9 @@ class ChiSquare extends Operation {
     constructor() {
         super();
 
-        this.name = "Chi Square";
+        this.name = "卡方";
         this.module = "Default";
-        this.description = "Calculates the Chi Square distribution of values.";
+        this.description = "计算数值的卡方分布。";
         this.infoURL = "https://wikipedia.org/wiki/Chi-squared_distribution";
         this.inputType = "ArrayBuffer";
         this.outputType = "number";

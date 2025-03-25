@@ -22,20 +22,20 @@ class ExtractRGBA extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract RGBA";
-        this.module = "Image";
-        this.description = "Extracts each pixel's RGBA value in an image. These are sometimes used in Steganography to hide text or data.";
+        this.name = "提取 RGBA";
+        this.module = "图像";
+        this.description = "提取图像中每个像素的 RGBA 值。这些值有时用于隐写术以隐藏文本或数据。";
         this.infoURL = "https://wikipedia.org/wiki/RGBA_color_space";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "editableOption",
                 value: RGBA_DELIM_OPTIONS
             },
             {
-                name: "Include Alpha",
+                name: "包含 Alpha 通道",
                 type: "boolean",
                 value: true
             }
@@ -48,7 +48,7 @@ class ExtractRGBA extends Operation {
      * @returns {string}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请输入有效的图像文件。");
 
         const delimiter = args[0],
             includeAlpha = args[1],

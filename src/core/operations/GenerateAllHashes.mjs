@@ -49,22 +49,22 @@ class GenerateAllHashes extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate all hashes";
-        this.module = "Crypto";
-        this.description = "Generates all available hashes and checksums for the input.";
+        this.name = "生成所有哈希值";
+        this.module = "加密 / 编码";
+        this.description = "为输入生成所有可用的哈希值和校验和。";
         this.infoURL = "https://wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Length (bits)",
+                name: "长度 (比特)",
                 type: "option",
                 value: [
-                    "All", "128", "160", "224", "256", "320", "384", "512"
+                    "全部", "128", "160", "224", "256", "320", "384", "512"
                 ]
             },
             {
-                name: "Include names",
+                name: "包含名称",
                 type: "boolean",
                 value: true
             },
@@ -144,8 +144,8 @@ class GenerateAllHashes extends Operation {
             output += this.formatDigest(digest, length, includeNames, hash.name);
         });
 
-        if (length === "All") {
-            output += "\nChecksums:\n";
+        if (length === "全部") {
+            output += "\n校验和:\n";
             this.checksums.forEach(checksum => {
                 digest = this.executeAlgo(checksum.algo, checksum.inputType, checksum.params || []);
                 output += this.formatDigest(digest, length, includeNames, checksum.name);
@@ -176,7 +176,7 @@ class GenerateAllHashes extends Operation {
                 digest = algo.run(this.inputByteArray, params);
                 break;
             default:
-                throw new OperationError("Unknown hash input type: " + inputType);
+                throw new OperationError("未知的哈希输入类型: " + inputType);
         }
 
         return digest;
@@ -191,7 +191,7 @@ class GenerateAllHashes extends Operation {
      * @returns {string}
      */
     formatDigest(digest, length, includeNames, name) {
-        if (length !== "All" && (digest.length * 4) !== parseInt(length, 10))
+        if (length !== "全部" && (digest.length * 4) !== parseInt(length, 10))
             return "";
 
         if (!includeNames)

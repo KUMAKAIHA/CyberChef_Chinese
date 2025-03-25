@@ -22,55 +22,55 @@ class CoverImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Cover Image";
+        this.name = "包含图像";
         this.module = "Image";
-        this.description = "Scales the image to the given width and height, keeping the aspect ratio. The image may be clipped.";
+        this.description = "将图像缩放到给定的宽度和高度，保持宽高比。图像可能会被裁剪。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
                 value: [
-                    "Left",
-                    "Center",
-                    "Right"
+                    "左",
+                    "居中",
+                    "右"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
                 value: [
-                    "Top",
-                    "Middle",
-                    "Bottom"
+                    "顶部",
+                    "中间",
+                    "底部"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Resizing algorithm",
+                name: "调整大小算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
-                    "Hermite",
-                    "Bezier"
+                    "最近邻",
+                    "双线性",
+                    "双三次",
+                    "埃尔米特",
+                    "贝塞尔"
                 ],
                 defaultIndex: 1
             }
@@ -103,18 +103,18 @@ class CoverImage extends Operation {
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Covering image...");
+                self.sendStatusMessage("正在包含图像...");
             image.cover(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
@@ -124,7 +124,7 @@ class CoverImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error covering image. (${err})`);
+            throw new OperationError(`包含图像时出错。 (${err})`);
         }
     }
 
@@ -139,7 +139,7 @@ class CoverImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

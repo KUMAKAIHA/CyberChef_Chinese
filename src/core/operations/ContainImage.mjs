@@ -22,60 +22,60 @@ class ContainImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Contain Image";
+        this.name = "包含图像";
         this.module = "Image";
-        this.description = "Scales an image to the specified width and height, maintaining the aspect ratio. The image may be letterboxed.";
+        this.description = "将图像缩放到指定的宽度和高度，同时保持宽高比。图像可能会被 Letterbox 处理。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
                 value: [
-                    "Left",
-                    "Center",
-                    "Right"
+                    "左",
+                    "居中",
+                    "右"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
                 value: [
-                    "Top",
-                    "Middle",
-                    "Bottom"
+                    "顶部",
+                    "中间",
+                    "底部"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Resizing algorithm",
+                name: "调整大小算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
-                    "Hermite",
-                    "Bezier"
+                    "最近邻",
+                    "双线性",
+                    "双三次",
+                    "埃尔米特",
+                    "贝塞尔"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Opaque background",
+                name: "不透明背景",
                 type: "boolean",
                 value: true
             }
@@ -108,18 +108,18 @@ class ContainImage extends Operation {
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await Jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`加载图像时出错。(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Containing image...");
+                self.sendStatusMessage("正在包含图像...");
             image.contain(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
 
             if (opaqueBg) {
@@ -136,7 +136,7 @@ class ContainImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error containing image. (${err})`);
+            throw new OperationError(`包含图像时出错。(${err})`);
         }
     }
 
@@ -151,7 +151,7 @@ class ContainImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

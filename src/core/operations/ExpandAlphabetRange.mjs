@@ -18,14 +18,14 @@ class ExpandAlphabetRange extends Operation {
     constructor() {
         super();
 
-        this.name = "Expand alphabet range";
+        this.name = "展开字母范围";
         this.module = "Default";
-        this.description = "Expand an alphabet range string into a list of the characters in that range.<br><br>e.g. <code>a-z</code> becomes <code>abcdefghijklmnopqrstuvwxyz</code>.";
+        this.description = "将字母表范围字符串展开为该范围中字符的列表。<br><br>例如，<code>a-z</code> 变为 <code>abcdefghijklmnopqrstuvwxyz</code>。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "binaryString",
                 "value": ""
             }
