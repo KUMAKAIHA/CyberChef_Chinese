@@ -44,8 +44,8 @@ class StatusBarPanel {
         const rhs = document.createElement("div");
 
         dom.className = "cm-status-bar";
-        dom.setAttribute("data-help-title", `${this.label} status bar`);
-        dom.setAttribute("data-help", `This status bar provides information about data in the ${this.label}. Help topics are available for each of the components by activating help when hovering over them.`);
+        dom.setAttribute("data-help-title", `${this.label} 状态栏`);
+        dom.setAttribute("data-help", `该状态栏提供关于 ${this.label} 数据的信息。悬停各组件时可查看帮助说明。`);
         lhs.innerHTML = this.constructLHS();
         rhs.innerHTML = this.constructRHS();
 
@@ -224,8 +224,8 @@ class StatusBarPanel {
         switch (this.getEOLState()) {
             case 1: // Detected
                 val.classList.add("font-italic");
-                eolCode += " (detected)";
-                eolName += " (detected)";
+                eolCode += "（检测到）";
+                eolName += "（检测到）";
                 // Pulse
                 val.classList.add("pulse");
                 setTimeout(() => {
@@ -240,8 +240,8 @@ class StatusBarPanel {
         }
 
         val.textContent = eolCode;
-        button.setAttribute("title", `End of line sequence:<br>${eolName}`);
-        button.setAttribute("data-original-title", `End of line sequence:<br>${eolName}`);
+        button.setAttribute("title", `行结束符：<br>${eolName}`);
+        button.setAttribute("data-original-title", `行结束符：<br>${eolName}`);
         this.eolVal = state.lineBreak;
     }
 
@@ -261,7 +261,7 @@ class StatusBarPanel {
         switch (this.getEncodingState()) {
             case 1: // Detected
                 val.classList.add("font-italic");
-                name += " (detected)";
+                name += "（检测到）";
                 // Pulse
                 val.classList.add("pulse");
                 setTimeout(() => {
@@ -276,8 +276,8 @@ class StatusBarPanel {
         }
 
         val.textContent = name;
-        button.setAttribute("title", `${this.label} character encoding:<br>${name}`);
-        button.setAttribute("data-original-title", `${this.label} character encoding:<br>${name}`);
+        button.setAttribute("title", `${this.label} 字符编码：<br>${name}`);
+        button.setAttribute("data-original-title", `${this.label} 字符编码：<br>${name}`);
         this.chrEncVal = chrEncVal;
     }
 
@@ -344,21 +344,21 @@ class StatusBarPanel {
      */
     constructLHS() {
         return `
-            <span data-toggle="tooltip" title="${this.label} length" data-help-title="${this.label} length" data-help="This number represents the number of characters in the ${this.label}.<br><br>The CRLF end of line separator is counted as two characters which impacts this value.">
+            <span data-toggle="tooltip" title="${this.label} 长度" data-help-title="${this.label} 长度" data-help="该数字表示 ${this.label} 中的字符数。CRLF 行结束符被计为两个字符，这会影响此数值。">
                 <i class="material-icons">abc</i>
                 <span class="stats-length-value"></span>
             </span>
-            <span data-toggle="tooltip" title="Number of lines"  data-help-title="Number of lines" data-help="This number represents the number of lines in the ${this.label}. Lines are separated by the End of Line Sequence which can be changed using the EOL selector at the far right of this status bar.">
+            <span data-toggle="tooltip" title="行数"  data-help-title="行数" data-help="该数字表示 ${this.label} 中的行数。行由行结束符分隔，可通过最右侧的 EOL 选择器更改。">
                 <i class="material-icons">sort</i>
                 <span class="stats-lines-value"></span>
             </span>
 
-            <span class="sel-info" data-toggle="tooltip" title="Main selection" data-help-title="Main selection" data-help="These numbers show which offsets have been selected and how many characters are in the current selection. If multiple selections are made, these numbers refer to the latest one. ">
+            <span class="sel-info" data-toggle="tooltip" title="主要选择" data-help-title="主要选择" data-help="这些数字显示当前选区的起始、结束偏移以及所选字符数。如果存在多个选区，则显示最新的选区。">
                 <i class="material-icons">highlight_alt</i>
                 <span class="sel-start-value"></span>\u279E<span class="sel-end-value"></span>
-                (<span class="sel-length-value"></span> selected)
+                (<span class="sel-length-value"></span> 已选)
             </span>
-            <span class="cur-offset-info" data-toggle="tooltip" title="Cursor offset" data-help-title="Cursor offset" data-help="This number indicates what the current offset of the cursor is from the beginning of the ${this.label}.<br><br>The CRLF end of line separator is counted as two characters which impacts this value.">
+            <span class="cur-offset-info" data-toggle="tooltip" title="光标偏移" data-help-title="光标偏移" data-help="该数字指示光标自 ${this.label} 开始处的当前偏移量。<br><br>CRLF 行结束符被计为两个字符，这会影响此数值。">
                 <i class="material-icons">location_on</i>
                 <span class="cur-offset-value"></span>
             </span>`;
@@ -378,21 +378,21 @@ class StatusBarPanel {
         let chrEncHelpText = "",
             eolHelpText = "";
         if (this.label === "Input") {
-            chrEncHelpText = "The input character encoding defines how the input text is encoded into bytes which are then processed by the Recipe.<br><br>The 'Raw bytes' option attempts to treat the input as individual bytes in the range 0-255. If it detects any characters with Unicode values above 255, it will treat the entire input as UTF-8. 'Raw bytes' is usually the best option if you are inputting binary data, such as a file.";
-            eolHelpText = "The End of Line Sequence defines which bytes are considered EOL terminators. Pressing the return key will enter this value into the input and create a new line.<br><br>Changing the EOL sequence will not modify any existing data in the input but may change how previously entered line breaks are displayed. Lines added while a different EOL terminator was set may not now result in a new line, but may be displayed as control characters instead.";
+            chrEncHelpText = "输入字符编码定义了输入文本如何转换为字节供 Recipe 处理。<br><br>‘Raw Bytes’选项尝试将输入视为在 0-255 范围内的单个字节。如果检测到 Unicode 值大于 255 的字符，则会将整个输入视作 UTF-8。当输入二进制数据（例如文件）时，‘Raw Bytes’通常是最佳选择。";
+            eolHelpText = "行结束符定义了哪些字节被视为行终止符。按回车键将在输入中插入该值并创建新行。<br><br>更改行结束符不会修改已有数据，但可能改变之前换行的显示方式。在设置不同行终止符时添加的行可能不会换行，而是显示为控制字符。";
         } else {
-            chrEncHelpText = "The output character encoding defines how the output bytes are decoded into text which can be displayed to you.<br><br>The 'Raw bytes' option treats the output data as individual bytes in the range 0-255.";
-            eolHelpText = "The End of Line Sequence defines which bytes are considered EOL terminators.<br><br>Changing this value will not modify the value of the output, but may change how certain bytes are displayed and whether they result in a new line being created.";
+            chrEncHelpText = "输出字符编码定义了输出字节如何解码为可显示的文本。<br><br>‘Raw Bytes’选项将输出数据视为在 0-255 范围内的独立字节。";
+            eolHelpText = "行结束符定义了哪些字节被视为行终止符。<br><br>更改该值不会修改输出内容，但可能改变某些字节的显示方式以及是否创建新行。";
         }
 
         return `
-            <span class="baking-time-info" style="display: none" data-toggle="tooltip" data-html="true" title="Baking time" data-help-title="Baking time" data-help="The baking time is the total time between data being read from the input, processed, and then displayed in the output.<br><br>The 'Threading overhead' value accounts for the transfer of data between different processing threads, as well as some garbage collection. It is not included in the overall bake time displayed in the status bar as it is largely influenced by background operating system and browser activity which can fluctuate significantly.">
+            <span class="baking-time-info" style="display: none" data-toggle="tooltip" data-html="true" title="处理时间" data-help-title="处理时间" data-help="处理时间指的是从数据从输入中读取、经过处理到最终显示在输出中的总耗时。<br><br>‘Threading overhead’ 表示处理线程间的数据传输及垃圾回收耗时，此项不计入状态栏显示的总时间，因其受后台操作系统和浏览器活动影响较大。">
                 <i class="material-icons">schedule</i>
-                <span class="baking-time-value"></span>ms
+                <span class="baking-time-value"></span>毫秒
             </span>
 
-            <div class="cm-status-bar-select chr-enc-select" data-help-title="${this.label} character encoding" data-help="${chrEncHelpText}">
-                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="${this.label} character encoding">
+            <div class="cm-status-bar-select chr-enc-select" data-help-title="${this.label} 字符编码" data-help="${chrEncHelpText}">
+                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="${this.label} 字符编码">
                     <i class="material-icons">text_fields</i> <span class="chr-enc-value">Raw Bytes</span>
                 </span>
                 <div class="cm-status-bar-select-content">
@@ -406,24 +406,24 @@ class StatusBarPanel {
                                 <i class="material-icons">search</i>
                             </span>
                         </div>
-                        <input type="text" class="form-control cm-status-bar-filter-input" placeholder="Filter...">
+                        <input type="text" class="form-control cm-status-bar-filter-input" placeholder="过滤…">
                     </div>
                 </div>
             </div>
 
-            <div class="cm-status-bar-select eol-select" data-help-title="${this.label} EOL sequence" data-help="${eolHelpText}">
-                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="End of line sequence">
+            <div class="cm-status-bar-select eol-select" data-help-title="${this.label} 行结束符" data-help="${eolHelpText}">
+                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="行结束符">
                     <i class="material-icons">keyboard_return</i> <span class="eol-value"></span>
                 </span>
                 <div class="cm-status-bar-select-content no-select">
-                    <a href="#" draggable="false" data-val="LF">Line Feed, U+000A</a>
-                    <a href="#" draggable="false" data-val="VT">Vertical Tab, U+000B</a>
-                    <a href="#" draggable="false" data-val="FF">Form Feed, U+000C</a>
-                    <a href="#" draggable="false" data-val="CR">Carriage Return, U+000D</a>
-                    <a href="#" draggable="false" data-val="CRLF">CR+LF, U+000D U+000A</a>
+                    <a href="#" draggable="false" data-val="LF">换行符, U+000A</a>
+                    <a href="#" draggable="false" data-val="VT">垂直制表符, U+000B</a>
+                    <a href="#" draggable="false" data-val="FF">换页符, U+000C</a>
+                    <a href="#" draggable="false" data-val="CR">回车符, U+000D</a>
+                    <a href="#" draggable="false" data-val="CRLF">回车+换行, U+000D U+000A</a>
                     <!-- <a href="#" draggable="false" data-val="NL">Next Line, U+0085</a> This causes problems. -->
-                    <a href="#" draggable="false" data-val="LS">Line Separator, U+2028</a>
-                    <a href="#" draggable="false" data-val="PS">Paragraph Separator, U+2029</a>
+                    <a href="#" draggable="false" data-val="LS">行分隔符, U+2028</a>
+                    <a href="#" draggable="false" data-val="PS">段落分隔符, U+2029</a>
                 </div>
             </div>`;
     }

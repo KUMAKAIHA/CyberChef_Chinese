@@ -10,27 +10,27 @@ import Utils from "../../core/Utils.mjs";
 
 // Descriptions for named control characters
 const Names = {
-    0: "null",
-    7: "bell",
-    8: "backspace",
-    10: "line feed",
-    11: "vertical tab",
-    13: "carriage return",
-    27: "escape",
-    8203: "zero width space",
-    8204: "zero width non-joiner",
-    8205: "zero width joiner",
-    8206: "left-to-right mark",
-    8207: "right-to-left mark",
-    8232: "line separator",
-    8237: "left-to-right override",
-    8238: "right-to-left override",
-    8294: "left-to-right isolate",
-    8295: "right-to-left isolate",
-    8297: "pop directional isolate",
-    8233: "paragraph separator",
-    65279: "zero width no-break space",
-    65532: "object replacement"
+    0: "空字符",
+    7: "响铃",
+    8: "退格",
+    10: "换行符",
+    11: "垂直制表符",
+    13: "回车符",
+    27: "转义",
+    8203: "零宽空格",
+    8204: "零宽非连接符",
+    8205: "零宽连接符",
+    8206: "从左至右标记",
+    8207: "从右至左标记",
+    8232: "行分隔符",
+    8237: "从左至右覆盖",
+    8238: "从右至左覆盖",
+    8294: "从左至右隔离",
+    8295: "从右至左隔离",
+    8297: "弹出方向隔离",
+    8233: "段落分隔符",
+    65279: "零宽不换行符",
+    65532: "对象替换符"
 };
 
 // Regex for Special Characters to be replaced
@@ -55,14 +55,14 @@ export function renderSpecialChar(code, desc, placeholder) {
     // CodeMirror changes 0x0a to "NL" instead of "LF". We change it back along with its description.
     if (code === 0x0a) {
         placeholder = "\u240a";
-        desc = desc.replace("newline", "line feed");
+        desc = desc.replace("newline", "换行符");
     }
 
     // Render CyberChef escaped characters correctly - see Utils.escapeWhitespace
     if (code >= 0xe000 && code <= 0xf8ff) {
         code = code - 0xe000;
         placeholder = String.fromCharCode(0x2400 + code);
-        desc = "Control character " + (Names[code] || "0x" + code.toString(16));
+        desc = "控制字符 " + (Names[code] || "0x" + code.toString(16));
     }
 
     s.textContent = placeholder;
@@ -89,7 +89,7 @@ export function escapeControlChars(str, preserveWs=false, lineBreak="\n") {
     return str.replace(Specials, function(c) {
         if (lineBreak.includes(c)) return c;
         const code = c.charCodeAt(0);
-        const desc = "Control character " + (Names[code] || "0x" + code.toString(16));
+        const desc = "控制字符 " + (Names[code] || "0x" + code.toString(16));
         const placeholder = code > 32 ? "\u2022" : String.fromCharCode(9216 + code);
         const n = renderSpecialChar(code, desc, placeholder);
         return n.outerHTML;
@@ -125,12 +125,12 @@ export const eolCodeToSeq = {
 };
 
 export const eolCodeToName = {
-    "LF": "Line Feed",
-    "VT": "Vertical Tab",
-    "FF": "Form Feed",
-    "CR": "Carriage Return",
-    "CRLF": "Carriage Return + Line Feed",
-    "NEL": "Next Line",
-    "LS": "Line Separator",
-    "PS": "Paragraph Separator"
+    "LF": "换行符",
+    "VT": "垂直制表符",
+    "FF": "换页符",
+    "CR": "回车符",
+    "CRLF": "回车换行符",
+    "NEL": "下一行",
+    "LS": "行分隔符",
+    "PS": "段落分隔符"
 };
