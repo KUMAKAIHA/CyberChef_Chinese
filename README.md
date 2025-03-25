@@ -1,126 +1,127 @@
+```markdown
 # CyberChef
 
-[![](https://github.com/gchq/CyberChef/workflows/Master%20Build,%20Test%20&%20Deploy/badge.svg)](https://github.com/gchq/CyberChef/actions?query=workflow%3A%22Master+Build%2C+Test+%26+Deploy%22)
+[![](https://github.com/gchq/CyberChef/workflows/Master%20Build,%20Test%20&%20Deploy/badge.svg)](https://github.com/gchq/CyberChef/actions?query=workflow%3A%22Master+Build,%20Test%26Deploy%22)
 [![npm](https://img.shields.io/npm/v/cyberchef.svg)](https://www.npmjs.com/package/cyberchef)
 [![](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/gchq/CyberChef/blob/master/LICENSE)
 [![Gitter](https://badges.gitter.im/gchq/CyberChef.svg)](https://gitter.im/gchq/CyberChef?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
-#### *The Cyber Swiss Army Knife*
+#### *网络瑞士军刀*
 
-CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. These operations include simple encoding like XOR and Base64, more complex encryption like AES, DES and Blowfish, creating binary and hexdumps, compression and decompression of data, calculating hashes and checksums, IPv6 and X.509 parsing, changing character encodings, and much more.
+CyberChef 是一款简洁直观的 Web 应用程序，用于在 Web 浏览器中执行各种“网络”操作。 这些操作包括简单的编码（如 XOR 和 Base64）、更复杂的加密（如 AES、DES 和 Blowfish）、创建二进制和十六进制转储、数据的压缩和解压缩、计算哈希和校验和、IPv6 和 X.509 解析、字符编码转换等等。
 
-The tool is designed to enable both technical and non-technical analysts to manipulate data in complex ways without having to deal with complex tools or algorithms. It was conceived, designed, built and incrementally improved by an analyst in their 10% innovation time over several years.
+该工具旨在使技术和非技术分析人员都能够以复杂的方式操作数据，而无需处理复杂的工具或算法。 它是由一位分析师利用其 10% 的创新时间，在数年内构思、设计、构建并逐步改进的。
 
-## Live demo
+## 在线演示
 
-CyberChef is still under active development. As a result, it shouldn't be considered a finished product. There is still testing and bug fixing to do, new features to be added and additional documentation to write. Please contribute!
+CyberChef 仍在积极开发中。 因此，它不应被视为最终产品。 仍有测试和错误修复工作要做，新功能需要添加，额外的文档需要编写。 欢迎贡献！
 
-Cryptographic operations in CyberChef should not be relied upon to provide security in any situation. No guarantee is offered for their correctness.
+CyberChef 中的加密操作不应在任何情况下用于提供安全保障。 其正确性不提供任何保证。
 
-[A live demo can be found here][1] - have fun!
+[在这里可以找到在线演示][1] - 玩得开心！
 
-## Containers
+## 容器
 
-If you would like to try out CyberChef locally you can either build it yourself:
+如果您想在本地试用 CyberChef，您可以自行构建：
 
 ```bash
 docker build --tag cyberchef --ulimit nofile=10000 .
 docker run -it -p 8080:80 cyberchef
 ```
 
-Or you can use our image directly:
+或者您可以直接使用我们的镜像：
 
 ```bash
 docker run -it -p 8080:80 ghcr.io/gchq/cyberchef:latest
 ```
 
-This image is built and published through our [GitHub Workflows](.github/workflows/releases.yml)
+此镜像通过我们的 [GitHub Workflows](.github/workflows/releases.yml) 构建和发布
 
-## How it works
+## 工作原理
 
-There are four main areas in CyberChef:
+CyberChef 主要有四个区域：
 
- 1. The **input** box in the top right, where you can paste, type or drag the text or file you want to operate on.
- 2. The **output** box in the bottom right, where the outcome of your processing will be displayed.
- 3. The **operations** list on the far left, where you can find all the operations that CyberChef is capable of in categorised lists, or by searching.
- 4. The **recipe** area in the middle, where you can drag the operations that you want to use and specify arguments and options.
+ 1. 右上角的 **输入** 框，您可以在其中粘贴、键入或拖动要操作的文本或文件。
+ 2. 右下角的 **输出** 框，其中将显示处理结果。
+ 3. 最左侧的 **操作** 列表，您可以在其中找到 CyberChef 能够执行的所有操作，这些操作按类别列表显示，或通过搜索查找。
+ 4. 中间的 **Recipe** 区域，您可以在其中拖动要使用的操作，并指定参数和选项。
 
-You can use as many operations as you like in simple or complex ways. Some examples are as follows:
+您可以以简单或复杂的方式使用任意数量的操作。 以下是一些示例：
 
- - [Decode a Base64-encoded string][2]
- - [Convert a date and time to a different time zone][3]
- - [Parse a Teredo IPv6 address][4]
- - [Convert data from a hexdump, then decompress][5]
- - [Decrypt and disassemble shellcode][6]
- - [Display multiple timestamps as full dates][7]
- - [Carry out different operations on data of different types][8]
- - [Use parts of the input as arguments to operations][9]
- - [Perform AES decryption, extracting the IV from the beginning of the cipher stream][10]
- - [Automagically detect several layers of nested encoding][12]
-
-
-## Features
-
- - Drag and drop
-     - Operations can be dragged in and out of the recipe list, or reorganised.
-     - Files up to 2GB can be dragged over the input box to load them directly into the browser.
- - Auto Bake
-     - Whenever you modify the input or the recipe, CyberChef will automatically "bake" for you and produce the output immediately.
-     - This can be turned off and operated manually if it is affecting performance (if the input is very large, for instance).
- - Automated encoding detection
-     - CyberChef uses [a number of techniques](https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic) to attempt to automatically detect which encodings your data is under. If it finds a suitable operation that make sense of your data, it displays the 'magic' icon in the Output field which you can click to decode your data.
- - Breakpoints
-     - You can set breakpoints on any operation in your recipe to pause execution before running it.
-     - You can also step through the recipe one operation at a time to see what the data looks like at each stage.
- - Save and load recipes
-     - If you come up with an awesome recipe that you know you’ll want to use again, just click "Save recipe" and add it to your local storage. It'll be waiting for you next time you visit CyberChef.
-     - You can also copy the URL, which includes your recipe and input, to easily share it with others.
- - Search
-     - If you know the name of the operation you want or a word associated with it, start typing it into the search field and any matching operations will immediately be shown.
- - Highlighting
-     - When you highlight text in the input or output, the offset and length values will be displayed and, if possible, the corresponding data will be highlighted in the output or input respectively (example: [highlight the word 'question' in the input to see where it appears in the output][11]).
- - Save to file and load from file
-     - You can save the output to a file at any time or load a file by dragging and dropping it into the input field. Files up to around 2GB are supported (depending on your browser), however, some operations may take a very long time to run over this much data.
- - CyberChef is entirely client-side
-     - It should be noted that none of your recipe configuration or input (either text or files) is ever sent to the CyberChef web server - all processing is carried out within your browser, on your own computer.
-     - Due to this feature, CyberChef can be downloaded and run locally. You can use the link in the top left corner of the app to download a full copy of CyberChef and drop it into a virtual machine, share it with other people, or host it in a closed network.
+ - [解码 Base64 编码的字符串][2]
+ - [将日期和时间转换为不同的时区][3]
+ - [解析 Teredo IPv6 地址][4]
+ - [从 hexdump 转换数据，然后解压缩][5]
+ - [解密和反汇编 Shellcode][6]
+ - [将多个时间戳显示为完整日期][7]
+ - [对不同类型的数据执行不同的操作][8]
+ - [使用输入的部分内容作为操作的参数][9]
+ - [执行 AES 解密，从密码流的开头提取 IV][10]
+ - [自动检测多层嵌套编码][12]
 
 
-## Deep linking
+## 功能特性
 
-By manipulating CyberChef's URL hash, you can change the initial settings with which the page opens.
-The format is `https://gchq.github.io/CyberChef/#recipe=Operation()&input=...`
+ - 拖放操作
+     - 操作可以拖入和拖出 Recipe 列表，或重新组织。
+     - 最大 2GB 的文件可以拖到输入框上方，直接加载到浏览器中。
+ - 自动烘焙
+     - 每当您修改输入或 Recipe 时，CyberChef 都会自动为您“烘焙”并立即生成输出。
+     - 如果影响性能（例如，如果输入非常大），可以关闭此功能并手动操作。
+ - 自动编码检测
+     - CyberChef 使用[多种技术](https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic)尝试自动检测您的数据所使用的编码。 如果它找到适合您数据的操作，它将在“输出”字段中显示“魔术”图标，您可以单击该图标来解码您的数据。
+ - 断点
+     - 您可以在 Recipe 中的任何操作上设置断点，以便在运行之前暂停执行。
+     - 您还可以一次单步执行 Recipe 中的一个操作，以查看每个阶段的数据外观。
+ - 保存和加载 Recipe
+     - 如果您想出了一个很棒的 Recipe，并且知道您以后还想再次使用它，只需单击“保存 Recipe”并将其添加到您的本地存储。 它将在您下次访问 CyberChef 时等待您。
+     - 您还可以复制 URL，其中包含您的 Recipe 和输入，以便轻松与他人共享。
+ - 搜索
+     - 如果您知道所需操作的名称或与之关联的词，请开始在搜索字段中键入它，任何匹配的操作将立即显示。
+ - 高亮显示
+     - 当您在输入或输出中突出显示文本时，将显示偏移量和长度值，并且如果可能，将在输出或输入中突出显示相应的数据（示例：[在输入中突出显示单词“question”以查看它在输出中出现的位置][11]）。
+ - 保存到文件和从文件加载
+     - 您可以随时将输出保存到文件，或通过将文件拖放到输入字段中来加载文件。 支持最大约 2GB 的文件（取决于您的浏览器），但是，某些操作可能需要很长时间才能处理这么多数据。
+ - CyberChef 完全在客户端运行
+     - 应该注意的是，您的 Recipe 配置或输入（文本或文件）都不会发送到 CyberChef Web 服务器 - 所有处理都在您的浏览器中、在您自己的计算机上进行。
+     - 由于此功能，CyberChef 可以下载并在本地运行。 您可以使用应用程序左上角的链接下载 CyberChef 的完整副本，并将其放入虚拟机、与其他人共享或托管在封闭网络中。
 
-Supported arguments are `recipe`, `input` (encoded in Base64), and `theme`.
+
+## 深度链接
+
+通过操作 CyberChef 的 URL 哈希值，您可以更改页面打开时的初始设置。
+格式为 `https://gchq.github.io/CyberChef/#recipe=Operation()&input=...`
+
+支持的参数有 `recipe`、`input`（以 Base64 编码）和 `theme`。
 
 
-## Browser support
+## 浏览器支持
 
-CyberChef is built to support
+CyberChef 旨在支持
 
  - Google Chrome 50+
  - Mozilla Firefox 38+
 
 
-## Node.js support
+## Node.js 支持
 
-CyberChef is built to fully support Node.js `v16`. For more information, see the ["Node API" wiki page](https://github.com/gchq/CyberChef/wiki/Node-API)
-
-
-## Contributing
-
-Contributing a new operation to CyberChef is super easy! The quickstart script will walk you through the process. If you can write basic JavaScript, you can write a CyberChef operation.
-
-An installation walkthrough, how-to guides for adding new operations and themes, descriptions of the repository structure, available data types and coding conventions can all be found in the ["Contributing" wiki page](https://github.com/gchq/CyberChef/wiki/Contributing).
-
- - Push your changes to your fork.
- - Submit a pull request. If you are doing this for the first time, you will be prompted to sign the [GCHQ Contributor Licence Agreement](https://cla-assistant.io/gchq/CyberChef) via the CLA assistant on the pull request. This will also ask whether you are happy for GCHQ to contact you about a token of thanks for your contribution, or about job opportunities at GCHQ.
+CyberChef 旨在完全支持 Node.js `v16`。 有关更多信息，请参阅 ["Node API" Wiki 页面](https://github.com/gchq/CyberChef/wiki/Node-API)
 
 
-## Licencing
+## 贡献
 
-CyberChef is released under the [Apache 2.0 Licence](https://www.apache.org/licenses/LICENSE-2.0) and is covered by [Crown Copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/).
+向 CyberChef 贡献新操作非常容易！ 快速入门脚本将引导您完成整个过程。 如果您会编写基本的 JavaScript，您就可以编写 CyberChef 操作。
+
+安装指南、添加新操作和主题的操作指南、存储库结构的描述、可用的数据类型和编码约定都可以在 ["Contributing" Wiki 页面](https://github.com/gchq/CyberChef/wiki/Contributing)中找到。
+
+ - 将您的更改推送到您的 Fork。
+ - 提交 Pull Request。 如果您是第一次执行此操作，系统将提示您通过 Pull Request 上的 CLA 助手签署 [GCHQ 贡献者许可协议](https://cla-assistant.io/gchq/CyberChef)。 这还将询问您是否愿意 GCHQ 就感谢您贡献的谢意或 GCHQ 的工作机会与您联系。
+
+
+## 许可协议
+
+CyberChef 在 [Apache 2.0 许可协议](https://www.apache.org/licenses/LICENSE-2.0) 下发布，并受 [英国皇家版权](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) 保护。
 
 
   [1]: https://gchq.github.io/CyberChef
@@ -135,3 +136,4 @@ CyberChef is released under the [Apache 2.0 Licence](https://www.apache.org/lice
   [10]: https://gchq.github.io/CyberChef/#recipe=Register('(.%7B32%7D)',true,false)Drop_bytes(0,32,false)AES_Decrypt(%7B'option':'Hex','string':'1748e7179bd56570d51fa4ba287cc3e5'%7D,%7B'option':'Hex','string':'$R0'%7D,'CTR','Hex','Raw',%7B'option':'Hex','string':''%7D)&input=NTFlMjAxZDQ2MzY5OGVmNWY3MTdmNzFmNWI0NzEyYWYyMGJlNjc0YjNiZmY1M2QzODU0NjM5NmVlNjFkYWFjNDkwOGUzMTljYTNmY2Y3MDg5YmZiNmIzOGVhOTllNzgxZDI2ZTU3N2JhOWRkNmYzMTFhMzk0MjBiODk3OGU5MzAxNGIwNDJkNDQ3MjZjYWVkZjU0MzZlYWY2NTI0MjljMGRmOTRiNTIxNjc2YzdjMmNlODEyMDk3YzI3NzI3M2M3YzcyY2Q4OWFlYzhkOWZiNGEyNzU4NmNjZjZhYTBhZWUyMjRjMzRiYTNiZmRmN2FlYjFkZGQ0Nzc2MjJiOTFlNzJjOWU3MDlhYjYwZjhkYWY3MzFlYzBjYzg1Y2UwZjc0NmZmMTU1NGE1YTNlYzI5MWNhNDBmOWU2MjlhODcyNTkyZDk4OGZkZDgzNDUzNGFiYTc5YzFhZDE2NzY3NjlhN2MwMTBiZjA0NzM5ZWNkYjY1ZDk1MzAyMzcxZDYyOWQ5ZTM3ZTdiNGEzNjFkYTQ2OGYxZWQ1MzU4OTIyZDJlYTc1MmRkMTFjMzY2ZjMwMTdiMTRhYTAxMWQyYWYwM2M0NGY5NTU3OTA5OGExNWUzY2Y5YjQ0ODZmOGZmZTljMjM5ZjM0ZGU3MTUxZjZjYTY1MDBmZTRiODUwYzNmMWMwMmU4MDFjYWYzYTI0NDY0NjE0ZTQyODAxNjE1YjhmZmFhMDdhYzgyNTE0OTNmZmRhN2RlNWRkZjMzNjg4ODBjMmI5NWIwMzBmNDFmOGYxNTA2NmFkZDA3MWE2NmNmNjBlNWY0NmYzYTIzMGQzOTdiNjUyOTYzYTIxYTUzZg
   [11]: https://gchq.github.io/CyberChef/#recipe=XOR(%7B'option':'Hex','string':'3a'%7D,'Standard',false)To_Hexdump(16,false,false)&input=VGhlIGFuc3dlciB0byB0aGUgdWx0aW1hdGUgcXVlc3Rpb24gb2YgbGlmZSwgdGhlIFVuaXZlcnNlLCBhbmQgZXZlcnl0aGluZyBpcyA0Mi4
   [12]: https://gchq.github.io/CyberChef/#recipe=Magic(3,false,false)&input=V1VhZ3dzaWFlNm1QOGdOdENDTFVGcENwQ0IyNlJtQkRvREQ4UGFjZEFtekF6QlZqa0syUXN0RlhhS2hwQzZpVVM3UkhxWHJKdEZpc29SU2dvSjR3aGptMWFybTg2NHFhTnE0UmNmVW1MSHJjc0FhWmM1VFhDWWlmTmRnUzgzZ0RlZWpHWDQ2Z2FpTXl1QlY2RXNrSHQxc2NnSjg4eDJ0TlNvdFFEd2JHWTFtbUNvYjJBUkdGdkNLWU5xaU45aXBNcTFaVTFtZ2tkYk51R2NiNzZhUnRZV2hDR1VjOGc5M1VKdWRoYjhodHNoZVpud1RwZ3FoeDgzU1ZKU1pYTVhVakpUMnptcEM3dVhXdHVtcW9rYmRTaTg4WXRrV0RBYzFUb291aDJvSDRENGRkbU5LSldVRHBNd21uZ1VtSzE0eHdtb21jY1BRRTloTTE3MkFQblNxd3hkS1ExNzJSa2NBc3lzbm1qNWdHdFJtVk5OaDJzMzU5d3I2bVMyUVJQ
+```
