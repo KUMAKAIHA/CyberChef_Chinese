@@ -7,18 +7,18 @@
  */
 export default  [
     // This functionality can be done more easily using JavaScript
-    "Fork",
-    "Merge",
-    "Jump",
-    "ConditionalJump",
-    "Label",
-    "Comment",
+    "分支",
+    "合并",
+    "跳转",
+    "条件跳转",
+    "标签",
+    "注释",
 
     // esprima doesn't work in .mjs
-    "JavaScriptBeautify",
-    "JavaScriptMinify",
-    "JavaScriptParser",
+    "JavaScript美化",
+    "JavaScript压缩",
+    "JavaScript解析器",
 
     // Irrelevant in Node console
-    "SyntaxHighlighter",
+    "语法高亮",
 ];

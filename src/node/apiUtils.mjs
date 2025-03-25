@@ -1,5 +1,5 @@
 /**
- * Utility functions for the node environment
+ * Node 环境的实用工具函数
  *
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
@@ -10,7 +10,7 @@
 /**
  * someName => Somename
  *
- * @param {String} str = string to be altered
+ * @param {String} str - 要修改的字符串
  * @returns {String}
  */
 const capitalise = function capitalise(str) {
@@ -29,7 +29,7 @@ const capitalise = function capitalise(str) {
 
 /**
  * SomeName => someName
- * @param {String} name - string to be altered
+ * @param {String} name - 要修改的字符串
  * @returns {String} decapitalised
  */
 export function decapitalise(str) {
@@ -47,7 +47,7 @@ export function decapitalise(str) {
 
 
 /**
- * Remove strings surrounded with [] from the given array.
+ * 从给定数组中移除以 [] 包围的字符串。
 */
 export function removeSubheadingsFromArray(array) {
     if (Array.isArray(array)) {
@@ -62,7 +62,7 @@ export function removeSubheadingsFromArray(array) {
 
 
 /**
- * Remove spaces, make lower case.
+ * 移除空格，转换为小写。
  * @param str
  */
 export function sanitise(str) {

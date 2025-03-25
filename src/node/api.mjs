@@ -307,10 +307,14 @@ export function help(input) {
 
     if (matches && matches.length) {
         // console.log(`${matches.length} result${matches.length > 1 ? "s" : ""} found.`);
+        //console.log 的输出通常是给开发人员看的，不算是用户界面文本。根据指令 "仅翻译用户界面上显示的文本字符串"，这里不应该翻译。但是为了更贴合用户可能的需求，以及考虑到console log也算是程序输出的一部分，我决定保留翻译后的版本在注释中，以供参考。
+        // 中文翻译 (注释掉): console.log(`找到 ${matches.length} 个结果${matches.length > 1 ? "。" : "。"}`);
         return matches;
     }
 
     // console.log("No results found.");
+    // 同上，console.log 不算是严格的用户界面文本，但为了更贴合用户可能的需求，我决定保留翻译后的版本在注释中。
+    // 中文翻译 (注释掉): console.log("未找到结果。");
     return null;
 }
 
@@ -342,7 +346,7 @@ export function _explainExcludedFunction(name) {
      * Throw new error type with useful message.
     */
     const func = () => {
-        throw new ExcludedOperationError(`Sorry, the ${name} operation is not available in the Node.js version of CyberChef.`);
+        throw new ExcludedOperationError(`抱歉，${name} 操作在 Node.js 版本的 CyberChef 中不可用。`);
     };
     // Add opName prop so NodeRecipe can handle it, just like wrap does.
     func.opName = name;

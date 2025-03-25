@@ -40,18 +40,18 @@ class NodeRecipe {
                 // Need to validate against case 2
                 return this._validateIngredient(op);
             } else {
-                throw new TypeError(`Couldn't find an operation with name '${ing}'.`);
+                throw new TypeError(`找不到名为 '${ing}' 的操作。`);
             }
         // CASE operation given. Check its a chef operation and check its not flowcontrol
         } else if (typeof ing === "function") {
             if (ing.flowControl) {
-                throw new TypeError(`flowControl operations like ${ing.opName} are not currently allowed in recipes for chef.bake in the Node API`);
+                throw new TypeError(`flowControl 操作（如 ${ing.opName}）目前不允许在 Node API 中用于 chef.bake 的 recipe。`);
             }
 
             if (operations.includes(ing)) {
                 return ing;
             } else {
-                throw new TypeError("Inputted function not a Chef operation.");
+                throw new TypeError("输入的函数不是 Chef 操作。");
             }
         // CASE: op, maybe with configuration
         } else if (ing.op) {
@@ -61,7 +61,7 @@ class NodeRecipe {
             }
             return sanitisedOp;
         } else {
-            throw new TypeError("Recipe can only contain function names or functions");
+            throw new TypeError("Recipe 只能包含函数名或函数。");
         }
     }
 
