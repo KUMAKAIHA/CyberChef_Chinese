@@ -59,7 +59,7 @@ class HTMLOperation {
         html += ">" + this.name;
 
         if (removeIcon) {
-            html += "<i class='material-icons remove-icon op-icon'>删除</i>";
+            html += "<i class='material-icons remove-icon op-icon'>delete</i>";
         }
 
         html += "</li>";
@@ -83,9 +83,9 @@ class HTMLOperation {
 
         html += `</div>
         <div class="recip-icons">
-            <i class="material-icons breakpoint" title="设置断点" break="false" data-help-title="设置断点" data-help="在操作中设置断点，当执行到该操作时，Recipe 执行将会暂停。">pause</i>
-            <i class="material-icons disable-icon" title="禁用操作" disabled="false" data-help-title="禁用操作" data-help="禁用操作后，该操作在 Recipe 烘焙时将不会被执行，系统会跳过被禁用的操作并继续执行后续操作。">not_interested</i>
-            <i class="material-icons hide-args-icon" title="隐藏操作参数" hide-args="false" data-help-title="隐藏操作参数" data-help="隐藏操作参数可以节省 Recipe 窗口的空间，但在执行时仍然会使用所选的参数。">keyboard_arrow_up</i>
+            <i class="material-icons breakpoint" title="设置断点" break="false" data-help-title="设置断点" data-help="在操作上设置断点将导致 Recipe 执行到该操作时暂停。">pause</i>
+            <i class="material-icons disable-icon" title="禁用操作" disabled="false" data-help-title="禁用操作" data-help="禁用操作将阻止其在 Recipe 执行时运行。执行将跳过禁用的操作并继续执行后续操作。">not_interested</i>
+            <i class="material-icons hide-args-icon" title="隐藏操作参数" hide-args="false" data-help-title="隐藏操作参数" data-help="隐藏操作的参数将节省 Recipe 窗口中的空间。执行仍将使用选定的参数选项进行。">keyboard_arrow_up</i>
         </div>
         <div class="clearfix">&nbsp;</div>`;
 
@@ -159,11 +159,11 @@ function titleFromWikiLink(urlStr) {
 
     switch (urlObj.host) {
         case "forensics.wiki":
-            wikiName = "Forensics Wiki";
+            wikiName = "取证 Wiki";
             pageTitle = Utils.toTitleCase(urlObj.path.replace(/\//g, "").replace(/_/g, " "));
             break;
         case "wikipedia.org":
-            wikiName = "Wikipedia";
+            wikiName = "维基百科";
             pageTitle = urlObj.pathname.substr(6).replace(/_/g, " "); // Chop off '/wiki/'
             break;
         default:
@@ -171,9 +171,7 @@ function titleFromWikiLink(urlStr) {
             return `<a href='${urlStr}' target='_blank'>更多信息<i class='material-icons inline-icon'>open_in_new</i></a>`;
     }
 
-    return urlObj.host === "wikipedia.org"
-        ? `<a href='${urlObj.href}' target='_blank'>${pageTitle}<i class='material-icons inline-icon'>open_in_new</i></a> 来自 ${wikiName}`
-        : `<a href='${urlObj.href}' target='_blank'>${pageTitle}<i class='material-icons inline-icon'>open_in_new</i></a> on ${wikiName}`;
+    return `<a href='${urlObj.href}' target='_blank'>${pageTitle}<i class='material-icons inline-icon'>open_in_new</i></a> 于 ${wikiName}`;
 }
 
 export default HTMLOperation;
