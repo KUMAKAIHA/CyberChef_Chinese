@@ -63,9 +63,9 @@ class ControlsWaiter {
      */
     bakeClick() {
         const btnBake = document.getElementById("bake");
-        if (btnBake.textContent.indexOf("Bake") > 0) {
+        if (btnBake.textContent.indexOf("处理") > 0) {
             this.app.manager.input.bakeAll();
-        } else if (btnBake.textContent.indexOf("Cancel") > 0) {
+        } else if (btnBake.textContent.indexOf("取消") > 0) {
             this.manager.worker.cancelBake(false, true);
         }
     }
@@ -234,7 +234,7 @@ class ControlsWaiter {
     saveButtonClick() {
         if (!this.app.isLocalStorageAvailable()) {
             this.app.alert(
-                "Your security settings do not allow access to local storage so your recipe cannot be saved.",
+                "您的安全设置不允许访问本地存储，因此无法保存您的配方。",
                 5000
             );
             return false;
@@ -244,7 +244,7 @@ class ControlsWaiter {
         const recipeStr  = document.querySelector("#save-texts .tab-pane.active textarea").value;
 
         if (!recipeName) {
-            this.app.alert("Please enter a recipe name", 3000);
+            this.app.alert("请输入配方名称", 3000);
             return;
         }
 
@@ -261,7 +261,7 @@ class ControlsWaiter {
         localStorage.savedRecipes = JSON.stringify(savedRecipes);
         localStorage.recipeId = recipeId;
 
-        this.app.alert(`Recipe saved as "${recipeName}".`, 3000);
+        this.app.alert(`配方已保存为 "${recipeName}"。`, 3000);
     }
 
 
@@ -345,7 +345,7 @@ class ControlsWaiter {
 
             $("#rec-list [data-toggle=popover]").popover();
         } catch (e) {
-            this.app.alert("Invalid recipe", 2000);
+            this.app.alert("无效的配方", 2000);
         }
     }
 
@@ -358,7 +358,7 @@ class ControlsWaiter {
 
         if (icon.getAttribute("hide-args") === "false") {
             icon.setAttribute("hide-args", "true");
-            icon.setAttribute("data-original-title", "Show arguments");
+            icon.setAttribute("data-original-title", "显示参数");
             icon.children[0].innerText = "keyboard_arrow_down";
             Array.from(document.getElementsByClassName("hide-args-icon")).forEach(function(item) {
                 item.setAttribute("hide-args", "true");
@@ -368,7 +368,7 @@ class ControlsWaiter {
             });
         } else {
             icon.setAttribute("hide-args", "false");
-            icon.setAttribute("data-original-title", "Hide arguments");
+            icon.setAttribute("data-original-title", "隐藏参数");
             icon.children[0].innerText = "keyboard_arrow_up";
             Array.from(document.getElementsByClassName("hide-args-icon")).forEach(function(item) {
                 item.setAttribute("hide-args", "false");
@@ -392,11 +392,11 @@ class ControlsWaiter {
         const saveLink = this.generateStateUrl(true, true, null, null, "https://gchq.github.io/CyberChef/");
 
         if (reportBugInfo) {
-            reportBugInfo.innerHTML = `* Version: ${PKG_VERSION}
-* Compile time: ${COMPILE_TIME}
+            reportBugInfo.innerHTML = `* 版本：${PKG_VERSION}
+* 编译时间：${COMPILE_TIME}
 * User-Agent:
 ${navigator.userAgent}
-* [Link to reproduce](${saveLink})
+* [重现链接](${saveLink})
 
 `;
         }
@@ -434,21 +434,21 @@ ${navigator.userAgent}
 
         switch (func) {
             case "cancel":
-                btnText.innerText = "Cancel";
+                btnText.innerText = "取消";
                 bakeButton.classList.remove("btn-success");
                 bakeButton.classList.remove("btn-warning");
                 bakeButton.classList.add("btn-danger");
                 break;
             case "loading":
                 bakeButton.style.background = "";
-                btnText.innerText = "Loading...";
+                btnText.innerText = "加载中…";
                 bakeButton.classList.remove("btn-success");
                 bakeButton.classList.remove("btn-danger");
                 bakeButton.classList.add("btn-warning");
                 break;
             default:
                 bakeButton.style.background = "";
-                btnText.innerText = "Bake!";
+                btnText.innerText = "处理!";
                 bakeButton.classList.remove("btn-danger");
                 bakeButton.classList.remove("btn-warning");
                 bakeButton.classList.add("btn-success");

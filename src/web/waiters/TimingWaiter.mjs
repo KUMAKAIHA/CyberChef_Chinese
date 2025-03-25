@@ -146,10 +146,10 @@ class TimingWaiter {
             outputDecoding = input.outputDecodingEnd - input.outputDecodingStart,
             overhead = total - inputEncoding - outputDecoding - input.bakeDuration;
 
-        return `Input encoding: ${inputEncoding}ms
-Recipe duration: ${input.bakeDuration}ms
-Output decoding: ${outputDecoding}ms
-<span class="small">Threading overhead: ${overhead}ms</span>`;
+        return `输入编码：${inputEncoding}ms
+配方时长：${input.bakeDuration}ms
+输出解码：${outputDecoding}ms
+<span class="small">线程开销：${overhead}ms</span>`;
     }
 
     /**

@@ -164,7 +164,7 @@ class OutputWaiter {
 
         if (this.eolState === 1) {
             // Alert
-            this.app.alert(`Output end of line separator has been detected and changed to ${eolCodeToName[eol]}`, 5000);
+            this.app.alert(`检测到输出行结束符已被修改为 ${eolCodeToName[eol]}`, 5000);
         }
 
         const currentTabNum = this.manager.tabs.getActiveTab("output");
@@ -525,7 +525,7 @@ class OutputWaiter {
         const newOutput = {
             data: null,
             inputNum: inputNum,
-            statusMessage: `Input ${inputNum} has not been baked yet.`,
+            statusMessage: `输入 ${inputNum} 尚未处理。`,
             error: null,
             status: "inactive",
             bakeId: -1,
@@ -713,7 +713,7 @@ class OutputWaiter {
             if (output.status === "pending" || output.status === "baking") {
                 // show the loader and the status message if it's being shown
                 // otherwise don't do anything
-                document.querySelector("#output-loader .loading-msg").textContent = output.statusMessage;
+                document.querySelector("#output-loader .loading-msg").textContent = `正在加载输出 ${inputNum}`;
             } else if (output.status === "error") {
                 this.clearHTMLOutput();
 
@@ -723,7 +723,7 @@ class OutputWaiter {
                     await this.setOutput(output.data.result);
                 }
             } else if (output.status === "baked" || output.status === "inactive") {
-                document.querySelector("#output-loader .loading-msg").textContent = `Loading output ${inputNum}`;
+                document.querySelector("#output-loader .loading-msg").textContent = `正在加载输出 ${inputNum}`;
 
                 if (output.data === null) {
                     this.clearHTMLOutput();
@@ -889,7 +889,7 @@ class OutputWaiter {
     async downloadFile() {
         const dish = this.getOutputDish(this.manager.tabs.getActiveTab("output"));
         if (dish === null) {
-            this.app.alert("Could not find any output data to download. Has this output been baked?", 3000);
+            this.app.alert("未找到可下载的输出数据。该输出是否尚未处理？", 3000);
             return;
         }
 
@@ -902,7 +902,7 @@ class OutputWaiter {
             ext = `.${types[0].extension.split(",", 1)[0]}`;
         }
 
-        const fileName = window.prompt("Please enter a filename: ", `download${ext}`);
+        const fileName = window.prompt("请输入文件名：", `download${ext}`);
 
         // Assume if the user clicks cancel they don't want to download
         if (fileName === null) return;
@@ -922,10 +922,10 @@ class OutputWaiter {
         } else {
             const cancel = await new Promise(function(resolve, reject) {
                 this.app.confirm(
-                    "Cancel zipping?",
-                    "The outputs are currently being zipped for download.<br>Cancel zipping?",
-                    "Continue zipping",
-                    "Cancel zipping",
+                    "取消压缩？",
+                    "输出正在被压缩以供下载。<br>是否取消压缩？",
+                    "继续压缩",
+                    "取消压缩",
                     resolve, this);
             }.bind(this));
             if (!cancel) {
@@ -946,9 +946,9 @@ class OutputWaiter {
             this.outputs[iNum].bakeId !== this.manager.worker.bakeId) {
                 const continueDownloading = await new Promise(function(resolve, reject) {
                     this.app.confirm(
-                        "Incomplete outputs",
-                        "Not all outputs have been baked yet. Continue downloading outputs?",
-                        "Download", "Cancel", resolve, this);
+                        "输出未全部处理",
+                        "并非所有输出都已处理。是否继续下载？",
+                        "下载", "取消", resolve, this);
                 }.bind(this));
                 if (continueDownloading) {
                     break;
@@ -958,7 +958,7 @@ class OutputWaiter {
             }
         }
 
-        let fileName = window.prompt("Please enter a filename: ", "download.zip");
+        let fileName = window.prompt("请输入文件名：", "download.zip");
 
         if (fileName === null || fileName === "") {
             // Don't zip the files if there isn't a filename
@@ -970,7 +970,7 @@ class OutputWaiter {
             fileName += ".zip";
         }
 
-        let fileExt = window.prompt("Please enter a file extension for the files, or leave blank to detect automatically.", "");
+        let fileExt = window.prompt("请输入文件的扩展名，或留空以自动检测。", "");
 
         if (fileExt === null) fileExt = "";
 
@@ -1406,11 +1406,11 @@ class OutputWaiter {
         if (options[0].recipe.length) {
             const opSequence = options[0].recipe.map(o => o.op).join(", ");
             newRecipeConfig = currentRecipeConfig.concat(options[0].recipe);
-            msg = `<i>${opSequence}</i> will produce <span class="data-text">"${Utils.escapeHtml(Utils.truncate(options[0].data), 30)}"</span>`;
+            msg = `<i>${opSequence}</i> 将生成 <span class="data-text">"${Utils.escapeHtml(Utils.truncate(options[0].data), 30)}"</span>`;
         } else if (options[0].fileType && options[0].fileType.name) {
             const ft = options[0].fileType;
             newRecipeConfig = currentRecipeConfig.concat([{op: "Detect File Type", args: []}]);
-            msg = `<i>${ft.name}</i> file detected`;
+            msg = `<i>${ft.name}</i> 文件已检测`;
         } else {
             return;
         }
@@ -1455,7 +1455,7 @@ class OutputWaiter {
         magicButton.classList.add("hidden");
         magicButton.classList.remove("pulse");
         magicButton.setAttribute("data-recipe", "");
-        magicButton.setAttribute("data-original-title", "Magic!");
+        magicButton.setAttribute("data-original-title", "魔法！");
     }
 
     /**
@@ -1483,7 +1483,7 @@ class OutputWaiter {
     async copyClick() {
         const dish = this.getOutputDish(this.manager.tabs.getActiveTab("output"));
         if (dish === null) {
-            this.app.alert("Could not find data to copy. Has this output been baked yet?", 3000);
+            this.app.alert("未找到可复制的数据。该输出是否尚未处理？", 3000);
             return;
         }
 
@@ -1491,9 +1491,9 @@ class OutputWaiter {
         const self = this;
 
         navigator.clipboard.writeText(output).then(function() {
-            self.app.alert("Copied raw output successfully.", 2000);
+            self.app.alert("原始输出复制成功。", 2000);
         }, function(err) {
-            self.app.alert("Sorry, the output could not be copied.", 3000);
+            self.app.alert("很抱歉，无法复制输出。", 3000);
         });
     }
 
@@ -1540,13 +1540,13 @@ class OutputWaiter {
             this.app.columnSplitter.collapse(1);
             this.app.ioSplitter.collapse(0);
 
-            $(el).attr("data-original-title", "Restore output pane");
-            $(el).attr("aria-label", "Restore output pane");
+            $(el).attr("data-original-title", "还原输出面板");
+            $(el).attr("aria-label", "还原输出面板");
             el.querySelector("i").innerHTML = "fullscreen_exit";
         } else {
             document.body.classList.remove("output-maximised");
-            $(el).attr("data-original-title", "Maximise output pane");
-            $(el).attr("aria-label", "Maximise output pane");
+            $(el).attr("data-original-title", "最大化输出面板");
+            $(el).attr("aria-label", "最大化输出面板");
             el.querySelector("i").innerHTML = "fullscreen";
             this.app.initialiseSplitter(false);
             this.app.resetLayout();

@@ -441,7 +441,7 @@ class WorkerWaiter {
             avgTime = Math.round(avgTime / numOutputs).toLocaleString() + "ms";
             avgTime = avgTime.padStart(width, " ").replace(/ /g, "&nbsp;");
 
-            const msg = `total: ${totalStr}<br>time: ${durationStr}<br>average: ${avgTime}`;
+            const msg = `总数：${totalStr}<br>用时：${durationStr}<br>平均耗时：${avgTime}`;
 
             const bakeInfo = document.getElementById("bake-info");
             bakeInfo.innerHTML = msg;
@@ -469,7 +469,7 @@ class WorkerWaiter {
         if (typeof nextInput.inputNum === "string") nextInput.inputNum = parseInt(nextInput.inputNum, 10);
 
         log.debug(`Baking input ${nextInput.inputNum}.`);
-        this.manager.output.updateOutputMessage(`Baking input ${nextInput.inputNum}...`, nextInput.inputNum, false);
+        this.manager.output.updateOutputMessage(`正在烘焙输入 ${nextInput.inputNum}...`, nextInput.inputNum, false);
         this.manager.output.updateOutputStatus("baking", nextInput.inputNum);
 
         this.chefWorkers[workerIdx].inputNum = nextInput.inputNum;
@@ -565,7 +565,7 @@ class WorkerWaiter {
     queueInputError(inputData) {
         this.loadingOutputs--;
         if (this.app.baking && inputData.bakeId === this.bakeId) {
-            this.manager.output.updateOutputError("Error queueing the input for a bake.", inputData.inputNum, 0);
+            this.manager.output.updateOutputError("排队烘焙输入时出错.", inputData.inputNum, 0);
 
             if (this.inputNums.length === 0) return;
 
@@ -619,7 +619,7 @@ class WorkerWaiter {
             this.app.bake(step);
 
             for (let i = 0; i < this.inputNums.length; i++) {
-                this.manager.output.updateOutputMessage(`Input ${inputNums[i]} has not been baked yet.`, inputNums[i], false);
+                this.manager.output.updateOutputMessage(`输入 ${inputNums[i]} 尚未烘焙.`, inputNums[i], false);
                 this.manager.output.updateOutputStatus("pending", inputNums[i]);
             }
 
@@ -837,13 +837,13 @@ class WorkerWaiter {
             const pendingStr = progress.pending.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
             const bakingStr = progress.baking.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
 
-            let msg = "total: " + totalStr;
-            msg += "<br>baked: " + bakedStr;
+            let msg = "总数：" + totalStr;
+            msg += "<br>已烘焙：" + bakedStr;
 
             if (progress.pending > 0) {
-                msg += "<br>pending: " + pendingStr;
+                msg += "<br>待烘焙：" + pendingStr;
             } else if (progress.baking > 0) {
-                msg += "<br>baking: " + bakingStr;
+                msg += "<br>正在烘焙：" + bakingStr;
             }
             bakeInfo.innerHTML = msg;
             bakeInfo.style.display = "";

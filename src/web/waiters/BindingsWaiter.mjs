@@ -171,96 +171,96 @@ class BindingsWaiter {
         }
         document.getElementById("keybList").innerHTML = `
         <tr>
-            <th>Command</th>
-            <th>Shortcut (Win/Linux)</th>
-            <th>Shortcut (Mac)</th>
+            <th>命令</th>
+            <th>快捷键 (Win/Linux)</th>
+            <th>快捷键 (Mac)</th>
         </tr>
         <tr>
-            <td>Activate contextual help</td>
+            <td>激活上下文帮助</td>
             <td>F1</td>
             <td>F1</td>
         </tr>
         <tr>
-            <td>Place cursor in search field</td>
+            <td>将光标置于搜索栏</td>
             <td>Ctrl+${modWinLin}+f</td>
             <td>Ctrl+${modMac}+f</td>
         <tr>
-            <td>Place cursor in input box</td>
+            <td>将光标置于输入框</td>
             <td>Ctrl+${modWinLin}+i</td>
             <td>Ctrl+${modMac}+i</td>
         </tr>
         <tr>
-            <td>Place cursor in output box</td>
+            <td>将光标置于输出框</td>
             <td>Ctrl+${modWinLin}+o</td>
             <td>Ctrl+${modMac}+o</td>
         </tr>
         <tr>
-            <td>Place cursor in first argument field of the next operation in the recipe</td>
+            <td>将光标置于配方中下一个操作的第一个参数栏</td>
             <td>Ctrl+${modWinLin}+.</td>
             <td>Ctrl+${modMac}+.</td>
         </tr>
         <tr>
-            <td>Place cursor in first argument field of the nth operation in the recipe</td>
+            <td>将光标置于配方中第n个操作的第一个参数栏</td>
             <td>Ctrl+${modWinLin}+[1-9]</td>
             <td>Ctrl+${modMac}+[1-9]</td>
         </tr>
         <tr>
-            <td>Disable current operation</td>
+            <td>禁用当前操作</td>
             <td>Ctrl+${modWinLin}+d</td>
             <td>Ctrl+${modMac}+d</td>
         </tr>
         <tr>
-            <td>Set/clear breakpoint</td>
+            <td>设置/取消断点</td>
             <td>Ctrl+${modWinLin}+b</td>
             <td>Ctrl+${modMac}+b</td>
         </tr>
         <tr>
-            <td>Bake</td>
+            <td>执行</td>
             <td>Ctrl+${modWinLin}+Space</td>
             <td>Ctrl+${modMac}+Space</td>
         </tr>
         <tr>
-            <td>Step</td>
+            <td>逐步执行</td>
             <td>Ctrl+${modWinLin}+'</td>
             <td>Ctrl+${modMac}+'</td>
         </tr>
         <tr>
-            <td>Clear recipe</td>
+            <td>清空配方</td>
             <td>Ctrl+${modWinLin}+c</td>
             <td>Ctrl+${modMac}+c</td>
         </tr>
         <tr>
-            <td>Save to file</td>
+            <td>保存到文件</td>
             <td>Ctrl+${modWinLin}+s</td>
             <td>Ctrl+${modMac}+s</td>
         </tr>
         <tr>
-            <td>Load recipe</td>
+            <td>加载配方</td>
             <td>Ctrl+${modWinLin}+l</td>
             <td>Ctrl+${modMac}+l</td>
         </tr>
         <tr>
-            <td>Move output to input</td>
+            <td>将输出移动到输入</td>
             <td>Ctrl+${modWinLin}+m</td>
             <td>Ctrl+${modMac}+m</td>
         </tr>
         <tr>
-            <td>Create a new tab</td>
+            <td>创建新标签页</td>
             <td>Ctrl+${modWinLin}+t</td>
             <td>Ctrl+${modMac}+t</td>
         </tr>
         <tr>
-            <td>Close the current tab</td>
+            <td>关闭当前标签页</td>
             <td>Ctrl+${modWinLin}+w</td>
             <td>Ctrl+${modMac}+w</td>
         </tr>
         <tr>
-            <td>Go to next tab</td>
+            <td>切换到下一个标签页</td>
             <td>Ctrl+${modWinLin}+RightArrow</td>
             <td>Ctrl+${modMac}+RightArrow</td>
         </tr>
         <tr>
-            <td>Go to previous tab</td>
+            <td>切换到上一个标签页</td>
             <td>Ctrl+${modWinLin}+LeftArrow</td>
             <td>Ctrl+${modMac}+LeftArrow</td>
         </tr>
@@ -293,9 +293,9 @@ class BindingsWaiter {
         let helpTitle = el.getAttribute("data-help-title");
 
         if (helpTitle)
-            helpTitle = "<span class='text-muted'>Help topic:</span> " + helpTitle;
+            helpTitle = "<span class='text-muted'>帮助主题:</span> " + helpTitle;
         else
-            helpTitle = "<span class='text-muted'>Help topic</span>";
+            helpTitle = "<span class='text-muted'>帮助主题</span>";
 
         document.querySelector("#help-modal .modal-body").innerHTML = helpText;
         document.querySelector("#help-modal #help-title").innerHTML = helpTitle;
