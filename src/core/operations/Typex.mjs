@@ -149,7 +149,7 @@ class Typex extends Operation {
             {
                 name: "Typex 键盘模拟",
                 type: "option",
-                value: ["无", "加密", "解密"]
+                value: ["None", "Encrypt", "Decrypt"]
             },
             {
                 name: "严格输出",

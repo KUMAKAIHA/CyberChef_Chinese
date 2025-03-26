@@ -54,12 +54,12 @@ class Salsa20 extends Operation {
             {
                 "name": "输入",
                 "type": "option",
-                "value": ["Hex", "原始数据"]
+                "value": ["Hex", "Raw"]
             },
             {
                 "name": "输出",
                 "type": "option",
-                "value": ["原始数据", "Hex"]
+                "value": ["Raw", "Hex"]
             }
         ];
     }
@@ -123,7 +123,7 @@ class Salsa20 extends Operation {
     highlight(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "原始数据" && outputType === "原始数据") {
+        if (inputType === "Raw" && outputType === "Raw") {
             return pos;
         }
     }
@@ -140,7 +140,7 @@ class Salsa20 extends Operation {
     highlightReverse(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "原始数据" && outputType === "原始数据") {
+        if (inputType === "Raw" && outputType === "Raw") {
             return pos;
         }
     }

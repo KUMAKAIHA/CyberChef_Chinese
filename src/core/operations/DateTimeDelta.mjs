@@ -40,7 +40,7 @@ class DateTimeDelta extends Operation {
             {
                 "name": "时间操作",
                 "type": "option",
-                "value": ["添加", "减去"]
+                "value": ["Add", "Subtract"]
             },
             {
                 "name": "天",

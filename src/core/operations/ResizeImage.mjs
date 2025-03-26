@@ -46,7 +46,7 @@ class ResizeImage extends Operation {
             {
                 name: "单位类型",
                 type: "option",
-                value: ["像素", "百分比"]
+                value: ["Pixels", "Percent"]
             },
             {
                 name: "保持宽高比",
@@ -57,11 +57,11 @@ class ResizeImage extends Operation {
                 name: "调整大小算法",
                 type: "option",
                 value: [
-                    "最近邻",
-                    "双线性",
-                    "双三次",
-                    "埃尔米特",
-                    "贝塞尔"
+                    "Nearest Neighbour",
+                    "Bilinear",
+                    "Bicubic",
+                    "Hermite",
+                    "Bezier"
                 ],
                 defaultIndex: 1
             }
@@ -99,7 +99,7 @@ class ResizeImage extends Operation {
             throw new OperationError(`加载图像时出错。 (${err})`);
         }
         try {
-            if (unit === "百分比") {
+            if (unit === "Percent") {
                 width = image.getWidth() * (width / 100);
                 height = image.getHeight() * (height / 100);
             }

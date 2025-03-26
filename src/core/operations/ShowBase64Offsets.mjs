@@ -41,7 +41,7 @@ class ShowBase64Offsets extends Operation {
             {
                 name: "输入格式",
                 type: "option",
-                value: ["原始数据", "Base64"]
+                value: ["Raw", "Base64"]
             }
         ];
     }

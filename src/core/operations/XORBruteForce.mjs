@@ -47,7 +47,7 @@ class XORBruteForce extends Operation {
             {
                 "name": "方案",
                 "type": "option",
-                "value": ["标准", "输入差分", "输出差分"]
+                "value": ["Standard", "Input differential", "Output differential"]
             },
             {
                 "name": "保留空字符",

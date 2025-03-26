@@ -35,7 +35,7 @@ class JavaScriptBeautify extends Operation {
             {
                 "name": "引号",
                 "type": "option",
-                "value": ["自动", "单引号", "双引号"]
+                "value": ["Auto", "Single", "Double"]
             },
             {
                 "name": "在右花括号前添加分号",

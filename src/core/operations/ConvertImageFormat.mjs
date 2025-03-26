@@ -51,11 +51,11 @@ class ConvertImageFormat extends Operation {
                 name: "PNG 过滤器类型",
                 type: "option",
                 value: [
-                    "自动",
+                    "Auto",
                     "None",
                     "Sub",
                     "Up",
-                    "平均",
+                    "Average",
                     "Paeth"
                 ]
             },

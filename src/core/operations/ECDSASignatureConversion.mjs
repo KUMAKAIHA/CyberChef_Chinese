@@ -32,11 +32,11 @@ class ECDSASignatureConversion extends Operation {
                 name: "输入格式",
                 type: "option",
                 value: [
-                    "自动",
+                    "Auto",
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
-                    "原始 JSON"
+                    "Raw JSON"
                 ]
             },
             {
@@ -46,7 +46,7 @@ class ECDSASignatureConversion extends Operation {
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
-                    "原始 JSON"
+                    "Raw JSON"
                 ]
             }
         ];

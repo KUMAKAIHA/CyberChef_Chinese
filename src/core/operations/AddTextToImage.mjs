@@ -39,12 +39,12 @@ class AddTextToImage extends Operation {
             {
                 name: "水平对齐",
                 type: "option",
-                value: ["无", "左", "居中", "右"]
+                value: ["None", "Left", "Center", "Right"]
             },
             {
                 name: "垂直对齐",
                 type: "option",
-                value: ["无", "顶端", "中间", "底端"]
+                value: ["None", "Top", "Middle", "Bottom"]
             },
             {
                 name: "X 坐标",

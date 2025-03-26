@@ -53,11 +53,11 @@ class PadLines extends Operation {
         let output = "",
             i = 0;
 
-        if (position === "Start") {
+        if (position === "开始") {
             for (i = 0; i < lines.length; i++) {
                 output += lines[i].padStart(lines[i].length+len, chr) + "\n";
             }
-        } else if (position === "End") {
+        } else if (position === "结尾") {
             for (i = 0; i < lines.length; i++) {
                 output += lines[i].padEnd(lines[i].length+len, chr) + "\n";
             }

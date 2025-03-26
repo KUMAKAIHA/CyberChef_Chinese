@@ -41,7 +41,7 @@ class RSAVerify extends Operation {
             {
                 name: "消息格式",
                 type: "option",
-                value: ["原始数据", "Hex", "Base64"]
+                value: ["Raw", "Hex", "Base64"]
             },
             {
                 name: "消息摘要算法",

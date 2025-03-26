@@ -33,16 +33,16 @@ class ToFloat extends Operation {
                 "name": "字节序",
                 "type": "option",
                 "value": [
-                    "大端",
-                    "小端"
+                    "Big Endian",
+                    "Little Endian"
                 ]
             },
             {
                 "name": "大小",
                 "type": "option",
                 "value": [
-                    "浮点数 (4 字节)",
-                    "双精度浮点数 (8 字节)"
+                    "Float (4 bytes)",
+                    "Double (8 bytes)"
                 ]
             },
             {

@@ -187,7 +187,7 @@ function formatHexOntoMultiLine(hex) {
         hex = "0" + hex;
     }
 
-    return formatMultiLine(chop(hex.replace(/(..)/g, "{{input}}:")));
+    return formatMultiLine(chop(hex.replace(/(..)/g, "$&:")));
 }
 
 /**

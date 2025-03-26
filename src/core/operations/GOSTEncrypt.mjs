@@ -44,12 +44,12 @@ class GOSTEncrypt extends Operation {
             {
                 name: "输入类型",
                 type: "option",
-                value: ["原始数据", "Hex"]
+                value: ["Raw", "Hex"]
             },
             {
                 name: "输出类型",
                 type: "option",
-                value: ["Hex", "原始数据"]
+                value: ["Hex", "Raw"]
             },
             {
                 name: "算法",

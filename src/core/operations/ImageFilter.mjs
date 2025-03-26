@@ -35,8 +35,8 @@ class ImageFilter extends Operation {
                 name: "滤镜类型",
                 type: "option",
                 value: [
-                    "灰度",
-                    "棕褐色"
+                    "Greyscale",
+                    "Sepia"
                 ]
             }
         ];

@@ -59,7 +59,7 @@ class Zip extends Operation {
             {
                 name: "压缩方法",
                 type: "option",
-                value: ["Deflate", "不压缩 (存储)"]
+                value: ["Deflate", "None (Store)"]
             },
             {
                 name: "操作系统",

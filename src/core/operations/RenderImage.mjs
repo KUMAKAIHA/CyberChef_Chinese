@@ -32,7 +32,7 @@ class RenderImage extends Operation {
             {
                 "name": "输入格式",
                 "type": "option",
-                "value": ["原始数据", "Base64", "Hex"]
+                "value": ["Raw", "Base64", "Hex"]
             }
         ];
         this.checks = [

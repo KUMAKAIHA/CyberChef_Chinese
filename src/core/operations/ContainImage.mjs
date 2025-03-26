@@ -47,9 +47,9 @@ class ContainImage extends Operation {
                 name: "水平对齐",
                 type: "option",
                 value: [
-                    "左",
-                    "居中",
-                    "右"
+                    "Left",
+                    "Center",
+                    "Right"
                 ],
                 defaultIndex: 1
             },
@@ -57,9 +57,9 @@ class ContainImage extends Operation {
                 name: "垂直对齐",
                 type: "option",
                 value: [
-                    "顶部",
-                    "中间",
-                    "底部"
+                    "Top",
+                    "Middle",
+                    "Bottom"
                 ],
                 defaultIndex: 1
             },
@@ -67,11 +67,11 @@ class ContainImage extends Operation {
                 name: "调整大小算法",
                 type: "option",
                 value: [
-                    "最近邻",
-                    "双线性",
-                    "双三次",
-                    "埃尔米特",
-                    "贝塞尔"
+                    "Nearest Neighbour",
+                    "Bilinear",
+                    "Bicubic",
+                    "Hermite",
+                    "Bezier"
                 ],
                 defaultIndex: 1
             },

@@ -42,8 +42,8 @@ class Strings extends Operation {
                 name: "匹配",
                 type: "option",
                 value: [
-                    "[ASCII]", "字母数字 + 标点符号 (A)", "所有可打印字符 (A)", "空字符结尾的字符串 (A)",
-                    "[Unicode]", "字母数字 + 标点符号 (U)", "所有可打印字符 (U)", "空字符结尾的字符串 (U)"
+                    "[ASCII]", "Alphanumeric + punctuation (A)", "All printable chars (A)", "Null-terminated strings (A)",
+                    "[Unicode]", "Alphanumeric + punctuation (U)", "All printable chars (U)", "Null-terminated strings (U)"
                 ]
             },
             {

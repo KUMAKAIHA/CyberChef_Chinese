@@ -30,7 +30,7 @@ class ToHexContent extends Operation {
             {
                 "name": "转换",
                 "type": "option",
-                "value": ["仅特殊字符", "仅特殊字符（包括空格）", "所有字符"]
+                "value": ["Only special chars", "Only special chars including spaces", "All chars"]
             },
             {
                 "name": "字节之间打印空格",

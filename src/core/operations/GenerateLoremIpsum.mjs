@@ -35,7 +35,7 @@ class GenerateLoremIpsum extends Operation {
             {
                 "name": "长度单位",
                 "type": "option",
-                "value": ["段落", "句子", "单词", "字节"]
+                "value": ["Paragraphs", "Sentences", "Words", "Bytes"]
             }
 
         ];

@@ -30,12 +30,12 @@ class ChangeIPFormat extends Operation {
             {
                 "name": "输入格式",
                 "type": "option",
-                "value": ["点分十进制", "十进制", "八进制", "十六进制"]
+                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
             },
             {
                 "name": "输出格式",
                 "type": "option",
-                "value": ["点分十进制", "十进制", "八进制", "十六进制"]
+                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
             }
         ];
     }

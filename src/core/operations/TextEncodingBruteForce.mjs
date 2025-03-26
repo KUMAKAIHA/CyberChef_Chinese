@@ -40,7 +40,7 @@ class TextEncodingBruteForce extends Operation {
             {
                 name: "模式",
                 type: "option",
-                value: ["编码", "解码"]
+                value: ["Encode", "Decode"]
             }
         ];
     }

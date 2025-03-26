@@ -73,12 +73,12 @@ class AESEncrypt extends Operation {
             {
                 "name": "输入",
                 "type": "option",
-                "value": ["原始数据", "Hex"]
+                "value": ["Raw", "Hex"]
             },
             {
                 "name": "输出",
                 "type": "option",
-                "value": ["Hex", "原始数据"]
+                "value": ["Hex", "Raw"]
             },
             {
                 "name": "附加认证数据",

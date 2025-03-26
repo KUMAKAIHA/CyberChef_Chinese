@@ -47,12 +47,12 @@ class Rabbit extends Operation {
             {
                 "name": "输入",
                 "type": "option",
-                "value": ["原始数据", "Hex"]
+                "value": ["Raw", "Hex"]
             },
             {
                 "name": "输出",
                 "type": "option",
-                "value": ["原始数据", "Hex"]
+                "value": ["Raw", "Hex"]
             }
         ];
     }
@@ -69,7 +69,7 @@ class Rabbit extends Operation {
             inputType = args[3],
             outputType = args[4];
 
-        const littleEndian = endianness === "小端";
+        const littleEndian = endianness === "Little";
 
         if (key.length !== 16) {
             throw new OperationError(`Invalid key length: ${key.length} bytes (expected: 16)`);

@@ -32,7 +32,7 @@ class ECDSAVerify extends Operation {
                 name: "输入格式",
                 type: "option",
                 value: [
-                    "自动",
+                    "Auto",
                     "ASN.1 HEX",
                     "P1363 HEX",
                     "JSON Web Signature",
