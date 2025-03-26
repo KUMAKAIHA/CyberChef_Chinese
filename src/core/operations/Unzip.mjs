@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -21,7 +22,7 @@ class Unzip extends Operation {
     constructor() {
         super();
 
-        this.name = "Zip 解压缩";
+        this.name = "Unzip";
         this.module = "Compression";
         this.description = "使用 PKZIP 算法解压缩数据，并按文件显示，支持密码。";
         this.infoURL = "https://wikipedia.org/wiki/Zip_(file_format)";

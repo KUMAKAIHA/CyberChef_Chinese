@@ -1,5 +1,6 @@
 /**
  * @author j433866 [j433866@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -22,7 +23,7 @@ class CoverImage extends Operation {
     constructor() {
         super();
 
-        this.name = "包含图像";
+        this.name = "覆盖图像";
         this.module = "Image";
         this.description = "将图像缩放到给定的宽度和高度，保持宽高比。图像可能会被裁剪。";
         this.infoURL = "";

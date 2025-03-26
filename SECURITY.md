@@ -16,7 +16,8 @@ describing the problem in as much detail as possible, ideally with examples.
 This will obviously be public. If you feel that the vulnerability is
 significant enough to warrant a private disclosure, please email
 [oss@gchq.gov.uk](mailto:oss@gchq.gov.uk) and
-[n1474335@gmail.com](mailto:n1474335@gmail.com).
+[n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com](mailto:n1474335@gmail.com).
 
 Disclosures of vulnerabilities in CyberChef are always welcomed. Whilst we aim
 to write clean and secure code free from bugs, we recognise that this is an open

@@ -3,6 +3,7 @@
  *
  * @author Matt C [me@mitt.dev]
  * @author Klaxon [klaxon@veyr.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  *
  * @copyright Crown Copyright 2020
  * @license Apache-2.0

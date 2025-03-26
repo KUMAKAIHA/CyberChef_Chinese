@@ -2,6 +2,7 @@
  * Sorting functions
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
  *

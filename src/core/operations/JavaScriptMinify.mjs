@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -19,7 +20,7 @@ class JavaScriptMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "JavaScript 代码压缩";
+        this.name = "JavaScript 压缩";
         this.module = "Code";
         this.description = "压缩 JavaScript 代码。";
         this.inputType = "string";

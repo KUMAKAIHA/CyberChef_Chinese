@@ -1,6 +1,8 @@
 /**
  * @author bwhitn [brian.m.whitney@outlook.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author d98762625 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

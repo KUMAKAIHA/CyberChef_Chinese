@@ -1,5 +1,6 @@
 /**
  * @author Daniel Temkin [http://danieltemkin.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author Thomas Leplus [https://www.leplus.org]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0

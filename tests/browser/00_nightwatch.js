@@ -2,6 +2,7 @@
  * Tests to ensure that the app loads correctly in a reasonable time and that operations can be run.
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

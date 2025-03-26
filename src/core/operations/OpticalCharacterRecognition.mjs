@@ -1,6 +1,8 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author mshwed [m@ttshwed.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0

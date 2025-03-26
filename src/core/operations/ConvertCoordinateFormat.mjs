@@ -1,5 +1,6 @@
 /**
  * @author j433866 [j433866@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -18,7 +19,7 @@ class ConvertCoordinateFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "坐标格式转换";
+        this.name = "转换坐标格式";
         this.module = "Hashing";
         this.description = "在不同格式之间转换地理坐标。<br><br>支持的格式：<ul><li>度分秒 (DMS)</li><li>度十进制分 (DDM)</li><li>十进制度 (DD)</li><li>Geohash</li><li>Military Grid Reference System (MGRS)</li><li>Ordnance Survey National Grid (OSNG)</li><li>Universal Transverse Mercator (UTM)</li></ul><br>该操作可以尝试自动检测输入坐标格式和分隔符，但这可能并不总是有效。";
         this.infoURL = "https://wikipedia.org/wiki/Geographic_coordinate_conversion";

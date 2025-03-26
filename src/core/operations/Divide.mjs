@@ -1,6 +1,8 @@
 /**
  * @author bwhitn [brian.m.whitney@outlook.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author d98762625 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */
@@ -22,7 +24,7 @@ class Divide extends Operation {
     constructor() {
         super();
 
-        this.name = "除法";
+        this.name = "除";
         this.module = "Default";
         this.description = "对数字列表执行除法运算。如果字符串中的项目不是数字，则会从列表中排除。<br><br>例如：<code>0x0a 8 .5</code> 变为 <code>2.5</code>";
         this.inputType = "string";

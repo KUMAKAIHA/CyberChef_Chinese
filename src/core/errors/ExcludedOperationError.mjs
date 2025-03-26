@@ -2,6 +2,7 @@
  * Custom error type for handling operation that isnt included in node.js API
  *
  * @author d98762625 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

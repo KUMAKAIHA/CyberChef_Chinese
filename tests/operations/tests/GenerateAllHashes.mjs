@@ -2,6 +2,7 @@
  * GenerateAllHashes tests.
  *
  * @author john19696 [john19696@protonmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
  */

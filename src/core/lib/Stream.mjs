@@ -2,6 +2,7 @@
  * Stream class for parsing binary protocols.
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0

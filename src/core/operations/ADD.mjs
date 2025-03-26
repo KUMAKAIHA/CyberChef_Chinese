@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -19,7 +20,7 @@ class ADD extends Operation {
     constructor() {
         super();
 
-        this.name = "ADD";
+        this.name = "加";
         this.module = "Default";
         this.description = "将输入与给定密钥进行 ADD 运算 (例如 <code>fe023da5</code>)，MOD 255";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bitwise_operators";

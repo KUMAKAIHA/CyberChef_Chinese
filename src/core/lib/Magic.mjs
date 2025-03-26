@@ -11,6 +11,7 @@ import chiSquared from "chi-squared";
  * speculatively executing recipes.
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

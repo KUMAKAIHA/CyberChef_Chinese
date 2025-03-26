@@ -2,6 +2,7 @@
  * Index of Coincidence tests.
  *
  * @author George O [georgeomnet+cyberchef@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */

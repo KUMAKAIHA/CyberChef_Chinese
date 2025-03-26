@@ -1,5 +1,6 @@
 /**
  * @author Jarmo van Lenthe [github.com/jarmovanlenthe]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

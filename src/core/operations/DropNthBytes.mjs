@@ -1,5 +1,6 @@
 /**
  * @author Oshawk [oshawk@protonmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -18,7 +19,7 @@ class DropNthBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "丢弃第n个字节";
+        this.name = "丢弃第 n 个字节";
         this.module = "Default";
         this.description = "从指定的字节开始，丢弃每第n个字节。";
         this.infoURL = "";

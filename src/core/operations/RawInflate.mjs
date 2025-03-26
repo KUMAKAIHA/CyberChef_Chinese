@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -26,7 +27,7 @@ class RawInflate extends Operation {
     constructor() {
         super();
 
-        this.name = "原始 Deflate";
+        this.name = "原始 Inflate";
         this.module = "Compression";
         this.description = "解压缩使用 deflate 算法且不带头部的数据。";
         this.infoURL = "https://wikipedia.org/wiki/DEFLATE";

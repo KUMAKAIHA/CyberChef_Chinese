@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */
@@ -19,7 +20,7 @@ class FindReplace extends Operation {
     constructor() {
         super();
 
-        this.name = "查找 / 替换";
+        this.name = "查找/替换";
         this.module = "Regex";
         this.description = "将第一个字符串的所有匹配项替换为第二个字符串。<br><br>支持正则表达式 (regex)、简单字符串和扩展字符串（支持 \\n、\\r、\\t、\\b、\\f 和使用 \\x 表示法的转义十六进制字节，例如 \\x00 代表空字节）。";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";

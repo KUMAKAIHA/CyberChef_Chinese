@@ -2,6 +2,7 @@
  * OTP HOTP tests.
  *
  * @author bwhitn [brian.m.whitney@outlook.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  *
  * @copyright Crown Copyright 2017
  * @license Apache-2.0

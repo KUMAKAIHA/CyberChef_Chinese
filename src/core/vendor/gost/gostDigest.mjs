@@ -4,6 +4,7 @@
  * 2014-2016, Rudolf Nickolaev. All rights reserved.
  *
  * Exported for CyberChef by mshwed [m@ttshwed.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  */
 
 /*

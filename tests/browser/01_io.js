@@ -3,6 +3,7 @@
  * and retain data integrity, especially when it comes to special characters.
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
  */

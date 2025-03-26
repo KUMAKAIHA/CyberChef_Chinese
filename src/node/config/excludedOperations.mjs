@@ -2,6 +2,7 @@
  * Operations to exclude from the Node API
  *
  * @author d98762656 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -17,7 +18,7 @@ class Label extends Operation {
     constructor() {
         super();
 
-        this.name = "Label";
+        this.name = "标签";
         this.flowControl = true;
         this.module = "Default";
         this.description = "为条件跳转和固定跳转提供重定向执行的位置。";

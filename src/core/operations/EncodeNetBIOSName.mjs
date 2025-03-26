@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */
@@ -17,7 +18,7 @@ class EncodeNetBIOSName extends Operation {
     constructor() {
         super();
 
-        this.name = "NetBIOS 名称编码";
+        this.name = "编码 NetBIOS 名称";
         this.module = "Default";
         this.description = "在客户端 NetBIOS 接口中看到的 NetBIOS 名称长度正好为 16 字节。在 NetBIOS-over-TCP 协议中，则使用更长的表示形式。<br><br>编码分为两个级别。第一个级别将 NetBIOS 名称映射到域名系统名称。第二个级别将域名系统名称映射到与域名系统交互所需的“压缩”表示形式。<br><br>此操作执行第一级编码。有关完整详细信息，请参见 RFC 1001。";
         this.infoURL = "https://wikipedia.org/wiki/NetBIOS";

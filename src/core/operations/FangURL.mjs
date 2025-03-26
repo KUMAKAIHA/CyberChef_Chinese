@@ -1,5 +1,6 @@
 /**
  * @author arnydo [github@arnydo.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -17,7 +18,7 @@ class FangURL extends Operation {
     constructor() {
         super();
 
-        this.name = "URL 去毒化";
+        this.name = "URL 恢复毒化";
         this.module = "Default";
         this.description = "将“去毒化”的通用资源定位符 (URL) 还原。 也就是说，它会移除使其失效的修改（去毒化），以便可以再次使用。";
         this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the_things/22744/";

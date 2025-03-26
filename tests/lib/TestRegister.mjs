@@ -6,6 +6,7 @@
  *
  * @author tlwr [toby@toby.codes]
  * @author d98762625 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

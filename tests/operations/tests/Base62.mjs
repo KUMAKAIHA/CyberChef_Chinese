@@ -2,6 +2,7 @@
  * Base62 tests.
  *
  * @author tcode2k16 [tcode2k16@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0

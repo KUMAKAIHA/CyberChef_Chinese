@@ -2,6 +2,7 @@
  * Parse IP Range tests.
  *
  * @author Klaxon [klaxon@veyr.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */

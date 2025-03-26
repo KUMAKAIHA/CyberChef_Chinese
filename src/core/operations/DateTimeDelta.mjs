@@ -1,5 +1,6 @@
 /**
  * @author tomgond [tom.gonda@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
  */

@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -20,7 +21,7 @@ class Gunzip extends Operation {
     constructor() {
         super();
 
-        this.name = "Gunzip 解压缩";
+        this.name = "Gunzip";
         this.module = "Compression";
         this.description = "解压缩使用 gzip 头部以 deflate 算法压缩的数据。";
         this.infoURL = "https://wikipedia.org/wiki/Gzip";

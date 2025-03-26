@@ -17,7 +17,7 @@ class RAKE extends Operation {
     constructor() {
         super();
 
-        this.name = "RAKE 关键词提取";
+        this.name = "RAKE";
         this.module = "Default";
         this.description = [
             "快速关键词提取 (RAKE)",

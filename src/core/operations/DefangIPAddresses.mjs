@@ -1,50 +1,39 @@
 /**
- * @author arnydo [arnydo@protonmail.com]
- * @author n1474335 [n1474335@gmail.com]
- * @copyright Crown Copyright 2018
+ * @author h345983745
+ * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
 
 import Operation from "../Operation.mjs";
-import {URL_REGEX, DOMAIN_REGEX} from "../lib/Extract.mjs";
+
 
 /**
- * DefangURL operation
+ * Defang IP Addresses operation
  */
-class DefangURL extends Operation {
+class DefangIPAddresses extends Operation {
 
     /**
-     * DefangURL constructor
+     * DefangIPAddresses constructor
      */
     constructor() {
         super();
 
-        this.name = "URL 去毒化";
+        this.name = "IP 地址去毒化";
         this.module = "Default";
-        this.description = "对通用资源定位符 (URL) 进行“去毒化”处理；即使 URL 失效，从而消除意外点击恶意链接的风险。\n\n这通常用于处理恶意链接或 IOC。\n\n与“提取 URL”操作结合使用效果更佳。";
+        this.description = "接受 IPv4 或 IPv6 地址并对其进行“去毒化”处理，使其失效，从而消除意外将其用作 IP 地址的风险。";
         this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
         this.inputType = "string";
         this.outputType = "string";
-        this.args = [
+        this.args = [];
+        this.checks = [
             {
-                name: "转义点号",
-                type: "boolean",
-                value: true
-            },
-            {
-                name: "转义 http",
-                type: "boolean",
-                value: true
-            },
-            {
-                name: "转义 ://",
-                type: "boolean",
-                value: true
-            },
-            {
-                name: "处理",
-                type: "option",
-                value: ["有效域名和完整 URL", "仅完整 URL", "全部"]
+                pattern: "^\\s*(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-f]{4}:){7}[0-9a-f]{4})\\s*$",
+                flags: "i",
+                args: [],
+                output: {
+                    pattern: "^\\s*(([0-9]{1,3}\\[\\.\\]){3}[0-9]{1,3}|([0-9a-f]{4}\\[\\:\\]){7}[0-9a-f]{4})\\s*$",
+                    flags: "i"
+                }
             }
         ];
     }
@@ -55,48 +44,28 @@ class DefangURL extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const [dots, http, slashes, process] = args;
+        input = input.replace(IPV4_REGEX, x => {
+            return x.replace(/\./g, "[.]");
+        });
 
-        switch (process) {
-            case "有效域名和完整 URL":
-                input = input.replace(URL_REGEX, x => {
-                    return defangURL(x, dots, http, slashes);
-                });
-                input = input.replace(DOMAIN_REGEX, x => {
-                    return defangURL(x, dots, http, slashes);
-                });
-                break;
-            case "仅完整 URL":
-                input = input.replace(URL_REGEX, x => {
-                    return defangURL(x, dots, http, slashes);
-                });
-                break;
-            case "全部":
-                input = defangURL(input, dots, http, slashes);
-                break;
-        }
+        input = input.replace(IPV6_REGEX, x => {
+            return x.replace(/:/g, "[:]");
+        });
 
         return input;
     }
-
 }
+
+export default DefangIPAddresses;
 
 
 /**
- * Defangs a given URL
- *
- * @param {string} url
- * @param {boolean} dots
- * @param {boolean} http
- * @param {boolean} slashes
- * @returns {string}
+ * IPV4 regular expression
  */
-function defangURL(url, dots, http, slashes) {
-    if (dots) url = url.replace(/\./g, "[.]");
-    if (http) url = url.replace(/http/gi, "hxxp");
-    if (slashes) url = url.replace(/:\/\//g, "[://]");
+const IPV4_REGEX = new RegExp("(?:(?:\\d|[01]?\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d|\\d)(?:\\/\\d{1,2})?", "g");
 
-    return url;
-}
 
-export default DefangURL;
+/**
+ * IPV6 regular expression
+ */
+const IPV6_REGEX = new RegExp("((?=.*::)(?!.*::.+::)(::)?([\\dA-Fa-f]{1,4}:(:|\\b)|){5}|([\\dA-Fa-f]{1,4}:){6})((([\\dA-Fa-f]{1,4}((?!\\3)::|:\\b|(?![\\dA-Fa-f])))|(?!\\2\\3)){2}|(((2[0-4]|1\\d|[1-9])?\\d|25[0-5])\\.?\\b){4})", "g");

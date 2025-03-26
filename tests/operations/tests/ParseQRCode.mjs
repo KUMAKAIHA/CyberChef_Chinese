@@ -2,6 +2,7 @@
  * Parse QR Code tests
  *
  * @author j433866 [j433866@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

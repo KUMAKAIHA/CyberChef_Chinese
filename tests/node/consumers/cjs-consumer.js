@@ -2,6 +2,7 @@
  * Tests to ensure that a consuming app can use CJS require
  *
  * @author d98762625 [d98762625@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */

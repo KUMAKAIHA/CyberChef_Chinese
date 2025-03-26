@@ -2,6 +2,7 @@
  * JWT resources
  *
  * @author mt3571 [mt3571@protonmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
  */

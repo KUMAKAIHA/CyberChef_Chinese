@@ -2,6 +2,7 @@
  * Web Worker to load large amounts of data without locking up the UI.
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */

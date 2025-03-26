@@ -1,6 +1,8 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author Phillip Nordwall [phillip.nordwall@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -105,6 +107,7 @@ class JSONBeautify extends Operation {
  * Sort keys in a JSON object
  *
  * @author Phillip Nordwall [phillip.nordwall@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @param {object} o
  * @returns {object}
  */

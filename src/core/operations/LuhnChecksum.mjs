@@ -1,5 +1,6 @@
 /**
  * @author n1073645 [n1073645@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author k3ach [k3ach@proton.me]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0

@@ -2,6 +2,7 @@
  * Base92 resources.
  *
  * @author sg5506844 [sg5506844@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
  */

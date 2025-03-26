@@ -1,5 +1,6 @@
 /**
  * @author Tan Zhen Yong [tzy@beyondthesprawl.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */

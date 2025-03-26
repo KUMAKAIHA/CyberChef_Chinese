@@ -1,5 +1,6 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -19,7 +20,7 @@ class RotateLeft extends Operation {
     constructor() {
         super();
 
-        this.name = "左位移";
+        this.name = "左循环移位";
         this.module = "Default";
         this.description = "将每个字节向左旋转指定的位数，可以选择将溢出的位进位到下一个字节。目前仅支持 8 位值。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bit_shifts";

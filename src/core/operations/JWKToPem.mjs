@@ -19,7 +19,7 @@ class PEMToJWK extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM 转换为 JWK";
+        this.name = "JWK 转换为 PEM";
         this.module = "PublicKey";
         this.description = "将 JSON Web Key 格式的密钥转换为 PEM 格式 (PKCS#8)。";
         this.infoURL = "https://datatracker.ietf.org/doc/html/rfc7517";

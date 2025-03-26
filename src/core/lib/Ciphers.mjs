@@ -3,6 +3,7 @@
  *
  * @author Matt C [matt@artemisbot.uk]
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author Evie H [evie@evie.sh]
  *
  * @copyright Crown Copyright 2018
