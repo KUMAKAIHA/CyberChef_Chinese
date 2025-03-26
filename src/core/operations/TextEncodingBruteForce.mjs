@@ -21,12 +21,12 @@ class TextEncodingBruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "Text Encoding Brute Force";
+        this.name = "文本编码暴力破解";
         this.module = "Encodings";
         this.description = [
-            "Enumerates all supported text encodings for the input, allowing you to quickly spot the correct one.",
+            "枚举输入的所有支持文本编码，使您能够快速找到正确的编码。",
             "<br><br>",
-            "Supported charsets are:",
+            "支持的字符集包括：",
             "<ul>",
             Object.keys(CHR_ENC_CODE_PAGES).map(e => `<li>${e}</li>`).join("\n"),
             "</ul>"
@@ -37,9 +37,9 @@ class TextEncodingBruteForce extends Operation {
         this.presentType = "html";
         this.args = [
             {
-                name: "Mode",
+                name: "模式",
                 type: "option",
-                value: ["Encode", "Decode"]
+                value: ["编码", "解码"]
             }
         ];
     }
@@ -62,7 +62,7 @@ class TextEncodingBruteForce extends Operation {
                     output[charset] = Utils.arrayBufferToStr(cptable.utils.encode(CHR_ENC_CODE_PAGES[charset], input));
                 }
             } catch (err) {
-                output[charset] = "Could not decode.";
+                output[charset] = "无法解码。";
             }
         });
 
@@ -76,7 +76,7 @@ class TextEncodingBruteForce extends Operation {
      * @returns {html}
      */
     present(encodings) {
-        let table = "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Encoding</th><th>Value</th></tr>";
+        let table = "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>编码</th><th>值</th></tr>";
 
         for (const enc in encodings) {
             const value = Utils.escapeHtml(Utils.escapeWhitespace(encodings[enc]));

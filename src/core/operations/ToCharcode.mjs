@@ -21,20 +21,20 @@ class ToCharcode extends Operation {
     constructor() {
         super();
 
-        this.name = "To Charcode";
+        this.name = "转换为 Charcode";
         this.module = "Default";
-        this.description = "Converts text to its unicode character code equivalent.<br><br>e.g. <code>Γειά σου</code> becomes <code>0393 03b5 03b9 03ac 20 03c3 03bf 03c5</code>";
+        this.description = "将文本转换为 Unicode 字符代码等效形式。<br><br>例如：<code>Γειά σου</code> 变为 <code>0393 03b5 03b9 03ac 20 03c3 03bf 03c5</code>";
         this.infoURL = "https://wikipedia.org/wiki/Plane_(Unicode)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             },
             {
-                "name": "Base",
+                "name": "进制",
                 "type": "number",
                 "value": 16
             }
@@ -56,7 +56,7 @@ class ToCharcode extends Operation {
             ordinal;
 
         if (base < 2 || base > 36) {
-            throw new OperationError("Error: Base argument must be between 2 and 36");
+            throw new OperationError("错误：进制参数必须在 2 到 36 之间");
         }
 
         const charcode = Utils.strToCharcode(input);

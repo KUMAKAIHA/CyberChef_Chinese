@@ -19,31 +19,31 @@ class Subsection extends Operation {
     constructor() {
         super();
 
-        this.name = "Subsection";
+        this.name = "子节";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "Select a part of the input data using a regular expression (regex), and run all subsequent operations on each match separately.<br><br>You can use up to one capture group, where the recipe will only be run on the data in the capture group. If there's more than one capture group, only the first one will be operated on.<br><br>Use the Merge operation to reset the effects of subsection.";
+        this.description = "使用正则表达式 (regex) 选择输入数据的一部分，并对每个匹配项分别运行所有后续操作。<br><br>您最多可以使用一个捕获组，配方将仅在捕获组中的数据上运行。 如果有多个捕获组，则仅对第一个捕获组进行操作。<br><br>使用“合并”操作来重置子节的效果。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Section (regex)",
+                "name": "节 (regex)",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Case sensitive matching",
+                "name": "区分大小写匹配",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Global matching",
+                "name": "全局匹配",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Ignore errors",
+                "name": "忽略错误",
                 "type": "boolean",
                 "value": false
             }

@@ -17,9 +17,9 @@ class StripHTTPHeaders extends Operation {
     constructor() {
         super();
 
-        this.name = "Strip HTTP headers";
+        this.name = "去除 HTTP 头部";
         this.module = "Default";
-        this.description = "Removes HTTP headers from a request or response by looking for the first instance of a double newline.";
+        this.description = "通过查找双换行符的第一个实例，从请求或响应中移除 HTTP 头部。";
         this.infoURL = "https://wikipedia.org/wiki/Hypertext_Transfer_Protocol#Message_format";
         this.inputType = "string";
         this.outputType = "string";

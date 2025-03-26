@@ -19,9 +19,9 @@ class StripIPv4Header extends Operation {
     constructor() {
         super();
 
-        this.name = "Strip IPv4 header";
+        this.name = "去除 IPv4 头部";
         this.module = "Default";
-        this.description = "Strips the IPv4 header from an IPv4 packet, outputting the payload.";
+        this.description = "从 IPv4 数据包中去除 IPv4 头部，输出载荷。";
         this.infoURL = "https://wikipedia.org/wiki/IPv4";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -38,13 +38,13 @@ class StripIPv4Header extends Operation {
 
         const s = new Stream(new Uint8Array(input));
         if (s.length < MIN_HEADER_LEN) {
-            throw new OperationError("Input length is less than minimum IPv4 header length");
+            throw new OperationError("输入长度小于最小 IPv4 头部长度");
         }
 
         const ihl = s.readInt(1) & 0x0f;
         const dataOffsetBytes = ihl * 4;
         if (s.length < dataOffsetBytes) {
-            throw new OperationError("Input length is less than IHL");
+            throw new OperationError("输入长度小于 IHL");
         }
 
         s.moveTo(dataOffsetBytes);

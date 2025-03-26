@@ -21,31 +21,31 @@ class ToFloat extends Operation {
     constructor() {
         super();
 
-        this.name = "To Float";
+        this.name = "转换为 浮点数";
         this.module = "Default";
-        this.description = "Convert to IEEE754 Floating Point Numbers";
+        this.description = "转换为 IEEE754 浮点数";
         this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Endianness",
+                "name": "字节序",
                 "type": "option",
                 "value": [
-                    "Big Endian",
-                    "Little Endian"
+                    "大端",
+                    "小端"
                 ]
             },
             {
-                "name": "Size",
+                "name": "大小",
                 "type": "option",
                 "value": [
-                    "Float (4 bytes)",
-                    "Double (8 bytes)"
+                    "浮点数 (4 字节)",
+                    "双精度浮点数 (8 字节)"
                 ]
             },
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }

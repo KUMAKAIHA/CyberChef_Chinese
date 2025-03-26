@@ -18,25 +18,25 @@ class TakeNthBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "Take nth bytes";
+        this.name = "提取第 n 个字节";
         this.module = "Default";
-        this.description = "Takes every nth byte starting with a given byte.";
+        this.description = "从指定字节开始，提取每第 n 个字节。";
         this.infoURL = "";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Take every",
+                name: "提取每",
                 type: "number",
                 value: 4
             },
             {
-                name: "Starting at",
+                name: "起始位置",
                 type: "number",
                 value: 0
             },
             {
-                name: "Apply to each line",
+                name: "应用于每行",
                 type: "boolean",
                 value: false
             }
@@ -54,10 +54,10 @@ class TakeNthBytes extends Operation {
         const eachLine = args[2];
 
         if (parseInt(n, 10) !== n || n <= 0) {
-            throw new OperationError("'Take every' must be a positive integer.");
+            throw new OperationError("'提取每' 必须是正整数。");
         }
         if (parseInt(start, 10) !== start || start < 0) {
-            throw new OperationError("'Starting at' must be a positive or zero integer.");
+            throw new OperationError("'起始位置' 必须是正数或零。");
         }
 
         let offset = 0;

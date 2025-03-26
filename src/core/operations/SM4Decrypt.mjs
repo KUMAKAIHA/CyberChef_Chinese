@@ -21,37 +21,37 @@ class SM4Decrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "SM4 Decrypt";
+        this.name = "SM4 解密";
         this.module = "Ciphers";
-        this.description = "SM4 is a 128-bit block cipher, currently established as a national standard (GB/T 32907-2016) of China.";
+        this.description = "SM4 是一种 128 位分组密码，目前已成为中国国家标准 (GB/T 32907-2016)。";
         this.infoURL = "https://wikipedia.org/wiki/SM4_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始向量",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB", "CBC/NoPadding", "ECB/NoPadding"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["Raw", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }

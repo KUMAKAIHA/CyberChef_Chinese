@@ -20,9 +20,9 @@ class ScanForEmbeddedFiles extends Operation {
     constructor() {
         super();
 
-        this.name = "Scan for Embedded Files";
+        this.name = "扫描内嵌文件";
         this.module = "Default";
-        this.description = "Scans the data for potential embedded files by looking for magic bytes at all offsets. This operation is prone to false positives.<br><br>WARNING: Files over about 100KB in size will take a VERY long time to process.";
+        this.description = "通过在所有偏移处查找 magic bytes 扫描数据中潜在的内嵌文件。此操作容易产生误报。<br><br>警告：大于约 100KB 的文件将需要非常长的时间来处理。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_file_signatures";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -41,7 +41,7 @@ class ScanForEmbeddedFiles extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        let output = "Scanning data for 'magic bytes' which may indicate embedded files. The following results may be false positives and should not be treated as reliable. Any sufficiently long file is likely to contain these magic bytes coincidentally.\n",
+        let output = "正在扫描数据中的 'magic bytes'，这可能表示存在内嵌文件。以下结果可能是误报，不应被视为可靠。任何足够长的文件都可能巧合地包含这些 magic bytes。\n",
             numFound = 0;
         const categories = [],
             data = new Uint8Array(input);
@@ -55,19 +55,19 @@ class ScanForEmbeddedFiles extends Operation {
         if (types.length) {
             types.forEach(type => {
                 numFound++;
-                output += `\nOffset ${type.offset} (0x${Utils.hex(type.offset)}):
-  File type:   ${type.fileDetails.name}
-  Extension:   ${type.fileDetails.extension}
-  MIME type:   ${type.fileDetails.mime}\n`;
+                output += `\n偏移量 ${type.offset} (0x${Utils.hex(type.offset)}):
+  文件类型:   ${type.fileDetails.name}
+  扩展名:   ${type.fileDetails.extension}
+  MIME 类型:   ${type.fileDetails.mime}\n`;
 
                 if (type?.fileDetails?.description?.length) {
-                    output += `  Description: ${type.fileDetails.description}\n`;
+                    output += `  描述: ${type.fileDetails.description}\n`;
                 }
             });
         }
 
         if (numFound === 0) {
-            output += "\nNo embedded files were found.";
+            output += "\n未找到内嵌文件。";
         }
 
         return output;

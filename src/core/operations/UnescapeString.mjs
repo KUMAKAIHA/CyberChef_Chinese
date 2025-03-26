@@ -18,9 +18,9 @@ class UnescapeString extends Operation {
     constructor() {
         super();
 
-        this.name = "Unescape string";
+        this.name = "取消转义字符串";
         this.module = "Default";
-        this.description = "Unescapes characters in a string that have been escaped. For example, <code>Don\\'t stop me now</code> becomes <code>Don't stop me now</code>.<br><br>Supports the following escape sequences:<ul><li><code>\\n</code> (Line feed/newline)</li><li><code>\\r</code> (Carriage return)</li><li><code>\\t</code> (Horizontal tab)</li><li><code>\\b</code> (Backspace)</li><li><code>\\f</code> (Form feed)</li><li><code>\\nnn</code> (Octal, where n is 0-7)</li><li><code>\\xnn</code> (Hex, where n is 0-f)</li><li><code>\\\\</code> (Backslash)</li><li><code>\\'</code> (Single quote)</li><li><code>\\&quot;</code> (Double quote)</li><li><code>\\unnnn</code> (Unicode character)</li><li><code>\\u{nnnnnn}</code> (Unicode code point)</li></ul>";
+        this.description = "取消转义字符串中已被转义的字符。例如，<code>Don\\'t stop me now</code> 变为 <code>Don't stop me now</code>。<br><br>支持以下转义序列：<ul><li><code>\\n</code> (换行符/newline)</li><li><code>\\r</code> (回车符)</li><li><code>\\t</code> (水平制表符)</li><li><code>\\b</code> (退格符)</li><li><code>\\f</code> (换页符)</li><li><code>\\nnn</code> (八进制，其中 n 为 0-7)</li><li><code>\\xnn</code> (十六进制，其中 n 为 0-f)</li><li><code>\\\\</code> (反斜杠)</li><li><code>\\'</code> (单引号)</li><li><code>\\&quot;</code> (双引号)</li><li><code>\\unnnn</code> (Unicode 字符)</li><li><code>\\u{nnnnnn}</code> (Unicode 代码点)</li></ul>";
         this.infoURL = "https://wikipedia.org/wiki/Escape_sequence";
         this.inputType = "string";
         this.outputType = "string";

@@ -21,37 +21,37 @@ class SM4Encrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "SM4 Encrypt";
+        this.name = "SM4 加密";
         this.module = "Ciphers";
-        this.description = "SM4 is a 128-bit block cipher, currently established as a national standard (GB/T 32907-2016) of China. Multiple block cipher modes are supported. When using CBC or ECB mode, the PKCS#7 padding scheme is used.";
+        this.description = "SM4 是一种 128 位分组密码，目前已成为中国国家标准 (GB/T 32907-2016)。支持多种分组密码模式。当使用 CBC 或 ECB 模式时，将使用 PKCS#7 填充方案。";
         this.infoURL = "https://wikipedia.org/wiki/SM4_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始向量",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["Raw", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }
@@ -69,14 +69,14 @@ class SM4Encrypt extends Operation {
             [,, mode, inputType, outputType] = args;
 
         if (key.length !== 16)
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`密钥长度无效: ${key.length} 字节
 
-SM4 uses a key length of 16 bytes (128 bits).`);
+SM4 使用 16 字节（128 位）的密钥长度。`);
         if (iv.length !== 16 && !mode.startsWith("ECB"))
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes
+            throw new OperationError(`IV 长度无效: ${iv.length} 字节
 
-SM4 uses an IV length of 16 bytes (128 bits).
-Make sure you have specified the type correctly (e.g. Hex vs UTF8).`);
+SM4 使用 16 字节（128 位）的 IV 长度。
+请确保您已正确指定类型（例如 Hex 与 UTF8）。`);
 
         input = Utils.convertToByteArray(input, inputType);
         const output = encryptSM4(input, key, iv, mode.substring(0, 3), mode.endsWith("NoPadding"));

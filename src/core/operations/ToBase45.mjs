@@ -19,15 +19,15 @@ class ToBase45 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base45";
+        this.name = "转换为 Base45";
         this.module = "Default";
-        this.description = "Base45 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system. Base45 is optimized for usage with QR codes.";
+        this.description = "Base45 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用和计算机处理。 高基数进制会产生比十进制或十六进制系统更短的字符串。 Base45 针对 QR 码的使用进行了优化。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字符集",
                 type: "string",
                 value: ALPHABET
             }

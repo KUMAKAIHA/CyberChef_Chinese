@@ -18,15 +18,15 @@ class ToBase32 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base32";
+        this.name = "转换为 Base32";
         this.module = "Default";
-        this.description = "Base32 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. It uses a smaller set of characters than Base64, usually the uppercase alphabet and the numbers 2 to 7.";
+        this.description = "Base32 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用并由计算机处理。 它使用的字符集比 Base64 小，通常是大写字母和数字 2 到 7。";
         this.infoURL = "https://wikipedia.org/wiki/Base32";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字符集",
                 type: "binaryString",
                 value: "A-Z2-7="
             }

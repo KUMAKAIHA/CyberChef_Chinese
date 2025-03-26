@@ -18,20 +18,20 @@ class UnicodeTextFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Unicode Text Format";
+        this.name = "Unicode 文本格式";
         this.module = "Default";
-        this.description = "Adds Unicode combining characters to change formatting of plaintext.";
+        this.description = "添加 Unicode 组合字符以更改纯文本格式。";
         this.infoURL = "https://wikipedia.org/wiki/Combining_character";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Underline",
+                name: "下划线",
                 type: "boolean",
                 value: "false"
             },
             {
-                name: "Strikethrough",
+                name: "删除线",
                 type: "boolean",
                 value: "false"
             }

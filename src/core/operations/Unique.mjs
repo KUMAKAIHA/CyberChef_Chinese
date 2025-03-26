@@ -19,19 +19,19 @@ class Unique extends Operation {
     constructor() {
         super();
 
-        this.name = "Unique";
+        this.name = "去重";
         this.module = "Default";
-        this.description = "Removes duplicate strings from the input.";
+        this.description = "从输入中移除重复的字符串。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: INPUT_DELIM_OPTIONS
             },
             {
-                name: "Display count",
+                name: "显示计数",
                 type: "boolean",
                 value: false
             }

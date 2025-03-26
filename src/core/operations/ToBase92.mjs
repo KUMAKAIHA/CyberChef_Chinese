@@ -17,9 +17,9 @@ class ToBase92 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base92";
+        this.name = "转换为 Base92";
         this.module = "Default";
-        this.description = "Base92 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.";
+        this.description = "Base92 是一种使用一组受限符号编码任意字节数据的表示法，这些符号可以方便地被人使用并被计算机处理。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";
         this.outputType = "byteArray";

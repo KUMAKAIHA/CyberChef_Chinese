@@ -19,35 +19,35 @@ class ShowOnMap extends Operation {
     constructor() {
         super();
 
-        this.name = "Show on map";
+        this.name = "在地图上显示";
         this.module = "Hashing";
-        this.description = "Displays co-ordinates on a slippy map.<br><br>Co-ordinates will be converted to decimal degrees before being shown on the map.<br><br>Supported formats:<ul><li>Degrees Minutes Seconds (DMS)</li><li>Degrees Decimal Minutes (DDM)</li><li>Decimal Degrees (DD)</li><li>Geohash</li><li>Military Grid Reference System (MGRS)</li><li>Ordnance Survey National Grid (OSNG)</li><li>Universal Transverse Mercator (UTM)</li></ul><br>This operation will not work offline.";
+        this.description = "在滑动地图上显示坐标。<br><br>坐标在地图上显示之前会被转换为十进制度数。<br><br>支持的格式：<ul><li>度分秒 (DMS)</li><li>度十进制分 (DDM)</li><li>十进制度 (DD)</li><li>Geohash</li><li>军事网格参考系统 (MGRS)</li><li>英国国家格网 (OSNG)</li><li>通用横轴墨卡托 (UTM)</li></ul><br>此操作在离线状态下无法工作。";
         this.infoURL = "https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use";
         this.inputType = "string";
         this.outputType = "string";
         this.presentType = "html";
         this.args = [
             {
-                name: "Zoom Level",
+                name: "缩放级别",
                 type: "number",
                 value: 13
             },
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
-                value: ["Auto"].concat(FORMATS)
+                value: ["自动"].concat(FORMATS)
             },
             {
-                name: "Input Delimiter",
+                name: "输入分隔符",
                 type: "option",
                 value: [
-                    "Auto",
-                    "Direction Preceding",
-                    "Direction Following",
+                    "自动",
+                    "方向在前",
+                    "方向在后",
                     "\\n",
-                    "Comma",
-                    "Semi-colon",
-                    "Colon"
+                    "逗号",
+                    "分号",
+                    "冒号"
                 ]
             }
         ];

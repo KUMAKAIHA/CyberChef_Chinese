@@ -20,15 +20,15 @@ class ToBase62 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base62";
+        this.name = "转换为 Base62";
         this.module = "Default";
-        this.description = "Base62 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system.";
+        this.description = "Base62 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用和计算机处理。高基数进制比十进制或十六进制系统产生更短的字符串。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字母表",
                 type: "string",
                 value: "0-9A-Za-z"
             }

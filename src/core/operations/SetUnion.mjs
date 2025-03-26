@@ -18,20 +18,20 @@ class SetUnion extends Operation {
     constructor() {
         super();
 
-        this.name = "Set Union";
+        this.name = "集合并集";
         this.module = "Default";
-        this.description = "Calculates the union of two sets.";
+        this.description = "计算两个集合的并集。";
         this.infoURL = "https://wikipedia.org/wiki/Union_(set_theory)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "样本分隔符",
                 type: "binaryString",
                 value: "\\n\\n"
             },
             {
-                name: "Item delimiter",
+                name: "项目分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -46,7 +46,7 @@ class SetUnion extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || (sets.length !== 2)) {
-            throw new OperationError("Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?");
+            throw new OperationError("集合数量不正确，或许你需要修改样本分隔符或添加更多样本？");
         }
     }
 

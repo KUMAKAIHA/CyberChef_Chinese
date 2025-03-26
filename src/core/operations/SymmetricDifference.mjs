@@ -19,20 +19,20 @@ class SymmetricDifference extends Operation {
     constructor() {
         super();
 
-        this.name = "Symmetric Difference";
+        this.name = "对称差集";
         this.module = "Default";
-        this.description = "Calculates the symmetric difference of two sets.";
+        this.description = "计算两个集合的对称差集。";
         this.infoURL = "https://wikipedia.org/wiki/Symmetric_difference";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "样本分隔符",
                 type: "binaryString",
                 value: Utils.escapeHtml("\\n\\n")
             },
             {
-                name: "Item delimiter",
+                name: "项目分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -47,7 +47,7 @@ class SymmetricDifference extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || (sets.length !== 2)) {
-            throw new OperationError("Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?");
+            throw new OperationError("集合数量不正确，或许你需要修改样本分隔符或添加更多样本？");
         }
     }
 

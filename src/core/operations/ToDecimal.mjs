@@ -20,19 +20,19 @@ class ToDecimal extends Operation {
     constructor() {
         super();
 
-        this.name = "To Decimal";
+        this.name = "转换为 十进制";
         this.module = "Default";
-        this.description = "Converts the input data to an ordinal integer array.<br><br>e.g. <code>Hello</code> becomes <code>72 101 108 108 111</code>";
+        this.description = "将输入数据转换为有序整数数组。<br><br>例如，<code>Hello</code> 转换为 <code>72 101 108 108 111</code>";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             },
             {
-                "name": "Support signed values",
+                "name": "支持有符号数值",
                 "type": "boolean",
                 "value": false
             }

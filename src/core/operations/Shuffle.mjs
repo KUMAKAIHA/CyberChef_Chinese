@@ -19,15 +19,15 @@ class Shuffle extends Operation {
     constructor() {
         super();
 
-        this.name = "Shuffle";
+        this.name = "随机排序";
         this.module = "Default";
-        this.description = "Randomly reorders input elements.";
+        this.description = "随机重排输入元素。";
         this.infoURL = "https://wikipedia.org/wiki/Shuffling";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: INPUT_DELIM_OPTIONS
             }

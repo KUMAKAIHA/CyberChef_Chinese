@@ -18,14 +18,14 @@ class XMLBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "XML Beautify";
+        this.name = "XML 美化";
         this.module = "Code";
-        this.description = "Indents and prettifies eXtensible Markup Language (XML) code.";
+        this.description = "缩进并美化可扩展标记语言 (XML) 代码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进字符串",
                 "type": "binaryShortString",
                 "value": "\\t"
             }

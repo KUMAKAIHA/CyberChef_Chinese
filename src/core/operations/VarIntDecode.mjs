@@ -19,9 +19,9 @@ class VarIntDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "VarInt Decode";
+        this.name = "VarInt 解码";
         this.module = "Default";
-        this.description = "Decodes a VarInt encoded integer. VarInt is an efficient way of encoding variable length integers and is commonly used with Protobuf.";
+        this.description = "解码 VarInt 编码的整数。VarInt 是一种高效的变长整数编码方式，常用于 Protobuf。";
         this.infoURL = "https://developers.google.com/protocol-buffers/docs/encoding#varints";
         this.inputType = "byteArray";
         this.outputType = "number";

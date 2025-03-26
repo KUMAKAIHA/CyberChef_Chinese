@@ -20,46 +20,46 @@ class YARARules extends Operation {
     constructor() {
         super();
 
-        this.name = "YARA Rules";
+        this.name = "YARA 规则";
         this.module = "Yara";
-        this.description = "YARA is a tool developed at VirusTotal, primarily aimed at helping malware researchers to identify and classify malware samples. It matches based on rules specified by the user containing textual or binary patterns and a boolean expression. For help on writing rules, see the <a href='https://yara.readthedocs.io/en/latest/writingrules.html'>YARA documentation.</a>";
+        this.description = "YARA 是 VirusTotal 开发的一款工具，主要旨在帮助恶意软件研究人员识别和分类恶意软件样本。它基于用户指定的规则进行匹配，这些规则包含文本或二进制模式以及布尔表达式。有关编写规则的帮助，请参阅 <a href='https://yara.readthedocs.io/en/latest/writingrules.html'>YARA 文档</a>。";
         this.infoURL = "https://wikipedia.org/wiki/YARA";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Rules",
+                name: "规则",
                 type: "text",
                 value: "",
                 rows: 5
             },
             {
-                name: "Show strings",
+                name: "显示字符串",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Show string lengths",
+                name: "显示字符串长度",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Show metadata",
+                name: "显示元数据",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Show counts",
+                name: "显示计数",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Show rule warnings",
+                name: "显示规则警告",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Show console module messages",
+                name: "显示控制台模块消息",
                 type: "boolean",
                 value: true
             },
@@ -73,28 +73,28 @@ class YARARules extends Operation {
      */
     async run(input, args) {
         if (isWorkerEnvironment())
-            self.sendStatusMessage("Instantiating YARA...");
+            self.sendStatusMessage("正在实例化 YARA...");
         const [rules, showStrings, showLengths, showMeta, showCounts, showRuleWarns, showConsole] = args;
         return new Promise((resolve, reject) => {
             Yara().then(yara => {
-                if (isWorkerEnvironment()) self.sendStatusMessage("Converting data for YARA.");
+                if (isWorkerEnvironment()) self.sendStatusMessage("正在转换 YARA 的数据。");
                 let matchString = "";
 
                 const inpArr = new Uint8Array(input); // Turns out embind knows that JS uint8array <==> C++ std::string
 
-                if (isWorkerEnvironment()) self.sendStatusMessage("Running YARA matching.");
+                if (isWorkerEnvironment()) self.sendStatusMessage("正在运行 YARA 匹配。");
 
                 const resp = yara.run(inpArr, rules);
 
-                if (isWorkerEnvironment()) self.sendStatusMessage("Processing data.");
+                if (isWorkerEnvironment()) self.sendStatusMessage("正在处理数据。");
 
                 if (resp.compileErrors.size() > 0) {
                     for (let i = 0; i < resp.compileErrors.size(); i++) {
                         const compileError = resp.compileErrors.get(i);
                         if (!compileError.warning) {
-                            reject(new OperationError(`Error on line ${compileError.lineNumber}: ${compileError.message}`));
+                            reject(new OperationError(`错误，在第 ${compileError.lineNumber}: ${compileError.message}`));
                         } else if (showRuleWarns) {
-                            matchString += `Warning on line ${compileError.lineNumber}: ${compileError.message}\n`;
+                            matchString += `警告，在第 ${compileError.lineNumber}: ${compileError.message}\n`;
                         }
                     }
                 }
@@ -118,15 +118,15 @@ class YARARules extends Operation {
                         }
                         meta = meta.slice(0, -2) + "]";
                     }
-                    const countString = matches.size() === 0 ? "" : (showCounts ? ` (${matches.size()} time${matches.size() > 1 ? "s" : ""})` : "");
+                    const countString = matches.size() === 0 ? "" : (showCounts ? ` (${matches.size()} 次)${matches.size() > 1 ? "" : ""}` : "");
                     if (matches.size() === 0 || !(showStrings || showLengths)) {
-                        matchString += `Input matches rule "${rule.ruleName}"${meta}${countString.length > 0 ? ` ${countString}`: ""}.\n`;
+                        matchString += `输入匹配规则 "${rule.ruleName}"${meta}${countString.length > 0 ? ` ${countString}`: ""}.\n`;
                     } else {
-                        matchString += `Rule "${rule.ruleName}"${meta} matches${countString}:\n`;
+                        matchString += `规则 "${rule.ruleName}"${meta} 匹配${countString}:\n`;
                         for (let j = 0; j < matches.size(); j++) {
                             const match = matches.get(j);
                             if (showStrings || showLengths) {
-                                matchString += `Pos ${match.location}, ${showLengths ? `length ${match.matchLength}, ` : ""}identifier ${match.stringIdentifier}${showStrings ? `, data: "${match.data}"` : ""}\n`;
+                                matchString += `位置 ${match.location}, ${showLengths ? `长度 ${match.matchLength}, ` : ""}标识符 ${match.stringIdentifier}${showStrings ? `, 数据: "${match.data}"` : ""}\n`;
                             }
                         }
                     }

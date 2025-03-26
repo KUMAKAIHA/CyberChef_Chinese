@@ -19,31 +19,31 @@ class ToHexdump extends Operation {
     constructor() {
         super();
 
-        this.name = "To Hexdump";
+        this.name = "转换为 Hexdump";
         this.module = "Default";
-        this.description = "Creates a hexdump of the input data, displaying both the hexadecimal values of each byte and an ASCII representation alongside.<br><br>The 'UNIX format' argument defines which subset of printable characters are displayed in the preview column.";
+        this.description = "创建输入数据的 hexdump，同时显示每个字节的十六进制值和 ASCII 表示形式。<br><br>“UNIX 格式” 参数定义了预览列中显示的打印字符子集。";
         this.infoURL = "https://wikipedia.org/wiki/Hex_dump";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Width",
+                "name": "宽度",
                 "type": "number",
                 "value": 16,
                 "min": 1
             },
             {
-                "name": "Upper case hex",
+                "name": "十六进制大写",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Include final length",
+                "name": "包含最终长度",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "UNIX format",
+                "name": "UNIX 格式",
                 "type": "boolean",
                 "value": false
             }

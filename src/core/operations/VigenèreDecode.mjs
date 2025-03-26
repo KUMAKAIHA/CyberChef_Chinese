@@ -17,15 +17,15 @@ class VigenèreDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Vigenère Decode";
+        this.name = "Vigenère 解码";
         this.module = "Ciphers";
-        this.description = "The Vigenere cipher is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on the letters of a keyword. It is a simple form of polyalphabetic substitution.";
+        this.description = "Vigenere 密码是一种通过使用一系列基于关键字字母的不同凯撒密码来加密字母文本的方法。 它是一种简单的多字母替换形式。";
         this.infoURL = "https://wikipedia.org/wiki/Vigenère_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "string",
                 "value": ""
             }
@@ -46,8 +46,8 @@ class VigenèreDecode extends Operation {
             msgIndex,
             chr;
 
-        if (!key) throw new OperationError("No key entered");
-        if (!/^[a-zA-Z]+$/.test(key)) throw new OperationError("The key must consist only of letters");
+        if (!key) throw new OperationError("未输入密钥");
+        if (!/^[a-zA-Z]+$/.test(key)) throw new OperationError("密钥必须仅包含字母");
 
         for (let i = 0; i < input.length; i++) {
             if (alphabet.indexOf(input[i]) >= 0) {

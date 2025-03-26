@@ -19,9 +19,9 @@ class ToCaseInsensitiveRegex extends Operation {
     constructor() {
         super();
 
-        this.name = "To Case Insensitive Regex";
+        this.name = "转换为 大小写不敏感正则";
         this.module = "Default";
-        this.description = "Converts a case-sensitive regex string into a case-insensitive regex string in case the i flag is unavailable to you.<br><br>e.g. <code>Mozilla/[0-9].[0-9] .*</code> becomes <code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code>";
+        this.description = "将区分大小写的正则表达式字符串转换为不区分大小写的正则表达式字符串，以防 i 标志不可用。<br><br>例如：<code>Mozilla/[0-9].[0-9] .*</code> 变为 <code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code>";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";
         this.inputType = "string";
         this.outputType = "string";
@@ -56,7 +56,7 @@ class ToCaseInsensitiveRegex extends Operation {
         try {
             RegExp(input);
         } catch (error) {
-            throw new OperationError("Invalid Regular Expression (Please note this version of node does not support look behinds).");
+            throw new OperationError("无效的正则表达式（请注意此版本的 node 不支持后顾断言）。");
         }
 
         // Example: [test] -> [[tT][eE][sS][tT]]

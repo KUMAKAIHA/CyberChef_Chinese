@@ -21,18 +21,18 @@ class Shake extends Operation {
 
         this.name = "Shake";
         this.module = "Crypto";
-        this.description = "Shake is an Extendable Output Function (XOF) of the SHA-3 hash algorithm, part of the Keccak family, allowing for variable output length/size.";
+        this.description = "Shake 是 SHA-3 哈希算法的一种可扩展输出函数 (XOF)，属于 Keccak 家族，允许可变的输出长度/大小。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-3#Instances";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Capacity",
+                "name": "容量",
                 "type": "option",
                 "value": ["256", "128"]
             },
             {
-                "name": "Size",
+                "name": "大小",
                 "type": "number",
                 "value": 512
             }
@@ -50,7 +50,7 @@ class Shake extends Operation {
         let algo;
 
         if (size < 0)
-            throw new OperationError("Size must be greater than 0");
+            throw new OperationError("大小必须大于 0");
 
         switch (capacity) {
             case 128:
@@ -60,7 +60,7 @@ class Shake extends Operation {
                 algo = JSSHA3.shake256;
                 break;
             default:
-                throw new OperationError("Invalid size");
+                throw new OperationError("无效的大小");
         }
 
         return algo(input, size);

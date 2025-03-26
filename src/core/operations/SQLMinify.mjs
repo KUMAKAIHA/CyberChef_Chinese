@@ -18,9 +18,9 @@ class SQLMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "SQL Minify";
+        this.name = "SQL 压缩";
         this.module = "Code";
-        this.description = "Compresses Structured Query Language (SQL) code.";
+        this.description = "压缩结构化查询语言 (SQL) 代码。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

@@ -18,20 +18,20 @@ class SetDifference extends Operation {
     constructor() {
         super();
 
-        this.name = "Set Difference";
+        this.name = "集合差集";
         this.module = "Default";
-        this.description = "Calculates the difference, or relative complement, of two sets.";
+        this.description = "计算两个集合的差集，也称为相对补集。";
         this.infoURL = "https://wikipedia.org/wiki/Complement_(set_theory)#Relative_complement";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "样本分隔符",
                 type: "binaryString",
                 value: "\\n\\n"
             },
             {
-                name: "Item delimiter",
+                name: "项目分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -46,7 +46,7 @@ class SetDifference extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || (sets.length !== 2)) {
-            throw new OperationError("Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?");
+            throw new OperationError("集合数量不正确，或许您需要修改样本分隔符或添加更多样本？");
         }
     }
 

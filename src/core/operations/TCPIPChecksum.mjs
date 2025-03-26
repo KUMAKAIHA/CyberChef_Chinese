@@ -18,9 +18,9 @@ class TCPIPChecksum extends Operation {
     constructor() {
         super();
 
-        this.name = "TCP/IP Checksum";
+        this.name = "TCP/IP 校验和";
         this.module = "Crypto";
-        this.description = "Calculates the checksum for a TCP (Transport Control Protocol) or IP (Internet Protocol) header from an input of raw bytes.";
+        this.description = "从原始字节输入计算 TCP（传输控制协议）或 IP（互联网协议）报头的校验和。";
         this.infoURL = "https://wikipedia.org/wiki/IPv4_header_checksum";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

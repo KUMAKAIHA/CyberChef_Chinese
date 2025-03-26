@@ -18,15 +18,15 @@ class VigenèreEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Vigenère Encode";
+        this.name = "Vigenère 编码";
         this.module = "Ciphers";
-        this.description = "The Vigenere cipher is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on the letters of a keyword. It is a simple form of polyalphabetic substitution.";
+        this.description = "维吉尼亚密码是一种通过使用基于关键词字母的一系列不同凯撒密码来加密字母文本的方法。它是一种简单的多字母替换形式。";
         this.infoURL = "https://wikipedia.org/wiki/Vigenère_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "string",
                 "value": ""
             }

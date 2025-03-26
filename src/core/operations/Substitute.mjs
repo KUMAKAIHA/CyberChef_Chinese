@@ -18,25 +18,25 @@ class Substitute extends Operation {
     constructor() {
         super();
 
-        this.name = "Substitute";
+        this.name = "替换";
         this.module = "Default";
-        this.description = "A substitution cipher allowing you to specify bytes to replace with other byte values. This can be used to create Caesar ciphers but is more powerful as any byte value can be substituted, not just letters, and the substitution values need not be in order.<br><br>Enter the bytes you want to replace in the Plaintext field and the bytes to replace them with in the Ciphertext field.<br><br>Non-printable bytes can be specified using string escape notation. For example, a line feed character can be written as either <code>\\n</code> or <code>\\x0a</code>.<br><br>Byte ranges can be specified using a hyphen. For example, the sequence <code>0123456789</code> can be written as <code>0-9</code>.<br><br>Note that blackslash characters are used to escape special characters, so will need to be escaped themselves if you want to use them on their own (e.g.<code>\\\\</code>).";
+        this.description = "替换密码，允许您指定要替换为其他字节值的字节。这可以用于创建凯撒密码，但功能更强大，因为可以替换任何字节值，而不仅仅是字母，并且替换值不必按顺序排列。<br><br>在“明文”字段中输入您要替换的字节，在“密文”字段中输入要替换为的字节。<br><br>可以使用字符串转义表示法指定不可打印的字节。例如，换行符可以写成 <code>\\n</code> 或 <code>\\x0a</code>。<br><br>可以使用连字符指定字节范围。例如，序列 <code>0123456789</code> 可以写成 <code>0-9</code>。<br><br>请注意，反斜杠字符用于转义特殊字符，因此如果您想单独使用它们，则需要自行转义（例如 <code>\\\\</code>）";
         this.infoURL = "https://wikipedia.org/wiki/Substitution_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Plaintext",
+                "name": "明文",
                 "type": "binaryString",
                 "value": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             },
             {
-                "name": "Ciphertext",
+                "name": "密文",
                 "type": "binaryString",
                 "value": "XYZABCDEFGHIJKLMNOPQRSTUVW"
             },
             {
-                "name": "Ignore case",
+                "name": "忽略大小写",
                 "type": "boolean",
                 "value": false
             }

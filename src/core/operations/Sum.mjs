@@ -22,15 +22,15 @@ class Sum extends Operation {
     constructor() {
         super();
 
-        this.name = "Sum";
+        this.name = "求和";
         this.module = "Default";
-        this.description = "Adds together a list of numbers. If an item in the string is not a number it is excluded from the list.<br><br>e.g. <code>0x0a 8 .5</code> becomes <code>18.5</code>";
+        this.description = "将数字列表中的数字相加。如果字符串中的项目不是数字，则会将其从列表中排除。<br><br>例如：<code>0x0a 8 .5</code> 变为 <code>18.5</code>";
         this.infoURL = "https://wikipedia.org/wiki/Summation";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": ARITHMETIC_DELIM_OPTIONS,
             }

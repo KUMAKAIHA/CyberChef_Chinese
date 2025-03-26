@@ -18,19 +18,19 @@ class Split extends Operation {
     constructor() {
         super();
 
-        this.name = "Split";
+        this.name = "分割";
         this.module = "Default";
-        this.description = "Splits a string into sections around a given delimiter.";
+        this.description = "根据指定的分隔符将字符串分割成多个部分。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Split delimiter",
+                "name": "分割分隔符",
                 "type": "editableOptionShort",
                 "value": SPLIT_DELIM_OPTIONS
             },
             {
-                "name": "Join delimiter",
+                "name": "连接分隔符",
                 "type": "editableOptionShort",
                 "value": JOIN_DELIM_OPTIONS
             }

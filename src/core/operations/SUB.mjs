@@ -19,15 +19,15 @@ class SUB extends Operation {
     constructor() {
         super();
 
-        this.name = "SUB";
+        this.name = "减";
         this.module = "Default";
-        this.description = "SUB the input with the given key (e.g. <code>fe023da5</code>), MOD 255";
+        this.description = "使用给定的密钥对输入进行减法 (例如 <code>fe023da5</code>)，MOD 255";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bitwise_operators";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": BITWISE_OP_DELIMS

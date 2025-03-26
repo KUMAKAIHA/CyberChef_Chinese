@@ -20,27 +20,27 @@ class ShowBase64Offsets extends Operation {
     constructor() {
         super();
 
-        this.name = "Show Base64 offsets";
+        this.name = "显示 Base64 偏移量";
         this.module = "Default";
-        this.description = "When a string is within a block of data and the whole block is Base64'd, the string itself could be represented in Base64 in three distinct ways depending on its offset within the block.<br><br>This operation shows all possible offsets for a given string so that each possible encoding can be considered.";
+        this.description = "当一个字符串存在于一个数据块中，且整个数据块被 Base64 编码时，该字符串本身可以根据其在数据块中的偏移量以三种不同的 Base64 形式表示。<br><br>此操作显示给定字符串的所有可能偏移量，以便可以考虑每种可能的编码。";
         this.infoURL = "https://wikipedia.org/wiki/Base64#Output_padding";
         this.inputType = "byteArray";
         this.outputType = "html";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字符集",
                 type: "binaryString",
                 value: "A-Za-z0-9+/="
             },
             {
-                name: "Show variable chars and padding",
+                name: "显示可变字符和填充",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Raw", "Base64"]
+                value: ["原始数据", "Base64"]
             }
         ];
     }
@@ -69,7 +69,7 @@ class ShowBase64Offsets extends Operation {
             script = "<script type='application/javascript'>$('[data-toggle=\"tooltip\"]').tooltip()</script>";
 
         if (input.length < 1) {
-            throw new OperationError("Please enter a string.");
+            throw new OperationError("请输入一个字符串。");
         }
 
         // Highlight offset 0
@@ -157,13 +157,13 @@ class ShowBase64Offsets extends Operation {
             offset2 = staticSection;
         }
 
-        return (showVariable ? "Characters highlighted in <span class='hl5'>green</span> could change if the input is surrounded by more data." +
-            "\nCharacters highlighted in <span class='hl3'>red</span> are for padding purposes only." +
-            "\nUnhighlighted characters are <span data-toggle='tooltip' data-placement='top' title='Tooltip on left'>static</span>." +
-            "\nHover over the static sections to see what they decode to on their own.\n" +
-            "\nOffset 0: " + offset0 +
-            "\nOffset 1: " + offset1 +
-            "\nOffset 2: " + offset2 +
+        return (showVariable ? "以 <span class='hl5'>绿色</span> 高亮显示的字符可能会因输入周围数据的变化而改变。" +
+            "\n以 <span class='hl3'>红色</span> 高亮显示的字符仅用于填充目的。" +
+            "\n未高亮显示的字符是 <span data-toggle='tooltip' data-placement='top' title='Tooltip on left'>静态的</span>。" +
+            "\n悬停在静态部分上方可查看它们各自解码后的内容。\n" +
+            "\n偏移量 0: " + offset0 +
+            "\n偏移量 1: " + offset1 +
+            "\n偏移量 2: " + offset2 +
             script :
             offset0 + "\n" + offset1 + "\n" + offset2);
     }

@@ -19,9 +19,9 @@ class VarIntEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "VarInt Encode";
+        this.name = "VarInt 编码";
         this.module = "Default";
-        this.description = "Encodes a Vn integer as a VarInt. VarInt is an efficient way of encoding variable length integers and is commonly used with Protobuf.";
+        this.description = "将 Vn 整数编码为 VarInt 格式。VarInt 是一种高效的变长整数编码方式，常用于 Protobuf。";
         this.infoURL = "https://developers.google.com/protocol-buffers/docs/encoding#varints";
         this.inputType = "number";
         this.outputType = "byteArray";

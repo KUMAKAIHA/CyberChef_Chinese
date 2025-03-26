@@ -17,9 +17,9 @@ class SwapCase extends Operation {
     constructor() {
         super();
 
-        this.name = "Swap case";
+        this.name = "交换大小写";
         this.module = "Default";
-        this.description = "Converts uppercase letters to lowercase ones, and lowercase ones to uppercase ones.";
+        this.description = "将大写字母转换为小写字母，并将小写字母转换为大写字母。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";

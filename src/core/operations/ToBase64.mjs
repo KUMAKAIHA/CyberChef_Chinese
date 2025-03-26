@@ -18,15 +18,15 @@ class ToBase64 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base64";
+        this.name = "转换为 Base64";
         this.module = "Default";
-        this.description = "Base64 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.<br><br>This operation encodes raw data into an ASCII Base64 string.<br><br>e.g. <code>hello</code> becomes <code>aGVsbG8=</code>";
+        this.description = "Base64 是一种使用受限符号集编码任意字节数据的表示法，这些符号集可以方便地供人类使用和计算机处理。\n\n此操作将原始数据编码为 ASCII Base64 字符串。\n\n例如：<code>hello</code> 变为 <code>aGVsbG8=</code>";
         this.infoURL = "https://wikipedia.org/wiki/Base64";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "字符集",
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             }

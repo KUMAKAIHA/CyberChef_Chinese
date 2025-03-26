@@ -20,25 +20,25 @@ class SwapEndianness extends Operation {
     constructor() {
         super();
 
-        this.name = "Swap endianness";
+        this.name = "交换字节序";
         this.module = "Default";
-        this.description = "Switches the data from big-endian to little-endian or vice-versa. Data can be read in as hexadecimal or raw bytes. It will be returned in the same format as it is entered.";
+        this.description = "将数据从大端序转换为小端序，反之亦然。数据可以以十六进制或原始字节形式读取。它将以输入的相同格式返回。";
         this.infoURL = "https://wikipedia.org/wiki/Endianness";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Data format",
+                "name": "数据格式",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             },
             {
-                "name": "Word length (bytes)",
+                "name": "字长 (字节)",
                 "type": "number",
                 "value": 4
             },
             {
-                "name": "Pad incomplete words",
+                "name": "填充不完整字",
                 "type": "boolean",
                 "value": true
             }

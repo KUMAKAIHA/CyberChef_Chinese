@@ -19,20 +19,20 @@ class ToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "To Hex";
+        this.name = "转换为 Hex";
         this.module = "Default";
-        this.description = "Converts the input string to hexadecimal bytes separated by the specified delimiter.<br><br>e.g. The UTF-8 encoded string <code>Γειά σου</code> becomes <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code>";
+        this.description = "将输入字符串转换为十六进制字节，并用指定的分隔符分隔。<br><br>例如，UTF-8 编码的字符串 <code>Γειά σου</code> 变为 <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: TO_HEX_DELIM_OPTIONS
             },
             {
-                name: "Bytes per line",
+                name: "每行字节数",
                 type: "number",
                 value: 0
             }

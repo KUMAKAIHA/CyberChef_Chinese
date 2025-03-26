@@ -20,9 +20,9 @@ class XPathExpression extends Operation {
     constructor() {
         super();
 
-        this.name = "XPath expression";
+        this.name = "XPath 表达式";
         this.module = "Code";
-        this.description = "Extract information from an XML document with an XPath query";
+        this.description = "使用 XPath 查询从 XML 文档中提取信息";
         this.infoURL = "https://wikipedia.org/wiki/XPath";
         this.inputType = "string";
         this.outputType = "string";
@@ -33,7 +33,7 @@ class XPathExpression extends Operation {
                 "value": ""
             },
             {
-                "name": "Result delimiter",
+                "name": "结果分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             }
@@ -58,14 +58,14 @@ class XPathExpression extends Operation {
                 }
             }).parseFromString(input, "application/xml");
         } catch (err) {
-            throw new OperationError("Invalid input XML.");
+            throw new OperationError("无效的输入 XML。");
         }
 
         let nodes;
         try {
             nodes = xpath.parse(query).select({ node: doc, allowAnyNamespaceForNoPrefix: true });
         } catch (err) {
-            throw new OperationError(`Invalid XPath. Details:\n${err.message}.`);
+            throw new OperationError(`无效的 XPath。详情:\n${err.message}。`);
         }
 
         const nodeToString = function(node) {

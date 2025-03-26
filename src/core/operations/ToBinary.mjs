@@ -20,20 +20,20 @@ class ToBinary extends Operation {
     constructor() {
         super();
 
-        this.name = "To Binary";
+        this.name = "转换为 二进制";
         this.module = "Default";
-        this.description = "Displays the input data as a binary string.<br><br>e.g. <code>Hi</code> becomes <code>01001000 01101001</code>";
+        this.description = "将输入数据以二进制字符串形式显示。<br><br>例如：<code>Hi</code> 转换为 <code>01001000 01101001</code>";
         this.infoURL = "https://wikipedia.org/wiki/Binary_code";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": BIN_DELIM_OPTIONS
             },
             {
-                "name": "Byte Length",
+                "name": "字节长度",
                 "type": "number",
                 "value": 8
             }

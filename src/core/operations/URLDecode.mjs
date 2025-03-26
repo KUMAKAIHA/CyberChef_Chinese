@@ -17,9 +17,9 @@ class URLDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "URL Decode";
+        this.name = "URL 解码";
         this.module = "URL";
-        this.description = "Converts URI/URL percent-encoded characters back to their raw values.<br><br>e.g. <code>%3d</code> becomes <code>=</code>";
+        this.description = "将 URI/URL 百分号编码字符转换回其原始值。<br><br>例如：<code>%3d</code> 变为 <code>=</code>";
         this.infoURL = "https://wikipedia.org/wiki/Percent-encoding";
         this.inputType = "string";
         this.outputType = "string";

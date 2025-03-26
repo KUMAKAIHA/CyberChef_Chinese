@@ -23,43 +23,43 @@ class Salsa20 extends Operation {
 
         this.name = "Salsa20";
         this.module = "Ciphers";
-        this.description = "Salsa20 is a stream cipher designed by Daniel J. Bernstein and submitted to the eSTREAM project; Salsa20/8 and Salsa20/12 are round-reduced variants. It is closely related to the ChaCha stream cipher.<br><br><b>Key:</b> Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).<br><br><b>Nonce:</b> Salsa20 uses a nonce of 8 bytes (64 bits).<br><br><b>Counter:</b> Salsa uses a counter of 8 bytes (64 bits). The counter starts at zero at the start of the keystream, and is incremented at every 64 bytes.";
+        this.description = "Salsa20 是由 Daniel J. Bernstein 设计并提交给 eSTREAM 项目的流密码；Salsa20/8 和 Salsa20/12 是轮数减少的变体。它与 ChaCha 流密码密切相关。<br><br><b>密钥：</b> Salsa20 使用 16 或 32 字节（128 或 256 位）的密钥。<br><br><b>Nonce（随机数）：</b> Salsa20 使用 8 字节（64 位）的 nonce。<br><br><b>计数器：</b> Salsa 使用 8 字节（64 位）的计数器。计数器在密钥流开始时从零开始，并且每 64 字节递增一次。";
         this.infoURL = "https://wikipedia.org/wiki/Salsa20";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Nonce",
+                "name": "Nonce（随机数）",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64", "Integer"]
+                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64", "整数"]
             },
             {
-                "name": "Counter",
+                "name": "计数器",
                 "type": "number",
                 "value": 0,
                 "min": 0
             },
             {
-                "name": "Rounds",
+                "name": "轮数",
                 "type": "option",
                 "value": ["20", "12", "8"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["Hex", "原始数据"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始数据", "Hex"]
             }
         ];
     }
@@ -77,20 +77,16 @@ class Salsa20 extends Operation {
             outputType = args[5];
 
         if (key.length !== 16 && key.length !== 32) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes.
-
-Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`);
+            throw new OperationError(`无效的密钥长度：${key.length} 字节。\n\nSalsa20 使用 16 或 32 字节（128 或 256 位）的密钥。`);
         }
 
         let counter, nonce;
-        if (nonceType === "Integer") {
+        if (nonceType === "整数") {
             nonce = Utils.intToByteArray(parseInt(args[1].string, 10), 8, "little");
         } else {
             nonce = Utils.convertToByteArray(args[1].string, args[1].option);
             if (!(nonce.length === 8)) {
-                throw new OperationError(`Invalid nonce length: ${nonce.length} bytes.
-
-Salsa20 uses a nonce of 8 bytes (64 bits).`);
+                throw new OperationError(`无效的 Nonce 长度：${nonce.length} 字节。\n\nSalsa20 使用 8 字节（64 位）的 Nonce。`);
             }
         }
         counter = Utils.intToByteArray(args[2], 8, "little");
@@ -127,7 +123,7 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`);
     highlight(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始数据" && outputType === "原始数据") {
             return pos;
         }
     }
@@ -144,7 +140,7 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`);
     highlightReverse(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始数据" && outputType === "原始数据") {
             return pos;
         }
     }

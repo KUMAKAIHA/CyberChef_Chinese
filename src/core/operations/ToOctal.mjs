@@ -20,15 +20,15 @@ class ToOctal extends Operation {
     constructor() {
         super();
 
-        this.name = "To Octal";
+        this.name = "转换为 八进制";
         this.module = "Default";
-        this.description = "Converts the input string to octal bytes separated by the specified delimiter.<br><br>e.g. The UTF-8 encoded string <code>Γειά σου</code> becomes <code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code>";
+        this.description = "将输入字符串转换为以指定分隔符分隔的八进制字节。<br><br>例如，UTF-8 编码的字符串 <code>Γειά σου</code> 变为 <code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code>";
         this.infoURL = "https://wikipedia.org/wiki/Octal";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }

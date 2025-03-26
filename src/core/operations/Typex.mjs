@@ -26,134 +26,134 @@ class Typex extends Operation {
 
         this.name = "Typex";
         this.module = "Bletchley";
-        this.description = "Encipher/decipher with the WW2 Typex machine.<br><br>Typex was originally built by the British Royal Air Force prior to WW2, and is based on the Enigma machine with some improvements made, including using five rotors with more stepping points and interchangeable wiring cores. It was used across the British and Commonwealth militaries. A number of later variants were produced; here we simulate a WW2 era Mark 22 Typex with plugboards for the reflector and input. Typex rotors were changed regularly and none are public: a random example set are provided.<br><br>To configure the reflector plugboard, enter a string of connected pairs of letters in the reflector box, e.g. <code>AB CD EF</code> connects A to B, C to D, and E to F (you'll need to connect every letter). There is also an input plugboard: unlike Enigma's plugboard, it's not restricted to pairs, so it's entered like a rotor (without stepping). To create your own rotor, enter the letters that the rotor maps A to Z to, in order, optionally followed by <code>&lt;</code> then a list of stepping points.<br><br>More detailed descriptions of the Enigma, Typex and Bombe operations <a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>can be found here</a>.";
+        this.description = "使用二战 Typex 机器进行加密/解密。<br><br>Typex 最初由英国皇家空军在二战前建造，基于恩尼格玛密码机，但进行了一些改进，包括使用五个转子、更多步进点和可互换的接线核心。它在英国和英联邦军队中广泛使用。后来出现了一些变体；这里我们模拟二战时期的 Mark 22 Typex，带有用于反射器和输入的插线板。Typex 转子定期更换，且没有公开的；这里提供了一个随机示例集。<br><br>要配置反射器插线板，请在反射器框中输入连接字母对的字符串，例如 `AB CD EF` 将 A 连接到 B，C 连接到 D，E 连接到 F（你需要连接每个字母）。还有一个输入插线板：与恩尼格玛密码机的插线板不同，它不限于成对连接，因此像转子一样输入（无需步进）。要创建你自己的转子，请输入转子将 A 到 Z 映射到的字母，按顺序排列，可以选择后跟 `&lt;` 然后是步进点列表。<br><br>关于恩尼格玛密码机、Typex 和 Bombe 操作的更详细描述<a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>可以在这里找到</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Typex";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "1st (left-hand) rotor",
+                name: "第 1 个（左侧）转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 0
             },
             {
-                name: "1st rotor reversed",
+                name: "第 1 个转子反向",
                 type: "boolean",
                 value: false
             },
             {
-                name: "1st rotor ring setting",
+                name: "第 1 个转子环设置",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "1st rotor initial value",
+                name: "第 1 个转子初始值",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "2nd rotor",
+                name: "第 2 个转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 1
             },
             {
-                name: "2nd rotor reversed",
+                name: "第 2 个转子反向",
                 type: "boolean",
                 value: false
             },
             {
-                name: "2nd rotor ring setting",
+                name: "第 2 个转子环设置",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "2nd rotor initial value",
+                name: "第 2 个转子初始值",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "3rd (middle) rotor",
+                name: "第 3 个（中间）转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 2
             },
             {
-                name: "3rd rotor reversed",
+                name: "第 3 个转子反向",
                 type: "boolean",
                 value: false
             },
             {
-                name: "3rd rotor ring setting",
+                name: "第 3 个转子环设置",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "3rd rotor initial value",
+                name: "第 3 个转子初始值",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "4th (static) rotor",
+                name: "第 4 个（静态）转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 3
             },
             {
-                name: "4th rotor reversed",
+                name: "第 4 个转子反向",
                 type: "boolean",
                 value: false
             },
             {
-                name: "4th rotor ring setting",
+                name: "第 4 个转子环设置",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "4th rotor initial value",
+                name: "第 4 个转子初始值",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "5th (right-hand, static) rotor",
+                name: "第 5 个（右侧，静态）转子",
                 type: "editableOption",
                 value: ROTORS,
                 defaultIndex: 4
             },
             {
-                name: "5th rotor reversed",
+                name: "第 5 个转子反向",
                 type: "boolean",
                 value: false
             },
             {
-                name: "5th rotor ring setting",
+                name: "第 5 个转子环设置",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "5th rotor initial value",
+                name: "第 5 个转子初始值",
                 type: "option",
                 value: LETTERS
             },
             {
-                name: "Reflector",
+                name: "反射器",
                 type: "editableOption",
                 value: REFLECTORS
             },
             {
-                name: "Plugboard",
+                name: "插线板",
                 type: "string",
                 value: ""
             },
             {
-                name: "Typex keyboard emulation",
+                name: "Typex 键盘模拟",
                 type: "option",
-                value: ["None", "Encrypt", "Decrypt"]
+                value: ["无", "加密", "解密"]
             },
             {
-                name: "Strict output",
-                hint: "Remove non-alphabet letters and group output",
+                name: "严格输出",
+                hint: "移除非字母字符并分组输出",
                 type: "boolean",
                 value: true
             },

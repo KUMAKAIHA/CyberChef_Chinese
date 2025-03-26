@@ -21,30 +21,30 @@ class ToBCD extends Operation {
     constructor() {
         super();
 
-        this.name = "To BCD";
+        this.name = "转换为 BCD";
         this.module = "Default";
-        this.description = "Binary-Coded Decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight. Special bit patterns are sometimes used for a sign";
+        this.description = "二进制编码十进制 (BCD) 是一种十进制数字的二进制编码类别，其中每个十进制数字由固定数量的位表示，通常为 4 位或 8 位。特殊的位模式有时用于表示符号";
         this.infoURL = "https://wikipedia.org/wiki/Binary-coded_decimal";
         this.inputType = "BigNumber";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Scheme",
+                "name": "方案",
                 "type": "option",
                 "value": ENCODING_SCHEME
             },
             {
-                "name": "Packed",
+                "name": "紧凑",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Signed",
+                "name": "带符号",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
                 "value": FORMAT
             }
@@ -58,9 +58,9 @@ class ToBCD extends Operation {
      */
     run(input, args) {
         if (input.isNaN())
-            throw new OperationError("Invalid input");
+            throw new OperationError("无效的输入");
         if (!input.integerValue(BigNumber.ROUND_DOWN).isEqualTo(input))
-            throw new OperationError("Fractional values are not supported by BCD");
+            throw new OperationError("BCD 不支持小数值");
 
         const encoding = ENCODING_LOOKUP[args[0]],
             packed = args[1],

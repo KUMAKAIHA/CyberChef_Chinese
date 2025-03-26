@@ -21,15 +21,15 @@ class XXTEAEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "XXTEA Encrypt";
+        this.name = "XXTEA 加密";
         this.module = "Ciphers";
-        this.description = "Corrected Block TEA (often referred to as XXTEA) is a block cipher designed to correct weaknesses in the original Block TEA. XXTEA operates on variable-length blocks that are some arbitrary multiple of 32 bits in size (minimum 64 bits). The number of full cycles depends on the block size, but there are at least six (rising to 32 for small block sizes). The original Block TEA applies the XTEA round function to each word in the block and combines it additively with its leftmost neighbour. Slow diffusion rate of the decryption process was immediately exploited to break the cipher. Corrected Block TEA uses a more involved round function which makes use of both immediate neighbours in processing each word in the block.";
+        this.description = "修正块 TEA (通常称为 XXTEA) 是一种块密码，旨在纠正原始块 TEA 中的弱点。XXTEA 在可变长度的块上运行，这些块是 32 位大小的任意倍数（最小 64 位）。完整循环的次数取决于块大小，但至少有六次（对于小块大小则升至 32 次）。原始块 TEA 将 XTEA 轮函数应用于块中的每个字，并将其与其最左边的邻居相加组合。解密过程的慢扩散率立即被利用来破解密码。修正块 TEA 使用更复杂的轮函数，该函数在处理块中的每个字时都利用了直接邻居。";
         this.infoURL = "https://wikipedia.org/wiki/XXTEA";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]

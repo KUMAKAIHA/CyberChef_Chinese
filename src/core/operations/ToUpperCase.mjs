@@ -18,16 +18,16 @@ class ToUpperCase extends Operation {
     constructor() {
         super();
 
-        this.name = "To Upper case";
+        this.name = "转换为 大写";
         this.module = "Default";
-        this.description = "Converts the input string to upper case, optionally limiting scope to only the first character in each word, sentence or paragraph.";
+        this.description = "将输入字符串转换为大写，可以选择限制范围为每个单词、句子或段落的首字母。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Scope",
+                "name": "范围",
                 "type": "option",
-                "value": ["All", "Word", "Sentence", "Paragraph"]
+                "value": ["全部", "单词", "句子", "段落"]
             }
         ];
     }
@@ -39,7 +39,7 @@ class ToUpperCase extends Operation {
      */
     run(input, args) {
         if (!args || args.length === 0) {
-            throw new OperationError("No capitalization scope was provided.");
+            throw new OperationError("未提供大小写转换范围。");
         }
 
         const scope = args[0];
@@ -55,7 +55,7 @@ class ToUpperCase extends Operation {
         }[scope];
 
         if (scopeRegex === undefined) {
-            throw new OperationError("Unrecognized capitalization scope");
+            throw new OperationError("无法识别的大小写转换范围");
         }
 
         // Use the regex to capitalize the input

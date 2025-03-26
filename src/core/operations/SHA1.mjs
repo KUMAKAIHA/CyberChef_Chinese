@@ -20,13 +20,13 @@ class SHA1 extends Operation {
 
         this.name = "SHA1";
         this.module = "Crypto";
-        this.description = "The SHA (Secure Hash Algorithm) hash functions were designed by the NSA. SHA-1 is the most established of the existing SHA hash functions and it is used in a variety of security applications and protocols.<br><br>However, SHA-1's collision resistance has been weakening as new attacks are discovered or improved. The message digest algorithm consists, by default, of 80 rounds.";
+        this.description = "SHA（安全哈希算法）哈希函数由 NSA 设计。 SHA-1 是现有 SHA 哈希函数中最成熟的一种，它被广泛应用于各种安全应用和协议。<br><br>然而，随着新的攻击被发现或改进，SHA-1 的抗碰撞性正在减弱。 默认情况下，消息摘要算法由 80 轮组成。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-1";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Rounds",
+                name: "轮数",
                 type: "number",
                 value: 80,
                 min: 16

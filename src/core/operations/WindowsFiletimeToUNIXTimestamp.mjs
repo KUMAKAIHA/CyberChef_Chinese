@@ -19,22 +19,22 @@ class WindowsFiletimeToUNIXTimestamp extends Operation {
     constructor() {
         super();
 
-        this.name = "Windows Filetime to UNIX Timestamp";
+        this.name = "Windows 文件时间转换为 UNIX 时间戳";
         this.module = "Default";
-        this.description = "Converts a Windows Filetime value to a UNIX timestamp.<br><br>A Windows Filetime is a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601 UTC.<br><br>A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).<br><br>This operation also supports UNIX timestamps in milliseconds, microseconds and nanoseconds.";
+        this.description = "将 Windows 文件时间值转换为 UNIX 时间戳。<br><br>Windows 文件时间是一个 64 位的值，表示自 1601 年 1 月 1 日 UTC 以来 100 纳秒间隔的数量。<br><br>UNIX 时间戳是一个 32 位的值，表示自 1970 年 1 月 1 日 UTC（UNIX 纪元）以来的秒数。<br><br>此操作还支持毫秒、微秒和纳秒为单位的 UNIX 时间戳。";
         this.infoURL = "https://msdn.microsoft.com/en-us/library/windows/desktop/ms724284(v=vs.85).aspx";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Output units",
+                "name": "输出单位",
                 "type": "option",
-                "value": ["Seconds (s)", "Milliseconds (ms)", "Microseconds (μs)", "Nanoseconds (ns)"]
+                "value": ["秒 (s)", "毫秒 (ms)", "微秒 (μs)", "纳秒 (ns)"]
             },
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Decimal", "Hex (big endian)", "Hex (little endian)"]
+                "value": ["十进制", "Hex (big endian)", "Hex (little endian)"]
             }
         ];
     }
@@ -70,13 +70,13 @@ class WindowsFiletimeToUNIXTimestamp extends Operation {
 
         input = input.minus(new BigNumber("116444736000000000"));
 
-        if (units === "Seconds (s)") {
+        if (units === "秒 (s)") {
             input = input.dividedBy(new BigNumber("10000000"));
-        } else if (units === "Milliseconds (ms)") {
+        } else if (units === "毫秒 (ms)") {
             input = input.dividedBy(new BigNumber("10000"));
-        } else if (units === "Microseconds (μs)") {
+        } else if (units === "微秒 (μs)") {
             input = input.dividedBy(new BigNumber("10"));
-        } else if (units === "Nanoseconds (ns)") {
+        } else if (units === "纳秒 (ns)") {
             input = input.multipliedBy(new BigNumber("100"));
         } else {
             throw new OperationError("Unrecognised unit");

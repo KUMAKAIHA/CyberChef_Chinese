@@ -20,9 +20,9 @@ class ToMessagePack extends Operation {
     constructor() {
         super();
 
-        this.name = "To MessagePack";
+        this.name = "转换为 MessagePack";
         this.module = "Code";
-        this.description = "Converts JSON to MessagePack encoded byte buffer. MessagePack is a computer data interchange format. It is a binary form for representing simple data structures like arrays and associative arrays.";
+        this.description = "将 JSON 转换为 MessagePack 编码的字节缓冲区。MessagePack 是一种计算机数据交换格式，它是一种用于表示简单数据结构（如数组和关联数组）的二进制格式。";
         this.infoURL = "https://wikipedia.org/wiki/MessagePack";
         this.inputType = "JSON";
         this.outputType = "ArrayBuffer";
@@ -44,7 +44,7 @@ class ToMessagePack extends Operation {
                 return (new Uint8Array(res)).buffer;
             }
         } catch (err) {
-            throw new OperationError(`Could not encode JSON to MessagePack: ${err}`);
+            throw new OperationError(`无法将 JSON 编码为 MessagePack: ${err}`);
         }
     }
 

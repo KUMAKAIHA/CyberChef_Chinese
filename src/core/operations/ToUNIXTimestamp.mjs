@@ -20,25 +20,25 @@ class ToUNIXTimestamp extends Operation {
     constructor() {
         super();
 
-        this.name = "To UNIX Timestamp";
+        this.name = "转换为 UNIX 时间戳";
         this.module = "Default";
-        this.description = "Parses a datetime string in UTC and returns the corresponding UNIX timestamp.<br><br>e.g. <code>Mon 1 January 2001 11:00:00</code> becomes <code>978346800</code><br><br>A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).";
+        this.description = "解析 UTC 格式的日期时间字符串，并返回对应的 UNIX 时间戳。<br><br>例如：<code>Mon 1 January 2001 11:00:00</code> 转换为 <code>978346800</code><br><br>UNIX 时间戳是一个 32 位的值，表示自 1970 年 1 月 1 日 UTC（UNIX 纪元）以来经过的秒数。";
         this.infoURL = "https://wikipedia.org/wiki/Unix_time";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Units",
+                "name": "单位",
                 "type": "option",
                 "value": UNITS
             },
             {
-                "name": "Treat as UTC",
+                "name": "视为 UTC 时间",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Show parsed datetime",
+                "name": "显示解析后的日期时间",
                 "type": "boolean",
                 "value": true
             }
@@ -67,7 +67,7 @@ class ToUNIXTimestamp extends Operation {
         } else if (units === "Nanoseconds (ns)") {
             result = d.valueOf() * 1000000;
         } else {
-            throw new OperationError("Unrecognised unit");
+            throw new OperationError("无法识别的单位");
         }
 
         return showDateTime ? `${result} (${d.tz("UTC").format("ddd D MMMM YYYY HH:mm:ss")} UTC)` : result.toString();

@@ -17,14 +17,14 @@ class Sleep extends Operation {
     constructor() {
         super();
 
-        this.name = "Sleep";
+        this.name = "休眠";
         this.module = "Default";
-        this.description = "Sleep causes the recipe to wait for a specified number of milliseconds before continuing execution.";
+        this.description = "休眠操作会使 recipe 等待指定的毫秒数，然后再继续执行。";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Time (ms)",
+                "name": "时间 (毫秒)",
                 "type": "number",
                 "value": 1000
             }

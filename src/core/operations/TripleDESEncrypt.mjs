@@ -20,37 +20,37 @@ class TripleDESEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "Triple DES Encrypt";
+        this.name = "Triple DES 加密";
         this.module = "Ciphers";
-        this.description = "Triple DES applies DES three times to each block to increase key size.<br><br><b>Key:</b> Triple DES uses a key length of 24 bytes (192 bits).<br><br>You can generate a password-based key using one of the KDF operations.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.";
+        this.description = "Triple DES 对每个数据块应用三次 DES 加密，以增加密钥长度。<br><br><b>密钥（Key）：</b> Triple DES 使用 24 字节（192 位）的密钥长度。<br><br>您可以使用 KDF 操作之一生成基于密码的密钥。<br><br><b>初始向量（IV）：</b> 初始向量应为 8 字节长。如果未输入，则默认为 8 个空字节。<br><br><b>填充（Padding）：</b> 在 CBC 和 ECB 模式下，将使用 PKCS#7 填充。";
         this.infoURL = "https://wikipedia.org/wiki/Triple_DES";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "IV",
+                "name": "初始向量",
                 "type": "toggleString",
                 "value": "",
                 "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["Raw", "Hex"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["Hex", "Raw"]
             }
@@ -70,15 +70,10 @@ class TripleDESEncrypt extends Operation {
             outputType = args[4];
 
         if (key.length !== 24 && key.length !== 16) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
-
-Triple DES uses a key length of 24 bytes (192 bits).`);
+            throw new OperationError(`无效的密钥长度：${key.length} 字节\n\nTriple DES 使用 24 字节（192 位）的密钥长度。`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes
-
-Triple DES uses an IV length of 8 bytes (64 bits).
-Make sure you have specified the type correctly (e.g. Hex vs UTF8).`);
+            throw new OperationError(`无效的初始向量长度：${iv.length} 字节\n\nTriple DES 使用 8 字节（64 位）的初始向量长度。\n请确保您已正确指定类型（例如，Hex 与 UTF8）。`);
         }
 
         input = Utils.convertToByteString(input, inputType);

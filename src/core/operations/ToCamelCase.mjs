@@ -19,15 +19,15 @@ class ToCamelCase extends Operation {
     constructor() {
         super();
 
-        this.name = "To Camel case";
+        this.name = "转换为 驼峰命名";
         this.module = "Code";
-        this.description = "Converts the input string to camel case.\n<br><br>\nCamel case is all lower case except letters after word boundaries which are uppercase.\n<br><br>\ne.g. thisIsCamelCase\n<br><br>\n'Attempt to be context aware' will make the operation attempt to nicely transform variable and function names.";
+        this.description = "将输入字符串转换为驼峰命名。\n<br><br>\n驼峰命名法是指除了单词边界后的字母大写外，其余字母均为小写。\n<br><br>\n例如：thisIsCamelCase\n<br><br>\n“尝试识别上下文” 将使操作尝试更好地转换变量名和函数名。";
         this.infoURL = "https://wikipedia.org/wiki/Camel_case";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Attempt to be context aware",
+                "name": "尝试识别上下文",
                 "type": "boolean",
                 "value": false
             }

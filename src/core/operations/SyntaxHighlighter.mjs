@@ -18,17 +18,17 @@ class SyntaxHighlighter extends Operation {
     constructor() {
         super();
 
-        this.name = "Syntax highlighter";
+        this.name = "语法高亮";
         this.module = "Code";
-        this.description = "Adds syntax highlighting to a range of source code languages. Note that this will not indent the code. Use one of the 'Beautify' operations for that.";
+        this.description = "为多种源代码语言添加语法高亮。请注意，此操作不会缩进代码，如需缩进，请使用“美化”操作。";
         this.infoURL = "https://wikipedia.org/wiki/Syntax_highlighting";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Language",
+                "name": "语言",
                 "type": "option",
-                "value": ["auto detect"].concat(hljs.listLanguages())
+                "value": ["自动检测"].concat(hljs.listLanguages())
             }
         ];
     }
@@ -41,7 +41,7 @@ class SyntaxHighlighter extends Operation {
     run(input, args) {
         const language = args[0];
 
-        if (language === "auto detect") {
+        if (language === "自动检测") {
             return hljs.highlightAuto(input).value;
         }
 

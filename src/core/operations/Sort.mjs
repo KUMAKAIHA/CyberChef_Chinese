@@ -20,26 +20,26 @@ class Sort extends Operation {
     constructor() {
         super();
 
-        this.name = "Sort";
+        this.name = "排序";
         this.module = "Default";
-        this.description = "Alphabetically sorts strings separated by the specified delimiter.<br><br>The IP address option supports IPv4 only.";
+        this.description = "按字母顺序排列由指定分隔符分隔的字符串。<br><br>IP 地址选项仅支持 IPv4。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": INPUT_DELIM_OPTIONS
             },
             {
-                "name": "Reverse",
+                "name": "反向",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Order",
+                "name": "顺序",
                 "type": "option",
-                "value": ["Alphabetical (case sensitive)", "Alphabetical (case insensitive)", "IP address", "Numeric", "Numeric (hexadecimal)", "Length"]
+                "value": ["字母顺序 (区分大小写)", "字母顺序 (不区分大小写)", "IP 地址", "数值", "数值 (十六进制)", "长度"]
             }
         ];
     }
@@ -55,17 +55,17 @@ class Sort extends Operation {
             order = args[2];
         let sorted = input.split(delim);
 
-        if (order === "Alphabetical (case sensitive)") {
+        if (order === "字母顺序 (区分大小写)") {
             sorted = sorted.sort();
-        } else if (order === "Alphabetical (case insensitive)") {
+        } else if (order === "字母顺序 (不区分大小写)") {
             sorted = sorted.sort(caseInsensitiveSort);
-        } else if (order === "IP address") {
+        } else if (order === "IP 地址") {
             sorted = sorted.sort(ipSort);
-        } else if (order === "Numeric") {
+        } else if (order === "数值") {
             sorted = sorted.sort(numericSort);
-        } else if (order === "Numeric (hexadecimal)") {
+        } else if (order === "数值 (十六进制)") {
             sorted = sorted.sort(hexadecimalSort);
-        } else if (order === "Length") {
+        } else if (order === "长度") {
             sorted = sorted.sort(lengthSort);
         }
 

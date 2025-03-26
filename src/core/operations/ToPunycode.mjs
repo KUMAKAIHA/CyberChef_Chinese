@@ -18,15 +18,15 @@ class ToPunycode extends Operation {
     constructor() {
         super();
 
-        this.name = "To Punycode";
+        this.name = "转换为 Punycode";
         this.module = "Encodings";
-        this.description = "Punycode is a way to represent Unicode with the limited character subset of ASCII supported by the Domain Name System.<br><br>e.g. <code>m\xfcnchen</code> encodes to <code>mnchen-3ya</code>";
+        this.description = "Punycode 是一种使用域名系统支持的 ASCII 有限字符子集来表示 Unicode 的方法。<br><br>例如：<code>m\xfcnchen</code> 编码为 <code>mnchen-3ya</code>";
         this.infoURL = "https://wikipedia.org/wiki/Punycode";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Internationalised domain name",
+                "name": "国际化域名",
                 "type": "boolean",
                 "value": false
             }

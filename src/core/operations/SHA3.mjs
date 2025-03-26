@@ -21,13 +21,13 @@ class SHA3 extends Operation {
 
         this.name = "SHA3";
         this.module = "Crypto";
-        this.description = "The SHA-3 (Secure Hash Algorithm 3) hash functions were released by NIST on August 5, 2015. Although part of the same series of standards, SHA-3 is internally quite different from the MD5-like structure of SHA-1 and SHA-2.<br><br>SHA-3 is a subset of the broader cryptographic primitive family Keccak designed by Guido Bertoni, Joan Daemen, Micha\xebl Peeters, and Gilles Van Assche, building upon RadioGat\xfan.";
+        this.description = "SHA-3（安全哈希算法 3）哈希函数于 2015 年 8 月 5 日由 NIST 发布。虽然 SHA-3 与 SHA-1 和 SHA-2 属于同一系列标准，但其内部结构与 MD5 类似的结构截然不同。<br><br>SHA-3 是更广泛的密码学原语族 Keccak 的一个子集，Keccak 由 Guido Bertoni、Joan Daemen、Michaël Peeters 和 Gilles Van Assche 设计，基于 RadioGatún。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-3";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Size",
+                "name": "大小",
                 "type": "option",
                 "value": ["512", "384", "256", "224"]
             }

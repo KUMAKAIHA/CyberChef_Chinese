@@ -22,21 +22,21 @@ class ViewBitPlane extends Operation {
     constructor() {
         super();
 
-        this.name = "View Bit Plane";
+        this.name = "查看位平面";
         this.module = "Image";
-        this.description = "Extracts and displays a bit plane of any given image. These show only a single bit from each pixel, and can be used to hide messages in Steganography.";
+        this.description = "提取并显示任何给定图像的位平面。 这些位平面仅显示来自每个像素的单个位，可用于在隐写术中隐藏消息。";
         this.infoURL = "https://wikipedia.org/wiki/Bit_plane";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Colour",
+                name: "颜色",
                 type: "option",
                 value: COLOUR_OPTIONS
             },
             {
-                name: "Bit",
+                name: "位",
                 type: "number",
                 value: 0
             }
@@ -98,9 +98,9 @@ class ViewBitPlane extends Operation {
 }
 
 const COLOUR_OPTIONS = [
-    "Red",
-    "Green",
-    "Blue",
+    "红色",
+    "绿色",
+    "蓝色",
     "Alpha"
 ];
 

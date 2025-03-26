@@ -21,50 +21,50 @@ class XORBruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "XOR Brute Force";
+        this.name = "XOR 暴力破解";
         this.module = "Default";
-        this.description = "Enumerate all possible XOR solutions. Current maximum key length is 2 due to browser performance.<br><br>Optionally enter a string that you expect to find in the plaintext to filter results (crib).";
+        this.description = "枚举所有可能的 XOR 解决方案。当前最大密钥长度为 2，以保证浏览器性能。<br><br>可选择输入您期望在明文中找到的字符串以过滤结果（关键词）。";
         this.infoURL = "https://wikipedia.org/wiki/Exclusive_or";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key length",
+                "name": "密钥长度",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Sample length",
+                "name": "样本长度",
                 "type": "number",
                 "value": 100
             },
             {
-                "name": "Sample offset",
+                "name": "样本偏移",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Scheme",
+                "name": "方案",
                 "type": "option",
-                "value": ["Standard", "Input differential", "Output differential"]
+                "value": ["标准", "输入差分", "输出差分"]
             },
             {
-                "name": "Null preserving",
+                "name": "保留空字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Print key",
+                "name": "打印密钥",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Output as hex",
+                "name": "以 Hex 输出",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Crib (known plaintext string)",
+                "name": "关键词 (已知明文字符串)",
                 "type": "binaryString",
                 "value": ""
             }
@@ -97,7 +97,7 @@ class XORBruteForce extends Operation {
         input = input.slice(sampleOffset, sampleOffset + sampleLength);
 
         if (isWorkerEnvironment())
-            self.sendStatusMessage("Calculating " + Math.pow(256, keyLength) + " values...");
+            self.sendStatusMessage("正在计算 " + Math.pow(256, keyLength) + " 个值...");
 
         /**
          * Converts an integer to an array of bytes expressing that number.
@@ -117,7 +117,7 @@ class XORBruteForce extends Operation {
 
         for (let key = 1, l = Math.pow(256, keyLength); key < l; key++) {
             if (key % 10000 === 0 && isWorkerEnvironment()) {
-                self.sendStatusMessage("Calculating " + l + " values... " + Math.floor(key / l * 100) + "%");
+                self.sendStatusMessage("正在计算 " + l + " 个值... " + Math.floor(key / l * 100) + "%");
             }
 
             result = bitOp(input, intToByteArray(key, keyLength), xor, nullPreserving, scheme);
