@@ -2,7 +2,6 @@
  * @author n1474335 [n1474335@gmail.com]
  * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author j433866 [j433866@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -106,7 +105,7 @@ class OutputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "输出",
+                    label: "Output",
                     timing: this.manager.timing,
                     tabNumGetter: function() {
                         return this.manager.tabs.getActiveTab("output");
@@ -527,7 +526,7 @@ class OutputWaiter {
         const newOutput = {
             data: null,
             inputNum: inputNum,
-            statusMessage: `输入 ${inputNum} 尚未处理。`,
+            statusMessage: `Input ${inputNum} has not been baked yet.`,
             error: null,
             status: "inactive",
             bakeId: -1,
@@ -1457,7 +1456,7 @@ class OutputWaiter {
         magicButton.classList.add("hidden");
         magicButton.classList.remove("pulse");
         magicButton.setAttribute("data-recipe", "");
-        magicButton.setAttribute("data-original-title", "Magic！");
+        magicButton.setAttribute("data-original-title", "Magic!");
     }
 
     /**

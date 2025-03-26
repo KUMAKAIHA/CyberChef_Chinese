@@ -2,7 +2,6 @@
  * @author n1474335 [n1474335@gmail.com]
  * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author j433866 [j433866@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -116,7 +115,7 @@ class InputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "输入",
+                    label: "Input",
                     eolHandler: this.eolChange.bind(this),
                     chrEncHandler: this.chrEncChange.bind(this),
                     chrEncGetter: this.getChrEnc.bind(this),
