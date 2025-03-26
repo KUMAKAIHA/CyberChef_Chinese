@@ -1,444 +1,444 @@
 # Changelog
 
-## Versioning
+## 版本控制
 
-CyberChef uses the [semver](https://semver.org/) system to manage versioning: `<MAJOR>.<MINOR>.<PATCH>`.
+CyberChef 使用 [semver](https://semver.org/) 系统进行版本控制：`<主版本号>.<次版本号>.<补丁号>`。
 
-- MAJOR version changes represent a significant change to the fundamental architecture of CyberChef and may (but don't always) make breaking changes that are not backwards compatible.
-- MINOR version changes usually mean the addition of new operations or reasonably significant new features.
-- PATCH versions are used for bug fixes and any other small tweaks that modify or improve existing capabilities.
+- 主版本号的更改代表 CyberChef 基础架构的重大更改，并且可能（但不总是）会引入不向后兼容的重大更改。
+- 次版本号的更改通常意味着添加了新操作或相当重要的新功能。
+- 补丁号版本用于错误修复和任何其他小的调整，以修改或改进现有功能。
 
-All major and minor version changes will be documented in this file. Details of patch-level version changes can be found in [commit messages](https://github.com/gchq/CyberChef/commits/master).
+所有主版本号和次版本号的更改都将记录在此文件中。补丁级别的版本更改的详细信息可以在 [commit messages](https://github.com/gchq/CyberChef/commits/master) 中找到。
 
 
-## Details
+## 详细信息
 
 ### [10.19.0] - 2024-06-21
-- Add support for ECDSA and DSA in 'Parse CSR' [@robinsandhu] | [#1828]
-- Fix typos in SIGABA.mjs [@eltociear] | [#1834]
+- 在 'Parse CSR' 中添加了对 ECDSA 和 DSA 的支持 [@robinsandhu] | [#1828]
+- 修复了 SIGABA.mjs 中的拼写错误 [@eltociear] | [#1834]
 
 ### [10.18.0] - 2024-04-24
-- Added 'XXTEA Encrypt' and 'XXTEA Decrypt' operations [@n1474335] | [0a353ee]
+- 添加了 'XXTEA Encrypt' 和 'XXTEA Decrypt' 操作 [@n1474335] | [0a353ee]
 
 ### [10.17.0] - 2024-04-13
-- Fix unit test 'expectOutput' implementation [@zb3] | [#1783]
-- Add accessibility labels for icons [@e218736] | [#1743]
-- Add focus styling for keyboard navigation [@e218736] | [#1739]
-- Add support for operation option hiding [@TheZ3ro] | [#541]
-- Improve efficiency of RAKE implementation [@sw5678] | [#1751]
-- Require (a, 26) to be coprime in 'Affine Encode' [@EvieHarv] | [#1788]
-- Added 'JWK to PEM' operation [@cplussharp] | [#1277]
-- Added 'PEM to JWK' operation [@cplussharp] | [#1277]
-- Added 'Public Key from Certificate' operation [@cplussharp] | [#1642]
-- Added 'Public Key from Private Key' operation [@cplussharp] | [#1642]
+- 修复了单元测试 'expectOutput' 的实现 [@zb3] | [#1783]
+- 为图标添加了辅助功能标签 [@e218736] | [#1743]
+- 为键盘导航添加了焦点样式 [@e218736] | [#1739]
+- 添加了对操作选项隐藏的支持 [@TheZ3ro] | [#541]
+- 提高了 RAKE 实现的效率 [@sw5678] | [#1751]
+- 在 'Affine Encode' 中要求 (a, 26) 互质 [@EvieHarv] | [#1788]
+- 添加了 'JWK to PEM' 操作 [@cplussharp] | [#1277]
+- 添加了 'PEM to JWK' 操作 [@cplussharp] | [#1277]
+- 添加了 'Public Key from Certificate' 操作 [@cplussharp] | [#1642]
+- 添加了 'Public Key from Private Key' 操作 [@cplussharp] | [#1642]
 
 ### [10.16.0] - 2024-04-12
-- Added 'JA4Server Fingerprint' operation [@n1474335] | [#1789]
+- 添加了 'JA4Server Fingerprint' 操作 [@n1474335] | [#1789]
 
 ### [10.15.0] - 2024-04-02
-- Fix Ciphersaber2 key concatenation [@zb3] | [#1765]
-- Fix DeriveEVPKey's array parsing [@zb3] | [#1767]
-- Fix JWT operations [@a3957273] | [#1769]
-- Added 'Parse Certificate Signing Request' operation [@jkataja] | [#1504]
-- Added 'Extract Hash Values' operation [@MShwed] | [#512]
-- Added 'DateTime Delta' operation [@tomgond] | [#1732]
+- 修复了 Ciphersaber2 密钥连接 [@zb3] | [#1765]
+- 修复了 DeriveEVPKey 的数组解析 [@zb3] | [#1767]
+- 修复了 JWT 操作 [@a3957273] | [#1769]
+- 添加了 'Parse Certificate Signing Request' 操作 [@jkataja] | [#1504]
+- 添加了 'Extract Hash Values' 操作 [@MShwed] | [#512]
+- 添加了 'DateTime Delta' 操作 [@tomgond] | [#1732]
 
 ### [10.14.0] - 2024-03-31
-- Added 'To Float' and 'From Float' operations [@tcode2k16] | [#1762]
-- Fix ChaCha raw export option [@joostrijneveld] | [#1606]
-- Update x86 disassembler vendor library [@evanreichard] | [#1197]
-- Allow variable Blowfish key sizes [@cbeuw] | [#933]
-- Added 'XXTEA' operation [@devcydo] | [#1361]
+- 添加了 'To Float' 和 'From Float' 操作 [@tcode2k16] | [#1762]
+- 修复了 ChaCha 原始导出选项 [@joostrijneveld] | [#1606]
+- 更新了 x86 反汇编器供应商库 [@evanreichard] | [#1197]
+- 允许可变的 Blowfish 密钥大小 [@cbeuw] | [#933]
+- 添加了 'XXTEA' 操作 [@devcydo] | [#1361]
 
 ### [10.13.0] - 2024-03-30
-- Added 'FangURL' operation [@breakersall] [@arnydo] | [#1591] [#654]
+- 添加了 'FangURL' 操作 [@breakersall] [@arnydo] | [#1591] [#654]
 
 ### [10.12.0] - 2024-03-29
-- Added 'Salsa20' and 'XSalsa20' operation [@joostrijneveld] | [#1750]
+- 添加了 'Salsa20' 和 'XSalsa20' 操作 [@joostrijneveld] | [#1750]
 
 ### [10.11.0] - 2024-03-29
-- Add HEIC/HEIF file signatures [@simonw] | [#1757]
-- Update xmldom to fix medium security vulnerability [@chriswhite199] | [#1752]
-- Update JSONWebToken to fix medium security vulnerability [@chriswhite199] | [#1753]
+- 添加了 HEIC/HEIF 文件签名 [@simonw] | [#1757]
+- 更新了 xmldom 以修复中等安全漏洞 [@chriswhite199] | [#1752]
+- 更新了 JSONWebToken 以修复中等安全漏洞 [@chriswhite199] | [#1753]
 
 ### [10.10.0] - 2024-03-27
-- Added 'JA4 Fingerprint' operation [@n1474335] | [#1759]
+- 添加了 'JA4 Fingerprint' 操作 [@n1474335] | [#1759]
 
 ### [10.9.0] - 2024-03-26
-- Line ending sequences and UTF-8 character encoding are now detected automatically [@n1474335] | [65ffd8d]
+- 现在可以自动检测行尾序列和 UTF-8 字符编码 [@n1474335] | [65ffd8d]
 
 ### [10.8.0] - 2024-02-13
-- Add official Docker images [@AshCorr] | [#1699]
+- 添加了官方 Docker 镜像 [@AshCorr] | [#1699]
 
 ### [10.7.0] - 2024-02-09
-- Added 'File Tree' operation [@sw5678] | [#1667]
-- Added 'RISON' operation [@sg5506844] | [#1555]
-- Added 'MurmurHash3' operation [@AliceGrey] | [#1694]
+- 添加了 'File Tree' 操作 [@sw5678] | [#1667]
+- 添加了 'RISON' 操作 [@sg5506844] | [#1555]
+- 添加了 'MurmurHash3' 操作 [@AliceGrey] | [#1694]
 
 ### [10.6.0] -  2024-02-03
-- Updated 'Forensics Wiki' URLs to new domain [@a3957273] | [#1703]
-- Added 'LZNT1 Decompress' operation [@0xThiebaut] | [#1675]
-- Updated 'Regex Expression' UUID matcher [@cnotin] | [#1678]
-- Removed duplicate 'hover' message within baking info [@KevinSJ] | [#1541]
+- 更新了 'Forensics Wiki' URL 到新域名 [@a3957273] | [#1703]
+- 添加了 'LZNT1 Decompress' 操作 [@0xThiebaut] | [#1675]
+- 更新了 'Regex Expression' UUID 匹配器 [@cnotin] | [#1678]
+- 移除了 baking 信息中重复的 'hover' 消息 [@KevinSJ] | [#1541]
 
 ### [10.5.0] - 2023-07-14
-- Added GOST Encrypt, Decrypt, Sign, Verify, Key Wrap, and Key Unwrap operations [@n1474335] | [#592]
+- 添加了 GOST 加密、解密、签名、验证、密钥包装和密钥解包装操作 [@n1474335] | [#592]
 
 ### [10.4.0] - 2023-03-24
-- Added 'Generate De Bruijn Sequence' operation [@gchq77703] | [#493]
+- 添加了 'Generate De Bruijn Sequence' 操作 [@gchq77703] | [#493]
 
 ### [10.3.0] - 2023-03-24
-- Added 'Argon2' and 'Argon2 compare' operations [@Xenonym] | [#661]
+- 添加了 'Argon2' 和 'Argon2 compare' 操作 [@Xenonym] | [#661]
 
 ### [10.2.0] - 2023-03-23
-- Added 'Derive HKDF key' operation [@mikecat] | [#1528]
+- 添加了 'Derive HKDF key' 操作 [@mikecat] | [#1528]
 
 ### [10.1.0] - 2023-03-23
-- Added 'Levenshtein Distance' operation [@mikecat] | [#1498]
-- Added 'Swap case' operation [@mikecat] | [#1499]
+- 添加了 'Levenshtein Distance' 操作 [@mikecat] | [#1498]
+- 添加了 'Swap case' 操作 [@mikecat] | [#1499]
 
 ## [10.0.0] - 2023-03-22
-- [Full details explained here](https://github.com/gchq/CyberChef/wiki/Character-encoding,-EOL-separators,-and-editor-features)
-- Status bars added to the Input and Output [@n1474335] | [#1405]
-- Character encoding selection added to the Input and Output [@n1474335] | [#1405]
-- End of line separator selection added to the Input and Output [@n1474335] | [#1405]
-- Non-printable characters are rendered as control character pictures [@n1474335] | [#1405]
-- Loaded files can now be edited in the Input [@n1474335] | [#1405]
-- Various editor features added such as multiple selections and bracket matching [@n1474335] | [#1405]
-- Contextual help added, activated by pressing F1 while hovering over features [@n1474335] | [#1405]
-- Many, many UI tests added for I/O features and operations [@n1474335] | [#1405]
+- [完整细节在此处解释](https://github.com/gchq/CyberChef/wiki/Character-encoding,-EOL-separators,-and-editor-features)
+- 在输入和输出中添加了状态栏 [@n1474335] | [#1405]
+- 在输入和输出中添加了字符编码选择 [@n1474335] | [#1405]
+- 在输入和输出中添加了行尾分隔符选择 [@n1474335] | [#1405]
+- 不可打印字符呈现为控制字符图片 [@n1474335] | [#1405]
+- 加载的文件现在可以在输入中编辑 [@n1474335] | [#1405]
+- 添加了各种编辑器功能，例如多选和括号匹配 [@n1474335] | [#1405]
+- 添加了上下文帮助，悬停在功能上并按下 F1 即可激活 [@n1474335] | [#1405]
+- 为 I/O 功能和操作添加了许多 UI 测试 [@n1474335] | [#1405]
 
 <details>
-    <summary>Click to expand v9 minor versions</summary>
+    <summary>点击展开 v9 次版本</summary>
 
 ### [9.55.0] - 2022-12-09
-- Added 'AMF Encode' and 'AMF Decode' operations [@n1474335] | [760eff4]
+- 添加了 'AMF Encode' 和 'AMF Decode' 操作 [@n1474335] | [760eff4]
 
 ### [9.54.0] - 2022-11-25
-- Added 'Rabbit' operation [@mikecat] | [#1450]
+- 添加了 'Rabbit' 操作 [@mikecat] | [#1450]
 
 ### [9.53.0] - 2022-11-25
-- Added 'AES Key Wrap' and 'AES Key Unwrap' operations [@mikecat] | [#1456]
+- 添加了 'AES Key Wrap' 和 'AES Key Unwrap' 操作 [@mikecat] | [#1456]
 
 ### [9.52.0] - 2022-11-25
-- Added 'ChaCha' operation [@joostrijneveld] | [#1466]
+- 添加了 'ChaCha' 操作 [@joostrijneveld] | [#1466]
 
 ### [9.51.0] - 2022-11-25
-- Added 'CMAC' operation [@mikecat] | [#1457]
+- 添加了 'CMAC' 操作 [@mikecat] | [#1457]
 
 ### [9.50.0] - 2022-11-25
-- Added 'Shuffle' operation [@mikecat] | [#1472]
+- 添加了 'Shuffle' 操作 [@mikecat] | [#1472]
 
 ### [9.49.0] - 2022-11-11
-- Added 'LZ4 Compress' and 'LZ4 Decompress' operations [@n1474335] | [31a7f83]
+- 添加了 'LZ4 Compress' 和 'LZ4 Decompress' 操作 [@n1474335] | [31a7f83]
 
 ### [9.48.0] - 2022-10-14
-- Added 'LM Hash' and 'NT Hash' operations [@n1474335] [@brun0ne] | [#1427]
+- 添加了 'LM Hash' 和 'NT Hash' 操作 [@n1474335] [@brun0ne] | [#1427]
 
 ### [9.47.0] - 2022-10-14
-- Added 'LZMA Decompress' and 'LZMA Compress' operations [@mattnotmitt] | [#1421]
+- 添加了 'LZMA Decompress' 和 'LZMA Compress' 操作 [@mattnotmitt] | [#1421]
 
 ### [9.46.0] - 2022-07-08
-- Added 'Cetacean Cipher Encode' and 'Cetacean Cipher Decode' operations [@valdelaseras] | [#1308]
+- 添加了 'Cetacean Cipher Encode' 和 'Cetacean Cipher Decode' 操作 [@valdelaseras] | [#1308]
 
 ### [9.45.0] - 2022-07-08
-- Added 'ROT8000' operation [@thomasleplus] | [#1250]
+- 添加了 'ROT8000' 操作 [@thomasleplus] | [#1250]
 
 ### [9.44.0] - 2022-07-08
-- Added 'LZString Compress' and 'LZString Decompress' operations [@crespyl] | [#1266]
+- 添加了 'LZString Compress' 和 'LZString Decompress' 操作 [@crespyl] | [#1266]
 
 ### [9.43.0] - 2022-07-08
-- Added 'ROT13 Brute Force' and 'ROT47 Brute Force' operations [@mikecat] | [#1264]
+- 添加了 'ROT13 Brute Force' 和 'ROT47 Brute Force' 操作 [@mikecat] | [#1264]
 
 ### [9.42.0] - 2022-07-08
-- Added 'LS47 Encrypt' and 'LS47 Decrypt' operations [@n1073645] | [#951]
+- 添加了 'LS47 Encrypt' 和 'LS47 Decrypt' 操作 [@n1073645] | [#951]
 
 ### [9.41.0] - 2022-07-08
-- Added 'Caesar Box Cipher' operation [@n1073645] | [#1066]
+- 添加了 'Caesar Box Cipher' 操作 [@n1073645] | [#1066]
 
 ### [9.40.0] - 2022-07-08
-- Added 'P-list Viewer' operation [@n1073645] | [#906]
+- 添加了 'P-list Viewer' 操作 [@n1073645] | [#906]
 
 ### [9.39.0] - 2022-06-09
-- Added 'ELF Info' operation [@n1073645] | [#1364]
+- 添加了 'ELF Info' 操作 [@n1073645] | [#1364]
 
 ### [9.38.0] - 2022-05-30
-- Added 'Parse TCP' operation [@n1474335] | [a895d1d]
+- 添加了 'Parse TCP' 操作 [@n1474335] | [a895d1d]
 
 ### [9.37.0] - 2022-03-29
-- 'SM4 Encrypt' and 'SM4 Decrypt' operations added [@swesven] | [#1189]
-- NoPadding options added for CBC and ECB modes in AES, DES and Triple DES Decrypt operations [@swesven] | [#1189]
+- 添加了 'SM4 Encrypt' 和 'SM4 Decrypt' 操作 [@swesven] | [#1189]
+- 在 AES、DES 和 Triple DES 解密操作的 CBC 和 ECB 模式中添加了 NoPadding 选项 [@swesven] | [#1189]
 
 ### [9.36.0] - 2022-03-29
-- 'SIGABA' operation added [@hettysymes] | [#934]
+- 添加了 'SIGABA' 操作 [@hettysymes] | [#934]
 
 ### [9.35.0] - 2022-03-28
-- 'To Base45' and 'From Base45' operations added [@t-8ch] | [#1242]
+- 添加了 'To Base45' 和 'From Base45' 操作 [@t-8ch] | [#1242]
 
 ### [9.34.0] - 2022-03-28
-- 'Get All Casings' operation added [@n1073645] | [#1065]
+- 添加了 'Get All Casings' 操作 [@n1073645] | [#1065]
 
 ### [9.33.0] - 2022-03-25
-- Updated to support Node 17 [@n1474335] [@john19696] [@t-8ch] | [[#1326] [#1313] [#1244]
-- Improved CJS and ESM module support [@d98762625] | [#1037]
+- 更新以支持 Node 17 [@n1474335] [@john19696] [@t-8ch] | [[#1326] [#1313] [#1244]
+- 改进了 CJS 和 ESM 模块支持 [@d98762625] | [#1037]
 
 ### [9.32.0] - 2021-08-18
-- 'Protobuf Encode' operation added and decode operation modified to allow decoding with full and partial schemas [@n1474335] | [dd18e52]
+- 添加了 'Protobuf Encode' 操作，并修改了解码操作以允许使用完整和部分模式进行解码 [@n1474335] | [dd18e52]
 
 ### [9.31.0] - 2021-08-10
-- 'HASSH Client Fingerprint' and 'HASSH Server Fingerprint' operations added [@n1474335] | [e9ca4dc]
+- 添加了 'HASSH Client Fingerprint' 和 'HASSH Server Fingerprint' 操作 [@n1474335] | [e9ca4dc]
 
 ### [9.30.0] - 2021-08-10
-- 'JA3S Fingerprint' operation added [@n1474335] | [289a417]
+- 添加了 'JA3S Fingerprint' 操作 [@n1474335] | [289a417]
 
 ### [9.29.0] - 2021-07-28
-- 'JA3 Fingerprint' operation added [@n1474335] | [9a33498]
+- 添加了 'JA3 Fingerprint' 操作 [@n1474335] | [9a33498]
 
 ### [9.28.0] - 2021-03-26
-- 'CBOR Encode' and 'CBOR Decode' operations added [@Danh4] | [#999]
+- 添加了 'CBOR Encode' 和 'CBOR Decode' 操作 [@Danh4] | [#999]
 
 ### [9.27.0] - 2021-02-12
-- 'Fuzzy Match' operation added [@n1474335] | [8ad18b]
+- 添加了 'Fuzzy Match' 操作 [@n1474335] | [8ad18b]
 
 ### [9.26.0] - 2021-02-11
-- 'Get Time' operation added [@n1073645] [@n1474335] | [#1045]
+- 添加了 'Get Time' 操作 [@n1073645] [@n1474335] | [#1045]
 
 ### [9.25.0] - 2021-02-11
-- 'Extract ID3' operation added [@n1073645] [@n1474335] | [#1006]
+- 添加了 'Extract ID3' 操作 [@n1073645] [@n1474335] | [#1006]
 
 ### [9.24.0] - 2021-02-02
-- 'SM3' hashing function added along with more configuration options for other hashing operations [@n1073645] [@n1474335] | [#1022]
+- 添加了 'SM3' 哈希函数，以及用于其他哈希操作的更多配置选项 [@n1073645] [@n1474335] | [#1022]
 
 ### [9.23.0] - 2021-02-01
-- Various RSA operations added to encrypt, decrypt, sign, verify and generate keys [@mattnotmitt] [@GCHQ77703] | [#652]
+- 添加了各种 RSA 操作，用于加密、解密、签名、验证和生成密钥 [@mattnotmitt] [@GCHQ77703] | [#652]
 
 ### [9.22.0] - 2021-02-01
-- 'Unicode Text Format' operation added [@mattnotmitt] | [#1083]
+- 添加了 'Unicode Text Format' 操作 [@mattnotmitt] | [#1083]
 
 ### [9.21.0] - 2020-06-12
-- Node API now exports `magic` operation [@d98762625] | [#1049]
+- Node API 现在导出 `magic` 操作 [@d98762625] | [#1049]
 
 ### [9.20.0] - 2020-03-27
-- 'Parse ObjectID Timestamp' operation added [@dmfj] | [#987]
+- 添加了 'Parse ObjectID Timestamp' 操作 [@dmfj] | [#987]
 
 ### [9.19.0] - 2020-03-24
-- Improvements to the 'Magic' operation, allowing it to recognise more data formats and provide more accurate results [@n1073645] [@n1474335] | [#966] [b765534b](https://github.com/gchq/CyberChef/commit/b765534b8b2a0454a5132a0a52d1d8844bcbdaaa)
+- 改进了 'Magic' 操作，使其能够识别更多数据格式并提供更准确的结果 [@n1073645] [@n1474335] | [#966] [b765534b](https://github.com/gchq/CyberChef/commit/b765534b8b2a0454a5132a0a52d1d8844bcbdaaa)
 
 ### [9.18.0] - 2020-03-13
-- 'Convert to NATO alphabet' operation added [@MarvinJWendt] | [#674]
+- 添加了 'Convert to NATO alphabet' 操作 [@MarvinJWendt] | [#674]
 
 ### [9.17.0] - 2020-03-13
-- 'Generate Image' operation added [@pointhi] | [#683]
+- 添加了 'Generate Image' 操作 [@pointhi] | [#683]
 
 ### [9.16.0] - 2020-03-06
-- 'Colossus' operation added [@VirtualColossus] | [#917]
+- 添加了 'Colossus' 操作 [@VirtualColossus] | [#917]
 
 ### [9.15.0] - 2020-03-05
-- 'CipherSaber2 Encrypt' and 'CipherSaber2 Decrypt' operations added [@n1073645] | [#952]
+- 添加了 'CipherSaber2 Encrypt' 和 'CipherSaber2 Decrypt' 操作 [@n1073645] | [#952]
 
 ### [9.14.0] - 2020-03-05
-- 'Luhn Checksum' operation added [@n1073645] | [#965]
+- 添加了 'Luhn Checksum' 操作 [@n1073645] | [#965]
 
 ### [9.13.0] - 2020-02-13
-- 'Rail Fence Cipher Encode' and 'Rail Fence Cipher Decode' operations added [@Flavsditz] | [#948]
+- 添加了 'Rail Fence Cipher Encode' 和 'Rail Fence Cipher Decode' 操作 [@Flavsditz] | [#948]
 
 ### [9.12.0] - 2019-12-20
-- 'Normalise Unicode' operation added [@matthieuxyz] | [#912]
+- 添加了 'Normalise Unicode' 操作 [@matthieuxyz] | [#912]
 
 ### [9.11.0] - 2019-11-06
-- Implemented CFB, OFB, and CTR modes for Blowfish operations [@cbeuw] | [#653]
+- 为 Blowfish 操作实现了 CFB、OFB 和 CTR 模式 [@cbeuw] | [#653]
 
 ### [9.10.0] - 2019-11-06
-- 'Lorenz' operation added [@VirtualColossus] | [#528]
+- 添加了 'Lorenz' 操作 [@VirtualColossus] | [#528]
 
 ### [9.9.0] - 2019-11-01
-- Added support for 109 more character encodings [@n1474335]
+- 添加了对 109 种以上字符编码的支持 [@n1474335]
 
 ### [9.8.0] - 2019-10-31
-- 'Avro to JSON' operation added [@jarrodconnolly] | [#865]
+- 添加了 'Avro to JSON' 操作 [@jarrodconnolly] | [#865]
 
 ### [9.7.0] - 2019-09-13
-- 'Optical Character Recognition' operation added [@MShwed] [@n1474335] | [#632]
+- 添加了 'Optical Character Recognition' 操作 [@MShwed] [@n1474335] | [#632]
 
 ### [9.6.0] - 2019-09-04
-- 'Bacon Cipher Encode' and 'Bacon Cipher Decode' operations added [@kassi] | [#500]
+- 添加了 'Bacon Cipher Encode' 和 'Bacon Cipher Decode' 操作 [@kassi] | [#500]
 
 ### [9.5.0] - 2019-09-04
-- Various Steganography operations added: 'Extract LSB', 'Extract RGBA', 'Randomize Colour Palette', and 'View Bit Plane' [@Ge0rg3] | [#625]
+- 添加了各种隐写术操作：'Extract LSB'、'Extract RGBA'、'Randomize Colour Palette' 和 'View Bit Plane' [@Ge0rg3] | [#625]
 
 ### [9.4.0] - 2019-08-30
-- 'Render Markdown' operation added [@j433866] | [#627]
+- 添加了 'Render Markdown' 操作 [@j433866] | [#627]
 
 ### [9.3.0] - 2019-08-30
-- 'Show on map' operation added [@j433866] | [#477]
+- 添加了 'Show on map' 操作 [@j433866] | [#477]
 
 ### [9.2.0] - 2019-08-23
-- 'Parse UDP' operation added [@h345983745] | [#614]
+- 添加了 'Parse UDP' 操作 [@h345983745] | [#614]
 
 ### [9.1.0] - 2019-08-22
-- 'Parse SSH Host Key' operation added [@j433866] | [#595]
-- 'Defang IP Addresses' operation added [@h345983745] | [#556]
+- 添加了 'Parse SSH Host Key' 操作 [@j433866] | [#595]
+- 添加了 'Defang IP Addresses' 操作 [@h345983745] | [#556]
 
 </details>
 
 ## [9.0.0] - 2019-07-09
-- [Multiple inputs](https://github.com/gchq/CyberChef/wiki/Multiple-Inputs) are now supported in the main web UI, allowing you to upload and process multiple files at once [@j433866] | [#566]
-- A [Node.js API](https://github.com/gchq/CyberChef/wiki/Node-API) has been implemented, meaning that CyberChef can now be used as a library, either to provide specific operations, or an entire baking environment [@d98762625] | [#291]
-- A [read-eval-print loop (REPL)](https://github.com/gchq/CyberChef/wiki/Node-API#repl) is also included to enable prototyping and experimentation with the API [@d98762625] | [#291]
-- Light and dark Solarized themes added [@j433866] | [#566]
+- [多输入](https://github.com/gchq/CyberChef/wiki/Multiple-Inputs) 现在在主 Web UI 中受支持，允许您一次上传和处理多个文件 [@j433866] | [#566]
+- 已经实现了 [Node.js API](https://github.com/gchq/CyberChef/wiki/Node-API)，这意味着 CyberChef 现在可以用作库，可以提供特定操作或整个 baking 环境 [@d98762625] | [#291]
+- 还包括一个 [read-eval-print loop (REPL)](https://github.com/gchq/CyberChef/wiki/Node-API#repl)，以支持使用 API 进行原型设计和实验 [@d98762625] | [#291]
+- 添加了浅色和深色 Solarized 主题 [@j433866] | [#566]
 
 <details>
-    <summary>Click to expand v8 minor versions</summary>
+    <summary>点击展开 v8 次版本</summary>
 
 ### [8.38.0] - 2019-07-03
-- 'Streebog' and 'GOST hash' operations added [@MShwed] [@n1474335] | [#530]
+- 添加了 'Streebog' 和 'GOST hash' 操作 [@MShwed] [@n1474335] | [#530]
 
 ### [8.37.0] - 2019-07-03
-- 'CRC-8 Checksum' operation added [@MShwed] | [#591]
+- 添加了 'CRC-8 Checksum' 操作 [@MShwed] | [#591]
 
 ### [8.36.0] - 2019-07-03
-- 'PGP Verify' operation added [@artemisbot] | [#585]
+- 添加了 'PGP Verify' 操作 [@artemisbot] | [#585]
 
 ### [8.35.0] - 2019-07-03
-- 'Sharpen Image', 'Convert Image Format' and 'Add Text To Image' operations added [@j433866] | [#515]
+- 添加了 'Sharpen Image'、'Convert Image Format' 和 'Add Text To Image' 操作 [@j433866] | [#515]
 
 ### [8.34.0] - 2019-06-28
-- Various new visualisations added to the 'Entropy' operation [@MShwed] | [#535]
-- Efficiency improvements made to the 'Entropy' operation for large file support [@n1474335]
+- 为 'Entropy' 操作添加了各种新的可视化效果 [@MShwed] | [#535]
+- 提高了 'Entropy' 操作对于大型文件支持的效率 [@n1474335]
 
 ### [8.33.0] - 2019-06-27
-- 'Bzip2 Compress' operation added and 'Bzip2 Decompress' operation greatly improved [@artemisbot] | [#531]
+- 添加了 'Bzip2 Compress' 操作，并大大改进了 'Bzip2 Decompress' 操作 [@artemisbot] | [#531]
 
 ### [8.32.0] - 2019-06-27
-- 'Index of Coincidence' operation added [@Ge0rg3] | [#571]
+- 添加了 'Index of Coincidence' 操作 [@Ge0rg3] | [#571]
 
 ### [8.31.0] - 2019-04-12
-- The downloadable version of CyberChef is now a .zip file containing separate modules rather than a single .htm file. It is still completely standalone and will not make any external network requests. This change reduces the complexity of the build process significantly. [@n1474335]
+- CyberChef 的可下载版本现在是一个 .zip 文件，其中包含单独的模块，而不是单个 .htm 文件。它仍然是完全独立的，并且不会发出任何外部网络请求。此更改显着降低了构建过程的复杂性。 [@n1474335]
 
 ### [8.30.0] - 2019-04-12
-- 'Decode Protobuf' operation added [@n1474335] | [#533]
+- 添加了 'Decode Protobuf' 操作 [@n1474335] | [#533]
 
 ### [8.29.0] - 2019-03-31
-- 'BLAKE2s' and 'BLAKE2b' hashing operations added [@h345983745] | [#525]
+- 添加了 'BLAKE2s' 和 'BLAKE2b' 哈希操作 [@h345983745] | [#525]
 
 ### [8.28.0] - 2019-03-31
-- 'Heatmap Chart', 'Hex Density Chart', 'Scatter Chart' and 'Series Chart' operation added [@artemisbot] [@tlwr] | [#496] [#143]
+- 添加了 'Heatmap Chart'、'Hex Density Chart'、'Scatter Chart' 和 'Series Chart' 操作 [@artemisbot] [@tlwr] | [#496] [#143]
 
 ### [8.27.0] - 2019-03-14
-- 'Enigma', 'Typex', 'Bombe' and 'Multiple Bombe' operations added [@s2224834] | [#516]
-- See [this wiki article](https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex) for a full explanation of these operations.
-- New Bombe-style loading animation added for long-running operations [@n1474335]
-- New operation argument types added: `populateMultiOption` and `argSelector` [@n1474335]
+- 添加了 'Enigma'、'Typex'、'Bombe' 和 'Multiple Bombe' 操作 [@s2224834] | [#516]
+- 有关这些操作的完整说明，请参阅 [此 Wiki 文章](https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex)。
+- 为长时间运行的操作添加了新的 Bombe 风格加载动画 [@n1474335]
+- 添加了新的操作参数类型：`populateMultiOption` 和 `argSelector` [@n1474335]
 
 ### [8.26.0] - 2019-03-09
-- Various image manipulation operations added [@j433866] | [#506]
+- 添加了各种图像处理操作 [@j433866] | [#506]
 
 ### [8.25.0] - 2019-03-09
-- 'Extract Files' operation added and more file formats supported [@n1474335] | [#440]
+- 添加了 'Extract Files' 操作，并支持更多文件格式 [@n1474335] | [#440]
 
 ### [8.24.0] - 2019-02-08
-- 'DNS over HTTPS' operation added [@h345983745] | [#489]
+- 添加了 'DNS over HTTPS' 操作 [@h345983745] | [#489]
 
 ### [8.23.1] - 2019-01-18
-- 'Convert co-ordinate format' operation added [@j433866] | [#476]
+- 添加了 'Convert co-ordinate format' 操作 [@j433866] | [#476]
 
 ### [8.23.0] - 2019-01-18
-- 'YARA Rules' operation added [@artemisbot] | [#468]
+- 添加了 'YARA Rules' 操作 [@artemisbot] | [#468]
 
 ### [8.22.0] - 2019-01-10
-- 'Subsection' operation added [@j433866] | [#467]
+- 添加了 'Subsection' 操作 [@j433866] | [#467]
 
 ### [8.21.0] - 2019-01-10
-- 'To Case Insensitive Regex' and 'From Case Insensitive Regex' operations added [@masq] | [#461]
+- 添加了 'To Case Insensitive Regex' 和 'From Case Insensitive Regex' 操作 [@masq] | [#461]
 
 ### [8.20.0] - 2019-01-09
-- 'Generate Lorem Ipsum' operation added [@klaxon1] | [#455]
+- 添加了 'Generate Lorem Ipsum' 操作 [@klaxon1] | [#455]
 
 ### [8.19.0] - 2018-12-30
-- UI test suite added to confirm that the app loads correctly in a reasonable time and that various operations from each module can be run [@n1474335] | [#458]
+- 添加了 UI 测试套件，以确认应用程序在合理的时间内正确加载，并且可以运行来自每个模块的各种操作 [@n1474335] | [#458]
 
 ### [8.18.0] - 2018-12-26
-- 'Split Colour Channels' operation added [@artemisbot] | [#449]
+- 添加了 'Split Colour Channels' 操作 [@artemisbot] | [#449]
 
 ### [8.17.0] - 2018-12-25
-- 'Generate QR Code' and 'Parse QR Code' operations added [@j433866] | [#448]
+- 添加了 'Generate QR Code' 和 'Parse QR Code' 操作 [@j433866] | [#448]
 
 ### [8.16.0] - 2018-12-19
-- 'Play Media' operation added [@anthony-arnold] | [#446]
+- 添加了 'Play Media' 操作 [@anthony-arnold] | [#446]
 
 ### [8.15.0] - 2018-12-18
-- 'Text Encoding Brute Force' operation added [@Cynser] | [#439]
+- 添加了 'Text Encoding Brute Force' 操作 [@Cynser] | [#439]
 
 ### [8.14.0] - 2018-12-18
-- 'To Base62' and 'From Base62' operations added [@tcode2k16] | [#443]
+- 添加了 'To Base62' 和 'From Base62' 操作 [@tcode2k16] | [#443]
 
 ### [8.13.0] - 2018-12-15
-- 'A1Z26 Cipher Encode' and 'A1Z26 Cipher Decode' operations added [@jarmovanlenthe] | [#441]
+- 添加了 'A1Z26 Cipher Encode' 和 'A1Z26 Cipher Decode' 操作 [@jarmovanlenthe] | [#441]
 
 ### [8.12.0] - 2018-11-21
-- 'Citrix CTX1 Encode' and 'Citrix CTX1 Decode' operations added [@bwhitn] | [#428]
+- 添加了 'Citrix CTX1 Encode' 和 'Citrix CTX1 Decode' 操作 [@bwhitn] | [#428]
 
 ### [8.11.0] - 2018-11-13
-- 'CSV to JSON' and 'JSON to CSV' operations added [@n1474335] | [#277]
+- 添加了 'CSV to JSON' 和 'JSON to CSV' 操作 [@n1474335] | [#277]
 
 ### [8.10.0] - 2018-11-07
-- 'Remove Diacritics' operation added [@klaxon1] | [#387]
+- 添加了 'Remove Diacritics' 操作 [@klaxon1] | [#387]
 
 ### [8.9.0] - 2018-11-07
-- 'Defang URL' operation added [@arnydo] | [#394]
+- 添加了 'Defang URL' 操作 [@arnydo] | [#394]
 
 ### [8.8.0] - 2018-10-10
-- 'Parse TLV' operation added [@GCHQ77703] | [#351]
+- 添加了 'Parse TLV' 操作 [@GCHQ77703] | [#351]
 
 ### [8.7.0] - 2018-08-31
-- 'JWT Sign', 'JWT Verify' and 'JWT Decode' operations added [@GCHQ77703] | [#348]
+- 添加了 'JWT Sign'、'JWT Verify' 和 'JWT Decode' 操作 [@GCHQ77703] | [#348]
 
 ### [8.6.0] - 2018-08-29
-- 'To Geohash' and 'From Geohash' operations added [@GCHQ77703] | [#344]
+- 添加了 'To Geohash' 和 'From Geohash' 操作 [@GCHQ77703] | [#344]
 
 ### [8.5.0] - 2018-08-23
-- 'To Braille' and 'From Braille' operations added [@n1474335] | [#255]
+- 添加了 'To Braille' 和 'From Braille' 操作 [@n1474335] | [#255]
 
 ### [8.4.0] - 2018-08-23
-- 'To Base85' and 'From Base85' operations added [@PenguinGeorge] | [#340]
+- 添加了 'To Base85' 和 'From Base85' 操作 [@PenguinGeorge] | [#340]
 
 ### [8.3.0] - 2018-08-21
-- 'To MessagePack' and 'From MessagePack' operations added [@artemisbot] | [#338]
+- 添加了 'To MessagePack' 和 'From MessagePack' 操作 [@artemisbot] | [#338]
 
 ### [8.2.0] - 2018-08-21
-- Information links added to most operations, accessible in the description popover [@PenguinGeorge] | [#298]
+- 为大多数操作添加了信息链接，可在描述弹出窗口中访问 [@PenguinGeorge] | [#298]
 
 ### [8.1.0] - 2018-08-19
-- 'Dechunk HTTP response' operation added [@sevzero] | [#311]
+- 添加了 'Dechunk HTTP response' 操作 [@sevzero] | [#311]
 
 </details>
 
 ## [8.0.0] - 2018-08-05
-- Codebase rewritten using [ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) and [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) [@n1474335] [@d98762625] [@artemisbot] [@picapi] | [#284]
-- Operation architecture restructured to make adding new operations a lot simpler [@n1474335] | [#284]
-- A script has been added to aid in the creation of new operations by running `npm run newop` [@n1474335] | [#284]
-- 'Magic' operation added - [automated detection of encoded data](https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic) [@n1474335] | [#239]
-- UI updated to use [Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) [@n1474335] | [#248]
-- `JSON`, `File` and `List<File>` Dish types added [@n1474335] | [#284]
-- `OperationError` type added for better handling of errors thrown by operations [@d98762625] | [#296]
-- A `present()` method has been added, allowing operations to pass machine-friendly data to subsequent operations whilst presenting human-friendly data to the user [@n1474335] | [#284]
-- Set operations added [@d98762625] | [#281]
-- 'To Table' operation added [@JustAnotherMark] | [#294]
-- 'Haversine distance' operation added [@Dachande663] | [#325]
-- Started keeping a changelog [@n1474335]
+- 使用 [ES 模块](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) 和 [类](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) 重写了代码库 [@n1474335] [@d98762625] [@artemisbot] [@picapi] | [#284]
+- 重构了操作架构，使添加新操作变得更加简单 [@n1474335] | [#284]
+- 添加了一个脚本，通过运行 `npm run newop` 来帮助创建新操作 [@n1474335] | [#284]
+- 添加了 'Magic' 操作 - [自动检测编码数据](https://github.com/gchq/CyberChef/wiki/Automatic-detection-of-encoded-data-using-CyberChef-Magic) [@n1474335] | [#239]
+- UI 更新为使用 [Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) [@n1474335] | [#248]
+- 添加了 `JSON`、`File` 和 `List<File>` Dish 类型 [@n1474335] | [#284]
+- 添加了 `OperationError` 类型，以便更好地处理操作抛出的错误 [@d98762625] | [#296]
+- 添加了 `present()` 方法，允许操作将机器友好的数据传递给后续操作，同时向用户呈现人类友好的数据 [@n1474335] | [#284]
+- 添加了集合操作 [@d98762625] | [#281]
+- 添加了 'To Table' 操作 [@JustAnotherMark] | [#294]
+- 添加了 'Haversine distance' 操作 [@Dachande663] | [#325]
+- 开始维护更新日志 [@n1474335]
 
 ## [7.0.0] - 2017-12-28
-- Added support for loading, processing and downloading files up to 500MB [@n1474335] | [#224]
+- 添加了对加载、处理和下载高达 500MB 的文件的支持 [@n1474335] | [#224]
 
 ## [6.0.0] - 2017-09-19
-- Threading support added. All recipe processing moved into a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) to increase performance and to allow long-running operations to be cancelled [@n1474335] | [#173]
-- Module system created so that operations relying on large libraries can be downloaded separately as required, reducing the initial loading time for the app [@n1474335] | [#173]
+- 添加了线程支持。所有 recipe 处理都移至 [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) 以提高性能并允许取消长时间运行的操作 [@n1474335] | [#173]
+- 创建了模块系统，以便可以根据需要单独下载依赖于大型库的操作，从而减少应用程序的初始加载时间 [@n1474335] | [#173]
 
 ## [5.0.0] - 2017-03-30
--  Webpack build process configured with Babel transpilation and ES6 imports and exports [@n1474335] | [#95]
+-  Webpack 构建过程配置了 Babel 转译以及 ES6 导入和导出 [@n1474335] | [#95]
 
 ## [4.0.0] - 2016-11-28
--  Initial open source commit [@n1474335] | [b1d73a72](https://github.com/gchq/CyberChef/commit/b1d73a725dc7ab9fb7eb789296efd2b7e4b08306)
+-  初始开源提交 [@n1474335] | [b1d73a72](https://github.com/gchq/CyberChef/commit/b1d73a725dc7ab9fb7eb789296efd2b7e4b08306)
 
 [10.19.0]: https://github.com/gchq/CyberChef/releases/tag/v10.19.0
 [10.18.0]: https://github.com/gchq/CyberChef/releases/tag/v10.18.0
@@ -778,4 +778,3 @@ All major and minor version changes will be documented in this file. Details of 
 [#512]: https://github.com/gchq/CyberChef/issues/512
 [#1732]: https://github.com/gchq/CyberChef/issues/1732
 [#1789]: https://github.com/gchq/CyberChef/issues/1789
-
