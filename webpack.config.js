@@ -10,7 +10,6 @@ const zlib = require("zlib");
  * Webpack configuration details for use with Grunt.
  *
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */

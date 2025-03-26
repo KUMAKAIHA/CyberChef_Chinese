@@ -12,7 +12,6 @@ const nodeFlags = "--experimental-modules --experimental-json-modules --experime
  * Grunt configuration for building the app in various formats.
  *
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */
