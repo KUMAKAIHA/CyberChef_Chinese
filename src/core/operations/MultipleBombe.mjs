@@ -53,9 +53,9 @@ class MultipleBombe extends Operation {
     constructor() {
         super();
 
-        this.name = "多 Bombe";
+        this.name = "多次 Bombe";
         this.module = "Bletchley";
-        this.description = "Emulation of the Bombe machine used to attack Enigma. This version carries out multiple Bombe runs to handle unknown rotor configurations.<br><br>You should test your menu on the single Bombe operation before running it here. See the description of the Bombe operation for instructions on choosing a crib.<br><br>More detailed descriptions of the Enigma, Typex and Bombe operations <a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>can be found here</a>.";
+        this.description = "模拟用于攻击 Enigma 密码机的 Bombe 机器。此版本执行多次 Bombe 运算以处理未知的转子配置。<br><br>在在此处运行之前，您应该在单个 Bombe 操作上测试您的菜单。有关选择 crib 的说明，请参阅 Bombe 操作的描述。<br><br>有关 Enigma、Typex 和 Bombe 操作的更详细描述，请<a href='https://github.com/gchq/CyberChef/wiki/Enigma,-the-Bombe,-and-Typex'>点击此处查看</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Bombe";
         this.inputType = "string";
         this.outputType = "JSON";

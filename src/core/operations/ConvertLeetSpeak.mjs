@@ -40,12 +40,12 @@ class ConvertLeetSpeak extends Operation {
     run(input, args) {
         const direction = args[0];
 
-        if (direction === "To Leet Speak") {
+        if (direction === "转换为 Leet Speak") {
             return input.replace(/[a-z]/gi, char => {
                 const leetChar = toLeetMap[char.toLowerCase()] || char;
                 return char === char.toUpperCase() ? leetChar.toUpperCase() : leetChar;
             });
-        } else if (direction === "From Leet Speak") {
+        } else if (direction === "从 Leet Speak 转换") {
             return input.replace(/[48cd3f6h1jklmn0pqr57uvwxyz]/gi, char => {
                 const normalChar = fromLeetMap[char] || char;
                 return normalChar;

@@ -1,6 +1,5 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -1046,7 +1045,6 @@ class Utils {
      *
      * @author tlwr [toby@toby.codes]
      * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
      *
      * @param {File[]} files
      * @returns {html}

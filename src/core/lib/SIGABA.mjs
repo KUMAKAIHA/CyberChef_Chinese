@@ -10,27 +10,27 @@
  * A set of randomised example SIGABA cipher/control rotors (these rotors are interchangeable). Cipher and control rotors can be referred to as C and R rotors respectively.
  */
 export const CR_ROTORS = [
-    {name: "Example 1", value: "SRGWANHPJZFXVIDQCEUKBYOLMT"},
-    {name: "Example 2", value: "THQEFSAZVKJYULBODCPXNIMWRG"},
-    {name: "Example 3", value: "XDTUYLEVFNQZBPOGIRCSMHWKAJ"},
-    {name: "Example 4", value: "LOHDMCWUPSTNGVXYFJREQIKBZA"},
-    {name: "Example 5", value: "ERXWNZQIJYLVOFUMSGHTCKPBDA"},
-    {name: "Example 6", value: "FQECYHJIOUMDZVPSLKRTGWXBAN"},
-    {name: "Example 7", value: "TBYIUMKZDJSOPEWXVANHLCFQGR"},
-    {name: "Example 8", value: "QZUPDTFNYIAOMLEBWJXCGHKRSV"},
-    {name: "Example 9", value: "CZWNHEMPOVXLKRSIDGJFYBTQAU"},
-    {name: "Example 10", value: "ENPXJVKYQBFZTICAGMOHWRLDUS"}
+    {name: "示例 1", value: "SRGWANHPJZFXVIDQCEUKBYOLMT"},
+    {name: "示例 2", value: "THQEFSAZVKJYULBODCPXNIMWRG"},
+    {name: "示例 3", value: "XDTUYLEVFNQZBPOGIRCSMHWKAJ"},
+    {name: "示例 4", value: "LOHDMCWUPSTNGVXYFJREQIKBZA"},
+    {name: "示例 5", value: "ERXWNZQIJYLVOFUMSGHTCKPBDA"},
+    {name: "示例 6", value: "FQECYHJIOUMDZVPSLKRTGWXBAN"},
+    {name: "示例 7", value: "TBYIUMKZDJSOPEWXVANHLCFQGR"},
+    {name: "示例 8", value: "QZUPDTFNYIAOMLEBWJXCGHKRSV"},
+    {name: "示例 9", value: "CZWNHEMPOVXLKRSIDGJFYBTQAU"},
+    {name: "示例 10", value: "ENPXJVKYQBFZTICAGMOHWRLDUS"}
 ];
 
 /**
  * A set of randomised example SIGABA index rotors (may be referred to as I rotors).
  */
 export const I_ROTORS = [
-    {name: "Example 1", value: "6201348957"},
-    {name: "Example 2", value: "6147253089"},
-    {name: "Example 3", value: "8239647510"},
-    {name: "Example 4", value: "7194835260"},
-    {name: "Example 5", value: "4873205916"}
+    {name: "示例 1", value: "6201348957"},
+    {name: "示例 2", value: "6147253089"},
+    {name: "示例 3", value: "8239647510"},
+    {name: "示例 4", value: "7194835260"},
+    {name: "示例 5", value: "4873205916"}
 ];
 
 export const NUMBERS = "0123456789".split("");

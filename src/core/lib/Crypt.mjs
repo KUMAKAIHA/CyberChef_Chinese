@@ -7,4 +7,4 @@
  * @license Apache-2.0
  */
 
-export const cryptNotice = "WARNING: Cryptographic operations in CyberChef should not be relied upon to provide security in any situation. No guarantee is offered for their correctness. We advise you not to use keys generated from CyberChef in operational contexts.";
+export const cryptNotice = "警告：在任何情况下都不应依赖CyberChef的加密操作来提供安全性。我们不保证其正确性。建议您不要在生产环境中使用从CyberChef生成的密钥。";

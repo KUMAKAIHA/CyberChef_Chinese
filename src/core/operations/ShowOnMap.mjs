@@ -36,19 +36,19 @@ class ShowOnMap extends Operation {
             {
                 name: "输入格式",
                 type: "option",
-                value: ["自动"].concat(FORMATS)
+                value: ["Auto"].concat(FORMATS)
             },
             {
                 name: "输入分隔符",
                 type: "option",
                 value: [
-                    "自动",
-                    "方向在前",
-                    "方向在后",
+                    "Auto",
+                    "Direction Preceding",
+                    "Direction Following",
                     "\\n",
-                    "逗号",
-                    "分号",
-                    "冒号"
+                    "Comma",
+                    "Semi-colon",
+                    "Colon"
                 ]
             }
         ];

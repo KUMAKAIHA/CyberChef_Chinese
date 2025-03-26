@@ -1,6 +1,6 @@
 /**
  * @author j433866 [j433866@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
+ *  * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -29,19 +29,19 @@ class ConvertCoordinateFormat extends Operation {
             {
                 "name": "输入格式",
                 "type": "option",
-                "value": ["自动"].concat(FORMATS)
+                "value": ["Auto"].concat(FORMATS)
             },
             {
                 "name": "输入分隔符",
                 "type": "option",
                 "value": [
-                    "自动",
-                    "方向在前",
-                    "方向在后",
+                    "Auto",
+                    "Direction Preceding",
+                    "Direction Following",
                     "\\n",
-                    "逗号",
-                    "分号",
-                    "冒号"
+                    "Comma",
+                    "Semi-colon",
+                    "Colon"
                 ]
             },
             {
@@ -53,20 +53,20 @@ class ConvertCoordinateFormat extends Operation {
                 "name": "输出分隔符",
                 "type": "option",
                 "value": [
-                    "空格",
+                    "Space",
                     "\\n",
-                    "逗号",
-                    "分号",
-                    "冒号"
+                    "Comma",
+                    "Semi-colon",
+                    "Colon"
                 ]
             },
             {
                 "name": "包含罗盘方向",
                 "type": "option",
                 "value": [
-                    "无",
-                    "之前",
-                    "之后"
+                    "None",
+                    "Before",
+                    "After"
                 ]
             },
             {

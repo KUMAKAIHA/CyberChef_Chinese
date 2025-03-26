@@ -23,7 +23,7 @@ class Subsection extends Operation {
         this.name = "子节";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "使用正则表达式 (regex) 选择输入数据的一部分，并对每个匹配项分别运行所有后续操作。<br><br>您最多可以使用一个捕获组，配方将仅在捕获组中的数据上运行。 如果有多个捕获组，则仅对第一个捕获组进行操作。<br><br>使用“合并”操作来重置子节的效果。";
+        this.description = "使用正则表达式 (regex) 选择输入数据的一部分，并对每个匹配项分别运行所有后续操作。<br><br>您最多可以使用一个捕获组，步骤将仅在捕获组中的数据上运行。 如果有多个捕获组，则仅对第一个捕获组进行操作。<br><br>使用“合并”操作来重置子节的效果。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";

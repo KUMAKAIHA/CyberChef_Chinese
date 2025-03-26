@@ -235,7 +235,7 @@ class ControlsWaiter {
     saveButtonClick() {
         if (!this.app.isLocalStorageAvailable()) {
             this.app.alert(
-                "您的安全设置不允许访问本地存储，因此无法保存您的配方。",
+                "您的安全设置不允许访问本地存储，因此无法保存您的步骤。",
                 5000
             );
             return false;
@@ -245,7 +245,7 @@ class ControlsWaiter {
         const recipeStr  = document.querySelector("#save-texts .tab-pane.active textarea").value;
 
         if (!recipeName) {
-            this.app.alert("请输入配方名称", 3000);
+            this.app.alert("请输入步骤名称", 3000);
             return;
         }
 
@@ -262,7 +262,7 @@ class ControlsWaiter {
         localStorage.savedRecipes = JSON.stringify(savedRecipes);
         localStorage.recipeId = recipeId;
 
-        this.app.alert(`配方已保存为 "${recipeName}"。`, 3000);
+        this.app.alert(`步骤已保存为 "${recipeName}"。`, 3000);
     }
 
 
@@ -346,7 +346,7 @@ class ControlsWaiter {
 
             $("#rec-list [data-toggle=popover]").popover();
         } catch (e) {
-            this.app.alert("无效的配方", 2000);
+            this.app.alert("无效的步骤", 2000);
         }
     }
 

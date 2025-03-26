@@ -20,7 +20,7 @@ class CBORDecode extends Operation {
 
         this.name = "CBOR 解码";
         this.module = "Serialise";
-        this.description = "Concise Binary Object Representation (CBOR) is a binary data serialization format loosely based on JSON. Like JSON it allows the transmission of data objects that contain name–value pairs, but in a more concise manner. This increases processing and transfer speeds at the cost of human readability. It is defined in IETF RFC 8949.";
+        this.description = "简明二进制对象表示法（CBOR）是一种基于JSON的二进制数据序列化格式。与JSON类似，它允许传输包含键值对的数据对象，但采用更简洁的编码方式。这种设计以牺牲人类可读性为代价，提高了数据处理和传输效率。该标准由IETF RFC 8949定义。";
         this.infoURL = "https://wikipedia.org/wiki/CBOR";
         this.inputType = "ArrayBuffer";
         this.outputType = "JSON";

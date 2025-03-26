@@ -156,10 +156,10 @@
             "伪随机数生成器",
             "Enigma",
             "Bombe",
-            "多 Bombe",
+            "多次 Bombe",
             "Typex",
             "Lorenz",
-            "科洛萨斯",
+            "Colossus",
             "SIGABA"
         ]
     },

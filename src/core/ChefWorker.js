@@ -2,7 +2,6 @@
  * Web Worker to handle communications between the front-end and the core.
  *
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
  */

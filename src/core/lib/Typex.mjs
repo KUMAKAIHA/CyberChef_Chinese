@@ -15,21 +15,21 @@ import Utils from "../Utils.mjs";
  * randomised.
  */
 export const ROTORS = [
-    {name: "Example 1", value: "MCYLPQUVRXGSAOWNBJEZDTFKHI<BFHNQUW"},
-    {name: "Example 2", value: "KHWENRCBISXJQGOFMAPVYZDLTU<BFHNQUW"},
-    {name: "Example 3", value: "BYPDZMGIKQCUSATREHOJNLFWXV<BFHNQUW"},
-    {name: "Example 4", value: "ZANJCGDLVHIXOBRPMSWQUKFYET<BFHNQUW"},
-    {name: "Example 5", value: "QXBGUTOVFCZPJIHSWERYNDAMLK<BFHNQUW"},
-    {name: "Example 6", value: "BDCNWUEIQVFTSXALOGZJYMHKPR<BFHNQUW"},
-    {name: "Example 7", value: "WJUKEIABMSGFTQZVCNPHORDXYL<BFHNQUW"},
-    {name: "Example 8", value: "TNVCZXDIPFWQKHSJMAOYLEURGB<BFHNQUW"},
+    {name: "示例 1", value: "MCYLPQUVRXGSAOWNBJEZDTFKHI<BFHNQUW"},
+    {name: "示例 2", value: "KHWENRCBISXJQGOFMAPVYZDLTU<BFHNQUW"},
+    {name: "示例 3", value: "BYPDZMGIKQCUSATREHOJNLFWXV<BFHNQUW"},
+    {name: "示例 4", value: "ZANJCGDLVHIXOBRPMSWQUKFYET<BFHNQUW"},
+    {name: "示例 5", value: "QXBGUTOVFCZPJIHSWERYNDAMLK<BFHNQUW"},
+    {name: "示例 6", value: "BDCNWUEIQVFTSXALOGZJYMHKPR<BFHNQUW"},
+    {name: "示例 7", value: "WJUKEIABMSGFTQZVCNPHORDXYL<BFHNQUW"},
+    {name: "示例 8", value: "TNVCZXDIPFWQKHSJMAOYLEURGB<BFHNQUW"},
 ];
 
 /**
  * An example Typex reflector. Again, randomised.
  */
 export const REFLECTORS = [
-    {name: "Example", value: "AN BC FG IE KD LU MH OR TS VZ WQ XJ YP"},
+    {name: "示例", value: "AN BC FG IE KD LU MH OR TS VZ WQ XJ YP"},
 ];
 
 // Special character handling on Typex keyboard

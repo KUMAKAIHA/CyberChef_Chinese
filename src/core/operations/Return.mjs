@@ -21,7 +21,7 @@ class Return extends Operation {
         this.name = "返回";
         this.flowControl = true;
         this.module = "Default";
-        this.description = "在此配方位置结束操作执行。";
+        this.description = "在此步骤位置结束操作执行。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

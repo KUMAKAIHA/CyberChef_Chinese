@@ -5,6 +5,7 @@
  * using a variety of inputs and settings to confirm correctness.
  *
  * @author VirtualColossus [martin@virtualcolossus.co.uk]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */
@@ -24,7 +25,7 @@ class Colossus extends Operation {
      */
     constructor() {
         super();
-        this.name = "科洛萨斯";
+        this.name = "Colossus";
         this.module = "Bletchley";
         this.description = "科洛萨斯是世界上第一台电子计算机的名称。汤米·弗劳尔斯设计了十台科洛萨斯计算机，并在 1943 年二战期间于多利斯希尔的邮局研究实验室建造。它们协助破解了德国 Lorenz 密码机附件，这是一种为希特勒及其前线将军之间的通信加密而制造的机器。<br><br>要了解更多信息，请访问 <a href='https://virtualcolossus.co.uk' target='_blank'>virtualcolossus.co.uk</a>，Virtual Colossus 是一个在线的、基于浏览器的科洛萨斯计算机模拟器。<br><br>有关此操作的更详细描述，请访问 <a href='https://github.com/gchq/CyberChef/wiki/Colossus' target='_blank'>此处</a>。";
         this.infoURL = "https://wikipedia.org/wiki/Colossus_computer";
@@ -39,7 +40,7 @@ class Colossus extends Operation {
             {
                 name: "模式",
                 type: "option",
-                value: ["KH 模式", "ZMUG 模式", "BREAM 模式"]
+                value: ["KH Pattern", "ZMUG Pattern", "BREAM Pattern"]
             },
             {
                 name: "QBusZ",
@@ -57,9 +58,9 @@ class Colossus extends Operation {
                 value: ["", "Ψ", "ΔΨ"]
             },
             {
-                name: "限制",
+                name: "模式",
                 type: "option",
-                value: ["无", "Χ2", "Χ2 + P5", "X2 + Ψ1", "X2 + Ψ1 + P5"]
+                value: ["None", "Χ2", "Χ2 + P5", "X2 + Ψ1", "X2 + Ψ1 + P5"]
             },
             {
                 name: "K 支架选项",
@@ -90,7 +91,7 @@ class Colossus extends Operation {
             {
                 name: "要运行的程序",
                 type: "option",
-                value: ["", "字母计数", "1+2=. (1+2 突入, 查找 X1,X2)", "4=5=/1=2 (给定 X1,X2 查找 X4,X5)", "/,5,U (计数字符查找 X3)"]
+                value: ["", "Letter Count", "1+2=. (1+2 Break In, Find X1,X2)", "4=5=/1=2 (Given X1,X2 find X4,X5)", "/,5,U (Count chars to find X3)"]
             },
             {
                 name: "K 支架：条件",
