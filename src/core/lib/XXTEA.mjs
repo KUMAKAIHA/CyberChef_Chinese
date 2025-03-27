@@ -6,9 +6,7 @@
  *     Roger M. Needham
  *
  * @author Ma Bingyao [mabingyao@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @license MIT
  */
 

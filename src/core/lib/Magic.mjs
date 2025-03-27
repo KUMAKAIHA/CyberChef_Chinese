@@ -11,7 +11,6 @@ import chiSquared from "chi-squared";
  * speculatively executing recipes.
  *
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */
@@ -167,7 +166,7 @@ class Magic {
         }
 
         // Character encodings
-        const encodings = OperationConfig["文本编码"].args[0].value;
+        const encodings = OperationConfig["Encode text"].args[0].value;
 
         /**
          * Test character encodings and add them if they change the data.
@@ -195,8 +194,8 @@ class Magic {
             }
         };
 
-        await testEnc("文本编码");
-        await testEnc("文本解码");
+        await testEnc("Encode text");
+        await testEnc("Decode text");
 
         return results;
     }

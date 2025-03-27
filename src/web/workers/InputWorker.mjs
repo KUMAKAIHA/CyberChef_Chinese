@@ -3,9 +3,7 @@
  * Handles storage, modification and retrieval of the inputs.
  *
  * @author j433866 [j433866@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */

@@ -3,7 +3,6 @@
  * i.e. where the operation can handle the error and print a message to the screen.
  *
  * @author d98762625 [d98762625@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */

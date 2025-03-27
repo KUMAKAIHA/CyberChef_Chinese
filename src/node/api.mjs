@@ -2,7 +2,6 @@
  * Wrap operations for consumption in Node.
  *
  * @author d98762625 [d98762625@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  */
@@ -343,7 +342,7 @@ export function _explainExcludedFunction(name) {
      * Throw new error type with useful message.
     */
     const func = () => {
-        throw new ExcludedOperationError(`抱歉，${name} 操作在 Node.js 版本的 CyberChef 中不可用。`);
+        throw new ExcludedOperationError(`Sorry, the ${name} operation is not available in the Node.js version of CyberChef.`);
     };
     // Add opName prop so NodeRecipe can handle it, just like wrap does.
     func.opName = name;

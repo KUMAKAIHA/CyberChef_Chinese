@@ -2,7 +2,6 @@
  * Web worker to handle dish conversion operations.
  *
  * @author j433866 [j433866@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
  */

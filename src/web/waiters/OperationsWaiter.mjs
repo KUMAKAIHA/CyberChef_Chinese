@@ -1,6 +1,5 @@
 /**
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
  */
@@ -231,7 +230,7 @@ class OperationsWaiter {
 
         // Add favourites to modal
         const favCat = this.app.categories.filter(function(c) {
-            return c.name === "Favourites"; 
+            return c.name === "Favourites";
         })[0];
 
         let html = "";

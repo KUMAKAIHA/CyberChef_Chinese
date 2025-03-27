@@ -231,7 +231,6 @@ function fuzzyMatchRecursive(
  * Turns a list of match indexes into a list of match ranges
  *
  * @author n1474335 [n1474335@gmail.com]
- * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @param [number] matches
  * @returns [[number]]
  */
