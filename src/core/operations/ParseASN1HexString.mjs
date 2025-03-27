@@ -19,9 +19,9 @@ class ParseASN1HexString extends Operation {
     constructor() {
         super();
 
-        this.name = "解析 ASN.1 hex 字符串";
+        this.name = "解析 ASN.1 十六进制 字符串";
         this.module = "PublicKey";
-        this.description = "抽象语法表示法一 (ASN.1) 是一种标准和表示法，描述了在电信和计算机网络中表示、编码、传输和解码数据的规则和结构。<br><br>此操作解析任意 ASN.1 数据（编码为十六进制字符串；如有必要，请使用“转换为 Hex”操作），并呈现结果树。";
+        this.description = "抽象语法表示法一 (ASN.1) 是一种标准和表示法，描述了在电信和计算机网络中表示、编码、传输和解码数据的规则和结构。<br><br>此操作解析任意 ASN.1 数据（编码为十六进制字符串；如有必要，请使用“转换为 十六进制”操作），并呈现结果树。";
         this.infoURL = "https://wikipedia.org/wiki/Abstract_Syntax_Notation_One";
         this.inputType = "string";
         this.outputType = "string";

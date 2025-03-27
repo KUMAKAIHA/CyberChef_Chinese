@@ -29,9 +29,9 @@ class HexDensityChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex 密度图";
+        this.name = "十六进制 密度图";
         this.module = "Charts";
-        this.description = "Hex 密度图的用途类似于散点图，但它不是渲染数万个点，而是将这些点分组到数百个六边形中以显示分布。";
+        this.description = "十六进制 密度图的用途类似于散点图，但它不是渲染数万个点，而是将这些点分组到数百个六边形中以显示分布。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [

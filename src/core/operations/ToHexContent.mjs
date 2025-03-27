@@ -20,7 +20,7 @@ class ToHexContent extends Operation {
     constructor() {
         super();
 
-        this.name = "转换为 Hex 内容";
+        this.name = "转换为 十六进制 内容";
         this.module = "Default";
         this.description = "将字符串中的特殊字符转换为十六进制格式。SNORT 使用此格式在 ASCII 文本中表示十六进制数据。<br><br>例如：<code>foo=bar</code> 变为 <code>foo|3d|bar</code>。";
         this.infoURL = "http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node32.html#SECTION00451000000000000000";

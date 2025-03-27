@@ -20,7 +20,7 @@ class FromHex extends Operation {
     constructor() {
         super();
 
-        this.name = "从 Hex 转换";
+        this.name = "从 十六进制 转换";
         this.module = "Default";
         this.description = "将十六进制字节字符串转换回其原始值。<br><br>例如，<code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code> 转换为 UTF-8 编码的字符串 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";

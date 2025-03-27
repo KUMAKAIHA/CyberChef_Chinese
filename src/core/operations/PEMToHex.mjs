@@ -22,7 +22,7 @@ class PEMToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM 转换为 Hex";
+        this.name = "PEM 转换为 十六进制";
         this.module = "Default";
         this.description = "将 PEM (隐私增强邮件) 格式转换为十六进制 DER (区分编码规则) 字符串。";
         this.infoURL = "https://wikipedia.org/wiki/Privacy-Enhanced_Mail#Format";

@@ -19,7 +19,7 @@ class HexToObjectIdentifier extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex 转换为 对象标识符";
+        this.name = "十六进制 转换为 对象标识符";
         this.module = "PublicKey";
         this.description = "将十六进制字符串转换为对象标识符 (OID)。";
         this.infoURL = "https://wikipedia.org/wiki/Object_identifier";

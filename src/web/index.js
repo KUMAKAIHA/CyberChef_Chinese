@@ -29,8 +29,8 @@ function main() {
     const defaultFavourites = [
         "转换为 Base64",
         "从 Base64 转换",
-        "转换为 Hex",
-        "从 Hex 转换",
+        "转换为 十六进制",
+        "从 十六进制 转换",
         "转换为 Hexdump",
         "从 Hexdump 转换",
         "URL 解码",
