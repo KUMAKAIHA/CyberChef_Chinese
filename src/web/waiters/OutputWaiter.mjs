@@ -233,7 +233,7 @@ class OutputWaiter {
             this.app.updateURL(true);
         } else if (currentEnc !== chrEncVal) {
             // Alert
-            this.app.alert(`Output character encoding has been detected and changed to ${CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] || "Raw Bytes"}`, 5000);
+            this.app.alert(`输出字符编码已被检测到并已更改为 ${CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] || "原始字节"}`, 5000);
         }
     }
 
@@ -963,7 +963,7 @@ class OutputWaiter {
 
         if (fileName === null || fileName === "") {
             // Don't zip the files if there isn't a filename
-            this.app.alert("No filename was specified.", 3000);
+            this.app.alert("未指定文件名。", 3000);
             return;
         }
 
@@ -1410,7 +1410,7 @@ class OutputWaiter {
             msg = `<i>${opSequence}</i> 将生成 <span class="data-text">"${Utils.escapeHtml(Utils.truncate(options[0].data), 30)}"</span>`;
         } else if (options[0].fileType && options[0].fileType.name) {
             const ft = options[0].fileType;
-            newRecipeConfig = currentRecipeConfig.concat([{op: "Detect File Type", args: []}]);
+            newRecipeConfig = currentRecipeConfig.concat([{op: "检测文件类型", args: []}]);
             msg = `<i>${ft.name}</i> 文件已检测`;
         } else {
             return;

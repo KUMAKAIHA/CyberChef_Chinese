@@ -2,6 +2,7 @@
  * File signatures and extractor functions
  *
  * @author n1474335 [n1474335@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
@@ -13,9 +14,9 @@ import Stream from "./Stream.mjs";
  * to extract them where possible.
  */
 export const FILE_SIGNATURES = {
-    "Images": [
+    "图像": [
         {
-            name: "Joint Photographic Experts Group image",
+            name: "联合图像专家组图像",
             extension: "jpg,jpeg,jpe,thm,mpo",
             mime: "image/jpeg",
             description: "",
@@ -28,7 +29,7 @@ export const FILE_SIGNATURES = {
             extractor: extractJPEG
         },
         {
-            name: "Graphics Interchange Format image",
+            name: "图形交换格式图像",
             extension: "gif",
             mime: "image/gif",
             description: "",
@@ -43,7 +44,7 @@ export const FILE_SIGNATURES = {
             extractor: extractGIF
         },
         {
-            name: "Portable Network Graphics image",
+            name: "便携式网络图形图像",
             extension: "png",
             mime: "image/png",
             description: "",
@@ -60,7 +61,7 @@ export const FILE_SIGNATURES = {
             extractor: extractPNG
         },
         {
-            name: "WEBP Image",
+            name: "WEBP 图像",
             extension: "webp",
             mime: "image/webp",
             description: "",
@@ -73,7 +74,7 @@ export const FILE_SIGNATURES = {
             extractor: extractWEBP
         },
         {
-            name: "High Efficiency Image File Format",
+            name: "高效率图像文件格式",
             extension: "heic,heif",
             mime: "image/heif",
             description: "",
@@ -94,7 +95,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Camera Image File Format",
+            name: "相机图像文件格式",
             extension: "crw",
             mime: "image/x-canon-crw",
             description: "",
@@ -111,7 +112,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         { // Place before tiff check
-            name: "Canon CR2 raw image",
+            name: "佳能 CR2 原始图像",
             extension: "cr2",
             mime: "image/x-canon-cr2",
             description: "",
@@ -136,7 +137,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Tagged Image File Format image",
+            name: "标签图像文件格式图像",
             extension: "tif",
             mime: "image/tiff",
             description: "",
@@ -157,7 +158,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Bitmap image",
+            name: "位图图像",
             extension: "bmp",
             mime: "image/bmp",
             description: "",
@@ -174,7 +175,7 @@ export const FILE_SIGNATURES = {
             extractor: extractBMP
         },
         {
-            name: "JPEG Extended Range image",
+            name: "JPEG 扩展范围图像",
             extension: "jxr",
             mime: "image/vnd.ms-photo",
             description: "",
@@ -186,7 +187,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Photoshop image",
+            name: "Photoshop 图像",
             extension: "psd",
             mime: "image/vnd.adobe.photoshop",
             description: "",
@@ -207,7 +208,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Photoshop Large Document",
+            name: "Photoshop 大型文档",
             extension: "psb",
             mime: "application/x-photoshop",
             description: "",
@@ -229,7 +230,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Paint Shop Pro image",
+            name: "Paint Shop Pro 图像",
             extension: "psp",
             mime: "image/psp",
             description: "",
@@ -263,7 +264,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "The GIMP image",
+            name: "GIMP 图像",
             extension: "xcf",
             mime: "image/x-xcf",
             description: "",
@@ -285,7 +286,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Icon image",
+            name: "图标图像",
             extension: "ico",
             mime: "image/x-icon",
             description: "",
@@ -304,7 +305,7 @@ export const FILE_SIGNATURES = {
             extractor: extractICO
         },
         {
-            name: "Radiance High Dynamic Range image",
+            name: "Radiance 高动态范围图像",
             extension: "hdr",
             mime: "image/vnd.radiance",
             description: "",
@@ -324,7 +325,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Sony ARW image",
+            name: "索尼 ARW 图像",
             extension: "arw",
             mime: "image/x-raw",
             description: "",
@@ -341,7 +342,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Fujifilm Raw Image",
+            name: "富士胶片原始图像",
             extension: "raf",
             mime: "image/x-raw",
             description: "",
@@ -365,7 +366,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Minolta RAW image",
+            name: "美能达 RAW 图像",
             extension: "mrw",
             mime: "image/x-raw",
             description: "",
@@ -378,7 +379,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Adobe Bridge Thumbnail Cache",
+            name: "Adobe Bridge 缩略图缓存",
             extension: "bct",
             mime: "application/octet-stream",
             description: "",
@@ -395,7 +396,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft Document Imaging",
+            name: "Microsoft 文档成像",
             extension: "mdi",
             mime: "image/vnd.ms-modi",
             description: "",
@@ -408,7 +409,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Joint Photographic Experts Group image (under Base64)",
+            name: "联合图像专家组图像 (Base64 编码)",
             extension: "B64",
             mime: "application/octet-stream",
             description: "",
@@ -422,7 +423,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Portable Network Graphics image (under Base64)",
+            name: "便携式网络图形图像 (Base64 编码)",
             extension: "B64",
             mime: "application/octet-stream",
             description: "",
@@ -438,7 +439,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "AutoCAD Drawing",
+            name: "AutoCAD 工程图",
             extension: "dwg,123d",
             mime: "application/acad",
             description: "",
@@ -454,7 +455,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "AutoCAD Drawing",
+            name: "AutoCAD 工程图",
             extension: "dwg,dwt",
             mime: "application/acad",
             description: "",
@@ -490,7 +491,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Targa Image",
+            name: "Targa 图像",
             extension: "tga",
             mime: "image/x-targa",
             description: "",
@@ -518,9 +519,9 @@ export const FILE_SIGNATURES = {
             extractor: extractTARGA
         }
     ],
-    "Video": [
+    "视频": [
         { // Place before webm
-            name: "Matroska Multimedia Container",
+            name: "Matroska 多媒体容器",
             extension: "mkv",
             mime: "video/x-matroska",
             description: "",
@@ -537,7 +538,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "WEBM video",
+            name: "WEBM 视频",
             extension: "webm",
             mime: "video/webm",
             description: "",
@@ -550,7 +551,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         { // Place before MPEG-4
-            name: "Flash MP4 video",
+            name: "Flash MP4 视频",
             extension: "f4v",
             mime: "video/mp4",
             description: "",
@@ -567,7 +568,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "MPEG-4 video",
+            name: "MPEG-4 视频",
             extension: "mp4",
             mime: "video/mp4",
             description: "",
@@ -618,7 +619,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "M4V video",
+            name: "M4V 视频",
             extension: "m4v",
             mime: "video/x-m4v",
             description: "",
@@ -638,7 +639,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Quicktime video",
+            name: "Quicktime 视频",
             extension: "mov",
             mime: "video/quicktime",
             description: "",
@@ -655,7 +656,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Audio Video Interleave",
+            name: "音频视频交错格式",
             extension: "avi",
             mime: "video/x-msvideo",
             description: "",
@@ -671,7 +672,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Windows Media Video",
+            name: "Windows Media 视频",
             extension: "wmv",
             mime: "video/x-ms-wmv",
             description: "",
@@ -690,7 +691,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "MPEG video",
+            name: "MPEG 视频",
             extension: "mpg",
             mime: "video/mpeg",
             description: "",
@@ -703,7 +704,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Flash Video",
+            name: "Flash 视频",
             extension: "flv",
             mime: "video/x-flv",
             description: "",
@@ -716,7 +717,7 @@ export const FILE_SIGNATURES = {
             extractor: extractFLV
         },
         {
-            name: "OGG Video",
+            name: "OGG 视频",
             extension: "ogv,ogm,opus,ogx",
             mime: "video/ogg",
             description: "",
@@ -769,9 +770,9 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
     ],
-    "Audio": [
+    "音频": [
         {
-            name: "Waveform Audio",
+            name: "波形音频",
             extension: "wav",
             mime: "audio/x-wav",
             description: "",
@@ -788,7 +789,7 @@ export const FILE_SIGNATURES = {
             extractor: extractWAV
         },
         {
-            name: "OGG audio",
+            name: "OGG 音频",
             extension: "ogg",
             mime: "audio/ogg",
             description: "",
@@ -801,7 +802,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Musical Instrument Digital Interface audio",
+            name: "乐器数字接口音频",
             extension: "midi",
             mime: "audio/midi",
             description: "",
@@ -814,7 +815,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "MPEG-3 audio",
+            name: "MPEG-3 音频",
             extension: "mp3",
             mime: "audio/mpeg",
             description: "",
@@ -832,7 +833,7 @@ export const FILE_SIGNATURES = {
             extractor: extractMP3
         },
         {
-            name: "MPEG-4 Part 14 audio",
+            name: "MPEG-4 Part 14 音频",
             extension: "m4a",
             mime: "audio/m4a",
             description: "",
@@ -856,7 +857,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Free Lossless Audio Codec",
+            name: "无损音频编解码器",
             extension: "flac",
             mime: "audio/x-flac",
             description: "",
@@ -869,7 +870,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Adaptive Multi-Rate audio codec",
+            name: "自适应多速率音频编解码器",
             extension: "amr",
             mime: "audio/amr",
             description: "",
@@ -915,7 +916,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Audacity Block",
+            name: "Audacity 区块",
             extension: "auf",
             mime: "application/octet-stream",
             description: "",
@@ -941,7 +942,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Audio Interchange File",
+            name: "音频交换文件",
             extension: "aif",
             mime: "audio/x-aiff",
             description: "",
@@ -958,7 +959,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Audio Interchange File (compressed)",
+            name: "音频交换文件 (已压缩)",
             extension: "aifc",
             mime: "audio/x-aifc",
             description: "",
@@ -975,9 +976,9 @@ export const FILE_SIGNATURES = {
             extractor: null
         }
     ],
-    "Documents": [
+    "文档": [
         {
-            name: "Portable Document Format",
+            name: "便携式文档格式",
             extension: "pdf",
             mime: "application/pdf",
             description: "",
@@ -990,7 +991,7 @@ export const FILE_SIGNATURES = {
             extractor: extractPDF
         },
         {
-            name: "Portable Document Format (under Base64)",
+            name: "便携式文档格式 (Base64 编码)",
             extension: "B64",
             mime: "application/octet-stream",
             description: "",
@@ -1036,7 +1037,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Encapsulated PostScript",
+            name: "封装 PostScript",
             extension: "eps,ai",
             mime: "application/eps",
             description: "",
@@ -1049,7 +1050,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Rich Text Format",
+            name: "富文本格式",
             extension: "rtf",
             mime: "application/rtf",
             description: "",
@@ -1062,10 +1063,10 @@ export const FILE_SIGNATURES = {
             extractor: extractRTF
         },
         {
-            name: "Microsoft Office document/OLE2",
+            name: "Microsoft Office 文档/OLE2",
             extension: "ole2,doc,xls,dot,ppt,xla,ppa,pps,pot,msi,sdw,db,vsd,msg",
             mime: "application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint",
-            description: "Microsoft Office documents",
+            description: "Microsoft Office 文档",
             signature: {
                 0: 0xd0,
                 1: 0xcf,
@@ -1079,7 +1080,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft Office document/OLE2 (under Base64)",
+            name: "Microsoft Office 文档/OLE2 (Base64 编码)",
             extension: "B64",
             mime: "application/octet-stream",
             description: "",
@@ -1096,7 +1097,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft Office 2007+ document",
+            name: "Microsoft Office 2007+ 文档",
             extension: "docx,xlsx,pptx",
             mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation",
             description: "",
@@ -1116,7 +1117,7 @@ export const FILE_SIGNATURES = {
             extractor: extractZIP
         },
         {
-            name: "Microsoft Access database",
+            name: "Microsoft Access 数据库",
             extension: "mdb,mda,mde,mdt,fdb,psa",
             mime: "application/msaccess",
             description: "",
@@ -1141,7 +1142,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft Access 2007+ database",
+            name: "Microsoft Access 2007+ 数据库",
             extension: "accdb,accde,accda,accdu",
             mime: "application/msaccess",
             description: "",
@@ -1167,7 +1168,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft OneNote document",
+            name: "Microsoft OneNote 文档",
             extension: "one",
             mime: "application/onenote",
             description: "",
@@ -1192,7 +1193,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Outlook Express database",
+            name: "Outlook Express 数据库",
             extension: "dbx",
             mime: "application/octet-stream",
             description: "",
@@ -1207,7 +1208,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Personal Storage Table (Outlook)",
+            name: "个人存储表 (Outlook)",
             extension: "pst,ost,fdb,pab",
             mime: "application/octet-stream",
             description: "",
@@ -1220,7 +1221,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Microsoft Exchange Database",
+            name: "Microsoft Exchange 数据库",
             extension: "edb",
             mime: "application/octet-stream",
             description: "",
@@ -1241,7 +1242,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "WordPerfect document",
+            name: "WordPerfect 文档",
             extension: "wpd,wp,wp5,wp6,wpp,bk!,wcm",
             mime: "application/wordperfect",
             description: "",
@@ -1257,7 +1258,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "EPUB e-book",
+            name: "EPUB 电子书",
             extension: "epub",
             mime: "application/epub+zip",
             description: "",
@@ -1298,9 +1299,9 @@ export const FILE_SIGNATURES = {
             extractor: extractZIP
         },
     ],
-    "Applications": [
+    "应用程序": [
         {
-            name: "Windows Portable Executable",
+            name: "Windows 便携式可执行文件",
             extension: "exe,dll,drv,vxd,sys,ocx,vbx,com,fon,scr",
             mime: "application/vnd.microsoft.portable-executable",
             description: "",
@@ -1313,10 +1314,10 @@ export const FILE_SIGNATURES = {
             extractor: extractMZPE
         },
         {
-            name: "Executable and Linkable Format",
+            name: "可执行与可链接格式",
             extension: "elf,bin,axf,o,prx,so",
             mime: "application/x-executable",
-            description: "Executable and Linkable Format file. No standard file extension.",
+            description: "可执行与可链接格式文件。无标准文件扩展名。",
             signature: {
                 0: 0x7f,
                 1: 0x45,
@@ -1326,7 +1327,7 @@ export const FILE_SIGNATURES = {
             extractor: extractELF
         },
         {
-            name: "MacOS Mach-O object",
+            name: "MacOS Mach-O 对象",
             extension: "dylib",
             mime: "application/octet-stream",
             description: "",
@@ -1356,7 +1357,7 @@ export const FILE_SIGNATURES = {
             extractor: extractMACHO
         },
         {
-            name: "MacOS Mach-O 64-bit object",
+            name: "MacOS Mach-O 64 位对象",
             extension: "dylib",
             mime: "application/octet-stream",
             description: "",
@@ -1381,7 +1382,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Java Class",
+            name: "Java 类文件",
             extension: "class",
             mime: "application/java-vm",
             description: "",
@@ -1394,10 +1395,10 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Dalvik Executable",
+            name: "Dalvik 可执行文件",
             extension: "dex",
             mime: "application/octet-stream",
-            description: "Dalvik Executable as used by Android",
+            description: "Android 使用的 Dalvik 可执行文件",
             signature: {
                 0: 0x64,
                 1: 0x65,
@@ -1411,10 +1412,10 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Google Chrome Extension",
+            name: "Google Chrome 扩展程序",
             extension: "crx",
             mime: "application/crx",
-            description: "Google Chrome extension or packaged app",
+            description: "Google Chrome 扩展程序或打包应用",
             signature: {
                 0: 0x43,
                 1: 0x72,
@@ -1424,9 +1425,9 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
     ],
-    "Archives": [
+    "压缩文件": [
         {
-            name: "PKZIP archive",
+            name: "PKZIP 压缩文件",
             extension: "zip",
             mime: "application/zip",
             description: "",
@@ -1439,7 +1440,7 @@ export const FILE_SIGNATURES = {
             extractor: extractZIP
         },
         {
-            name: "PKZIP archive (under Base64)",
+            name: "PKZIP 压缩文件 (Base64 编码)",
             extension: "B64",
             mime: "application/octet-stream",
             description: "",
@@ -1454,7 +1455,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "TAR archive",
+            name: "TAR 压缩文件",
             extension: "tar",
             mime: "application/x-tar",
             description: "",
@@ -1468,7 +1469,7 @@ export const FILE_SIGNATURES = {
             extractor: extractTAR
         },
         {
-            name: "Roshal Archive",
+            name: "Roshal 压缩文件",
             extension: "rar",
             mime: "application/x-rar-compressed",
             description: "",
@@ -1534,7 +1535,7 @@ export const FILE_SIGNATURES = {
             extractor: extractZlib
         },
         {
-            name: "xz compression",
+            name: "xz 压缩",
             extension: "xz",
             mime: "application/x-xz",
             description: "",
@@ -1560,10 +1561,10 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "ISO disk image",
+            name: "ISO 磁盘镜像",
             extension: "iso",
             mime: "application/octet-stream",
-            description: "ISO 9660 CD/DVD image file",
+            description: "ISO 9660 CD/DVD 镜像文件",
             signature: [
                 {
                     0x8001: 0x43,
@@ -1590,7 +1591,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Virtual Machine Disk",
+            name: "虚拟机磁盘",
             extension: "vmdk",
             mime: "application/vmdk,application/x-virtualbox-vmdk",
             description: "",
@@ -1606,7 +1607,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Virtual Hard Drive",
+            name: "虚拟硬盘驱动器",
             extension: "vhd",
             mime: "application/x-vhd",
             description: "",
@@ -1623,7 +1624,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Macintosh disk image",
+            name: "Macintosh 磁盘镜像",
             extension: "dmf,dmg",
             mime: "application/octet-stream",
             description: "",
@@ -1640,7 +1641,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "ARJ Archive",
+            name: "ARJ 压缩文件",
             extension: "arj",
             mime: "application/x-arj-compressed",
             description: "",
@@ -1654,7 +1655,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "WinAce Archive",
+            name: "WinAce 压缩文件",
             extension: "ace",
             mime: "application/x-ace-compressed",
             description: "",
@@ -1670,7 +1671,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Macintosh BinHex Encoded File",
+            name: "Macintosh BinHex 编码文件",
             extension: "hqx",
             mime: "application/mac-binhex",
             description: "",
@@ -1708,7 +1709,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "ALZip Archive",
+            name: "ALZip 压缩文件",
             extension: "alz",
             mime: "application/octet-stream",
             description: "",
@@ -1725,7 +1726,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "KGB Compressed Archive",
+            name: "KGB 压缩文件",
             extension: "kgb",
             mime: "application/x-kgb-compressed",
             description: "",
@@ -1761,7 +1762,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Jar Archive",
+            name: "Jar 压缩文件",
             extension: "jar",
             mime: "application/java-archive",
             description: "",
@@ -1774,7 +1775,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Jar Archive",
+            name: "Jar 压缩文件",
             extension: "jar",
             mime: "application/java-archive",
             description: "",
@@ -1793,7 +1794,7 @@ export const FILE_SIGNATURES = {
             extractor: extractZIP
         },
         {
-            name: "lzop compressed",
+            name: "lzop 压缩",
             extension: "lzop,lzo",
             mime: "application/x-lzop",
             description: "",
@@ -1810,7 +1811,7 @@ export const FILE_SIGNATURES = {
             extractor: extractLZOP
         },
         {
-            name: "Linux deb package",
+            name: "Linux deb 软件包",
             extension: "deb",
             mime: "application/vnd.debian.binary-package",
             description: "",
@@ -1826,7 +1827,7 @@ export const FILE_SIGNATURES = {
             extractor: extractDEB
         },
         {
-            name: "Apple Disk Image",
+            name: "Apple 磁盘镜像",
             extension: "dmg",
             mime: "application/x-apple-diskimage",
             description: "",
@@ -1842,12 +1843,12 @@ export const FILE_SIGNATURES = {
             extractor: null
         }
     ],
-    "Miscellaneous": [
+    "杂项": [
         {
-            name: "UTF-8 text",
+            name: "UTF-8 文本",
             extension: "txt",
             mime: "text/plain",
-            description: "UTF-8 encoded Unicode byte order mark, commonly but not exclusively seen in text files.",
+            description: "UTF-8 编码的 Unicode 字节顺序标记，常见于文本文件，但不限于文本文件。",
             signature: {
                 0: 0xef,
                 1: 0xbb,
@@ -1856,10 +1857,10 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         { // Place before UTF-16 LE text
-            name: "UTF-32 LE text",
+            name: "UTF-32 LE 文本",
             extension: "utf32le",
             mime: "charset/utf32le",
-            description: "Little-endian UTF-32 encoded Unicode byte order mark.",
+            description: "小端序 UTF-32 编码的 Unicode 字节顺序标记。",
             signature: {
                 0: 0xff,
                 1: 0xfe,
@@ -1869,10 +1870,10 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "UTF-16 LE text",
+            name: "UTF-16 LE 文本",
             extension: "utf16le",
             mime: "charset/utf16le",
-            description: "Little-endian UTF-16 encoded Unicode byte order mark.",
+            description: "小端序 UTF-16 编码的 Unicode 字节顺序标记。",
             signature: {
                 0: 0xff,
                 1: 0xfe
@@ -1880,7 +1881,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Web Open Font Format",
+            name: "Web 开放字体格式",
             extension: "woff",
             mime: "application/font-woff",
             description: "",
@@ -1897,7 +1898,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Web Open Font Format 2",
+            name: "Web 开放字体格式 2",
             extension: "woff2",
             mime: "application/font-woff",
             description: "",
@@ -1914,7 +1915,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Embedded OpenType font",
+            name: "嵌入式 OpenType 字体",
             extension: "eot",
             mime: "application/octet-stream",
             description: "",
@@ -1944,7 +1945,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "TrueType Font",
+            name: "TrueType 字体",
             extension: "ttf",
             mime: "application/font-sfnt",
             description: "",
@@ -1958,7 +1959,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "OpenType Font",
+            name: "OpenType 字体",
             extension: "otf",
             mime: "application/font-sfnt",
             description: "",
@@ -1985,7 +1986,7 @@ export const FILE_SIGNATURES = {
             extractor: extractSQLITE
         },
         {
-            name: "BitTorrent link",
+            name: "BitTorrent 链接",
             extension: "torrent",
             mime: "application/x-bittorrent",
             description: "",
@@ -2022,7 +2023,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Cryptocurrency wallet",
+            name: "加密货币钱包",
             extension: "wallet",
             mime: "application/octet-stream",
             description: "",
@@ -2047,7 +2048,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Registry fragment",
+            name: "注册表片段",
             extension: "hbin",
             mime: "application/octet-stream",
             description: "",
@@ -2061,7 +2062,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Registry script",
+            name: "注册表脚本",
             extension: "rgs",
             mime: "application/octet-stream",
             description: "",
@@ -2078,7 +2079,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "WinNT Registry Hive",
+            name: "WinNT 注册表配置单元",
             extension: "registry",
             mime: "application/octet-stream",
             description: "",
@@ -2091,7 +2092,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Windows Event Log",
+            name: "Windows 事件日志",
             extension: "evt",
             mime: "application/octet-stream",
             description: "",
@@ -2108,7 +2109,7 @@ export const FILE_SIGNATURES = {
             extractor: extractEVT
         },
         {
-            name: "Windows Event Log",
+            name: "Windows 事件日志",
             extension: "evtx",
             mime: "application/octet-stream",
             description: "",
@@ -2124,7 +2125,7 @@ export const FILE_SIGNATURES = {
             extractor: extractEVTX
         },
         {
-            name: "Windows Pagedump",
+            name: "Windows 页面转储文件",
             extension: "dmp",
             mime: "application/octet-stream",
             description: "",
@@ -2141,7 +2142,7 @@ export const FILE_SIGNATURES = {
             extractor: extractDMP
         },
         {
-            name: "Windows Prefetch",
+            name: "Windows 预取文件",
             extension: "pf",
             mime: "application/x-pf",
             description: "",
@@ -2158,7 +2159,7 @@ export const FILE_SIGNATURES = {
             extractor: extractPF
         },
         {
-            name: "Windows Prefetch (Win 10)",
+            name: "Windows 预取文件 (Win 10)",
             extension: "pf",
             mime: "application/x-pf",
             description: "",
@@ -2196,7 +2197,7 @@ export const FILE_SIGNATURES = {
             extractor: extractPListXML
         },
         {
-            name: "PList (binary)",
+            name: "PList (二进制)",
             extension: "bplist,plist,ipmeta,abcdp,mdbackup,mdinfo,strings,nib,ichat,qtz,webbookmark,webhistory",
             mime: "application/x-plist",
             description: "",
@@ -2213,7 +2214,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "MacOS X Keychain",
+            name: "MacOS X 钥匙串",
             extension: "keychain",
             mime: "application/octet-stream",
             description: "",
@@ -2228,7 +2229,7 @@ export const FILE_SIGNATURES = {
             extractor: extractMacOSXKeychain
         },
         {
-            name: "TCP Packet",
+            name: "TCP 数据包",
             extension: "tcp",
             mime: "application/tcp",
             description: "",
@@ -2244,7 +2245,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "UDP Packet",
+            name: "UDP 数据包",
             extension: "udp",
             mime: "application/udp",
             description: "",
@@ -2260,7 +2261,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Compiled HTML",
+            name: "已编译 HTML",
             extension: "chm,chw,chi",
             mime: "application/vnd.ms-htmlhelp",
             description: "",
@@ -2277,7 +2278,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Windows Password",
+            name: "Windows 密码",
             extension: "pwl",
             mime: "application/octet-stream",
             description: "",
@@ -2290,7 +2291,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Bitlocker recovery key",
+            name: "Bitlocker 恢复密钥",
             extension: "bitlocker",
             mime: "application/octet-stream",
             description: "",
@@ -2321,7 +2322,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Certificate",
+            name: "证书",
             extension: "cer,cat,p7b,p7c,p7m,p7s,swz,rsa,crl,crt,der",
             mime: "application/pkix-cert",
             description: "",
@@ -2333,7 +2334,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Certificate",
+            name: "证书",
             extension: "cat,swz,p7m",
             mime: "application/vnd.ms-pki.seccat",
             description: "",
@@ -2347,7 +2348,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "PGP pubring",
+            name: "PGP 公钥环",
             extension: "pkr,gpg",
             mime: "application/pgp-keys",
             description: "",
@@ -2360,7 +2361,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "PGP secring",
+            name: "PGP 私钥环",
             extension: "skr",
             mime: "application/pgp-keys",
             description: "",
@@ -2407,7 +2408,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Task Scheduler",
+            name: "任务计划程序",
             extension: "job",
             mime: "application/octet-stream",
             description: "",
@@ -2422,7 +2423,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Windows Shortcut",
+            name: "Windows 快捷方式",
             extension: "lnk",
             mime: "application/x-ms-shortcut",
             description: "",
@@ -2540,7 +2541,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "perl",
+            name: "Perl",
             extension: "pl,pm,t,pod",
             mime: "application/perl",
             description: "",
@@ -2564,7 +2565,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "php",
+            name: "PHP",
             extension: "php,phtml,php3,php4,php5,php7,phps,php-s,pht,phar",
             mime: "application/php",
             description: "",
@@ -2590,7 +2591,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "Lua Bytecode",
+            name: "Lua 字节码",
             extension: "luac",
             mime: "application/x-lua",
             description: "",
@@ -2603,7 +2604,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
         {
-            name: "WebAssembly binary",
+            name: "WebAssembly 二进制文件",
             extension: "wasm",
             mime: "application/octet-stream",
             description: "",
