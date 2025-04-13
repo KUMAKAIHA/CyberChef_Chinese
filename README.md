@@ -34,7 +34,7 @@ docker run -it -p 8080:80 cyberchef
 docker run -it -p 8080:80 kumakaiha/cyberchef_chinese:latest
 ```
 
-该镜像由我们的 [GitHub 工作流](.github/workflows/releases.yml) 构建并发布。
+该镜像由我手动构建并发布。
 
 ## 工作原理
 
@@ -87,7 +87,7 @@ CyberChef 主要包含四个区域：
 ## 深度链接
 
 通过操作 CyberChef 的 URL hash，您可以修改页面初始打开时的设置。
-格式为：`https://gchq.github.io/CyberChef/#recipe=Operation()&input=...`
+格式为：`https://kumakaiha.github.io/CyberChef/#recipe=Operation()&input=...`
 
 支持的参数包括 `recipe`、`input`（Base64 编码）与 `theme`。
 
@@ -116,7 +116,7 @@ CyberChef 完全支持 Node.js `v16`。更多信息请参见 [“Node API” wik
 CyberChef is released under the [Apache 2.0 Licence](https://www.apache.org/licenses/LICENSE-2.0) and is covered by [Crown Copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/).
 
 
-  [1]: https://gchq.github.io/CyberChef
+  [1]: https://kumakaiha.github.io/CyberChef
   [2]: https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',true)&input=VTI4Z2JHOXVaeUJoYm1RZ2RHaGhibXR6SUdadmNpQmhiR3dnZEdobElHWnBjMmd1
   [3]: https://gchq.github.io/CyberChef/#recipe=Translate_DateTime_Format('Standard%20date%20and%20time','DD/MM/YYYY%20HH:mm:ss','UTC','dddd%20Do%20MMMM%20YYYY%20HH:mm:ss%20Z%20z','Australia/Queensland')&input=MTUvMDYvMjAxNSAyMDo0NTowMA
   [4]: https://gchq.github.io/CyberChef/#recipe=Parse_IPv6_address()&input=MjAwMTowMDAwOjQxMzY6ZTM3ODo4MDAwOjYzYmY6M2ZmZjpmZGQy
