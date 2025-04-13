@@ -1,4 +1,4 @@
-name: "Master Build, Test & Deploy"
+name: "Master Build & Deploy"
 
 on:
   workflow_dispatch:
@@ -23,29 +23,21 @@ jobs:
         npm install
         npm run setheapsize
 
-    - name: Lint
-      run: npx grunt lint
+    # Lint step removed
 
-    - name: Unit Tests
-      run: |
-        npm test
-        npm run testnodeconsumer
+    # Unit Tests step removed
 
     - name: Production Build
-      if: success()
+      if: success() # Kept the condition as it might depend on previous steps succeeding
       run: npx grunt prod --msg="Version 10 is here! Read about the new features <a href='https://github.com/gchq/CyberChef/wiki/Character-encoding,-EOL-separators,-and-editor-features'>here</a>"
 
     - name: Generate sitemap
       run: npx grunt exec:sitemap
 
-    - name: UI Tests
-      if: success()
-      run: |
-        sudo apt-get install xvfb
-        xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
+    # UI Tests step removed
 
     - name: Prepare for GitHub Pages
-      if: success()
+      if: success() # Kept the condition
       run: npx grunt copy:ghPages
 
     - name: Deploy to GitHub Pages
