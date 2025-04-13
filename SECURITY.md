@@ -2,7 +2,7 @@
 
 ## 支持的版本
 
-CyberChef 在尽力而为的基础上提供支持。补丁将应用于最新版本，而不是追溯应用于旧版本。为了确保您使用的是最安全的 CyberChef 版本，请确保您已安装[最新版本](https://github.com/gchq/CyberChef/releases/latest)。官方 [在线演示](https://gchq.github.io/CyberChef/) 始终保持最新。
+CyberChef 在尽力而为的基础上提供支持。补丁将应用于最新版本，而不是追溯应用于旧版本。为了确保您使用的是最安全的 CyberChef 版本，请确保您已安装[最新版本](https://github.com/gchq/CyberChef/releases/latest)。官方 [在线演示](https://kumakaiha.github.io/CyberChef_Chinese/) 始终保持最新。
 
 ## 漏洞报告
 
