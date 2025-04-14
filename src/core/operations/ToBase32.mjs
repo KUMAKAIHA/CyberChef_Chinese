@@ -7,6 +7,7 @@
 
 import Operation from "../Operation.mjs";
 import Utils from "../Utils.mjs";
+import {ALPHABET_OPTIONS} from "../lib/Base32.mjs";
 
 /**
  * To Base32 operation
@@ -28,8 +29,8 @@ class ToBase32 extends Operation {
         this.args = [
             {
                 name: "字符集",
-                type: "binaryString",
-                value: "A-Z2-7="
+                type: "editableOption",
+                value: ALPHABET_OPTIONS
             }
         ];
     }
@@ -84,3 +85,4 @@ class ToBase32 extends Operation {
 }
 
 export default ToBase32;
+

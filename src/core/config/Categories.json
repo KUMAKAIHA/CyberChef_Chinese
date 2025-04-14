@@ -72,6 +72,8 @@
             "Avro 转换为 JSON",
             "CBOR 编码",
             "CBOR 解码",
+            "YAML 转 JSON",
+            "JSON 转 YAML",
             "Caret/M 解码",
             "Rison 编码",
             "Rison 解码",
@@ -193,7 +195,9 @@
             "解析 SSH 主机密钥",
             "解析 CSR",
             "从证书获取公钥",
-            "从私钥获取公钥"
+            "从私钥获取公钥",
+            "SM2 加密",
+            "SM2 解密"
         ]
     },
     {
@@ -441,9 +445,7 @@
             "Fletcher-64 校验和",
             "Adler-32 校验和",
             "Luhn 校验和",
-            "CRC-8 校验和",
-            "CRC-16 校验和",
-            "CRC-32 校验和",
+            "CRC 校验和",
             "TCP/IP 校验和"
         ]
     },
@@ -465,8 +467,10 @@
             "CSS 压缩",
             "XPath 表达式",
             "JPath 表达式",
+            "Jq",
             "CSS 选择器",
             "PHP 反序列化",
+            "PHP 序列化",
             "Microsoft 脚本解码器",
             "去除 HTML 标签",
             "差异",
