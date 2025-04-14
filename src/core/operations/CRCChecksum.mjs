@@ -1,5 +1,6 @@
 /**
  * @author r4mos [2k95ljkhg@mozmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2025
  * @license Apache-2.0
  */
@@ -18,19 +19,19 @@ class CRCChecksum extends Operation {
     constructor() {
         super();
 
-        this.name = "CRC Checksum";
+        this.name = "CRC校验和";
         this.module = "Default";
-        this.description = "A Cyclic Redundancy Check (<b>CRC</b>) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.";
+        this.description = "循环冗余校验 (<b>CRC</b>) 是一种错误检测码，常用于数字网络和存储设备中，以检测原始数据的意外更改。";
         this.infoURL = "https://wikipedia.org/wiki/Cyclic_redundancy_check";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
-                        name: "Custom",
+                        name: "自定义",
                         on: [1, 2, 3, 4, 5, 6]
                     },
                     {
@@ -720,35 +721,35 @@ class CRCChecksum extends Operation {
                 ]
             },
             {
-                name: "Width (bits)",
+                name: "宽度 (位)",
                 type: "toggleString",
                 value: "0",
                 toggleValues: ["Decimal"]
             },
             {
-                name: "Polynomial",
+                name: "多项式",
                 type: "toggleString",
                 value: "0",
                 toggleValues: ["Hex"]
             },
             {
-                name: "Initialization",
+                name: "初始化",
                 type: "toggleString",
                 value: "0",
                 toggleValues: ["Hex"]
             },
             {
-                name: "Reflect input",
+                name: "输入反射",
                 type: "option",
                 value: ["True", "False"]
             },
             {
-                name: "Reflect output",
+                name: "输出反射",
                 type: "option",
                 value: ["True", "False"]
             },
             {
-                name: "Xor Output",
+                name: "异或输出",
                 type: "toggleString",
                 value: "0",
                 toggleValues: ["Hex"]
@@ -913,7 +914,7 @@ class CRCChecksum extends Operation {
 
             return this.crc(width, input, poly, init, reflectIn, reflectOut, xorOut);
         } catch (error) {
-            throw new OperationError("Invalid custom CRC arguments");
+            throw new OperationError("无效的自定义CRC参数");
         }
     }
 
@@ -1101,7 +1102,7 @@ class CRCChecksum extends Operation {
             case "CRC-64/WE":                return this.crc(64n, input, 0x42F0E1EBA9EA3693n, 0xFFFFFFFFFFFFFFFFn, false, false, 0xFFFFFFFFFFFFFFFFn);
             case "CRC-64/XZ":                return this.crc(64n, input, 0x42F0E1EBA9EA3693n, 0xFFFFFFFFFFFFFFFFn, true,  true,  0xFFFFFFFFFFFFFFFFn);
             case "CRC-82/DARC":              return this.crc(82n, input, 0x0308C0111011401440411n, 0x000000000000000000000n, true, true, 0x000000000000000000000n);
-            default:                         throw new OperationError("Unknown checksum algorithm");
+            default:                         throw new OperationError("未知的校验和算法");
         }
     }
 

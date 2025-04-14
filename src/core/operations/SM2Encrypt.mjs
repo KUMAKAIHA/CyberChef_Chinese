@@ -1,5 +1,6 @@
 /**
  * @author flakjacket95 [dflack95@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
  */
@@ -20,32 +21,32 @@ class SM2Encrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "SM2 Encrypt";
+        this.name = "SM2 加密";
         this.module = "Crypto";
-        this.description = "Encrypts a message utilizing the SM2 standard";
+        this.description = "使用 SM2 标准加密消息";
         this.infoURL = ""; // Usually a Wikipedia link. Remember to remove localisation (i.e. https://wikipedia.org/etc rather than https://en.wikipedia.org/etc)
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
 
         this.args = [
             {
-                name: "Public Key X",
+                name: "公钥 X",
                 type: "string",
                 value: "DEADBEEF"
             },
             {
-                name: "Public Key Y",
+                name: "公钥 Y",
                 type: "string",
                 value: "DEADBEEF"
             },
             {
-                "name": "Output Format",
+                "name": "输出格式",
                 "type": "option",
                 "value": ["C1C3C2", "C1C2C3"],
                 "defaultIndex": 0
             },
             {
-                name: "Curve",
+                name: "曲线",
                 type: "option",
                 "value": ["sm2p256v1"],
                 "defaultIndex": 0
@@ -63,7 +64,7 @@ class SM2Encrypt extends Operation {
         this.outputFormat = outputFormat;
 
         if (publicKeyX.length !== 64 || publicKeyY.length !== 64) {
-            throw new OperationError("Invalid Public Key - Ensure each component is 32 bytes in size and in hex");
+            throw new OperationError("无效的公钥 - 请确保每个组成部分为 32 字节的十六进制值");
         }
 
         const sm2 = new SM2(curveName, outputFormat);

@@ -1,5 +1,6 @@
 /**
  * @author ccarpo [ccarpo@gmx.net]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
  */
@@ -18,9 +19,9 @@ class YAMLToJSON extends Operation {
     constructor() {
         super();
 
-        this.name = "YAML to JSON";
+        this.name = "YAML 转换为 JSON";
         this.module = "Default";
-        this.description = "Convert YAML to JSON";
+        this.description = "将 YAML 转换为 JSON";
         this.infoURL = "https://en.wikipedia.org/wiki/YAML";
         this.inputType = "string";
         this.outputType = "JSON";
@@ -36,7 +37,7 @@ class YAMLToJSON extends Operation {
         try {
             return jsYaml.load(input);
         } catch (err) {
-            throw new OperationError("Unable to parse YAML: " + err);
+            throw new OperationError("无法解析 YAML: " + err);
         }
     }
 

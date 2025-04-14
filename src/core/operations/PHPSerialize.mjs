@@ -1,5 +1,6 @@
 /**
  * @author brun0ne [brunonblok@gmail.com]
+ * @translator KUMAKAIHA [kumakaiha@foxmail.com]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
  */
@@ -18,9 +19,9 @@ class PHPSerialize extends Operation {
     constructor() {
         super();
 
-        this.name = "PHP Serialize";
+        this.name = "PHP 序列化";
         this.module = "Default";
-        this.description = "Performs PHP serialization on JSON data.<br><br>This function does not support <code>object</code> tags.<br><br>Since PHP doesn't distinguish dicts and arrays, this operation is not always symmetric to <code>PHP Deserialize</code>.<br><br>Example:<br><code>[5,&quot;abc&quot;,true]</code><br>becomes<br><code>a:3:{i:0;i:5;i:1;s:3:&quot;abc&quot;;i:2;b:1;}<code>";
+        this.description = "对 JSON 数据执行 PHP 序列化。<br><br>此功能不支持 <code>object</code> 标签。<br><br>由于 PHP 不区分字典和数组，此操作并不总是与 <code>PHP Deserialize</code> 对称。<br><br>示例：<br><code>[5,&quot;abc&quot;,true]</code><br>变为<br><code>a:3:{i:0;i:5;i:1;s:3:&quot;abc&quot;;i:2;b:1;}<code>";
         this.infoURL = "https://www.phpinternalsbook.com/php5/classes_objects/serialization.html";
         this.inputType = "JSON";
         this.outputType = "string";
@@ -74,7 +75,7 @@ class PHPSerialize extends Operation {
                 return `${basicTypes.string}:${content.length}:"${content}"`;
 
             /** This should be unreachable */
-            throw new OperationError(`Encountered a non-implemented type: ${typeof content}`);
+            throw new OperationError(`遇到未实现的类型: ${typeof content}`);
         }
 
         /**
@@ -116,7 +117,7 @@ class PHPSerialize extends Operation {
             }
 
             /** This should be unreachable */
-            throw new OperationError(`Encountered a non-implemented type: ${typeof object}`);
+            throw new OperationError(`遇到未实现的类型: ${typeof object}`);
         }
 
         return serialize(input);
