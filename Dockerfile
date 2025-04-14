@@ -29,8 +29,8 @@ RUN npm run build
 #########################################
 # 我们正在使用 Github Actions: redhat-actions/buildah-build@v2，它需要在基础镜像中手动选择架构
 # 如果 CI 发布版本支持 docker buildx，则移除 TARGETARCH，因为 --platform=$TARGETPLATFORM 将被自动设置
-ARG TARGETARCH
+####### ARG TARGETARCH
 ARG TARGETPLATFORM
-FROM ${TARGETARCH}/nginx:stable-alpine AS cyberchef
+####### FROM ${TARGETARCH}/nginx:stable-alpine AS cyberchef
 
 COPY --from=builder /app/build/prod /usr/share/nginx/html/

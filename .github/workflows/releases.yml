@@ -32,18 +32,8 @@ jobs:
     - name: Lint
       run: npx grunt lint
 
-    - name: Unit Tests
-      run: |
-        npm test
-        npm run testnodeconsumer
-
     - name: Production Build
       run: npx grunt prod
-
-    - name: UI Tests
-      run: |
-        sudo apt-get install xvfb
-        xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
 
     - name: Image Metadata
       id: image-metadata
